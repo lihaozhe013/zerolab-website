@@ -5,7 +5,10 @@ import SubHeader from "@/components/SubHeader";
 export default function AboutPage() {
   return (
     <>
-      <SubHeader title="关于我们 About Us" backgroundImage="/images/Crew1.jpg" />
+      <SubHeader
+        title="关于我们 About Us"
+        backgroundImage="/images/Crew1.jpg"
+      />
 
       <Box className="w-[80%] mx-auto pt-[80px] pb-[50px] text-center max-md:w-[90%]">
         <Box className="flex-1 px-0.5 max-w-[900px] mx-auto">
@@ -15,7 +18,7 @@ export default function AboutPage() {
           >
             天璺科技（上海）有限公司
             <br />
-            Zero Lab Technologies Co.,Ltd
+            ZeroLab Technologies Co.,Ltd
           </Typography>
           <Typography
             variant="body1"

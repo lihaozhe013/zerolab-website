@@ -6,10 +6,14 @@ export default function Footer() {
       <Typography variant="h6" className="font-semibold mb-4 mt-4">
         关于我们 About Us
       </Typography>
-      <Typography variant="body2" className="text-[#777] text-sm leading-relaxed">
-        天璺科技（上海）有限公司（Zero Lab）成立于 2021 年 9 月 18 日，坐落于上海市杨浦区长阳创谷。
+      <Typography
+        variant="body2"
+        className="text-[#777] text-sm leading-relaxed"
+      >
+        天璺科技（上海）有限公司（ZeroLab）成立于 2021 年 9 月 18
+        日，坐落于上海市杨浦区长阳创谷。
         <br />
-        Zero Lab：让动作像文字一样被传递，让技能以光速点亮未来
+        ZeroLab：让动作像文字一样被传递，让技能以光速点亮未来
       </Typography>
       <Box className="my-4">
         <Box

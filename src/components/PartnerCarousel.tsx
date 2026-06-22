@@ -31,7 +31,8 @@ export default function PartnerCarousel() {
         合作伙伴 Partners
       </Typography>
       <Typography variant="body2" className="text-[#777] mb-10 leading-relaxed">
-        Zero Lab 与众多优秀企业建立了深度合作关系，共同推动动作捕捉技术的发展与应用。
+        ZeroLab
+        与众多优秀企业建立了深度合作关系，共同推动动作捕捉技术的发展与应用。
         <br />
         我们的合作伙伴遍布人形机器人、灵巧手、教育、医疗等多个领域，携手创造更美好的动作数字化和人形机器人未来。
       </Typography>

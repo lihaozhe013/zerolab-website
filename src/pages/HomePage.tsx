@@ -9,7 +9,7 @@ const products = [
     title: "人形机器人遥操作和数采方案",
     image: "/images/openarmz.jpg",
     description:
-      "基于Zero Lab先进的动作捕捉技术，为人形机器人提供高精度的遥操作控制和数据采集解决方案。通过实时动作捕捉，实现人机协同操作，广泛应用于工业制造、服务机器人、教育科研等领域。",
+      "基于ZeroLab先进的动作捕捉技术，为人形机器人提供高精度的遥操作控制和数据采集解决方案。通过实时动作捕捉，实现人机协同操作，广泛应用于工业制造、服务机器人、教育科研等领域。",
   },
   {
     title: "F1 全身动作捕捉套装",
@@ -27,7 +27,7 @@ const products = [
     title: "ZL9NSQ SiP 无线姿态传感芯片",
     image: "/images/主图5.png",
     description:
-      "Zero Lab 超轻薄无线姿态传感器芯片 ZL9NSQ 适用于动作捕捉领域的低功耗、高精度 All-In-One 芯片级系统解决方案。运用行业最新的 Chiplet 技术，在极小的 10 x 10 x 2mm 的封装中实现了前所未有的集成度。",
+      "ZeroLab 超轻薄无线姿态传感器芯片 ZL9NSQ 适用于动作捕捉领域的低功耗、高精度 All-In-One 芯片级系统解决方案。运用行业最新的 Chiplet 技术，在极小的 10 x 10 x 2mm 的封装中实现了前所未有的集成度。",
   },
 ];
 
@@ -42,22 +42,22 @@ const applications = [
 
 const environments = [
   {
-    title: "Zero Lab 展示区",
+    title: "ZeroLab 展示区",
     image: "/images/reception.png",
     description:
-      "Zero Lab 的展示区融合现代、简约风格元素，营造了独特的科技氛围，展示了 Zero Lab 最新成果。",
+      "ZeroLab 的展示区融合现代、简约风格元素，营造了独特的科技氛围，展示了 ZeroLab 最新成果。",
   },
   {
-    title: "Zero Lab 电子实验室",
+    title: "ZeroLab 电子实验室",
     image: "/images/Lab.JPG",
     description:
-      "Zero Lab 搭建了全方位的电子研究实验室，可以满足不同的电子产品的测试、研发需求。",
+      "ZeroLab 搭建了全方位的电子研究实验室，可以满足不同的电子产品的测试、研发需求。",
   },
   {
-    title: "Zero Lab 超算数据中心",
+    title: "ZeroLab 超算数据中心",
     image: "/images/Datacenter.JPG",
     description:
-      "Zero Lab 配备了先进的超算数据设备，可以覆盖软硬件、云计算、人工智能方面的运算能力。",
+      "ZeroLab 配备了先进的超算数据设备，可以覆盖软硬件、云计算、人工智能方面的运算能力。",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function HomePage() {
         className="min-h-screen w-full bg-cover bg-center relative flex flex-col"
         sx={{
           backgroundImage:
-            'linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/images/banner.png)',
+            "linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/images/banner.png)",
         }}
       >
         <Navbar transparent />
@@ -85,9 +85,11 @@ export default function HomePage() {
               variant="body1"
               className="text-xl mt-2.5 mb-10 leading-relaxed max-md:text-base"
             >
-              在过去的 200 年里，人类依次借助电磁波传递了文字、声音与图像，极大地拓展了我们的思想、听觉与视觉。
+              在过去的 200
+              年里，人类依次借助电磁波传递了文字、声音与图像，极大地拓展了我们的思想、听觉与视觉。
               <br />
-              如今，Zero Lab 正在通过可穿戴动作捕捉技术，将人类的动作本身转化为可传递的信息。借助机器人替身，人类将能够实现"光速旅行"，远程执行作业，并把技能传递给硅基生命，训练出属于机器人的大脑。
+              如今，ZeroLab
+              正在通过可穿戴动作捕捉技术，将人类的动作本身转化为可传递的信息。借助机器人替身，人类将能够实现"光速旅行"，远程执行作业，并把技能传递给硅基生命，训练出属于机器人的大脑。
             </Typography>
             <Link to="/about">
               <Button
@@ -109,8 +111,11 @@ export default function HomePage() {
         <Typography variant="h4" className="font-semibold mb-3">
           我们的产品 Products
         </Typography>
-        <Typography variant="body2" className="text-[#777] mb-10 leading-relaxed">
-          Zero Lab 提供从无线动作捕捉芯片到人形机器人遥操作和数据采集的完整方案
+        <Typography
+          variant="body2"
+          className="text-[#777] mb-10 leading-relaxed"
+        >
+          ZeroLab 提供从无线动作捕捉芯片到人形机器人遥操作和数据采集的完整方案
         </Typography>
         <Box className="flex flex-wrap justify-between gap-y-5 max-md:flex-col">
           {products.map((product) => (
@@ -118,7 +123,10 @@ export default function HomePage() {
               key={product.title}
               className="flex-1 min-w-[48%] bg-[#dbdbdb] rounded-lg p-5 transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)] max-md:min-w-full"
             >
-              <Typography variant="h6" className="font-semibold text-center mb-2.5">
+              <Typography
+                variant="h6"
+                className="font-semibold text-center mb-2.5"
+              >
                 {product.title}
               </Typography>
               <Box
@@ -127,7 +135,10 @@ export default function HomePage() {
                 alt={product.title}
                 className="w-full h-[400px] object-cover rounded my-2.5 max-md:h-[250px]"
               />
-              <Typography variant="body2" className="text-[#777] text-sm leading-relaxed">
+              <Typography
+                variant="body2"
+                className="text-[#777] text-sm leading-relaxed"
+              >
                 {product.description}
               </Typography>
               <Link to="/product">
@@ -148,8 +159,12 @@ export default function HomePage() {
         <Typography variant="h4" className="font-semibold mb-3">
           应用场景 Application
         </Typography>
-        <Typography variant="body2" className="text-[#777] mb-10 leading-relaxed">
-          Zero Lab 的产品可以将人体动作数字化，应用于增强虚拟现实游戏的沉浸感，制作逼真的CG影视人物动画效果。
+        <Typography
+          variant="body2"
+          className="text-[#777] mb-10 leading-relaxed"
+        >
+          ZeroLab
+          的产品可以将人体动作数字化，应用于增强虚拟现实游戏的沉浸感，制作逼真的CG影视人物动画效果。
         </Typography>
         <Box className="flex flex-wrap justify-between gap-5 max-md:flex-col">
           {applications.map((app) => (
@@ -163,22 +178,35 @@ export default function HomePage() {
         <Typography variant="h4" className="font-semibold mb-3">
           我们的环境 Environment
         </Typography>
-        <Typography variant="body2" className="text-[#777] mb-10 leading-relaxed">
-          Zero Lab 是一家研究型科技公司，我们配备了全方位的电子实验室设备，同时搭建了自己的超算数据中心。
+        <Typography
+          variant="body2"
+          className="text-[#777] mb-10 leading-relaxed"
+        >
+          ZeroLab
+          是一家研究型科技公司，我们配备了全方位的电子实验室设备，同时搭建了自己的超算数据中心。
         </Typography>
         <Box className="flex flex-wrap justify-between gap-y-5 max-md:flex-col">
           {environments.map((env) => (
-            <Box key={env.title} className="flex-1 min-w-[31%] max-md:min-w-full">
+            <Box
+              key={env.title}
+              className="flex-1 min-w-[31%] max-md:min-w-full"
+            >
               <Box
                 component="img"
                 src={env.image}
                 alt={env.title}
                 className="w-full rounded-lg"
               />
-              <Typography variant="h6" className="font-semibold text-left mt-4 mb-3">
+              <Typography
+                variant="h6"
+                className="font-semibold text-left mt-4 mb-3"
+              >
                 {env.title}
               </Typography>
-              <Typography variant="body2" className="text-[#777] text-left leading-relaxed">
+              <Typography
+                variant="body2"
+                className="text-[#777] text-left leading-relaxed"
+              >
                 {env.description}
               </Typography>
             </Box>
@@ -191,7 +219,7 @@ export default function HomePage() {
         className="my-[100px] mx-auto w-[80%] bg-cover bg-center rounded-lg text-center py-[100px] max-md:py-16"
         sx={{
           backgroundImage:
-            'linear-gradient(rgba(40,40,40,0.7),rgba(40,40,40,0.7)),url(/images/Cooperation.jpg)',
+            "linear-gradient(rgba(40,40,40,0.7),rgba(40,40,40,0.7)),url(/images/Cooperation.jpg)",
         }}
       >
         <Typography variant="h4" className="text-white font-semibold mb-10">
