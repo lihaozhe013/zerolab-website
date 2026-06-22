@@ -14,7 +14,7 @@ function ContactItem({ icon, title, subtitle }: ContactItemProps) {
     <Box className="flex items-center gap-8 mb-10 flex-1 justify-center">
       <Box className="text-[#08b4ce] text-[30px]">{icon}</Box>
       <Box>
-        <Typography variant="h6" className="text-[#08b4ce] font-normal text-lg mb-2">
+        <Typography variant="h6" sx={{ mb: 2 }} className="text-[#08b4ce] font-normal text-lg">
           {title}
         </Typography>
         <Typography variant="body2" className="text-[#777]">

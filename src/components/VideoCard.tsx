@@ -25,7 +25,7 @@ export default function VideoCard({
           className="w-full"
         />
       </Box>
-      <Typography variant="h6" className="font-semibold text-[#222] my-5">
+      <Typography variant="h6" sx={{ my: 5 }} className="font-semibold text-[#222]">
         {title}
       </Typography>
       <Typography variant="body2" className="text-[#999] leading-relaxed">

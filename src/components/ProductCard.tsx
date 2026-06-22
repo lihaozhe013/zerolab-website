@@ -27,10 +27,10 @@ export default function ProductCard({
         />
       </Box>
       <Box className="flex-1 min-w-[48%] max-md:min-w-full flex flex-col justify-center">
-        <Typography variant="h5" className="font-semibold mb-3">
+        <Typography variant="h5" sx={{ mb: 3 }} className="font-semibold">
           {title}
         </Typography>
-        <Typography variant="body2" className="text-[#777] leading-relaxed mb-5">
+        <Typography variant="body2" sx={{ mb: 5 }} className="text-[#777] leading-relaxed">
           {description}
         </Typography>
         <Link to={link}>

@@ -14,7 +14,8 @@ export default function AboutPage() {
         <Box className="flex-1 px-0.5 max-w-[900px] mx-auto">
           <Typography
             variant="h4"
-            className="font-semibold text-[28px] leading-relaxed mb-8"
+            sx={{ mb: 8 }}
+            className="font-semibold text-[28px] leading-relaxed"
           >
             天璺科技（上海）有限公司
             <br />

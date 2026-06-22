@@ -115,10 +115,10 @@ export default function ProductPage() {
                   </Box>
 
                   <Box className="p-6 flex flex-col flex-1 max-md:p-4">
-                    <Typography variant="h5" className="font-semibold mb-3 max-md:text-lg">
+                    <Typography variant="h5" sx={{ mb: 3 }} className="font-semibold max-md:text-lg">
                       {product.title}
                     </Typography>
-                    <Typography variant="body2" className="text-[#777] leading-relaxed mb-4 flex-1 max-md:text-sm">
+                    <Typography variant="body2" sx={{ mb: 4 }} className="text-[#777] leading-relaxed flex-1 max-md:text-sm">
                       {product.description}
                     </Typography>
                     <Link to={product.link} className="self-start">

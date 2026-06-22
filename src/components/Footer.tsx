@@ -15,7 +15,7 @@ export default function Footer() {
         <br />
         ZeroLab：让动作像文字一样被传递，让技能以光速点亮未来
       </Typography>
-      <Box className="my-4">
+      <Box className="my-4 flex justify-center">
         <Box
           component="img"
           src="/images/Wechat Accounts.jpg"

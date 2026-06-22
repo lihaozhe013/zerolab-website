@@ -20,10 +20,10 @@ function AppRow({ title, description, image, reversed = false }: AppRowProps) {
         <Box component="img" src={image} alt={title} className="w-full rounded" />
       </Box>
       <Box className="flex-1 min-w-[48%] max-md:min-w-full flex flex-col justify-center">
-        <Typography variant="h4" className="font-semibold mb-5">
+        <Typography variant="h4" sx={{ mb: 5 }} className="font-semibold">
           {title}
         </Typography>
-        <Typography variant="body2" className="text-[#777] leading-relaxed mb-5">
+        <Typography variant="body2" sx={{ mb: 5 }} className="text-[#777] leading-relaxed">
           {description}
         </Typography>
         <Link to="/contact" className="inline-block">

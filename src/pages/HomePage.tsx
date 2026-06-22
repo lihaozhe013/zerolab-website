@@ -77,13 +77,15 @@ export default function HomePage() {
           <Box className="max-w-[90%]">
             <Typography
               variant="h1"
-              className="text-[62px] font-semibold max-md:text-[25px]"
+              sx={{ fontSize: { xs: "40px", md: "60px" }, mb: 6 }}
+              className="font-semibold"
             >
-              We Make Reality Better
+              Moving as One
             </Typography>
             <Typography
               variant="body1"
-              className="text-xl mt-2.5 mb-10 leading-relaxed max-md:text-base"
+              sx={{ mb: 6 }}
+              className="text-xl mt-2.5 leading-relaxed max-md:text-base"
             >
               在过去的 200
               年里，人类依次借助电磁波传递了文字、声音与图像，极大地拓展了我们的思想、听觉与视觉。
@@ -108,47 +110,51 @@ export default function HomePage() {
 
       {/* Products Section */}
       <Box className="w-[80%] mx-auto text-center pt-[100px] max-md:w-[90%]">
-        <Typography variant="h4" className="font-semibold mb-3">
+        <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
           我们的产品 Products
         </Typography>
         <Typography
           variant="body2"
-          className="text-[#777] mb-10 leading-relaxed"
+          sx={{ mb: 10 }}
+          className="text-[#777] leading-relaxed"
         >
           ZeroLab 提供从无线动作捕捉芯片到人形机器人遥操作和数据采集的完整方案
         </Typography>
-        <Box className="flex flex-wrap justify-between gap-y-5 max-md:flex-col">
+        <Box className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
           {products.map((product) => (
             <Box
               key={product.title}
-              className="flex-1 min-w-[48%] bg-[#dbdbdb] rounded-lg p-5 transition-shadow duration-500 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)] max-md:min-w-full"
+              className="flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 bg-white"
             >
-              <Typography
-                variant="h6"
-                className="font-semibold text-center mb-2.5"
-              >
-                {product.title}
-              </Typography>
-              <Box
-                component="img"
-                src={product.image}
-                alt={product.title}
-                className="w-full h-[400px] object-cover rounded my-2.5 max-md:h-[250px]"
-              />
-              <Typography
-                variant="body2"
-                className="text-[#777] text-sm leading-relaxed"
-              >
-                {product.description}
-              </Typography>
-              <Link to="/product">
-                <Button
-                  variant="outlined"
-                  className="mt-4 border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+              <Box className="relative overflow-hidden">
+                <Box
+                  component="img"
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-[280px] object-cover transition-transform duration-700 hover:scale-110 max-md:h-[220px]"
+                />
+                <Box className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </Box>
+              <Box className="p-6 flex flex-col flex-1 text-left max-md:p-4">
+                <Typography variant="h5" sx={{ mb: 2 }} className="font-semibold">
+                  {product.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ mb: 4 }}
+                  className="text-[#777] leading-relaxed flex-1 text-sm"
                 >
-                  了解更多
-                </Button>
-              </Link>
+                  {product.description}
+                </Typography>
+                <Link to="/product" className="self-start">
+                  <Button
+                    variant="outlined"
+                    className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+                  >
+                    了解更多
+                  </Button>
+                </Link>
+              </Box>
             </Box>
           ))}
         </Box>
@@ -156,12 +162,13 @@ export default function HomePage() {
 
       {/* Applications Section */}
       <Box className="w-[80%] mx-auto text-center pt-[50px] max-md:w-[90%]">
-        <Typography variant="h4" className="font-semibold mb-3">
+        <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
           应用场景 Application
         </Typography>
         <Typography
           variant="body2"
-          className="text-[#777] mb-10 leading-relaxed"
+          sx={{ mb: 10 }}
+          className="text-[#777] leading-relaxed"
         >
           ZeroLab
           的产品可以将人体动作数字化，应用于增强虚拟现实游戏的沉浸感，制作逼真的CG影视人物动画效果。
@@ -175,40 +182,43 @@ export default function HomePage() {
 
       {/* Environment Section */}
       <Box className="w-[80%] mx-auto text-center pt-[100px] max-md:w-[90%]">
-        <Typography variant="h4" className="font-semibold mb-3">
+        <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
           我们的环境 Environment
         </Typography>
         <Typography
           variant="body2"
-          className="text-[#777] mb-10 leading-relaxed"
+          sx={{ mb: 10 }}
+          className="text-[#777] leading-relaxed"
         >
           ZeroLab
           是一家研究型科技公司，我们配备了全方位的电子实验室设备，同时搭建了自己的超算数据中心。
         </Typography>
-        <Box className="flex flex-wrap justify-between gap-y-5 max-md:flex-col">
+        <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
           {environments.map((env) => (
             <Box
               key={env.title}
-              className="flex-1 min-w-[31%] max-md:min-w-full"
+              className="flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 bg-white"
             >
-              <Box
-                component="img"
-                src={env.image}
-                alt={env.title}
-                className="w-full rounded-lg"
-              />
-              <Typography
-                variant="h6"
-                className="font-semibold text-left mt-4 mb-3"
-              >
-                {env.title}
-              </Typography>
-              <Typography
-                variant="body2"
-                className="text-[#777] text-left leading-relaxed"
-              >
-                {env.description}
-              </Typography>
+              <Box className="relative overflow-hidden">
+                <Box
+                  component="img"
+                  src={env.image}
+                  alt={env.title}
+                  className="w-full h-[240px] object-cover transition-transform duration-700 hover:scale-110 max-md:h-[200px]"
+                />
+                <Box className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              </Box>
+              <Box className="p-5 flex flex-col flex-1 text-left">
+                <Typography variant="h6" sx={{ mb: 2 }} className="font-semibold">
+                  {env.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  className="text-[#777] leading-relaxed text-sm flex-1"
+                >
+                  {env.description}
+                </Typography>
+              </Box>
             </Box>
           ))}
         </Box>
@@ -222,7 +232,7 @@ export default function HomePage() {
             "linear-gradient(rgba(40,40,40,0.7),rgba(40,40,40,0.7)),url(/images/Cooperation.jpg)",
         }}
       >
-        <Typography variant="h4" className="text-white font-semibold mb-10">
+        <Typography variant="h4" sx={{ mb: 10 }} className="text-white font-semibold">
           期待与您建立合作
         </Typography>
         <Link to="/contact">
