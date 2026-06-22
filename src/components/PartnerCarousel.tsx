@@ -1,29 +1,18 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Box, Typography, IconButton, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-const partners = [
-  { src: "/images/partner1.png", alt: "宇树" },
-  { src: "/images/partner19.png", alt: "智元机器人" },
-  { src: "/images/partner7.png", alt: "矩阵" },
-  { src: "/images/partner3.png", alt: "睿尔曼" },
-  { src: "/images/partner13.png", alt: "PND" },
-  { src: "/images/partner8.png", alt: "擎郎" },
-  { src: "/images/partner14.png", alt: "零次方" },
-  { src: "/images/partner2.png", alt: "钛虎" },
-  { src: "/images/partner4.png", alt: "因时" },
-  { src: "/images/partner5.png", alt: "傲意" },
-  { src: "/images/partner6.png", alt: "卧龙" },
-  { src: "/images/partner16.png", alt: "节卡" },
-  { src: "/images/partner18.png", alt: "大象机器人" },
-  { src: "/images/partner9.png", alt: "奇瑞" },
-  { src: "/images/partner10.png", alt: "复旦" },
-  { src: "/images/partner11.png", alt: "上海交大" },
-  { src: "/images/partner12.png", alt: "同济" },
-  { src: "/images/partner15.png", alt: "中科深谷" },
-  { src: "/images/partner17.png", alt: "合工大" },
+const partnerSrcs = [
+  "/images/partner1.png", "/images/partner19.png", "/images/partner7.png",
+  "/images/partner3.png", "/images/partner13.png", "/images/partner8.png",
+  "/images/partner14.png", "/images/partner2.png", "/images/partner4.png",
+  "/images/partner5.png", "/images/partner6.png", "/images/partner16.png",
+  "/images/partner18.png", "/images/partner9.png", "/images/partner10.png",
+  "/images/partner11.png", "/images/partner12.png", "/images/partner15.png",
+  "/images/partner17.png",
 ];
 
 const ITEM_WIDTH = 290;
@@ -32,11 +21,13 @@ const ITEM_WIDTH_MOBILE = 205;
 export default function PartnerCarousel() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { t } = useTranslation();
   const itemsPerPage = isMobile ? 2 : 3;
-  const maxOffset = partners.length - itemsPerPage;
+  const maxOffset = partnerSrcs.length - itemsPerPage;
   const [offset, setOffset] = useState(0);
   const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const partnerNames = t("partners.names", { returnObjects: true }) as string[];
 
   const autoNext = useCallback(() => {
     setOffset((o) => (o + itemsPerPage > maxOffset ? 0 : o + itemsPerPage));
@@ -52,7 +43,7 @@ export default function PartnerCarousel() {
 
   useEffect(() => {
     if (paused) return;
-    timerRef.current = setInterval(autoNext, 3000);
+    timerRef.current = setInterval(autoNext, 2000);
     return () => clearInterval(timerRef.current);
   }, [paused, autoNext]);
 
@@ -61,13 +52,12 @@ export default function PartnerCarousel() {
   return (
     <Box sx={{ pb: 12 }} className="w-[80%] mx-auto text-center pt-[100px] max-md:w-[95%]">
       <Typography variant="h4" sx={{ mb: 5 }} className="font-semibold text-[#222]">
-        合作伙伴 Partners
+        {t("partners.title")}
       </Typography>
       <Typography variant="body2" sx={{ mb: 10 }} className="text-[#777] leading-relaxed">
-        ZeroLab
-        与众多优秀企业建立了深度合作关系，共同推动动作捕捉技术的发展与应用。
+        {t("partners.subtitle_line1")}
         <br />
-        我们的合作伙伴遍布人形机器人、灵巧手、教育、医疗等多个领域，携手创造更美好的动作数字化和人形机器人未来。
+        {t("partners.subtitle_line2")}
       </Typography>
 
       <Box
@@ -83,7 +73,7 @@ export default function PartnerCarousel() {
               transform: `translateX(-${offset * w}px)`,
             }}
           >
-            {partners.map((partner, i) => (
+            {partnerSrcs.map((src, i) => (
               <Box
                 key={i}
                 className="flex-none text-center bg-white rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-[30px] transition-all duration-500 hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] hover:-translate-y-1"
@@ -91,8 +81,8 @@ export default function PartnerCarousel() {
               >
                 <Box
                   component="img"
-                  src={partner.src}
-                  alt={partner.alt}
+                  src={src}
+                  alt={partnerNames[i] || ""}
                   className="w-[200px] h-[200px] object-contain rounded bg-transparent max-md:w-[140px] max-md:h-[140px]"
                 />
               </Box>

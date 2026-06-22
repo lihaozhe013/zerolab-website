@@ -1,0 +1,230 @@
+{
+  "about": {
+    "company_name": "ZeroLab",
+    "company_name_en": "ZeroLab Technologies Co.,Ltd",
+    "description": "ZeroLab specializes in motion capture, embodied intelligence teleoperation, and data acquisition. We deliver full-stack solutions including our self-developed low-cost, high-precision wireless motion capture SiP chips, modules, full-body inertial motion capture systems, teleoperation platforms, and the \"Shadowing\" bipedal robot high-dynamic imitation platform. We are building an ecosystem driven by motion capture and teleoperation technology, and constructing an embodied intelligence database centered on \"real humans, real machines, real scenarios, real work\" to advance embodied AI brain training for generalized environments.",
+    "title": "About Us"
+  },
+  "application": {
+    "items": [
+      {
+        "description": "Using inertial full-body motion capture devices to collect human motion data for training humanoid robots is a cutting-edge and highly efficient approach. Unlike traditional camera-based motion capture systems, inertial motion capture devices are not affected by ambient lighting or occlusion, making them ideal for data collection in diverse complex environments. By capturing large volumes of high-quality human motion data, it provides rich training samples for the motion control systems of humanoid robots.",
+        "title": "Humanoid Robot Training"
+      },
+      {
+        "description": "Film and television production is a traditional market for motion capture. Genres such as sci-fi, fantasy, wuxia, and animation rely heavily on VFX, which in turn depend on motion capture technology. With technological advancements, high-precision inertial and hybrid inertial-optical capture systems have emerged, significantly reducing costs while achieving accuracy comparable to optical systems.",
+        "title": "Virtual Production"
+      },
+      {
+        "description": "The sports sector can be divided into two markets: professional sports and amateur recreation. In fields such as golf, rowing, fencing, running, and soccer, precise motion capture enables athlete performance evaluation, technique improvement, and comparative analysis against competitors' data.",
+        "title": "Sports"
+      },
+      {
+        "description": "Motion capture technology enables VR users to experience true immersion and interactivity. Technological advances have also made large-scale multi-user VR interaction, real-field multiplayer VR games, and VR-based virtual instruction possible, forming the foundational technology of the metaverse.",
+        "title": "Gaming & Entertainment"
+      },
+      {
+        "description": "One major application of motion capture is virtual digital humans. Popular virtual idols and streamers such as A-Soul, Liuyexi, AYAYI, and CodeMiko all rely on motion-capture-driven virtual human technology. Virtual streaming has become the fastest-growing category on Bilibili's live platform.",
+        "title": "Virtual Influencers"
+      },
+      {
+        "description": "Data captured through motion capture technology can be widely applied in sports and rehabilitation training, providing users with scientifically precise motion guidance.",
+        "title": "Rehabilitation Training"
+      }
+    ],
+    "title": "Applications"
+  },
+  "common": {
+    "contact_us": "Contact Us",
+    "learn_more": "Learn More",
+    "send_email": "Email Us"
+  },
+  "contact": {
+    "address_subtitle": "No. 421, Zhengli Road, Yangpu, Shanghai",
+    "address_title": "Rm 908, Block C, Tiansheng Kechuang Plaza",
+    "email": "info@zero-lab.tech",
+    "email_prompt": "Reach us via email",
+    "hours": "Monday to Friday, 9:00 AM – 6:00 PM",
+    "map_marker": "ZeroLab",
+    "phone": "021-55809628",
+    "title": "Contact Us"
+  },
+  "footer": {
+    "about_title": "About Us",
+    "address": "Address: C3-103-5, 1687 Changyang Rd, Shanghai, China",
+    "description": "ZeroLab was founded on September 18, 2021, and is headquartered in Changyang Valley, Yangpu, Shanghai.",
+    "icp": "ICP Record: Hu ICP Bei 2021030591",
+    "phone": "Tel: +86 021-55809628",
+    "slogan": "ZeroLab: Transmitting motion as effortlessly as text, and empowering skills at the speed of light"
+  },
+  "home": {
+    "applications": {
+      "items": [
+        {
+          "title": "MR Mixed Reality"
+        },
+        {
+          "title": "Robot Data Collection & Teleoperation"
+        },
+        {
+          "title": "Sports Training"
+        }
+      ],
+      "subtitle": "ZeroLab's products digitize human motion, enhancing immersion in VR/AR games and enabling realistic CG character animation for film and video production.",
+      "title": "Application"
+    },
+    "cta": {
+      "title": "We Look Forward to Partnering with You"
+    },
+    "environments": {
+      "items": [
+        {
+          "description": "ZeroLab's showroom blends modern minimalist design elements to create a unique technological atmosphere, showcasing ZeroLab's latest achievements.",
+          "title": "ZeroLab Showroom"
+        },
+        {
+          "description": "ZeroLab has built a comprehensive electronics research laboratory capable of meeting diverse product testing and R&D needs.",
+          "title": "ZeroLab Electronics Lab"
+        },
+        {
+          "description": "ZeroLab is equipped with advanced supercomputing infrastructure covering software, hardware, cloud computing, and AI capabilities.",
+          "title": "ZeroLab Supercomputing Data Center"
+        }
+      ],
+      "subtitle": "ZeroLab is a research-driven technology company with a full-fledged electronics lab and its own supercomputing data center.",
+      "title": "Environment"
+    },
+    "hero": {
+      "description_p1": "Over the past 200 years, humanity has harnessed electromagnetic waves to transmit text, sound, and images, vastly extending our thoughts, hearing, and vision.",
+      "description_p2": "Today, ZeroLab is transforming human motion itself into transmittable information through wearable motion capture technology. With robotic avatars, humans will be able to achieve \"lightspeed travel,\" perform remote operations, and pass skills on to silicon-based life, training the brains of tomorrow's robots.",
+      "title": "Moving as One"
+    },
+    "products": {
+      "items": [
+        {
+          "description": "Leveraging ZeroLab's advanced motion capture technology, we provide high-precision teleoperation control and data acquisition solutions for humanoid robots. Through real-time motion capture, human-robot collaborative operation is achieved, widely applicable in industrial manufacturing, service robotics, education, and scientific research.",
+          "title": "Humanoid Robot Teleoperation & Data Collection Solution"
+        },
+        {
+          "description": "The F1 is a full-body motion capture system featuring 13 wireless inertial sensors, and a form-fitting comfortable tracker strap kit with body-part labels for quick identification and fast, simple, reliable motion data capture.",
+          "title": "F1 Full-Body Motion Capture Suit"
+        },
+        {
+          "description": "The H1 Data Gloves deliver exceptional cost-performance, high precision, and lightweight comfort. Each finger is equipped with a 10-bit high-resolution bend sensor and a low-latency integrated inertial orientation module, enabling real-time capture of fine hand motions and converting them into digital signals.",
+          "title": "H1 Developer Data Gloves"
+        },
+        {
+          "description": "The ZeroLab ZL9NSQ is an ultra-slim wireless inertial sensor chip offering a low-power, high-precision all-in-one system-in-package solution for motion capture. Leveraging the latest Chiplet technology, it achieves unprecedented integration in a compact 10 x 10 x 2 mm package.",
+          "title": "ZL9NSQ SiP Wireless Motion Sensor Chip"
+        }
+      ],
+      "subtitle": "ZeroLab delivers complete solutions ranging from wireless motion capture chips to humanoid robot teleoperation and data acquisition",
+      "title": "Products"
+    }
+  },
+  "nav": {
+    "about": "About",
+    "application": "Application",
+    "contact": "Contact",
+    "product": "Product",
+    "project": "Solutions"
+  },
+  "partners": {
+    "names": [
+      "Unitree Robotics",
+      "AgiBot",
+      "Matrix",
+      "Realman",
+      "PND",
+      "Qinglang",
+      "Zero²",
+      "Tiger",
+      "Inspire",
+      "Ohand",
+      "Wolong",
+      "JAKA",
+      "Elephant Robotics",
+      "Chery",
+      "Fudan University",
+      "Shanghai Jiao Tong University",
+      "Tongji University",
+      "CAS Deep Valley",
+      "Hefei University of Technology"
+    ],
+    "subtitle_line1": "We have established deep partnerships with outstanding enterprises to jointly advance the development and application of motion capture technology.",
+    "subtitle_line2": "Our partners span humanoid robotics, dexterous hands, education, healthcare, and more, working together to shape the future of motion digitization and humanoid robotics.",
+    "title": "Partners"
+  },
+  "product": {
+    "items": [
+      {
+        "description": "A humanoid robot typically consists of around 30 motors, making traditional programming approaches insufficient for full-body control. ZeroLab provides complete data acquisition and teleoperation solutions ranging from motion mapping to motion control, helping users accelerate humanoid locomotion, anthropomorphic movement, imitation learning, and zero-shot transfer.",
+        "link_text": "Solution Overview",
+        "title": "Humanoid Robot Teleoperation"
+      },
+      {
+        "description": "The F-1 is a full-body motion capture system with 13 wireless sensors attached to key body joints, paired with a form-fitting comfortable tracker strap kit. It supports fast, simple, and reliable motion data capture, making it the ideal choice for film professionals and animation creators.",
+        "title": "F1 Full-Body Motion Capture Suit"
+      },
+      {
+        "description": "The H1 Data Gloves deliver exceptional cost-performance, high precision, and lightweight comfort. Each finger features a 10-bit high-resolution bend sensor combined with a low-latency integrated inertial orientation module, enabling real-time capture of fine hand movements.",
+        "title": "H1 Developer Data Gloves"
+      },
+      {
+        "description": "The ZeroLab ZL9NSQ is an ultra-slim wireless inertial sensor chip offering a low-power, high-precision all-in-one system-in-package solution for motion capture. Leveraging the latest Chiplet technology, it achieves unprecedented integration in an ultra-compact 10x10x2 mm package.",
+        "title": "ZL9NSQ SiP Wireless Motion Sensor Chip"
+      }
+    ],
+    "title": "Products"
+  },
+  "project": {
+    "items": [
+      {
+        "description": "Today we proudly introduce ZeroLab's latest AI motion capture chip, custom-designed for enhanced efficiency in orientation, angle, and velocity tracking. This chip features low power consumption, high precision, and ultra-compact size — infusing the soul of humanity into the core of AI, making lightspeed travel a reality. #AI #MotionCapture #MoCapChip #HumanoidRobot #MadeInChina #ZeroLab",
+        "title": "Industry KOL Joyce Endorses ZeroLab"
+      },
+      {
+        "description": "Mr. Kan Yigong, founder of the Xiaoxiaowuke curriculum system, uses ZeroLab's wireless full-body motion capture suit to collect essence motion data from the Sun-Moon Form of Tai Chi. The ZeroLab Motion Tracker offers exceptional data stability and precision, with built-in advanced spatial position correction algorithms for accurate joint position tracking. It features quick wear, a snug fit, and up to 8 hours of standby, enabling motion data capture anytime, anywhere without venue limitations.",
+        "title": "Tai Chi Expert Uses ZeroLab Full-Body MoCap for Cultural Heritage Data Collection"
+      },
+      {
+        "description": "ZeroLab Data Gloves are interactive gloves based on MEMS inertial sensor motion capture technology for hand motion digitization. They recognize finger movements in real time, delivering precise five-finger motion in virtual interactions. Users enjoy an immersive experience, freely exploring virtual spaces with full presence.",
+        "title": "ZeroLab Data Gloves Interactive Experience"
+      }
+    ],
+    "title": "Solutions"
+  },
+  "teleop": {
+    "banner_alt": "Full-Cycle Solution",
+    "items": [
+      {
+        "description": "An OpenArm-based optimized motion capture upper-limb robot developed by a ZeroLab customer, enabling a low-cost, ultra-low-latency remote teleoperation solution. This system can be widely applied in various teleoperation scenarios and data acquisition tasks, providing efficient solutions for industrial automation and robot control. #AI #HumanoidRobot #MotionCapture #Teleoperation #OpenArm #ZeroLab",
+        "title": "OpenArmZ MoCap Teleoperation Upper-Limb Robot",
+        "video_src": ""
+      },
+      {
+        "description": "Through ZeroLab's motion capture system, a human operator controls the Unitree humanoid robot in real time, allowing the robot to perfectly replicate human movements — achieving a shadowing effect. Every subtle movement of the operator is captured with precision and transmitted to the robot in real time, demonstrating the ultimate human-robot interaction experience. #AI #HumanoidRobot #MotionCapture #Teleoperation #Shadowing #ZeroLab",
+        "title": "Shadowing - Real-Time Human Control of the Unitree Humanoid Robot",
+        "video_src": "/videos/Shadowing.mp4"
+      },
+      {
+        "description": "In complex environments, ZeroLab's motion capture system still accurately captures operator movements and controls the Unitree humanoid robot in real time to complete various complex tasks. Whether fine hand motions or full-body coordination, the robot flawlessly replicates them — truly achieving a human-machine integrated control experience.",
+        "title": "Shadowing 2 - Humanoid Robot Teleoperation in Complex Scenarios",
+        "video_src": "/videos/Shadowing2.mp4"
+      },
+      {
+        "description": "By the end of 2024, ZeroLab MoCap achieved an integrated solution bridging robotic arm and dexterous hand remapping and teleoperation. This enables coordinated control of robotic arms and dexterous hands — users can collect motion data from both in real time through the MoCap system and transmit it for synchronized operation.",
+        "title": "ZeroLab MoCap Integrated Solution with Realman Robotic Arm & Ohand Dexterous Hand",
+        "video_src": "/videos/FullBodyMoCapRealman.mp4"
+      },
+      {
+        "description": "ZeroLab MoCap demonstrated real-time user interaction and on-site object grasping at the Eurasia Expo, proving the capabilities of inertial motion capture in real-world application scenarios.",
+        "title": "ZeroLab MoCap Returns to the Eurasia Expo",
+        "video_src": "/videos/EurasiaExpoSingleArm.mp4"
+      }
+    ],
+    "subtitle_line1": "Humanoid Robot Teleoperation | Data Acquisition | Motion Control",
+    "subtitle_line2": "Imitation Learning | Reinforcement Learning | Full-Cycle Solutions",
+    "title": "Humanoid Robot Teleoperation & Data Collection Solutions"
+  }
+}

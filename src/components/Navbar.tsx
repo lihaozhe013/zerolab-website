@@ -11,16 +11,19 @@ import {
   ListItemText,
   useMediaQuery,
   useTheme,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import LanguageIcon from "@mui/icons-material/Language";
+import { useTranslation } from "react-i18next";
 
 const navItems = [
-  { label: "关于", path: "/about" },
-  { label: "产品", path: "/product" },
-  { label: "方案", path: "/project" },
-  { label: "应用", path: "/application" },
-  { label: "联系", path: "/contact" },
+  { key: "about", path: "/about" },
+  { key: "product", path: "/product" },
+  { key: "project", path: "/project" },
+  { key: "application", path: "/application" },
+  { key: "contact", path: "/contact" },
 ];
 
 interface NavbarProps {
@@ -32,11 +35,16 @@ export default function Navbar({ transparent = false }: NavbarProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const location = useLocation();
+  const { t, i18n } = useTranslation();
 
   const isHome = location.pathname === "/";
   const AppBarStyle = isHome || transparent
     ? { background: "transparent", boxShadow: "none" }
     : { background: "rgba(4,9,30,0.7)", boxShadow: "none" };
+
+  const toggleLang = () => {
+    i18n.changeLanguage(i18n.language === "zh" ? "en" : "zh");
+  };
 
   return (
     <>
@@ -52,15 +60,35 @@ export default function Navbar({ transparent = false }: NavbarProps) {
           </Link>
 
           {isMobile ? (
-            <IconButton
-              color="inherit"
-              onClick={() => setDrawerOpen(true)}
-              edge="end"
-            >
-              <MenuIcon />
-            </IconButton>
+            <Box className="flex items-center gap-2">
+              <Button
+                onClick={toggleLang}
+                startIcon={<LanguageIcon />}
+                sx={{
+                  color: "white",
+                  ml: 2,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  border: "1px solid rgba(255,255,255,0.5)",
+                  borderRadius: "20px",
+                  px: 2,
+                  py: 0.5,
+                  textTransform: "none",
+                  "&:hover": { borderColor: "#08b4ce", color: "#08b4ce", backgroundColor: "rgba(8,180,206,0.1)" },
+                }}
+              >
+                {i18n.language === "zh" ? "EN" : "中文"}
+              </Button>
+              <IconButton
+                color="inherit"
+                onClick={() => setDrawerOpen(true)}
+                edge="end"
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           ) : (
-            <Box component="nav" className="flex gap-1">
+            <Box component="nav" className="flex gap-1 items-center">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -71,9 +99,27 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                       : "after:w-0"
                   }`}
                 >
-                  {item.label}
+                  {t(`nav.${item.key}`)}
                 </Link>
               ))}
+              <Button
+                onClick={toggleLang}
+                startIcon={<LanguageIcon />}
+                sx={{
+                  color: "white",
+                  ml: 2,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  border: "1px solid rgba(255,255,255,0.5)",
+                  borderRadius: "20px",
+                  px: 2,
+                  py: 0.5,
+                  textTransform: "none",
+                  "&:hover": { borderColor: "#08b4ce", color: "#08b4ce", backgroundColor: "rgba(8,180,206,0.1)" },
+                }}
+              >
+                {i18n.language === "zh" ? "EN" : "中文"}
+              </Button>
             </Box>
           )}
         </Toolbar>
@@ -102,7 +148,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                   className="w-full"
                 >
                   <ListItemText
-                    primary={item.label}
+                    primary={t(`nav.${item.key}`)}
                     className="px-6 py-2 text-white hover:bg-white/10"
                   />
                 </Link>

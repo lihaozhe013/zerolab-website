@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
+import { useTranslation } from "react-i18next";
 
 interface ContactItemProps {
   icon: React.ReactNode;
@@ -26,23 +27,24 @@ function ContactItem({ icon, title, subtitle }: ContactItemProps) {
 }
 
 export default function ContactInfo() {
+  const { t } = useTranslation();
   return (
     <Box className="w-[80%] mx-auto">
       <Box className="flex flex-wrap justify-around items-center max-md:flex-col">
         <ContactItem
           icon={<HomeIcon />}
-          title="天盛科创广场C座908室"
-          subtitle="上海市杨浦区政立路421号"
+          title={t("contact.address_title")}
+          subtitle={t("contact.address_subtitle")}
         />
         <ContactItem
           icon={<PhoneIcon />}
-          title="021-55809628"
-          subtitle="周一到周五，上午 9 点到下午 6 点"
+          title={t("contact.phone")}
+          subtitle={t("contact.hours")}
         />
         <ContactItem
           icon={<EmailIcon />}
-          title="info@zero-lab.tech"
-          subtitle="可以通过邮件方式咨询我们"
+          title={t("contact.email")}
+          subtitle={t("contact.email_prompt")}
         />
       </Box>
     </Box>

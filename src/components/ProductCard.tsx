@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface ProductCardProps {
   title: string;
@@ -14,8 +15,10 @@ export default function ProductCard({
   description,
   image,
   link,
-  linkText = "了解更多",
+  linkText,
 }: ProductCardProps) {
+  const { t } = useTranslation();
+  const buttonText = linkText || t("common.learn_more");
   return (
     <Box className="flex flex-wrap justify-between gap-y-5 mb-5 max-md:flex-col">
       <Box className="flex-1 min-w-[48%] bg-[#dbdbdb] rounded-lg p-5 max-md:min-w-full">
@@ -38,7 +41,7 @@ export default function ProductCard({
             variant="outlined"
             className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
           >
-            {linkText}
+            {buttonText}
           </Button>
         </Link>
       </Box>

@@ -1,5 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface VideoCardProps {
   title: string;
@@ -14,6 +15,7 @@ export default function VideoCard({
   videoSrc,
   linkTo = "/contact",
 }: VideoCardProps) {
+  const { t } = useTranslation();
   return (
     <Box className="mb-10">
       <Box className="w-full">
@@ -36,7 +38,7 @@ export default function VideoCard({
           variant="outlined"
           className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
         >
-          了解更多
+          {t("common.learn_more")}
         </Button>
       </Link>
     </Box>

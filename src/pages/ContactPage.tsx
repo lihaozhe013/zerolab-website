@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Box, Button } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import SubHeader from "@/components/SubHeader";
 import ContactInfo from "@/components/ContactInfo";
 
@@ -7,6 +8,7 @@ import ContactInfo from "@/components/ContactInfo";
 declare const AMap: any;
 
 export default function ContactPage() {
+  const { t } = useTranslation();
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function ContactPage() {
         });
         const marker = new AMap.Marker({
           position: new AMap.LngLat(121.545, 31.284),
-          title: "天璺科技（上海）有限公司 ZeroLab",
+          title: t("contact.map_marker"),
         });
         map.add(marker);
       }
@@ -37,11 +39,11 @@ export default function ContactPage() {
         document.head.removeChild(existingScript);
       }
     };
-  }, []);
+  }, [t]);
 
   return (
     <>
-      <SubHeader title="联系我们 Contact Us" backgroundImage="/images/Contact.jpg" />
+      <SubHeader title={t("contact.title")} backgroundImage="/images/Contact.jpg" />
 
       <Box className="w-[70%] mx-auto py-[100px] max-md:w-[90%]">
         <div
@@ -58,9 +60,9 @@ export default function ContactPage() {
         <a href="mailto:info@zero-lab.tech">
           <Button
             variant="outlined"
-            className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+            className="border-[#08b4ce] text-[#08b4ce] px-8 py-3 hover:bg-[#08b4ce] hover:text-white normal-case"
           >
-            发送邮件咨询
+            {t("common.send_email")}
           </Button>
         </a>
       </Box>
