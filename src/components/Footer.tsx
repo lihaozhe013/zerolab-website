@@ -1,4 +1,5 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
@@ -23,6 +24,16 @@ export default function Footer() {
           alt="WeChat"
           className="max-w-[150px]"
         />
+      </Box>
+      <Box className="mb-6">
+        <Link to="/contact">
+          <Button
+            variant="outlined"
+            className="border-[#08b4ce] text-[#08b4ce] px-8 py-3 hover:bg-[#08b4ce] hover:text-white normal-case"
+          >
+            {t("common.contact_us")}
+          </Button>
+        </Link>
       </Box>
       <Typography variant="body2" className="text-[#777] text-sm">
         {t("footer.address")}

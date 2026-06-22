@@ -75,22 +75,15 @@ export default function HomePage() {
       <PartnerCarousel />
 
       {/* Products Section */}
-      <Box className="w-[80%] mx-auto text-center pt-[100px] max-md:w-[90%]">
+      <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
         <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
           {t("home.products.title")}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ mb: 10 }}
-          className="text-[#777] leading-relaxed"
-        >
-          {t("home.products.subtitle")}
         </Typography>
         <Box className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
           {productItems.map((product, i) => (
             <Box
               key={i}
-              className="flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 bg-white"
+              className="flex flex-col rounded-xl overflow-hidden bg-white"
             >
               <Box className="relative overflow-hidden">
                 <Box
@@ -134,7 +127,7 @@ export default function HomePage() {
         <Typography
           variant="body2"
           sx={{ mb: 10 }}
-          className="text-[#777] leading-relaxed"
+          className="text-[#777] leading-relaxed text-left"
         >
           {t("home.applications.subtitle")}
         </Typography>
@@ -146,22 +139,15 @@ export default function HomePage() {
       </Box>
 
       {/* Environment Section */}
-      <Box className="w-[80%] mx-auto text-center pt-[100px] max-md:w-[90%]">
+      <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
         <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
           {t("home.environments.title")}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ mb: 10 }}
-          className="text-[#777] leading-relaxed"
-        >
-          {t("home.environments.subtitle")}
         </Typography>
         <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
           {envItems.map((env, i) => (
             <Box
               key={i}
-              className="flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 bg-white"
+              className="flex flex-col rounded-xl overflow-hidden bg-white"
             >
               <Box className="relative overflow-hidden">
                 <Box
@@ -186,27 +172,6 @@ export default function HomePage() {
             </Box>
           ))}
         </Box>
-      </Box>
-
-      {/* CTA Section */}
-      <Box
-        className="my-[100px] mx-auto w-[80%] bg-cover bg-center rounded-lg text-center py-[100px] max-md:py-16"
-        sx={{
-          backgroundImage:
-            "linear-gradient(rgba(40,40,40,0.7),rgba(40,40,40,0.7)),url(/images/Cooperation.jpg)",
-        }}
-      >
-        <Typography variant="h4" sx={{ mb: 10 }} className="text-white font-semibold">
-          {t("home.cta.title")}
-        </Typography>
-        <Link to="/contact">
-          <Button
-            variant="outlined"
-            className="text-white border-white px-8 py-3 text-[13px] hover:border-[#08b4ce] hover:bg-[#08b4ce] transition-all duration-1000 normal-case"
-          >
-            {t("common.contact_us")}
-          </Button>
-        </Link>
       </Box>
     </>
   );

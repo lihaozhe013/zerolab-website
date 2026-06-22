@@ -73,25 +73,21 @@
       "subtitle": "ZeroLab's products digitize human motion, enhancing immersion in VR/AR games and enabling realistic CG character animation for film and video production.",
       "title": "Application"
     },
-    "cta": {
-      "title": "We Look Forward to Partnering with You"
-    },
     "environments": {
       "items": [
         {
           "description": "ZeroLab's showroom blends modern minimalist design elements to create a unique technological atmosphere, showcasing ZeroLab's latest achievements.",
-          "title": "ZeroLab Showroom"
+          "title": "Showroom"
         },
         {
           "description": "ZeroLab has built a comprehensive electronics research laboratory capable of meeting diverse product testing and R&D needs.",
-          "title": "ZeroLab Electronics Lab"
+          "title": "Electronics Lab"
         },
         {
           "description": "ZeroLab is equipped with advanced supercomputing infrastructure covering software, hardware, cloud computing, and AI capabilities.",
-          "title": "ZeroLab Supercomputing Data Center"
+          "title": "Data Center"
         }
       ],
-      "subtitle": "ZeroLab is a research-driven technology company with a full-fledged electronics lab and its own supercomputing data center.",
       "title": "Environment"
     },
     "hero": {
@@ -118,7 +114,6 @@
           "title": "ZL9NSQ SiP Wireless Motion Sensor Chip"
         }
       ],
-      "subtitle": "ZeroLab delivers complete solutions ranging from wireless motion capture chips to humanoid robot teleoperation and data acquisition",
       "title": "Products"
     }
   },
@@ -151,8 +146,6 @@
       "CAS Deep Valley",
       "Hefei University of Technology"
     ],
-    "subtitle_line1": "We have established deep partnerships with outstanding enterprises to jointly advance the development and application of motion capture technology.",
-    "subtitle_line2": "Our partners span humanoid robotics, dexterous hands, education, healthcare, and more, working together to shape the future of motion digitization and humanoid robotics.",
     "title": "Partners"
   },
   "product": {

@@ -50,18 +50,13 @@ export default function PartnerCarousel() {
   const w = isMobile ? ITEM_WIDTH_MOBILE : ITEM_WIDTH;
 
   return (
-    <Box sx={{ pb: 12 }} className="w-[80%] mx-auto text-center pt-[100px] max-md:w-[95%]">
-      <Typography variant="h4" sx={{ mb: 5 }} className="font-semibold text-[#222]">
+    <Box sx={{ pb: 4 }} className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[95%]">
+      <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold text-[#222]">
         {t("partners.title")}
-      </Typography>
-      <Typography variant="body2" sx={{ mb: 10 }} className="text-[#777] leading-relaxed">
-        {t("partners.subtitle_line1")}
-        <br />
-        {t("partners.subtitle_line2")}
       </Typography>
 
       <Box
-        className="my-12 relative"
+        className="relative"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -76,7 +71,7 @@ export default function PartnerCarousel() {
             {partnerSrcs.map((src, i) => (
               <Box
                 key={i}
-                className="flex-none text-center bg-white rounded-2xl shadow-[0_0_20px_rgba(0,0,0,0.2)] p-[30px] transition-all duration-500 hover:shadow-[0_0_20px_rgba(0,0,0,0.4)] hover:-translate-y-1"
+                className="flex-none text-center bg-white rounded-2xl p-[30px] transition-all duration-500 hover:-translate-y-1 border border-gray-200 hover:border-[#08b4ce]"
                 sx={{ width: w - 40, mx: 2.5 }}
               >
                 <Box
