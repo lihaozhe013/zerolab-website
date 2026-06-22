@@ -1,7 +1,7 @@
 {
   "about": {
-    "company_name": "ZeroLab",
-    "company_name_en": "ZeroLab Technologies Co.,Ltd",
+    "company_name": "ZeroLab Technologies Co.,Ltd",
+    "company_name_en": "",
     "description": "ZeroLab specializes in motion capture, embodied intelligence teleoperation, and data acquisition. We deliver full-stack solutions including our self-developed low-cost, high-precision wireless motion capture SiP chips, modules, full-body inertial motion capture systems, teleoperation platforms, and the \"Shadowing\" bipedal robot high-dynamic imitation platform. We are building an ecosystem driven by motion capture and teleoperation technology, and constructing an embodied intelligence database centered on \"real humans, real machines, real scenarios, real work\" to advance embodied AI brain training for generalized environments.",
     "title": "About Us"
   },
@@ -51,11 +51,11 @@
   },
   "footer": {
     "about_title": "About Us",
-    "address": "Address: C3-103-5, 1687 Changyang Rd, Shanghai, China",
-    "description": "ZeroLab was founded on September 18, 2021, and is headquartered in Changyang Valley, Yangpu, Shanghai.",
-    "icp": "ICP Record: Hu ICP Bei 2021030591",
+    "address": "Address (HQ): C3-103-5, 1687 Changyang Rd, Shanghai, China",
+    "description": "Founded on Sept. 18, 2021",
+    "icp": "备案编号：沪 ICP 备 2021030591 号",
     "phone": "Tel: +86 021-55809628",
-    "slogan": "ZeroLab: Transmitting motion as effortlessly as text, and empowering skills at the speed of light"
+    "slogan": "Move as one."
   },
   "home": {
     "applications": {
@@ -95,9 +95,9 @@
       "title": "Environment"
     },
     "hero": {
-      "description_p1": "Over the past 200 years, humanity has harnessed electromagnetic waves to transmit text, sound, and images, vastly extending our thoughts, hearing, and vision.",
-      "description_p2": "Today, ZeroLab is transforming human motion itself into transmittable information through wearable motion capture technology. With robotic avatars, humans will be able to achieve \"lightspeed travel,\" perform remote operations, and pass skills on to silicon-based life, training the brains of tomorrow's robots.",
-      "title": "Moving as One"
+      "description_p1": "ZeroLab transforms human intent into precise robotic action.",
+      "description_p2": "Our wearable inertial systems deliver seamless teleoperation and generate the high-fidelity data foundation needed to train Embodied AI.",
+      "title": "Move as One"
     },
     "products": {
       "items": [

@@ -41,7 +41,7 @@ export default function HomePage() {
         }}
       >
         <Navbar transparent />
-        <Box className="flex-1 flex items-center justify-center text-center text-white px-4">
+        <Box className="flex-1 flex items-center justify-center text-left text-white px-4">
           <Box className="max-w-[90%]">
             <Typography
               variant="h1"
