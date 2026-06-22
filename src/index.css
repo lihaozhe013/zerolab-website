@@ -5,7 +5,32 @@
   --color-primary-dark: #069ab0;
   --color-text-primary: #222222;
   --color-text-secondary: #777777;
-  --font-family-poppins: "Poppins", sans-serif;
+}
+
+/* Inter variable font (English) */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Noto Sans SC variable font (Chinese) */
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("/fonts/Noto_Sans_SC/NotoSansSC-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
@@ -16,7 +41,7 @@
   }
 
   body {
-    font-family: var(--font-family-poppins);
+    font-family: "Inter", "Noto Sans SC", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
