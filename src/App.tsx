@@ -1,0 +1,29 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "@/components/Layout";
+import HomePage from "@/pages/HomePage";
+import AboutPage from "@/pages/AboutPage";
+import ProductPage from "@/pages/ProductPage";
+import ProjectPage from "@/pages/ProjectPage";
+import ApplicationPage from "@/pages/ApplicationPage";
+import ContactPage from "@/pages/ContactPage";
+import TeleopPage from "@/pages/TeleopPage";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="product" element={<ProductPage />} />
+          <Route path="project" element={<ProjectPage />} />
+          <Route path="application" element={<ApplicationPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="teleop" element={<TeleopPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
