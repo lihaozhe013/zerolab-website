@@ -45,8 +45,7 @@ export default function HomePage() {
           <Box className="max-w-[90%]">
             <Typography
               variant="h1"
-              sx={{ fontSize: { xs: "40px", md: "60px" }, mb: 6 }}
-              className="font-semibold"
+              sx={{ fontSize: { xs: "40px", md: "60px" }, mb: 6, fontWeight: 800 }}
             >
               {t("home.hero.title")}
             </Typography>
@@ -76,7 +75,7 @@ export default function HomePage() {
 
       {/* Products Section */}
       <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
-        <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
           {t("home.products.title")}
         </Typography>
         <Box className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
@@ -121,7 +120,7 @@ export default function HomePage() {
 
       {/* Applications Section */}
       <Box className="w-[80%] mx-auto text-center pt-[50px] max-md:w-[90%]">
-        <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
           {t("home.applications.title")}
         </Typography>
         <Typography
@@ -140,7 +139,7 @@ export default function HomePage() {
 
       {/* Environment Section */}
       <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
-        <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold">
+        <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
           {t("home.environments.title")}
         </Typography>
         <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1">

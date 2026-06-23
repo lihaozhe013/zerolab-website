@@ -51,7 +51,7 @@ export default function PartnerCarousel() {
 
   return (
     <Box sx={{ pb: 4 }} className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[95%]">
-      <Typography variant="h4" sx={{ mb: 3 }} className="font-semibold text-[#222]">
+      <Typography variant="h4" sx={{ mb: 3, fontWeight: 700 }} className="text-[#222]">
         {t("partners.title")}
       </Typography>
 

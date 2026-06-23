@@ -2,7 +2,8 @@
   "about": {
     "company_name": "ZeroLab Technologies Co.,Ltd",
     "company_name_en": "",
-    "description": "ZeroLab specializes in motion capture, embodied intelligence teleoperation, and data acquisition. We deliver full-stack solutions including our self-developed low-cost, high-precision wireless motion capture SiP chips, modules, full-body inertial motion capture systems, teleoperation platforms, and the \"Shadowing\" bipedal robot high-dynamic imitation platform. We are building an ecosystem driven by motion capture and teleoperation technology, and constructing an embodied intelligence database centered on \"real humans, real machines, real scenarios, real work\" to advance embodied AI brain training for generalized environments.",
+    "description": "ZeroLab focuses on motion capture, embodied AI teleoperation, and data acquisition. The company provides full-stack solutions, including self-developed, low-cost, high-precision wireless motion capture SiP chips and modules, full-body inertial motion capture systems, teleoperation platforms, and the bipedal robot high-dynamic imitation platform. ZeroLab builds an ecosystem based on mocap and teleoperation technologies, constructing an embodied AI database based on real world data to accelerate the training of embodied AI brains in generalized scenarios.",
+
     "title": "About Us"
   },
   "application": {
@@ -93,7 +94,7 @@
     "hero": {
       "description_p1": "ZeroLab transforms human intent into precise robotic action.",
       "description_p2": "Our wearable inertial systems deliver seamless teleoperation and generate the high-fidelity data foundation needed to train Embodied AI.",
-      "title": "Move as One"
+      "title": "MOVE AS ONE"
     },
     "products": {
       "items": [
