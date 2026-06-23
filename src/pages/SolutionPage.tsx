@@ -3,20 +3,20 @@ import { useTranslation } from "react-i18next";
 import SubHeader from "@/components/SubHeader";
 import VideoCard from "@/components/VideoCard";
 
-const projectVideoSrcs = [
+const solutionVideoSrcs = [
   "/videos/zl9nsq.mp4",
   "/videos/taiji.mp4",
   "/videos/h1.mp4",
 ];
 
-export default function ProjectPage() {
+export default function SolutionPage() {
   const { t } = useTranslation();
-  const items = t("project.items", { returnObjects: true }) as { title: string; description: string }[];
+  const items = t("solution.items", { returnObjects: true }) as { title: string; description: string }[];
 
   return (
     <>
       <SubHeader
-        title={t("project.title")}
+        title={t("solution.title")}
         backgroundImage="/images/Project.jpg"
       />
 
@@ -28,7 +28,7 @@ export default function ProjectPage() {
                 key={i}
                 title={item.title}
                 description={item.description}
-                videoSrc={projectVideoSrcs[i]}
+                videoSrc={solutionVideoSrcs[i]}
               />
             ))}
           </Box>

@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 const navItems = [
   { key: "about", path: "/about" },
   { key: "product", path: "/product" },
-  { key: "project", path: "/project" },
+  { key: "solution", path: "/solution" },
   { key: "application", path: "/application" },
   { key: "contact", path: "/contact" },
 ];
