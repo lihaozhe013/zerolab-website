@@ -14,28 +14,40 @@ function AppRow({ title, description, image, reversed = false }: AppRowProps) {
   const { t } = useTranslation();
   return (
     <Box
-      className={`flex flex-wrap justify-between gap-y-5 mb-5 ${
-        reversed ? "flex-row-reverse" : ""
-      } max-md:flex-col`}
+      className={`flex ${reversed ? "flex-row-reverse" : ""} max-md:flex-col`}
     >
-      <Box className="flex-1 min-w-[48%] max-md:min-w-full">
-        <Box component="img" src={image} alt={title} className="w-full rounded" />
+      <Box className="w-1/2 max-md:w-full">
+        <Box
+          component="img"
+          src={image}
+          alt={title}
+          className="w-full h-[50vh] object-cover max-md:h-[250px]"
+        />
       </Box>
-      <Box className="flex-1 min-w-[48%] max-md:min-w-full flex flex-col justify-center">
-        <Typography variant="h4" sx={{ mb: 5 }} className="font-semibold">
-          {title}
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 5 }} className="text-[#777] leading-relaxed">
-          {description}
-        </Typography>
-        <Link to="/contact" className="inline-block">
-          <Button
-            variant="outlined"
-            className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+      <Box className="w-1/2 max-md:w-full flex items-center">
+        <Box className="px-14 py-12 max-md:px-6 max-md:py-8">
+          <Typography
+            variant="h4"
+            sx={{ mb: 4, fontWeight: 700, color: "#222" }}
           >
-            {t("common.learn_more")}
-          </Button>
-        </Link>
+            {title}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mb: 5, lineHeight: 1.9 }}
+            className="text-[#666]"
+          >
+            {description}
+          </Typography>
+          <Link to="/contact">
+            <Button
+              variant="outlined"
+              className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+            >
+              {t("common.learn_more")}
+            </Button>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
@@ -58,7 +70,7 @@ export default function ApplicationPage() {
     <>
       <SubHeader title={t("application.title")} />
 
-      <Box className="w-[80%] mx-auto pt-[80px] pb-[50px] max-md:w-[90%]">
+      <Box>
         {items.map((app, index) => (
           <AppRow
             key={index}
