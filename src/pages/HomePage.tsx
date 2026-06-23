@@ -1,7 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import Navbar from "@/components/Navbar";
 import PartnerCarousel from "@/components/PartnerCarousel";
 import ApplicationCard from "@/components/ApplicationCard";
 
@@ -34,14 +33,13 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <Box
-        className="min-h-screen w-full bg-cover bg-center relative flex flex-col"
+        className="min-h-screen w-full bg-cover bg-center relative"
         sx={{
           backgroundImage:
             "linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/images/banner.png)",
         }}
       >
-        <Navbar transparent />
-        <Box className="flex-1 flex items-center justify-center text-left text-white px-4">
+        <Box className="min-h-screen flex items-center justify-center text-left text-white px-4 pt-16">
           <Box className="max-w-[90%]">
             <Typography
               variant="h1"

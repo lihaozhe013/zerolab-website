@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   AppBar,
@@ -32,15 +32,26 @@ interface NavbarProps {
 
 export default function Navbar({ transparent = false }: NavbarProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const location = useLocation();
   const { t, i18n } = useTranslation();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const isHome = location.pathname === "/";
-  const AppBarStyle = isHome || transparent
+  const isTransparent = (isHome || transparent) && !scrolled;
+  const AppBarStyle = isTransparent
     ? { background: "transparent", boxShadow: "none" }
-    : { background: "rgba(4,9,30,0.7)", boxShadow: "none" };
+    : { background: "rgba(0,0,0,0.65)", boxShadow: "none", backdropFilter: "blur(8px)" };
+
+  const position = isTransparent ? "absolute" : "sticky";
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === "zh" ? "en" : "zh");
@@ -48,7 +59,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
 
   return (
     <>
-      <AppBar position={isHome ? "absolute" : "relative"} sx={AppBarStyle}>
+      <AppBar position={position} sx={{ ...AppBarStyle, top: 0 }}>
         <Toolbar className="justify-between px-[6%]">
           <Link to="/">
             <Box

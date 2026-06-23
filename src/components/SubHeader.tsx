@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import Navbar from "@/components/Navbar";
 
 interface SubHeaderProps {
   title: string;
@@ -12,16 +11,27 @@ export default function SubHeader({
 }: SubHeaderProps) {
   return (
     <Box
-      className="relative h-[50vh] w-full bg-cover bg-center text-white flex flex-col"
+      className="relative h-[28vh] w-full bg-cover bg-center text-white flex items-center justify-center"
       sx={{
-        backgroundImage: `linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url(${backgroundImage})`,
       }}
     >
-      <Navbar transparent />
-      <Box className="flex-1 flex items-center justify-center mt-16">
-        <Typography variant="h3" className="text-center px-4" style={{ fontWeight: 800 }}>
+      <Box className="text-center">
+        <Typography
+          variant="h3"
+          sx={{ fontWeight: 800, letterSpacing: "-0.02em", mb: 2 }}
+        >
           {title}
         </Typography>
+        <Box
+          sx={{
+            width: 60,
+            height: 3,
+            bgcolor: "#08b4ce",
+            mx: "auto",
+            borderRadius: 2,
+          }}
+        />
       </Box>
     </Box>
   );
