@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -12,18 +12,18 @@ import {
   useMediaQuery,
   useTheme,
   Button,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import LanguageIcon from "@mui/icons-material/Language";
-import { useTranslation } from "react-i18next";
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import LanguageIcon from '@mui/icons-material/Language';
+import { useTranslation } from 'react-i18next';
 
 const navItems = [
-  { key: "about", path: "/about" },
-  { key: "product", path: "/product" },
-  { key: "solution", path: "/solution" },
-  { key: "application", path: "/application" },
-  { key: "contact", path: "/contact" },
+  { key: 'about', path: '/about' },
+  { key: 'product', path: '/product' },
+  { key: 'solution', path: '/solution' },
+  { key: 'application', path: '/application' },
+  { key: 'contact', path: '/contact' },
 ];
 
 interface NavbarProps {
@@ -34,27 +34,27 @@ export default function Navbar({ transparent = false }: NavbarProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === '/';
   const isTransparent = (isHome || transparent) && !scrolled;
   const AppBarStyle = isTransparent
-    ? { background: "transparent", boxShadow: "none" }
-    : { background: "rgba(0,0,0,0.65)", boxShadow: "none", backdropFilter: "blur(8px)" };
+    ? { background: 'transparent', boxShadow: 'none' }
+    : { background: 'rgba(0,0,0,0.65)', boxShadow: 'none', backdropFilter: 'blur(8px)' };
 
-  const position = isTransparent ? "absolute" : "sticky";
+  const position = isTransparent ? 'absolute' : 'sticky';
 
   const toggleLang = () => {
-    i18n.changeLanguage(i18n.language === "zh" ? "en" : "zh");
+    i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh');
   };
 
   return (
@@ -62,12 +62,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
       <AppBar position={position} sx={{ ...AppBarStyle, top: 0 }}>
         <Toolbar className="justify-between px-[6%]">
           <Link to="/">
-            <Box
-              component="img"
-              src="/images/LOGO1.png"
-              alt="ZeroLab Logo"
-              sx={{ height: 40 }}
-            />
+            <Box component="img" src="/images/LOGO1.png" alt="ZeroLab Logo" sx={{ height: 40 }} />
           </Link>
 
           {isMobile ? (
@@ -76,25 +71,25 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                 onClick={toggleLang}
                 startIcon={<LanguageIcon />}
                 sx={{
-                  color: "white",
+                  color: 'white',
                   ml: 2,
                   fontSize: 13,
                   fontWeight: 600,
-                  border: "1px solid rgba(255,255,255,0.5)",
-                  borderRadius: "20px",
+                  border: '1px solid rgba(255,255,255,0.5)',
+                  borderRadius: '20px',
                   px: 2,
                   py: 0.5,
-                  textTransform: "none",
-                  "&:hover": { borderColor: "#08b4ce", color: "#08b4ce", backgroundColor: "rgba(8,180,206,0.1)" },
+                  textTransform: 'none',
+                  '&:hover': {
+                    borderColor: '#08b4ce',
+                    color: '#08b4ce',
+                    backgroundColor: 'rgba(8,180,206,0.1)',
+                  },
                 }}
               >
-                {i18n.language === "zh" ? "EN" : "中文"}
+                {i18n.language === 'zh' ? 'EN' : '中文'}
               </Button>
-              <IconButton
-                color="inherit"
-                onClick={() => setDrawerOpen(true)}
-                edge="end"
-              >
+              <IconButton color="inherit" onClick={() => setDrawerOpen(true)} edge="end">
                 <MenuIcon />
               </IconButton>
             </Box>
@@ -105,9 +100,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                   key={item.path}
                   to={item.path}
                   className={`relative px-3 py-2 text-white text-sm transition-colors hover:text-[#08b4ce] after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-[#08b4ce] after:transition-all after:duration-300 hover:after:w-full ${
-                    location.pathname === item.path
-                      ? "text-[#08b4ce] after:w-full"
-                      : "after:w-0"
+                    location.pathname === item.path ? 'text-[#08b4ce] after:w-full' : 'after:w-0'
                   }`}
                 >
                   {t(`nav.${item.key}`)}
@@ -117,47 +110,40 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                 onClick={toggleLang}
                 startIcon={<LanguageIcon />}
                 sx={{
-                  color: "white",
+                  color: 'white',
                   ml: 2,
                   fontSize: 13,
                   fontWeight: 600,
-                  border: "1px solid rgba(255,255,255,0.5)",
-                  borderRadius: "20px",
+                  border: '1px solid rgba(255,255,255,0.5)',
+                  borderRadius: '20px',
                   px: 2,
                   py: 0.5,
-                  textTransform: "none",
-                  "&:hover": { borderColor: "#08b4ce", color: "#08b4ce", backgroundColor: "rgba(8,180,206,0.1)" },
+                  textTransform: 'none',
+                  '&:hover': {
+                    borderColor: '#08b4ce',
+                    color: '#08b4ce',
+                    backgroundColor: 'rgba(8,180,206,0.1)',
+                  },
                 }}
               >
-                {i18n.language === "zh" ? "EN" : "中文"}
+                {i18n.language === 'zh' ? 'EN' : '中文'}
               </Button>
             </Box>
           )}
         </Toolbar>
       </AppBar>
 
-      <Drawer
-        anchor="right"
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      >
+      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <Box className="w-[250px] bg-[#08b4ce] h-full text-white">
           <Box className="flex justify-end p-4">
-            <IconButton
-              color="inherit"
-              onClick={() => setDrawerOpen(false)}
-            >
+            <IconButton color="inherit" onClick={() => setDrawerOpen(false)}>
               <CloseIcon />
             </IconButton>
           </Box>
           <List>
             {navItems.map((item) => (
               <ListItem key={item.path} disablePadding>
-                <Link
-                  to={item.path}
-                  onClick={() => setDrawerOpen(false)}
-                  className="w-full"
-                >
+                <Link to={item.path} onClick={() => setDrawerOpen(false)} className="w-full">
                   <ListItemText
                     primary={t(`nav.${item.key}`)}
                     className="px-6 py-2 text-white hover:bg-white/10"

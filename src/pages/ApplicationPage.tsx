@@ -1,7 +1,7 @@
-import { Box, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import SubHeader from "@/components/SubHeader";
+import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import SubHeader from '@/components/SubHeader';
 
 interface AppRowProps {
   title: string;
@@ -13,9 +13,7 @@ interface AppRowProps {
 function AppRow({ title, description, image, reversed = false }: AppRowProps) {
   const { t } = useTranslation();
   return (
-    <Box
-      className={`flex ${reversed ? "flex-row-reverse" : ""} max-md:flex-col`}
-    >
+    <Box className={`flex ${reversed ? 'flex-row-reverse' : ''} max-md:flex-col`}>
       <Box className="w-1/2 max-md:w-full">
         <Box
           component="img"
@@ -26,17 +24,10 @@ function AppRow({ title, description, image, reversed = false }: AppRowProps) {
       </Box>
       <Box className="w-1/2 max-md:w-full flex items-center">
         <Box className="px-14 py-12 max-md:px-6 max-md:py-8">
-          <Typography
-            variant="h4"
-            sx={{ mb: 4, fontWeight: 700, color: "#222" }}
-          >
+          <Typography variant="h4" sx={{ mb: 4, fontWeight: 700, color: '#222' }}>
             {title}
           </Typography>
-          <Typography
-            variant="body1"
-            sx={{ mb: 5, lineHeight: 1.9 }}
-            className="text-[#666]"
-          >
+          <Typography variant="body1" sx={{ mb: 5, lineHeight: 1.9 }} className="text-[#666]">
             {description}
           </Typography>
           <Link to="/contact">
@@ -44,7 +35,7 @@ function AppRow({ title, description, image, reversed = false }: AppRowProps) {
               variant="outlined"
               className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
             >
-              {t("common.learn_more")}
+              {t('common.learn_more')}
             </Button>
           </Link>
         </Box>
@@ -54,21 +45,24 @@ function AppRow({ title, description, image, reversed = false }: AppRowProps) {
 }
 
 const appImages = [
-  "/images/Robot Training.jpg",
-  "/images/The virtual studio.jpg",
-  "/images/Sports training.jpg",
-  "/images/VR Gaming.jpg",
-  "/images/Virtual live.jpg",
-  "/images/Rehabilitation training.jpg",
+  '/images/Robot Training.jpg',
+  '/images/The virtual studio.jpg',
+  '/images/Sports training.jpg',
+  '/images/VR Gaming.jpg',
+  '/images/Virtual live.jpg',
+  '/images/Rehabilitation training.jpg',
 ];
 
 export default function ApplicationPage() {
   const { t } = useTranslation();
-  const items = t("application.items", { returnObjects: true }) as { title: string; description: string }[];
+  const items = t('application.items', { returnObjects: true }) as {
+    title: string;
+    description: string;
+  }[];
 
   return (
     <>
-      <SubHeader title={t("application.title")} />
+      <SubHeader title={t('application.title')} />
 
       <Box>
         {items.map((app, index) => (

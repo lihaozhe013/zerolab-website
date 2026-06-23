@@ -1,6 +1,6 @@
-import { Box, Typography, Card, CardContent } from "@mui/material";
-import { FiHome, FiPhone, FiMail } from "react-icons/fi";
-import { useTranslation } from "react-i18next";
+import { Box, Typography, Card, CardContent } from '@mui/material';
+import { FiHome, FiPhone, FiMail } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 interface ContactItemProps {
   icon: React.ReactNode;
@@ -14,28 +14,24 @@ function ContactItem({ icon, title, subtitle, extraText }: ContactItemProps) {
     <Card
       elevation={0}
       sx={{
-        height: "100%",
+        height: '100%',
         borderRadius: 3,
-        border: "1px solid #eee",
-        transition: "border-color 0.3s",
-        "&:hover": { borderColor: "#08b4ce" },
+        border: '1px solid #eee',
+        transition: 'border-color 0.3s',
+        '&:hover': { borderColor: '#08b4ce' },
       }}
     >
       <CardContent
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           py: 5,
           px: 3,
         }}
       >
         <Box className="text-[#08b4ce] text-[60px] mb-5 leading-none">{icon}</Box>
-        <Typography
-          variant="h6"
-          sx={{ mb: 2, fontWeight: 700 }}
-          className="text-[#222]"
-        >
+        <Typography variant="h6" sx={{ mb: 2, fontWeight: 700 }} className="text-[#222]">
           {title}
         </Typography>
         {extraText && (
@@ -58,19 +54,19 @@ export default function ContactInfo() {
       <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1 max-md:gap-6">
         <ContactItem
           icon={<FiHome />}
-          title={t("contact.address_title")}
-          subtitle={t("contact.address_subtitle")}
+          title={t('contact.address_title')}
+          subtitle={t('contact.address_subtitle')}
         />
         <ContactItem
           icon={<FiPhone />}
-          title={t("contact.phone")}
-          subtitle={t("contact.hours")}
-          extraText={t("contact.phone_number")}
+          title={t('contact.phone')}
+          subtitle={t('contact.hours')}
+          extraText={t('contact.phone_number')}
         />
         <ContactItem
           icon={<FiMail />}
-          title={t("contact.email")}
-          subtitle={t("contact.email_prompt")}
+          title={t('contact.email')}
+          subtitle={t('contact.email_prompt')}
         />
       </Box>
     </Box>

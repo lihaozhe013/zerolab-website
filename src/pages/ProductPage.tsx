@@ -1,29 +1,33 @@
-import { Box, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import SubHeader from "@/components/SubHeader";
+import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import SubHeader from '@/components/SubHeader';
 
 const productImages = [
-  "/images/openarmz.jpg",
-  "/images/LigntTrackerInertia20221020.png",
-  "/images/DataGloves.png",
-  "/images/Motion Tracker.jpg",
+  '/images/openarmz.jpg',
+  '/images/LigntTrackerInertia20221020.png',
+  '/images/DataGloves.png',
+  '/images/Motion Tracker.jpg',
 ];
 
 const productLinks = [
-  "/teleop",
-  "/document/F-1彩页.pdf",
-  "/document/H-1彩页.pdf",
-  "/document/ZL9NSQ单页-0604.pdf",
+  '/teleop',
+  '/document/F-1彩页.pdf',
+  '/document/H-1彩页.pdf',
+  '/document/ZL9NSQ单页-0604.pdf',
 ];
 
 export default function ProductPage() {
   const { t } = useTranslation();
-  const items = t("product.items", { returnObjects: true }) as { title: string; description: string; link_text?: string }[];
+  const items = t('product.items', { returnObjects: true }) as {
+    title: string;
+    description: string;
+    link_text?: string;
+  }[];
 
   return (
     <>
-      <SubHeader title={t("product.title")} backgroundImage="/images/Product.jpg" />
+      <SubHeader title={t('product.title')} backgroundImage="/images/Product.jpg" />
 
       <Box className="w-[80%] mx-auto py-[80px] max-md:w-[90%]">
         <Box className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
@@ -46,7 +50,11 @@ export default function ProductPage() {
                 <Typography variant="h5" sx={{ mb: 3 }} className="font-semibold max-md:text-lg">
                   {product.title}
                 </Typography>
-                <Typography variant="body2" sx={{ mb: 4 }} className="text-[#777] leading-relaxed flex-1 max-md:text-sm">
+                <Typography
+                  variant="body2"
+                  sx={{ mb: 4 }}
+                  className="text-[#777] leading-relaxed flex-1 max-md:text-sm"
+                >
                   {product.description}
                 </Typography>
                 <Link to={productLinks[i]} className="self-start">
@@ -54,7 +62,7 @@ export default function ProductPage() {
                     variant="outlined"
                     className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
                   >
-                    {product.link_text || t("common.learn_more")}
+                    {product.link_text || t('common.learn_more')}
                   </Button>
                 </Link>
               </Box>

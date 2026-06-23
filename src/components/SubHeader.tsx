@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from '@mui/material';
 
 interface SubHeaderProps {
   title: string;
@@ -7,7 +7,7 @@ interface SubHeaderProps {
 
 export default function SubHeader({
   title,
-  backgroundImage = "/images/Background.jpg",
+  backgroundImage = '/images/Background.jpg',
 }: SubHeaderProps) {
   return (
     <Box
@@ -17,18 +17,15 @@ export default function SubHeader({
       }}
     >
       <Box className="text-center">
-        <Typography
-          variant="h3"
-          sx={{ fontWeight: 800, letterSpacing: "-0.02em", mb: 2 }}
-        >
+        <Typography variant="h3" sx={{ fontWeight: 800, letterSpacing: '-0.02em', mb: 2 }}>
           {title}
         </Typography>
         <Box
           sx={{
             width: 60,
             height: 3,
-            bgcolor: "#08b4ce",
-            mx: "auto",
+            bgcolor: '#08b4ce',
+            mx: 'auto',
             borderRadius: 2,
           }}
         />

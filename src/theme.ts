@@ -1,17 +1,17 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#08b4ce",
-      contrastText: "#fff",
+      main: '#08b4ce',
+      contrastText: '#fff',
     },
     background: {
-      default: "#ffffff",
+      default: '#ffffff',
     },
     text: {
-      primary: "#222222",
-      secondary: "#777777",
+      primary: '#222222',
+      secondary: '#777777',
     },
   },
   typography: {
@@ -30,7 +30,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: "none" as const,
+          textTransform: 'none' as const,
           borderRadius: 0,
         },
       },

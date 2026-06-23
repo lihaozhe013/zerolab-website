@@ -1,40 +1,40 @@
-import { Box, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import SubHeader from "@/components/SubHeader";
-import VideoCard from "@/components/VideoCard";
+import { Box, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import SubHeader from '@/components/SubHeader';
+import VideoCard from '@/components/VideoCard';
 
 const teleopVideoSrcs = [
-  "/videos/openarmz_teleop.mp4",
-  "/videos/如影随形.mp4",
-  "/videos/如影随形2.mp4",
-  "/videos/全身动捕控制睿尔曼类人形机器人.mp4",
-  "/videos/亚欧博览会单臂.mp4",
+  '/videos/openarmz_teleop.mp4',
+  '/videos/如影随形.mp4',
+  '/videos/如影随形2.mp4',
+  '/videos/全身动捕控制睿尔曼类人形机器人.mp4',
+  '/videos/亚欧博览会单臂.mp4',
 ];
 
 export default function TeleopPage() {
   const { t } = useTranslation();
-  const items = t("teleop.items", { returnObjects: true }) as { title: string; description: string }[];
+  const items = t('teleop.items', { returnObjects: true }) as {
+    title: string;
+    description: string;
+  }[];
 
   return (
     <>
-      <SubHeader
-        title={t("teleop.title")}
-        backgroundImage="/images/Project.jpg"
-      />
+      <SubHeader title={t('teleop.title')} backgroundImage="/images/Project.jpg" />
 
       {/* Whole Cycle Section */}
       <Box className="w-full">
         <Box className="w-[75%] mx-auto">
           <Typography variant="h5" className="font-semibold text-center leading-relaxed py-5">
-            {t("teleop.subtitle_line1")}
+            {t('teleop.subtitle_line1')}
             <br />
-            {t("teleop.subtitle_line2")}
+            {t('teleop.subtitle_line2')}
           </Typography>
           <Box className="text-center">
             <Box
               component="img"
               src="/images/whole cycle.png"
-              alt={t("teleop.banner_alt")}
+              alt={t('teleop.banner_alt')}
               className="max-w-full max-h-full"
             />
           </Box>

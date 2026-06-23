@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #08b4ce;
@@ -9,16 +9,16 @@
 
 /* Inter variable font (English) */
 @font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
@@ -26,8 +26,8 @@
 
 /* Noto Sans SC variable font (Chinese) */
 @font-face {
-  font-family: "Noto Sans SC";
-  src: url("/fonts/Noto_Sans_SC/NotoSansSC-VariableFont_wght.ttf") format("truetype");
+  font-family: 'Noto Sans SC';
+  src: url('/fonts/Noto_Sans_SC/NotoSansSC-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
   }
 
   body {
-    font-family: "Inter", "Noto Sans SC", sans-serif;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -51,5 +51,3 @@
     color: inherit;
   }
 }
-
-

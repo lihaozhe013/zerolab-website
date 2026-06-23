@@ -1,14 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from '@mui/material';
 
 interface ApplicationCardProps {
   title: string;
   image: string;
 }
 
-export default function ApplicationCard({
-  title,
-  image,
-}: ApplicationCardProps) {
+export default function ApplicationCard({ title, image }: ApplicationCardProps) {
   return (
     <Box className="relative flex-1 min-w-[32%] rounded-lg overflow-hidden mb-7 max-md:min-w-full group cursor-pointer">
       <Box

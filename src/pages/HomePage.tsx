@@ -1,33 +1,35 @@
-import { Box, Typography, Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import PartnerCarousel from "@/components/PartnerCarousel";
-import ApplicationCard from "@/components/ApplicationCard";
+import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import PartnerCarousel from '@/components/PartnerCarousel';
+import ApplicationCard from '@/components/ApplicationCard';
 
 const productImages = [
-  "/images/openarmz.jpg",
-  "/images/主图6.png",
-  "/images/主图4.png",
-  "/images/主图5.png",
+  '/images/openarmz.jpg',
+  '/images/主图6.png',
+  '/images/主图4.png',
+  '/images/主图5.png',
 ];
 
 const appImages = [
-  "/images/Designer (7).png",
-  "/images/Designer (8).png",
-  "/images/Designer (9).png",
+  '/images/Designer (7).png',
+  '/images/Designer (8).png',
+  '/images/Designer (9).png',
 ];
 
-const envImages = [
-  "/images/reception.png",
-  "/images/Lab.JPG",
-  "/images/Datacenter.JPG",
-];
+const envImages = ['/images/reception.png', '/images/Lab.JPG', '/images/Datacenter.JPG'];
 
 export default function HomePage() {
   const { t } = useTranslation();
-  const productItems = t("home.products.items", { returnObjects: true }) as { title: string; description: string }[];
-  const appItems = t("home.applications.items", { returnObjects: true }) as { title: string }[];
-  const envItems = t("home.environments.items", { returnObjects: true }) as { title: string; description: string }[];
+  const productItems = t('home.products.items', { returnObjects: true }) as {
+    title: string;
+    description: string;
+  }[];
+  const appItems = t('home.applications.items', { returnObjects: true }) as { title: string }[];
+  const envItems = t('home.environments.items', { returnObjects: true }) as {
+    title: string;
+    description: string;
+  }[];
 
   return (
     <>
@@ -36,32 +38,32 @@ export default function HomePage() {
         className="min-h-screen w-full bg-cover bg-center relative"
         sx={{
           backgroundImage:
-            "linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/images/banner.png)",
+            'linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/images/banner.png)',
         }}
       >
         <Box className="min-h-screen flex items-center justify-center text-left text-white px-4 pt-16">
           <Box className="max-w-[90%]">
             <Typography
               variant="h1"
-              sx={{ fontSize: { xs: "40px", md: "60px" }, mb: 6, fontWeight: 800 }}
+              sx={{ fontSize: { xs: '40px', md: '60px' }, mb: 6, fontWeight: 800 }}
             >
-              {t("home.hero.title")}
+              {t('home.hero.title')}
             </Typography>
             <Typography
               variant="body1"
               sx={{ mb: 6 }}
               className="text-xl mt-2.5 leading-relaxed max-md:text-base"
             >
-              {t("home.hero.description_p1")}
+              {t('home.hero.description_p1')}
               <br />
-              {t("home.hero.description_p2")}
+              {t('home.hero.description_p2')}
             </Typography>
             <Link to="/about">
               <Button
                 variant="outlined"
                 className="text-white border-white px-8 py-3 text-[13px] hover:border-[#08b4ce] hover:bg-[#08b4ce] transition-all duration-1000 normal-case"
               >
-                {t("common.learn_more")}
+                {t('common.learn_more')}
               </Button>
             </Link>
           </Box>
@@ -74,14 +76,11 @@ export default function HomePage() {
       {/* Products Section */}
       <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
         <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-          {t("home.products.title")}
+          {t('home.products.title')}
         </Typography>
         <Box className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
           {productItems.map((product, i) => (
-            <Box
-              key={i}
-              className="flex flex-col rounded-xl overflow-hidden bg-white"
-            >
+            <Box key={i} className="flex flex-col rounded-xl overflow-hidden bg-white">
               <Box className="relative overflow-hidden">
                 <Box
                   component="img"
@@ -107,7 +106,7 @@ export default function HomePage() {
                     variant="outlined"
                     className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
                   >
-                    {t("common.learn_more")}
+                    {t('common.learn_more')}
                   </Button>
                 </Link>
               </Box>
@@ -119,14 +118,14 @@ export default function HomePage() {
       {/* Applications Section */}
       <Box className="w-[80%] mx-auto text-center pt-[50px] max-md:w-[90%]">
         <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-          {t("home.applications.title")}
+          {t('home.applications.title')}
         </Typography>
         <Typography
           variant="body2"
           sx={{ mb: 10 }}
           className="text-[#777] leading-relaxed text-left"
         >
-          {t("home.applications.subtitle")}
+          {t('home.applications.subtitle')}
         </Typography>
         <Box className="flex flex-wrap justify-between gap-5 max-md:flex-col">
           {appItems.map((app, i) => (
@@ -138,14 +137,11 @@ export default function HomePage() {
       {/* Environment Section */}
       <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
         <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-          {t("home.environments.title")}
+          {t('home.environments.title')}
         </Typography>
         <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
           {envItems.map((env, i) => (
-            <Box
-              key={i}
-              className="flex flex-col rounded-xl overflow-hidden bg-white"
-            >
+            <Box key={i} className="flex flex-col rounded-xl overflow-hidden bg-white">
               <Box className="relative overflow-hidden">
                 <Box
                   component="img"
@@ -159,10 +155,7 @@ export default function HomePage() {
                 <Typography variant="h6" sx={{ mb: 2 }} className="font-semibold">
                   {env.title}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  className="text-[#777] leading-relaxed text-sm flex-1"
-                >
+                <Typography variant="body2" className="text-[#777] leading-relaxed text-sm flex-1">
                   {env.description}
                 </Typography>
               </Box>
