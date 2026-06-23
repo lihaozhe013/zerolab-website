@@ -14,15 +14,20 @@ export default function AboutPage() {
 
       <Box className="w-[80%] mx-auto pt-[80px] pb-[50px] text-center max-md:w-[90%]">
         <Box className="flex-1 px-0.5 max-w-[900px] mx-auto">
-          <Typography
-            variant="h4"
-            sx={{ mb: 8 }}
-            className="font-semibold text-[28px] leading-relaxed"
-          >
-            {t("about.company_name")}
-            <br />
-            {t("about.company_name_en")}
-          </Typography>
+            <Typography
+              variant="h4"
+              sx={{ mb: 1, fontWeight: 800 }}
+              className="text-[28px] leading-relaxed"
+            >
+              {t("about.company_name")}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ mb: 8 }}
+              className="text-[#999] leading-relaxed"
+            >
+              {t("about.company_name_en")}
+            </Typography>
           <Typography
             variant="body1"
             className="text-base leading-[1.8] text-[#666] text-justify"
