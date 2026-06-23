@@ -26,7 +26,7 @@ export default function PartnerCarousel() {
   const maxOffset = partnerSrcs.length - itemsPerPage;
   const [offset, setOffset] = useState(0);
   const [paused, setPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const timerRef = useRef<ReturnType<typeof setInterval>>(undefined);
   const partnerNames = t("partners.names", { returnObjects: true }) as string[];
 
   const autoNext = useCallback(() => {

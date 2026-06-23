@@ -47,8 +47,8 @@
     "hours": "北京时间周一到周五，上午9点-下午6点",
     "map_marker": "天璺科技（上海）有限公司 ZeroLab",
     "phone": "电话咨询",
-    "title": "联系我们",
-    "phone_number": "+86 021-55809628"
+    "phone_number": "+86 021-55809628",
+    "title": "联系我们"
   },
   "footer": {
     "about_title": "天璺科技 (ZeroLab)",
@@ -171,6 +171,23 @@
     ],
     "title": "产品"
   },
+  "solution": {
+    "items": [
+      {
+        "description": "今天隆重推出的是天璺（Wen）科技 ZeroLab 最新出品的 AI 动捕芯片，专为提升姿态、角度、速度等效率而定制，这款芯片具有低功耗、高精度和超小体积的特点，以人类之魂入AI之窍，让光速旅行成真 #AI #人工智能 #动作捕捉 #动捕芯片 #人形机器人 #国产芯片 #ZeroLab",
+        "title": "行业大 V Joyce 为 ZeroLab 代言"
+      },
+      {
+        "description": "小小武魁课程体系创始人 阚一工 先生采用 ZeroLab 的无线全身动捕套装 采集 日月式 动作精华数据。ZeroLab Motion Tracker 具备数据稳定性强、精度高等特点，内嵌先进空间位置点捕捉矫正算法，可以采集到更精准的人体关节点位置信息，可快速佩戴、紧密贴合身体。超长8小时待机，不受场地限制，随时随地采集人体动作数据。",
+        "title": "太极专家采用 ZeroLab Full body MoCap 完成国粹数据采集"
+      },
+      {
+        "description": "ZeroLab Data Gloves，是基于 MEMS 惯性传感器动作捕捉技术的手部动作数字化的交互手套，可以实时识别人体手指的动作姿态，在虚拟交互中呈现精细准确的五指运动。可以让使用者获得身临其境般的交互体验，放松地沉浸在对虚拟空间的探索里。",
+        "title": "ZeroLab Data Gloves 交互体验"
+      }
+    ],
+    "title": "方案"
+  },
   "teleop": {
     "banner_alt": "全周期解决方案",
     "items": [
@@ -203,22 +220,5 @@
     "subtitle_line1": "人形机器人遥操作 数据采集 运动控制",
     "subtitle_line2": "模范学习 强化学习 全周期解决方案",
     "title": "人形机器人遥操作及数采方案"
-  },
-  "solution": {
-    "items": [
-      {
-        "description": "今天隆重推出的是天璺（Wen）科技 ZeroLab 最新出品的 AI 动捕芯片，专为提升姿态、角度、速度等效率而定制，这款芯片具有低功耗、高精度和超小体积的特点，以人类之魂入AI之窍，让光速旅行成真 #AI #人工智能 #动作捕捉 #动捕芯片 #人形机器人 #国产芯片 #ZeroLab",
-        "title": "行业大 V Joyce 为 ZeroLab 代言"
-      },
-      {
-        "description": "小小武魁课程体系创始人 阚一工 先生采用 ZeroLab 的无线全身动捕套装 采集 日月式 动作精华数据。ZeroLab Motion Tracker 具备数据稳定性强、精度高等特点，内嵌先进空间位置点捕捉矫正算法，可以采集到更精准的人体关节点位置信息，可快速佩戴、紧密贴合身体。超长8小时待机，不受场地限制，随时随地采集人体动作数据。",
-        "title": "太极专家采用 ZeroLab Full body MoCap 完成国粹数据采集"
-      },
-      {
-        "description": "ZeroLab Data Gloves，是基于 MEMS 惯性传感器动作捕捉技术的手部动作数字化的交互手套，可以实时识别人体手指的动作姿态，在虚拟交互中呈现精细准确的五指运动。可以让使用者获得身临其境般的交互体验，放松地沉浸在对虚拟空间的探索里。",
-        "title": "ZeroLab Data Gloves 交互体验"
-      }
-    ],
-    "title": "方案"
   }
 }

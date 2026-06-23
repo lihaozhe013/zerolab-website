@@ -47,8 +47,8 @@
     "hours": "Mon-Fri, 9:00 AM - 6:00 PM (UTC+8)",
     "map_marker": "ZeroLab",
     "phone": "Phone",
-    "title": "Contact Us",
-    "phone_number": "+86 021-55809628"
+    "phone_number": "+86 021-55809628",
+    "title": "Contact Us"
   },
   "footer": {
     "about_title": "ZeroLab",
@@ -171,6 +171,23 @@
     ],
     "title": "Products"
   },
+  "solution": {
+    "items": [
+      {
+        "description": "Today we proudly introduce ZeroLab's latest AI motion capture chip, custom-designed for enhanced efficiency in orientation, angle, and velocity tracking. This chip features low power consumption, high precision, and ultra-compact size — infusing the soul of humanity into the core of AI, making lightspeed travel a reality. #AI #MotionCapture #MoCapChip #HumanoidRobot #MadeInChina #ZeroLab",
+        "title": "Industry KOL Joyce Endorses ZeroLab"
+      },
+      {
+        "description": "Mr. Kan Yigong, founder of the Xiaoxiaowuke curriculum system, uses ZeroLab's wireless full-body motion capture suit to collect essence motion data from the Sun-Moon Form of Tai Chi. The ZeroLab Motion Tracker offers exceptional data stability and precision, with built-in advanced spatial position correction algorithms for accurate joint position tracking. It features quick wear, a snug fit, and up to 8 hours of standby, enabling motion data capture anytime, anywhere without venue limitations.",
+        "title": "Tai Chi Expert Uses ZeroLab Full-Body MoCap for Cultural Heritage Data Collection"
+      },
+      {
+        "description": "ZeroLab Data Gloves are interactive gloves based on MEMS inertial sensor motion capture technology for hand motion digitization. They recognize finger movements in real time, delivering precise five-finger motion in virtual interactions. Users enjoy an immersive experience, freely exploring virtual spaces with full presence.",
+        "title": "ZeroLab Data Gloves Interactive Experience"
+      }
+    ],
+    "title": "Solutions"
+  },
   "teleop": {
     "banner_alt": "Full-Cycle Solution",
     "items": [
@@ -203,22 +220,5 @@
     "subtitle_line1": "Humanoid Robot Teleoperation | Data Acquisition | Motion Control",
     "subtitle_line2": "Imitation Learning | Reinforcement Learning | Full-Cycle Solutions",
     "title": "Humanoid Robot Teleoperation & Data Collection Solutions"
-  },
-  "solution": {
-    "items": [
-      {
-        "description": "Today we proudly introduce ZeroLab's latest AI motion capture chip, custom-designed for enhanced efficiency in orientation, angle, and velocity tracking. This chip features low power consumption, high precision, and ultra-compact size — infusing the soul of humanity into the core of AI, making lightspeed travel a reality. #AI #MotionCapture #MoCapChip #HumanoidRobot #MadeInChina #ZeroLab",
-        "title": "Industry KOL Joyce Endorses ZeroLab"
-      },
-      {
-        "description": "Mr. Kan Yigong, founder of the Xiaoxiaowuke curriculum system, uses ZeroLab's wireless full-body motion capture suit to collect essence motion data from the Sun-Moon Form of Tai Chi. The ZeroLab Motion Tracker offers exceptional data stability and precision, with built-in advanced spatial position correction algorithms for accurate joint position tracking. It features quick wear, a snug fit, and up to 8 hours of standby, enabling motion data capture anytime, anywhere without venue limitations.",
-        "title": "Tai Chi Expert Uses ZeroLab Full-Body MoCap for Cultural Heritage Data Collection"
-      },
-      {
-        "description": "ZeroLab Data Gloves are interactive gloves based on MEMS inertial sensor motion capture technology for hand motion digitization. They recognize finger movements in real time, delivering precise five-finger motion in virtual interactions. Users enjoy an immersive experience, freely exploring virtual spaces with full presence.",
-        "title": "ZeroLab Data Gloves Interactive Experience"
-      }
-    ],
-    "title": "Solutions"
   }
 }
