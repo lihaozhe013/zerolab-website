@@ -1,6 +1,9 @@
+import { useCallback, useEffect, useRef } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import videojs from "video.js";
+import "video.js/dist/video-js.css";
 
 interface VideoCardProps {
   title: string;
@@ -16,17 +19,46 @@ export default function VideoCard({
   linkTo = "/contact",
 }: VideoCardProps) {
   const { t } = useTranslation();
+  const playerRef = useRef<ReturnType<typeof videojs> | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const disposePlayer = useCallback(() => {
+    if (playerRef.current) {
+      playerRef.current.dispose();
+      playerRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    disposePlayer();
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const videoEl = document.createElement("video");
+    videoEl.className = "video-js vjs-big-play-centered w-full h-full";
+    videoEl.setAttribute("playsinline", "");
+    container.appendChild(videoEl);
+
+    const player = videojs(videoEl, {
+      controls: true,
+      autoplay: true,
+      muted: true,
+      sources: [{ src: videoSrc, type: "video/mp4" }],
+    });
+
+    playerRef.current = player;
+
+    return disposePlayer;
+  }, [videoSrc, disposePlayer]);
+
   return (
     <Box className="mb-10">
-      <Box className="w-full">
-        <video
-          src={videoSrc}
-          controls
-          muted
-          autoPlay
-          className="w-full"
-        />
-      </Box>
+      <Box
+        ref={containerRef}
+        className="w-full rounded-xl overflow-hidden bg-black"
+        sx={{ aspectRatio: "16/9", position: "relative", "& .video-js": { width: "100%", height: "100%", position: "absolute", top: 0, left: 0 } }}
+      />
       <Typography variant="h6" sx={{ my: 5 }} className="font-semibold text-[#222]">
         {title}
       </Typography>
