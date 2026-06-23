@@ -55,17 +55,6 @@ export default function ContactPage() {
       <Box className="pb-10">
         <ContactInfo />
       </Box>
-
-      <Box className="text-center py-10">
-        <a href="mailto:info@zero-lab.tech">
-          <Button
-            variant="outlined"
-            className="border-[#08b4ce] text-[#08b4ce] px-8 py-3 hover:bg-[#08b4ce] hover:text-white normal-case"
-          >
-            {t("common.send_email")}
-          </Button>
-        </a>
-      </Box>
     </>
   );
 }

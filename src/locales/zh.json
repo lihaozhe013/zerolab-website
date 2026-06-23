@@ -40,14 +40,15 @@
     "send_email": "发送邮件咨询"
   },
   "contact": {
-    "address_subtitle": "上海市杨浦区政立路421号",
-    "address_title": "天盛科创广场C座908室",
-    "email": "info@zero-lab.tech",
-    "email_prompt": "可以通过邮件方式咨询我们",
-    "hours": "周一到周五，上午 9 点到下午 6 点",
+    "address_subtitle": "上海市杨浦区长阳路1687号长阳创谷C3栋103-5室",
+    "address_title": "总部地址",
+    "email": "邮件咨询",
+    "email_prompt": "info@zero-lab.tech",
+    "hours": "北京时间周一到周五，上午9点-下午6点",
     "map_marker": "天璺科技（上海）有限公司 ZeroLab",
-    "phone": "021-55809628",
-    "title": "联系我们 Contact Us"
+    "phone": "电话咨询",
+    "title": "联系我们",
+    "phone_number": "+86 021-55809628"
   },
   "footer": {
     "about_title": "天璺科技 (ZeroLab)",

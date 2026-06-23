@@ -1,28 +1,53 @@
-import { Box, Typography } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
+import { Box, Typography, Card, CardContent } from "@mui/material";
+import { FiHome, FiPhone, FiMail } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 
 interface ContactItemProps {
   icon: React.ReactNode;
   title: string;
   subtitle: string;
+  extraText?: string;
 }
 
-function ContactItem({ icon, title, subtitle }: ContactItemProps) {
+function ContactItem({ icon, title, subtitle, extraText }: ContactItemProps) {
   return (
-    <Box className="flex items-center gap-8 mb-10 flex-1 justify-center">
-      <Box className="text-[#08b4ce] text-[30px]">{icon}</Box>
-      <Box>
-        <Typography variant="h6" sx={{ mb: 2 }} className="text-[#08b4ce] font-normal text-lg">
+    <Card
+      elevation={0}
+      sx={{
+        height: "100%",
+        borderRadius: 3,
+        border: "1px solid #eee",
+        transition: "border-color 0.3s",
+        "&:hover": { borderColor: "#08b4ce" },
+      }}
+    >
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          py: 5,
+          px: 3,
+        }}
+      >
+        <Box className="text-[#08b4ce] text-[60px] mb-5 leading-none">{icon}</Box>
+        <Typography
+          variant="h6"
+          sx={{ mb: 2, fontWeight: 700 }}
+          className="text-[#222]"
+        >
           {title}
         </Typography>
+        {extraText && (
+          <Typography variant="body2" sx={{ mb: 0.5 }} className="text-[#777]">
+            {extraText}
+          </Typography>
+        )}
         <Typography variant="body2" className="text-[#777]">
           {subtitle}
         </Typography>
-      </Box>
-    </Box>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -30,19 +55,20 @@ export default function ContactInfo() {
   const { t } = useTranslation();
   return (
     <Box className="w-[80%] mx-auto">
-      <Box className="flex flex-wrap justify-around items-center max-md:flex-col">
+      <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1 max-md:gap-6">
         <ContactItem
-          icon={<HomeIcon />}
+          icon={<FiHome />}
           title={t("contact.address_title")}
           subtitle={t("contact.address_subtitle")}
         />
         <ContactItem
-          icon={<PhoneIcon />}
+          icon={<FiPhone />}
           title={t("contact.phone")}
           subtitle={t("contact.hours")}
+          extraText={t("contact.phone_number")}
         />
         <ContactItem
-          icon={<EmailIcon />}
+          icon={<FiMail />}
           title={t("contact.email")}
           subtitle={t("contact.email_prompt")}
         />

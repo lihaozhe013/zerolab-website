@@ -3,7 +3,6 @@
     "company_name": "ZeroLab Technologies Co.,Ltd",
     "company_name_en": "",
     "description": "ZeroLab focuses on motion capture, embodied AI teleoperation, and data acquisition. The company provides full-stack solutions, including self-developed, low-cost, high-precision wireless motion capture SiP chips and modules, full-body inertial motion capture systems, teleoperation platforms, and the bipedal robot high-dynamic imitation platform. ZeroLab builds an ecosystem based on mocap and teleoperation technologies, constructing an embodied AI database based on real world data to accelerate the training of embodied AI brains in generalized scenarios.",
-
     "title": "About Us"
   },
   "application": {
@@ -41,14 +40,15 @@
     "send_email": "Email Us"
   },
   "contact": {
-    "address_subtitle": "No. 421, Zhengli Road, Yangpu, Shanghai",
-    "address_title": "Rm 908, Block C, Tiansheng Kechuang Plaza",
-    "email": "info@zero-lab.tech",
-    "email_prompt": "Reach us via email",
-    "hours": "Monday to Friday, 9:00 AM – 6:00 PM",
+    "address_subtitle": "C3-103-5, 1687 Changyang Rd, Shanghai, China",
+    "address_title": "Address (HQ)",
+    "email": "Email",
+    "email_prompt": "info@zero-lab.tech",
+    "hours": "Mon-Fri, 9:00 AM - 6:00 PM (UTC+8)",
     "map_marker": "ZeroLab",
-    "phone": "021-55809628",
-    "title": "Contact Us"
+    "phone": "Phone",
+    "title": "Contact Us",
+    "phone_number": "+86 021-55809628"
   },
   "footer": {
     "about_title": "ZeroLab",
