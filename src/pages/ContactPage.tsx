@@ -20,10 +20,10 @@ export default function ContactPage() {
       if (typeof AMap !== "undefined" && mapRef.current) {
         const map = new AMap.Map(mapRef.current, {
           zoom: 15,
-          center: [121.545, 31.284],
+          center: [121.533309, 31.27254],
         });
         const marker = new AMap.Marker({
-          position: new AMap.LngLat(121.545, 31.284),
+          position: new AMap.LngLat(121.533309, 31.27254),
           title: t("contact.map_marker"),
         });
         map.add(marker);
