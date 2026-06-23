@@ -19,7 +19,7 @@ export default function SubHeader({
     >
       <Navbar transparent />
       <Box className="flex-1 flex items-center justify-center mt-16">
-        <Typography variant="h3" className="font-semibold text-center px-4">
+        <Typography variant="h3" className="text-center px-4" style={{ fontWeight: 800 }}>
           {title}
         </Typography>
       </Box>

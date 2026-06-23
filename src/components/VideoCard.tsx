@@ -53,19 +53,19 @@ export default function VideoCard({
   }, [videoSrc, disposePlayer]);
 
   return (
-    <Box className="mb-10">
+    <Box className="mb-8">
+      <Typography variant="h4" sx={{ mb: 3, fontWeight: 700 }} className="text-[#222]">
+        {title}
+      </Typography>
       <Box
         ref={containerRef}
         className="w-full rounded-xl overflow-hidden bg-black"
         sx={{ aspectRatio: "16/9", position: "relative", "& .video-js": { width: "100%", height: "100%", position: "absolute", top: 0, left: 0 } }}
       />
-      <Typography variant="h6" sx={{ my: 5 }} className="font-semibold text-[#222]">
-        {title}
-      </Typography>
-      <Typography variant="body2" className="text-[#999] leading-relaxed">
+      <Typography variant="body2" sx={{ mt: 3, mb: 4 }} className="text-[#999] leading-relaxed">
         {description}
       </Typography>
-      <Link to={linkTo} className="inline-block mt-5">
+      <Link to={linkTo} className="inline-block">
         <Button
           variant="outlined"
           className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
