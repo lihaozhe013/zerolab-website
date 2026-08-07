@@ -34,32 +34,146 @@ export default function PartnerCarousel() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { t } = useTranslation();
-  const itemsPerPage = isMobile ? 2 : 3;
-  const maxOffset = partnerSrcs.length - itemsPerPage;
-  const [offset, setOffset] = useState(0);
   const [paused, setPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval>>(undefined);
+  const [isButtonAnimating, setIsButtonAnimating] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const offsetRef = useRef(0);
+  const animationFrameRef = useRef<number | null>(null);
+  const buttonAnimationFrameRef = useRef<number | null>(null);
+  const dragStartRef = useRef<{ x: number; offset: number } | null>(null);
   const partnerNames = t('partners.names', { returnObjects: true }) as string[];
+  const w = isMobile ? ITEM_WIDTH_MOBILE : ITEM_WIDTH;
+  const loopWidth = partnerSrcs.length * w;
 
-  const autoNext = useCallback(() => {
-    setOffset((o) => (o + itemsPerPage > maxOffset ? 0 : o + itemsPerPage));
-  }, [itemsPerPage, maxOffset]);
+  const setTrackPosition = useCallback((offset: number) => {
+    if (trackRef.current) trackRef.current.style.transform = `translateX(-${offset}px)`;
+  }, []);
 
-  const nextOne = useCallback(() => {
-    setOffset((o) => (o + 1 > maxOffset ? 0 : o + 1));
-  }, [maxOffset]);
+  const moveTrack = useCallback(
+    (distance: number) => {
+      let nextOffset = offsetRef.current + distance;
+      nextOffset %= loopWidth;
+      if (nextOffset < 0) nextOffset += loopWidth;
+      offsetRef.current = nextOffset;
+      setTrackPosition(nextOffset);
+    },
+    [loopWidth, setTrackPosition],
+  );
 
-  const prevOne = useCallback(() => {
-    setOffset((o) => (o - 1 < 0 ? maxOffset : o - 1));
-  }, [maxOffset]);
+  const slideByButton = useCallback(
+    (distance: number) => {
+      if (buttonAnimationFrameRef.current !== null) {
+        window.cancelAnimationFrame(buttonAnimationFrameRef.current);
+      }
+
+      let startOffset = offsetRef.current;
+      // Use the duplicated half of the track when moving left from the first card,
+      // so the slide stays visually continuous at the loop seam.
+      if (distance < 0 && startOffset + distance < 0) startOffset += loopWidth;
+      const targetOffset = startOffset + distance;
+      const startedAt = performance.now();
+      const duration = 620;
+
+      setIsButtonAnimating(true);
+      setTrackPosition(startOffset);
+
+      const animate = (timestamp: number) => {
+        const progress = Math.min((timestamp - startedAt) / duration, 1);
+        const easedProgress = 1 - (1 - progress) ** 3;
+        const currentOffset = startOffset + (targetOffset - startOffset) * easedProgress;
+        setTrackPosition(currentOffset);
+
+        if (progress < 1) {
+          buttonAnimationFrameRef.current = window.requestAnimationFrame(animate);
+          return;
+        }
+
+        offsetRef.current = targetOffset % loopWidth;
+        if (offsetRef.current < 0) offsetRef.current += loopWidth;
+        setTrackPosition(offsetRef.current);
+        buttonAnimationFrameRef.current = null;
+        setIsButtonAnimating(false);
+      };
+
+      buttonAnimationFrameRef.current = window.requestAnimationFrame(animate);
+    },
+    [loopWidth, setTrackPosition],
+  );
+
+  const nextOne = useCallback(() => slideByButton(w), [slideByButton, w]);
+  const prevOne = useCallback(() => slideByButton(-w), [slideByButton, w]);
+
+  const startDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (buttonAnimationFrameRef.current !== null) {
+      window.cancelAnimationFrame(buttonAnimationFrameRef.current);
+      buttonAnimationFrameRef.current = null;
+      setIsButtonAnimating(false);
+    }
+    event.currentTarget.setPointerCapture(event.pointerId);
+    dragStartRef.current = { x: event.clientX, offset: offsetRef.current };
+    setIsDragging(true);
+  };
+
+  const dragTrack = (event: React.PointerEvent<HTMLDivElement>) => {
+    const dragStart = dragStartRef.current;
+    if (!dragStart) return;
+
+    const dragDistance = dragStart.x - event.clientX;
+    let nextOffset = dragStart.offset + dragDistance;
+    // The second copy of the cards makes crossing either edge feel continuous.
+    if (nextOffset < 0) nextOffset += loopWidth;
+    setTrackPosition(nextOffset);
+  };
+
+  const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragStartRef.current) return;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    const dragDistance = dragStartRef.current.x - event.clientX;
+    let nextOffset = dragStartRef.current.offset + dragDistance;
+    nextOffset %= loopWidth;
+    if (nextOffset < 0) nextOffset += loopWidth;
+    offsetRef.current = nextOffset;
+    setTrackPosition(nextOffset);
+    dragStartRef.current = null;
+    setIsDragging(false);
+  };
 
   useEffect(() => {
-    if (paused) return;
-    timerRef.current = setInterval(autoNext, 2000);
-    return () => clearInterval(timerRef.current);
-  }, [paused, autoNext]);
+    offsetRef.current = 0;
+    setTrackPosition(0);
+  }, [setTrackPosition, w]);
 
-  const w = isMobile ? ITEM_WIDTH_MOBILE : ITEM_WIDTH;
+  useEffect(() => {
+    if (paused || isButtonAnimating || isDragging) return;
+
+    let previousTimestamp: number | null = null;
+    const animate = (timestamp: number) => {
+      if (previousTimestamp !== null) {
+        // 32 pixels per second keeps the motion smooth while making the loop more lively.
+        moveTrack(((timestamp - previousTimestamp) / 1000) * 32);
+      }
+      previousTimestamp = timestamp;
+      animationFrameRef.current = window.requestAnimationFrame(animate);
+    };
+
+    animationFrameRef.current = window.requestAnimationFrame(animate);
+    return () => {
+      if (animationFrameRef.current !== null) window.cancelAnimationFrame(animationFrameRef.current);
+    };
+  }, [isButtonAnimating, isDragging, moveTrack, paused]);
+
+  useEffect(
+    () => () => {
+      if (buttonAnimationFrameRef.current !== null) {
+        window.cancelAnimationFrame(buttonAnimationFrameRef.current);
+      }
+    },
+    [],
+  );
 
   return (
     <Box sx={{ pb: 4 }} className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[95%]">
@@ -72,28 +186,39 @@ export default function PartnerCarousel() {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <Box className="overflow-hidden">
+        <Box
+          className="overflow-hidden"
+          onPointerDown={startDrag}
+          onPointerMove={dragTrack}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+          sx={{ cursor: isDragging ? 'grabbing' : 'grab', touchAction: 'pan-y', userSelect: 'none' }}
+        >
           <Box
+            ref={trackRef}
             sx={{
               display: 'flex',
-              transition: 'transform 0.6s ease',
-              transform: `translateX(-${offset * w}px)`,
+              willChange: 'transform',
             }}
           >
-            {partnerSrcs.map((src, i) => (
+            {[...partnerSrcs, ...partnerSrcs].map((src, i) => {
+              const partnerIndex = i % partnerSrcs.length;
+              const isDuplicate = i >= partnerSrcs.length;
+              return (
               <Box
-                key={i}
+                key={`${src}-${i}`}
                 className="flex-none text-center bg-white rounded-2xl p-[30px] transition-all duration-500 hover:-translate-y-1 border border-gray-200 hover:border-[#08b4ce]"
                 sx={{ width: w - 40, mx: 2.5 }}
               >
                 <Box
                   component="img"
                   src={src}
-                  alt={partnerNames[i] || ''}
+                  alt={isDuplicate ? '' : partnerNames[partnerIndex] || ''}
                   className="w-[200px] h-[200px] object-contain rounded bg-transparent max-md:w-[140px] max-md:h-[140px]"
                 />
               </Box>
-            ))}
+              );
+            })}
           </Box>
         </Box>
 

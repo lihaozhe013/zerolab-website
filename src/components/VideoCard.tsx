@@ -74,7 +74,7 @@ export default function VideoCard({
           variant="outlined"
           className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
         >
-          {t('common.learn_more')}
+          {t('common.contact_us')}
         </Button>
       </Link>
     </Box>

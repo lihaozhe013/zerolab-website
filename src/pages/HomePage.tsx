@@ -12,7 +12,7 @@ const productImages = [
 ];
 
 const appImages = [
-  '/images/Designer (7).png',
+  '/images/MixedReality.png',
   '/images/Designer (8).png',
   '/images/Designer (9).png',
 ];
@@ -34,36 +34,53 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <Box
-        className="min-h-screen w-full bg-cover bg-center relative"
-        sx={{
-          backgroundImage:
-            'linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/images/banner.png)',
-        }}
-      >
-        <Box className="min-h-screen flex items-center justify-center text-left text-white px-4 pt-16">
-          <Box className="max-w-[90%]">
+      <Box className="relative min-h-screen w-full overflow-hidden bg-[#04091e]">
+        <Box
+          component="video"
+          src="/videos/ZeroLabVid.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <Box className="absolute inset-0 bg-gradient-to-r from-[#04091e]/90 via-[#04091e]/65 to-[#04091e]/30" />
+        <Box className="relative z-10 min-h-screen flex items-end text-left text-white px-[8%] pb-[13vh] pt-[160px] max-md:px-6 max-md:pb-[11vh]">
+          <Box className="max-w-[820px]">
             <Typography
               variant="h1"
-              sx={{ fontSize: { xs: '40px', md: '60px' }, mb: 6, fontWeight: 800 }}
+              sx={{
+                fontSize: { xs: '44px', md: 'clamp(58px, 5.5vw, 88px)' },
+                mb: { xs: 3, md: 4 },
+                fontWeight: 700,
+                letterSpacing: '-0.045em',
+                lineHeight: 0.98,
+              }}
             >
               {t('home.hero.title')}
             </Typography>
             <Typography
               variant="body1"
-              sx={{ mb: 6 }}
-              className="text-xl mt-2.5 leading-relaxed max-md:text-base"
+              sx={{ mb: 2, fontSize: { xs: '18px', md: '24px' }, fontWeight: 500 }}
+              className="max-w-[620px] leading-snug"
             >
               {t('home.hero.description_p1')}
-              <br />
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{ mb: 5, fontSize: { xs: '15px', md: '17px' } }}
+              className="max-w-[590px] leading-relaxed text-white/75"
+            >
               {t('home.hero.description_p2')}
             </Typography>
-            <Link to="/about">
+            <Link to="/product">
               <Button
                 variant="outlined"
-                className="text-white border-white px-8 py-3 text-[13px] hover:border-[#08b4ce] hover:bg-[#08b4ce] transition-all duration-1000 normal-case"
+                className="text-white border-white/70 px-7 py-2.5 text-[13px] font-semibold hover:border-[#08b4ce] hover:bg-[#08b4ce] transition-all duration-300 normal-case"
               >
-                {t('common.learn_more')}
+                {t('common.explore_products')}
               </Button>
             </Link>
           </Box>
@@ -106,7 +123,7 @@ export default function HomePage() {
                     variant="outlined"
                     className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
                   >
-                    {t('common.learn_more')}
+                    {t('common.view_products')}
                   </Button>
                 </Link>
               </Box>

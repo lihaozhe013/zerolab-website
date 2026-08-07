@@ -26,11 +26,9 @@ const navItems = [
   { key: 'contact', path: '/contact' },
 ];
 
-interface NavbarProps {
-  transparent?: boolean;
-}
+const primaryNavItems = navItems.filter((item) => item.key !== 'contact');
 
-export default function Navbar({ transparent = false }: NavbarProps) {
+export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
@@ -45,40 +43,51 @@ export default function Navbar({ transparent = false }: NavbarProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isHome = location.pathname === '/';
-  const isTransparent = (isHome || transparent) && !scrolled;
-  const AppBarStyle = isTransparent
-    ? { background: 'transparent', boxShadow: 'none' }
-    : { background: 'rgba(0,0,0,0.65)', boxShadow: 'none', backdropFilter: 'blur(8px)' };
-
-  const position = isTransparent ? 'absolute' : 'sticky';
-
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh');
   };
 
   return (
     <>
-      <AppBar position={position} sx={{ ...AppBarStyle, top: 0 }}>
-        <Toolbar className="justify-between px-[6%]">
+      <AppBar position="fixed" sx={{ top: 0, background: 'transparent', boxShadow: 'none' }}>
+        <Toolbar
+          className="justify-between"
+          sx={{
+            px: { xs: 2.5, md: 4 },
+            minHeight: { xs: 76, md: scrolled ? 88 : 108 },
+            transition: 'min-height 800ms cubic-bezier(0.22, 1, 0.36, 1)',
+          }}
+        >
           <Link to="/">
-            <Box component="img" src="/images/LOGO1.png" alt="ZeroLab Logo" sx={{ height: 40 }} />
+            <Box
+              component="img"
+              src="/images/LOGO1.png"
+              alt="ZeroLab Logo"
+              sx={{
+                height: { xs: 46, md: 58 },
+                display: 'block',
+                transition: 'transform 180ms ease',
+                '&:hover': { transform: 'scale(0.95)' },
+              }}
+            />
           </Link>
 
           {isMobile ? (
-            <Box className="flex items-center gap-2">
+            <Box
+              className="flex items-center gap-1 rounded-full px-1.5 py-1"
+              sx={{ backgroundColor: 'rgba(9, 19, 21, 0.72)', backdropFilter: 'blur(12px)' }}
+            >
               <Button
                 onClick={toggleLang}
                 startIcon={<LanguageIcon />}
                 sx={{
                   color: 'white',
-                  ml: 2,
-                  fontSize: 13,
+                  fontSize: 14,
                   fontWeight: 600,
                   border: '1px solid rgba(255,255,255,0.5)',
-                  borderRadius: '20px',
-                  px: 2,
-                  py: 0.5,
+                  borderRadius: '999px',
+                  px: 1.75,
+                  py: 0.75,
                   textTransform: 'none',
                   '&:hover': {
                     borderColor: '#08b4ce',
@@ -89,40 +98,67 @@ export default function Navbar({ transparent = false }: NavbarProps) {
               >
                 {i18n.language === 'zh' ? 'EN' : '中文'}
               </Button>
-              <IconButton color="inherit" onClick={() => setDrawerOpen(true)} edge="end">
+              <IconButton color="inherit" onClick={() => setDrawerOpen(true)} edge="end" size="large">
                 <MenuIcon />
               </IconButton>
             </Box>
           ) : (
-            <Box component="nav" className="flex gap-1 items-center">
-              {navItems.map((item) => (
+            <Box className="flex items-center gap-2">
+              <Box
+                component="nav"
+                className="flex items-center rounded-full p-2"
+                sx={{
+                  backgroundColor: 'transparent',
+                }}
+              >
+                <Box
+                  className="flex overflow-hidden"
+                  sx={{
+                    maxWidth: scrolled ? 0 : 480,
+                    opacity: scrolled ? 0 : 1,
+                    transition: 'max-width 1050ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms ease',
+                    pointerEvents: scrolled ? 'none' : 'auto',
+                  }}
+                >
+                  {primaryNavItems.map((item) => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`whitespace-nowrap rounded-full px-4 py-2.5 text-[15px] font-semibold transition-colors hover:text-[#08b4ce] ${
+                        location.pathname === item.path
+                          ? 'bg-[#0d5666] text-[#72e5f3]'
+                          : 'text-[#e5f5f7]'
+                      }`}
+                    >
+                      {t(`nav.${item.key}`)}
+                    </Link>
+                  ))}
+                </Box>
                 <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`relative px-3 py-2 text-white text-sm transition-colors hover:text-[#08b4ce] after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:bg-[#08b4ce] after:transition-all after:duration-300 hover:after:w-full ${
-                    location.pathname === item.path ? 'text-[#08b4ce] after:w-full' : 'after:w-0'
+                  to="/contact"
+                  className={`whitespace-nowrap rounded-full px-5 py-2.5 text-[15px] font-bold transition-colors ${
+                    location.pathname === '/contact'
+                      ? 'bg-[#069ab0] text-white'
+                      : 'bg-[#08b4ce] text-white hover:bg-[#069ab0]'
                   }`}
                 >
-                  {t(`nav.${item.key}`)}
+                  {t('nav.contact')}
                 </Link>
-              ))}
+              </Box>
               <Button
                 onClick={toggleLang}
                 startIcon={<LanguageIcon />}
                 sx={{
                   color: 'white',
-                  ml: 2,
-                  fontSize: 13,
-                  fontWeight: 600,
-                  border: '1px solid rgba(255,255,255,0.5)',
-                  borderRadius: '20px',
-                  px: 2,
-                  py: 0.5,
+                  backgroundColor: '#08b4ce',
+                  fontSize: 15,
+                  fontWeight: 700,
+                  borderRadius: '999px',
+                  minHeight: 52,
+                  px: 2.5,
                   textTransform: 'none',
                   '&:hover': {
-                    borderColor: '#08b4ce',
-                    color: '#08b4ce',
-                    backgroundColor: 'rgba(8,180,206,0.1)',
+                    backgroundColor: '#069ab0',
                   },
                 }}
               >

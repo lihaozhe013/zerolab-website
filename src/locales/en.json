@@ -36,8 +36,11 @@
   },
   "common": {
     "contact_us": "Contact Us",
+    "explore_products": "Explore Products",
     "learn_more": "Learn More",
-    "send_email": "Email Us"
+    "send_email": "Email Us",
+    "view_product_details": "View Product Details",
+    "view_products": "View Products"
   },
   "contact": {
     "address_subtitle": "C3-103-5, 1687 Changyang Rd, Shanghai, China",
@@ -92,9 +95,9 @@
       "title": "Environment"
     },
     "hero": {
-      "description_p1": "ZeroLab transforms human intent into precise robotic action.",
-      "description_p2": "Our wearable inertial systems deliver seamless teleoperation and generate the high-fidelity data foundation needed to train Embodied AI.",
-      "title": "MOVE AS ONE"
+      "description_p1": "Precision motion data for the next generation of robots.",
+      "description_p2": "ZeroLab turns human movement into high-fidelity data and seamless teleoperation—giving embodied AI the foundation to learn, adapt, and perform.",
+      "title": "HUMAN MOTION, MADE ACTIONABLE."
     },
     "products": {
       "items": [
@@ -153,19 +156,22 @@
     "items": [
       {
         "description": "A humanoid robot typically consists of around 30 motors, making traditional programming approaches insufficient for full-body control. ZeroLab provides complete data acquisition and teleoperation solutions ranging from motion mapping to motion control, helping users accelerate humanoid locomotion, anthropomorphic movement, imitation learning, and zero-shot transfer.",
-        "link_text": "Solution Overview",
+        "link_text": "View Teleoperation Solution",
         "title": "Humanoid Robot Teleoperation"
       },
       {
         "description": "The F-1 is a full-body motion capture system with 13 wireless sensors attached to key body joints, paired with a form-fitting comfortable tracker strap kit. It supports fast, simple, and reliable motion data capture, making it the ideal choice for film professionals and animation creators.",
+        "link_text": "Download F-1 Brochure",
         "title": "F1 Full-Body Motion Capture Suit"
       },
       {
         "description": "The H1 Data Gloves deliver exceptional cost-performance, high precision, and lightweight comfort. Each finger features a 10-bit high-resolution bend sensor combined with a low-latency integrated inertial orientation module, enabling real-time capture of fine hand movements.",
+        "link_text": "Download H1 Brochure",
         "title": "H1 Developer Data Gloves"
       },
       {
         "description": "The ZeroLab ZL9NSQ is an ultra-slim wireless inertial sensor chip offering a low-power, high-precision all-in-one system-in-package solution for motion capture. Leveraging the latest Chiplet technology, it achieves unprecedented integration in an ultra-compact 10x10x2 mm package.",
+        "link_text": "Download ZL9NSQ Brochure",
         "title": "ZL9NSQ SiP Wireless Motion Sensor Chip"
       }
     ],

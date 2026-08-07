@@ -18,7 +18,7 @@ export default function ProductCard({
   linkText,
 }: ProductCardProps) {
   const { t } = useTranslation();
-  const buttonText = linkText || t('common.learn_more');
+  const buttonText = linkText || t('common.view_product_details');
   return (
     <Box className="flex flex-wrap justify-between gap-y-5 mb-5 max-md:flex-col">
       <Box className="flex-1 min-w-[48%] bg-[#dbdbdb] rounded-lg p-5 max-md:min-w-full">

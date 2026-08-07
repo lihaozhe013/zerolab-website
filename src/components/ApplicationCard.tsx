@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface ApplicationCardProps {
   title: string;
@@ -7,7 +8,12 @@ interface ApplicationCardProps {
 
 export default function ApplicationCard({ title, image }: ApplicationCardProps) {
   return (
-    <Box className="relative flex-1 min-w-[32%] rounded-lg overflow-hidden mb-7 max-md:min-w-full group cursor-pointer">
+    <Box
+      component={Link}
+      to="/application"
+      className="relative flex-1 min-w-[32%] rounded-lg overflow-hidden mb-7 max-md:min-w-full group cursor-pointer"
+      aria-label={title}
+    >
       <Box
         component="img"
         src={image}

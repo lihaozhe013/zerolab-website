@@ -57,14 +57,25 @@ export default function ProductPage() {
                 >
                   {product.description}
                 </Typography>
-                <Link to={productLinks[i]} className="self-start">
-                  <Button
-                    variant="outlined"
-                    className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
-                  >
-                    {product.link_text || t('common.learn_more')}
-                  </Button>
-                </Link>
+                {productLinks[i].startsWith('/document/') ? (
+                  <a href={productLinks[i]} className="self-start" target="_blank" rel="noreferrer">
+                    <Button
+                      variant="outlined"
+                      className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+                    >
+                      {product.link_text || t('common.view_product_details')}
+                    </Button>
+                  </a>
+                ) : (
+                  <Link to={productLinks[i]} className="self-start">
+                    <Button
+                      variant="outlined"
+                      className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
+                    >
+                      {product.link_text || t('common.view_product_details')}
+                    </Button>
+                  </Link>
+                )}
               </Box>
             </Box>
           ))}
