@@ -1,8 +1,13 @@
 {
   "about": {
+    "careers_cta": "联系我们",
+    "collab_alt": "ZeroLab 团队在实验室协作",
     "company_name": "天璺科技（上海）有限公司",
     "company_name_en": "ZeroLab Technologies Co.,Ltd",
     "description": "天璺科技专注于运动捕捉、具身智能遥操作及数据采集，提供自研低成本、高精度的无线运动捕捉SiP芯片、模组、全身惯性动作捕捉系统、遥操作平台及\"如影随形\"双足机器人高动态模仿平台等全栈解决方案。公司构建基于运动与遥操作技术的生态系统，建设\"真人、真机、真实场景、真实工作\"的具身智能数据库，助力泛化场景下的具身智能大脑训练。",
+    "eyebrow": "关于我们",
+    "headline": "以人体运动数据，推动下一代具身智能。",
+    "story_label": "我们的故事",
     "title": "关于我们"
   },
   "application": {
@@ -56,10 +61,14 @@
   "footer": {
     "about_title": "天璺科技 (ZeroLab)",
     "address": "地址：上海市杨浦区长阳路1687号长阳创谷C3栋103-5室",
+    "company": "公司",
     "description": "成立于2021年9月18日",
     "icp": "备案编号：沪 ICP 备 2021030591 号",
     "phone": "电话：+86 021-55809628",
-    "slogan": "意动，形随"
+    "rights": "保留所有权利。",
+    "slogan": "意动，形随",
+    "wechat_alt": "ZeroLab 微信二维码",
+    "wechat_prompt": "扫码关注 ZeroLab 微信公众号。"
   },
   "home": {
     "applications": {
@@ -97,7 +106,7 @@
     "hero": {
       "description_p1": "为下一代机器人提供精准运动数据。",
       "description_p2": "ZeroLab 将人体动作转化为高保真数据与无缝遥操作，为具身智能的学习、适应与执行打下基础。",
-      "title": "让人类动作，成为机器能力。"
+      "title": "让人类动作，\n为机器能力。"
     },
     "products": {
       "items": [
@@ -118,7 +127,8 @@
           "title": "ZL9NSQ SiP 无线姿态传感芯片"
         }
       ],
-      "title": "产品"
+      "subtitle": "ZeroLab提供从无线动作捕捉芯片到人形机器人遥操作和数据采集的完整方案，包括ZL9NSQ SiP无线姿态传感芯片、惯性全身动作捕捉套装、开发者数据手套，以及人形机器人遥操作和数据采集产品。",
+      "title": "我们的产品 Products"
     }
   },
   "nav": {
@@ -175,6 +185,7 @@
         "title": "ZL9NSQ SiP 无线姿态传感器芯片"
       }
     ],
+    "page_title": "我们的产品 Products",
     "title": "产品"
   },
   "solution": {

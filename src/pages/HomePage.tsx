@@ -13,8 +13,8 @@ const productImages = [
 
 const appImages = [
   '/images/MixedReality.png',
-  '/images/Designer (8).png',
-  '/images/Designer (9).png',
+  '/images/Teleoperation 2.png',
+  '/images/Sports.png',
 ];
 
 const envImages = ['/images/reception.png', '/images/Lab.JPG', '/images/Datacenter.JPG'];
@@ -57,6 +57,7 @@ export default function HomePage() {
                 fontWeight: 700,
                 letterSpacing: '-0.045em',
                 lineHeight: 0.98,
+                whiteSpace: 'pre-line',
               }}
             >
               {t('home.hero.title')}
@@ -91,42 +92,46 @@ export default function HomePage() {
       <PartnerCarousel />
 
       {/* Products Section */}
-      <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
-        <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-          {t('home.products.title')}
+      <Box className="w-[80%] mx-auto pt-[100px] text-center max-md:w-[90%]">
+        <Box className="mb-4 text-center">
+          <Typography variant="h3" sx={{ fontWeight: 800, letterSpacing: '-0.02em', mb: 2 }}>
+            {t('home.products.title')}
+          </Typography>
+          <Box sx={{ width: 60, height: 3, bgcolor: '#08b4ce', mx: 'auto', borderRadius: 2 }} />
+        </Box>
+        <Typography
+          sx={{
+            fontSize: { xs: 14, md: 15 },
+            lineHeight: 1.8,
+            lineBreak: 'strict',
+          }}
+          className="mb-10 w-full text-[#777]"
+        >
+          {t('home.products.subtitle')}
         </Typography>
-        <Box className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
+        <Box className="grid grid-cols-2 gap-x-3 gap-y-[51px] max-md:grid-cols-1">
           {productItems.map((product, i) => (
-            <Box key={i} className="flex flex-col rounded-xl overflow-hidden bg-white">
-              <Box className="relative overflow-hidden">
-                <Box
-                  component="img"
-                  src={productImages[i]}
-                  alt={product.title}
-                  className="w-full h-[280px] object-cover transition-transform duration-700 hover:scale-110 max-md:h-[220px]"
-                />
-                <Box className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </Box>
-              <Box className="p-6 flex flex-col flex-1 text-left max-md:p-4">
-                <Typography variant="h5" sx={{ mb: 2 }} className="font-semibold">
-                  {product.title}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ mb: 4 }}
-                  className="text-[#777] leading-relaxed flex-1 text-sm"
+            <Box key={i} className="flex flex-col rounded-[10px] bg-[#dbdbdb] px-3 py-5">
+              <Typography variant="h6" sx={{ mb: 2 }} className="font-semibold">
+                {product.title}
+              </Typography>
+              <Box
+                component="img"
+                src={productImages[i]}
+                alt={product.title}
+                className="h-[400px] w-full object-cover max-md:h-[280px]"
+              />
+              <Typography className="flex-1 px-2.5 py-2.5 text-sm font-light leading-[22px] text-[#777]">
+                {product.description}
+              </Typography>
+              <Link to="/product" className="self-center">
+                <Button
+                  variant="outlined"
+                  className="border-[#08b4ce] px-[34px] py-3 text-[13px] font-normal text-[#08b4ce] transition-colors duration-300 hover:bg-[#08b4ce] hover:text-white normal-case"
                 >
-                  {product.description}
-                </Typography>
-                <Link to="/product" className="self-start">
-                  <Button
-                    variant="outlined"
-                    className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
-                  >
-                    {t('common.view_products')}
-                  </Button>
-                </Link>
-              </Box>
+                  {t('common.view_products')}
+                </Button>
+              </Link>
             </Box>
           ))}
         </Box>

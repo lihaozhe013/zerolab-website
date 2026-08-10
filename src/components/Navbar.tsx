@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   AppBar,
@@ -26,22 +26,12 @@ const navItems = [
   { key: 'contact', path: '/contact' },
 ];
 
-const primaryNavItems = navItems.filter((item) => item.key !== 'contact');
-
 export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
   const { t, i18n } = useTranslation();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh');
@@ -54,8 +44,7 @@ export default function Navbar() {
           className="justify-between"
           sx={{
             px: { xs: 2.5, md: 4 },
-            minHeight: { xs: 76, md: scrolled ? 88 : 108 },
-            transition: 'min-height 800ms cubic-bezier(0.22, 1, 0.36, 1)',
+            minHeight: { xs: 72, md: 80 },
           }}
         >
           <Link to="/">
@@ -75,7 +64,7 @@ export default function Navbar() {
           {isMobile ? (
             <Box
               className="flex items-center gap-1 rounded-full px-1.5 py-1"
-              sx={{ backgroundColor: 'rgba(9, 19, 21, 0.72)', backdropFilter: 'blur(12px)' }}
+              sx={{ backgroundColor: 'rgba(57, 60, 73, 0.72)', backdropFilter: 'blur(12px)' }}
             >
               <Button
                 onClick={toggleLang}
@@ -98,7 +87,7 @@ export default function Navbar() {
               >
                 {i18n.language === 'zh' ? 'EN' : '中文'}
               </Button>
-              <IconButton color="inherit" onClick={() => setDrawerOpen(true)} edge="end" size="large">
+              <IconButton sx={{ color: 'white' }} onClick={() => setDrawerOpen(true)} edge="end" size="large">
                 <MenuIcon />
               </IconButton>
             </Box>
@@ -106,44 +95,21 @@ export default function Navbar() {
             <Box className="flex items-center gap-2">
               <Box
                 component="nav"
-                className="flex items-center rounded-full p-2"
-                sx={{
-                  backgroundColor: 'transparent',
-                }}
+                className="flex items-center px-2 py-2"
               >
-                <Box
-                  className="flex overflow-hidden"
-                  sx={{
-                    maxWidth: scrolled ? 0 : 480,
-                    opacity: scrolled ? 0 : 1,
-                    transition: 'max-width 1050ms cubic-bezier(0.22, 1, 0.36, 1), opacity 450ms ease',
-                    pointerEvents: scrolled ? 'none' : 'auto',
-                  }}
-                >
-                  {primaryNavItems.map((item) => (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      className={`whitespace-nowrap rounded-full px-4 py-2.5 text-[15px] font-semibold transition-colors hover:text-[#08b4ce] ${
-                        location.pathname === item.path
-                          ? 'bg-[#0d5666] text-[#72e5f3]'
-                          : 'text-[#e5f5f7]'
-                      }`}
-                    >
-                      {t(`nav.${item.key}`)}
-                    </Link>
-                  ))}
-                </Box>
-                <Link
-                  to="/contact"
-                  className={`whitespace-nowrap rounded-full px-5 py-2.5 text-[15px] font-bold transition-colors ${
-                    location.pathname === '/contact'
-                      ? 'bg-[#069ab0] text-white'
-                      : 'bg-[#08b4ce] text-white hover:bg-[#069ab0]'
-                  }`}
-                >
-                  {t('nav.contact')}
-                </Link>
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`relative whitespace-nowrap px-4 py-2.5 text-[15px] font-semibold transition-colors after:absolute after:bottom-1 after:left-4 after:right-4 after:h-0.5 after:origin-left after:bg-[#08b4ce] after:transition-transform after:duration-300 hover:text-[#72e5f3] hover:after:scale-x-100 ${
+                      location.pathname === item.path
+                        ? 'text-[#72e5f3] after:scale-x-100'
+                        : 'text-[#e5f5f7] after:scale-x-0'
+                    }`}
+                  >
+                    {t(`nav.${item.key}`)}
+                  </Link>
+                ))}
               </Box>
               <Button
                 onClick={toggleLang}

@@ -1,8 +1,13 @@
 {
   "about": {
+    "careers_cta": "Contact Us",
+    "collab_alt": "The ZeroLab team working together in the lab",
     "company_name": "ZeroLab Technologies Co.,Ltd",
     "company_name_en": "",
-    "description": "ZeroLab focuses on motion capture, embodied AI teleoperation, and data acquisition. The company provides full-stack solutions, including self-developed, low-cost, high-precision wireless motion capture SiP chips and modules, full-body inertial motion capture systems, teleoperation platforms, and the bipedal robot high-dynamic imitation platform. ZeroLab builds an ecosystem based on mocap and teleoperation technologies, constructing an embodied AI database based on real world data to accelerate the training of embodied AI brains in generalized scenarios.",
+    "description": "ZeroLab focuses on motion capture, embodied AI teleoperation, and data acquisition. We provide full-stack solutions, including self-developed, low-cost, high-precision wireless motion capture SiP chips and modules, full-body inertial motion capture systems, teleoperation platforms, and a bipedal robot high-dynamic imitation platform. ZeroLab builds an ecosystem based on mocap and teleoperation technologies, constructing an embodied AI database based on real world data to accelerate the training of embodied AI brains in generalized scenarios.",
+    "eyebrow": "About ZeroLab",
+    "headline": "Human motion data for the next generation of embodied AI.",
+    "story_label": "Our story",
     "title": "About Us"
   },
   "application": {
@@ -56,10 +61,14 @@
   "footer": {
     "about_title": "ZeroLab",
     "address": "Address: C3-103-5, 1687 Changyang Rd, Shanghai, China",
+    "company": "Company",
     "description": "Founded on Sept. 18, 2021",
     "icp": "备案编号：沪 ICP 备 2021030591 号",
     "phone": "Tel: +86 021-55809628",
-    "slogan": "Move as one."
+    "rights": "All rights reserved.",
+    "slogan": "Move as one.",
+    "wechat_alt": "ZeroLab WeChat QR code",
+    "wechat_prompt": "Scan to follow ZeroLab on WeChat."
   },
   "home": {
     "applications": {
@@ -118,7 +127,8 @@
           "title": "ZL9NSQ SiP Wireless Motion Sensor Chip"
         }
       ],
-      "title": "Products"
+      "subtitle": "ZeroLab provides a complete portfolio spanning wireless motion-capture chips, full-body inertial motion-capture systems, developer data gloves, and humanoid robot teleoperation and data collection.",
+      "title": "Our Products"
     }
   },
   "nav": {
@@ -175,6 +185,7 @@
         "title": "ZL9NSQ SiP Wireless Motion Sensor Chip"
       }
     ],
+    "page_title": "Our Products",
     "title": "Products"
   },
   "solution": {

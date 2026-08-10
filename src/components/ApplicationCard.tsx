@@ -18,12 +18,12 @@ export default function ApplicationCard({ title, image }: ApplicationCardProps) 
         component="img"
         src={image}
         alt={title}
-        className="w-full block transition-transform duration-500 group-hover:scale-105"
+        className="relative z-10 block aspect-square w-full object-fill transition-transform duration-500 group-hover:scale-105"
       />
-      <Box className="absolute inset-0 bg-transparent transition-colors duration-500 group-hover:bg-[rgba(0,195,254,0.7)]" />
+      <Box className="absolute inset-0 z-20 bg-transparent transition-colors duration-500 group-hover:bg-[rgba(0,195,254,0.7)]" />
       <Typography
         variant="h5"
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full text-center font-medium text-white opacity-0 transition-all duration-500 translate-y-4 group-hover:opacity-100 group-hover:bottom-1/2 group-hover:translate-y-1/2"
+        className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2 w-full text-center font-medium text-white opacity-0 transition-all duration-500 translate-y-4 group-hover:opacity-100 group-hover:bottom-1/2 group-hover:translate-y-1/2"
       >
         {title}
       </Typography>

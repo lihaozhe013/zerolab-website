@@ -5,16 +5,10 @@ interface SubHeaderProps {
   backgroundImage?: string;
 }
 
-export default function SubHeader({
-  title,
-  backgroundImage = '/images/Background.jpg',
-}: SubHeaderProps) {
+export default function SubHeader({ title }: SubHeaderProps) {
   return (
     <Box
-      className="relative h-[28vh] w-full bg-cover bg-center text-white flex items-center justify-center"
-      sx={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),url(${backgroundImage})`,
-      }}
+      className="relative flex h-[28vh] w-full items-center justify-center bg-[#575a69] text-white"
     >
       <Box className="text-center">
         <Typography variant="h3" sx={{ fontWeight: 800, letterSpacing: '-0.02em', mb: 2 }}>

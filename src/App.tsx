@@ -7,10 +7,12 @@ import SolutionPage from '@/pages/SolutionPage';
 import ApplicationPage from '@/pages/ApplicationPage';
 import ContactPage from '@/pages/ContactPage';
 import TeleopPage from '@/pages/TeleopPage';
+import ScrollToTop from '@/components/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
