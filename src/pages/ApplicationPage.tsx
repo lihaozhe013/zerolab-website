@@ -1,63 +1,25 @@
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
-
-interface AppRowProps {
-  title: string;
-  description: string;
-  image: string;
-  reversed?: boolean;
-}
-
-function AppRow({ title, description, image, reversed = false }: AppRowProps) {
-  const { t } = useTranslation();
-  return (
-    <Box className={`flex ${reversed ? 'flex-row-reverse' : ''} max-md:flex-col`}>
-      <Box className="relative w-1/2 overflow-hidden bg-[#e9eff0] max-md:w-full">
-        <Box
-          component="img"
-          src={image}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-45 blur-xl"
-        />
-        <Box
-          component="img"
-          src={image}
-          alt={title}
-          className="relative z-10 h-[50vh] w-full object-contain object-center max-md:h-[250px]"
-        />
-      </Box>
-      <Box className="w-1/2 max-md:w-full flex items-center">
-        <Box className="px-14 py-12 max-md:px-6 max-md:py-8">
-          <Typography variant="h4" sx={{ mb: 4, fontWeight: 700, color: '#222' }}>
-            {title}
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 5, lineHeight: 1.9 }} className="text-[#666]">
-            {description}
-          </Typography>
-          <Link to="/contact">
-            <Button
-              variant="outlined"
-              className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
-            >
-              {t('common.contact_us')}
-            </Button>
-          </Link>
-        </Box>
-      </Box>
-    </Box>
-  );
-}
 
 const appImages = [
   '/images/Teleoperation 2.png',
-  '/images/LigntTrackerInertia20221020.png',
+  '/images/The virtual studio.jpg',
   '/images/Sports.png',
   '/images/Gaming.png',
   '/images/Virtual live.jpg',
   '/images/Rehabilitation training.jpg',
+];
+
+const layouts = [
+  'md:col-span-7',
+  'md:col-span-5 md:pt-24',
+  'md:col-span-4',
+  'md:col-span-8',
+  'md:col-span-6',
+  'md:col-span-6 md:pt-20',
 ];
 
 export default function ApplicationPage() {
@@ -68,20 +30,68 @@ export default function ApplicationPage() {
   }[];
 
   return (
-    <>
-      <SubHeader title={t('application.title')} />
+    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+      <SubHeader
+        title={t('application.title')}
+        subtitle={t('application.intro')}
+      />
 
-      <Box>
-        {items.map((app, index) => (
-          <AppRow
-            key={index}
-            title={app.title}
-            description={app.description}
-            image={appImages[index]}
-            reversed={index % 2 === 1}
-          />
-        ))}
+      <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
+        <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-x-8 gap-y-24 md:grid-cols-12">
+          {items.map((item, index) => (
+            <SectionReveal component="article" key={item.title} className={layouts[index]}>
+              <Box className="group overflow-hidden bg-[#111419]">
+                <Box
+                  component="img"
+                  src={appImages[index]}
+                  alt={item.title}
+                  className={`w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] ${
+                    index === 0 || index === 3 ? 'aspect-[16/10]' : 'aspect-[4/3]'
+                  }`}
+                />
+              </Box>
+              <Typography
+                component="h2"
+                sx={{
+                  fontSize: 'clamp(28px, 3vw, 44px)',
+                  fontWeight: 600,
+                  lineHeight: 1.05,
+                  letterSpacing: '-0.035em',
+                }}
+                className="mt-7"
+              >
+                {item.title}
+              </Typography>
+              <Typography className="mt-5 max-w-[680px] text-sm leading-7 text-white/55">
+                {item.description}
+              </Typography>
+            </SectionReveal>
+          ))}
+        </Box>
       </Box>
-    </>
+
+      <Box component="section" className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-36">
+        <SectionReveal className="mx-auto max-w-[1280px]">
+          <Typography
+            component="h2"
+            sx={{
+              fontSize: 'clamp(42px, 6vw, 84px)',
+              fontWeight: 600,
+              lineHeight: 0.96,
+              letterSpacing: '-0.05em',
+            }}
+            className="max-w-[900px]"
+          >
+            {t('application.cta_title')}
+          </Typography>
+          <Link
+            to="/contact"
+            className="mt-10 inline-flex min-h-12 items-center bg-[#4bd0e4] px-6 py-3 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white active:scale-[0.98]"
+          >
+            {t('common.contact_us')}
+          </Link>
+        </SectionReveal>
+      </Box>
+    </Box>
   );
 }

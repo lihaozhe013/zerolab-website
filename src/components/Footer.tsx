@@ -34,8 +34,8 @@ export default function Footer() {
   ];
 
   return (
-    <Box component="footer" className="w-full border-t border-white/10 bg-[#575a69] text-white">
-      <Box className="mx-auto grid w-[min(1280px,calc(100%-64px))] grid-cols-12 gap-x-0 gap-y-16 pb-20 pt-12 max-md:w-[calc(100%-32px)] max-md:pb-14 max-md:pt-10 lg:gap-x-10">
+    <Box component="footer" className="w-full border-t border-white/10 bg-[#050608] text-white">
+      <Box className="mx-auto grid w-[min(1280px,calc(100%-64px))] grid-cols-12 gap-x-0 gap-y-16 pb-24 pt-20 max-md:w-[calc(100%-32px)] max-md:pb-14 max-md:pt-14 lg:gap-x-10">
         <Box className="col-span-12 min-w-0 w-full max-w-full lg:col-span-5">
           <Box
             component="img"
@@ -69,7 +69,7 @@ export default function Footer() {
               </Typography>
               <Link
                 to="/contact"
-                className="inline-flex min-h-12 items-center gap-3 border border-[#4bd0e4] bg-[#4bd0e4] px-5 py-3 text-sm font-semibold text-[#071013] transition-colors hover:bg-transparent hover:text-[#4bd0e4]"
+                className="inline-flex min-h-12 items-center gap-3 border border-[#4bd0e4] bg-[#4bd0e4] px-5 py-3 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-transparent hover:text-[#4bd0e4] active:scale-[0.98]"
               >
                 {t('common.contact_us')}
                 <ArrowForward fontSize="small" />
@@ -83,7 +83,7 @@ export default function Footer() {
             <Box key={group.title} className="min-w-0">
               <Typography
                 component="h2"
-                className="border-b border-white/15 pb-4 text-xs font-semibold uppercase tracking-[0.16em] text-white/50"
+                className="border-b border-white/15 pb-4 text-xs font-semibold text-white/50"
               >
                 {group.title}
               </Typography>

@@ -7,7 +7,7 @@ const theme = createTheme({
       contrastText: '#fff',
     },
     background: {
-      default: '#ffffff',
+      default: '#07090c',
     },
     text: {
       primary: '#222222',
@@ -15,7 +15,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Noto Sans SC", sans-serif',
+    fontFamily: '"Avenir Next", "Noto Sans SC", sans-serif',
     h1: {
       fontWeight: 600,
     },

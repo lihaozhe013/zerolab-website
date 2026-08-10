@@ -26,6 +26,9 @@ importers:
       '@types/video.js':
         specifier: ^7.3.58
         version: 7.3.58
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
       i18next:
         specifier: ^26.3.1
         version: 26.3.1(@typescript/typescript6@6.0.2)
@@ -1100,6 +1103,9 @@ packages:
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   hasown@2.0.4:
     resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
@@ -2614,6 +2620,8 @@ snapshots:
   globals@17.6.0: {}
 
   graceful-fs@4.2.11: {}
+
+  gsap@3.15.0: {}
 
   hasown@2.0.4:
     dependencies:

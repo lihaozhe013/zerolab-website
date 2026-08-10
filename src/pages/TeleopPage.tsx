@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
 import VideoCard from '@/components/VideoCard';
 
@@ -19,43 +20,63 @@ export default function TeleopPage() {
   }[];
 
   return (
-    <>
-      <SubHeader title={t('teleop.title')} backgroundImage="/images/Project.jpg" />
+    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+      <SubHeader
+        title={t('teleop.title')}
+        subtitle={`${t('teleop.subtitle_line1')} ${t('teleop.subtitle_line2')}`}
+        backgroundImage="/images/teleoperation.png"
+      />
 
-      {/* Whole Cycle Section */}
-      <Box className="w-full">
-        <Box className="w-[75%] mx-auto">
-          <Typography variant="h5" className="font-semibold text-center leading-relaxed py-5">
-            {t('teleop.subtitle_line1')}
-            <br />
-            {t('teleop.subtitle_line2')}
-          </Typography>
-          <Box className="text-center">
+      <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
+        <SectionReveal className="mx-auto grid max-w-[1280px] grid-cols-1 gap-14 md:grid-cols-12 md:items-center">
+          <Box className="md:col-span-4">
+            <Typography
+              component="h2"
+              sx={{
+                fontSize: 'clamp(38px, 4.5vw, 68px)',
+                fontWeight: 600,
+                lineHeight: 0.98,
+                letterSpacing: '-0.05em',
+              }}
+            >
+              {t('teleop.cycle_title')}
+            </Typography>
+            <Typography className="mt-6 text-base leading-7 text-white/55">
+              {t('teleop.cycle_description')}
+            </Typography>
+          </Box>
+          <Box className="overflow-hidden bg-[#f2f4f4] p-5 md:col-span-8 md:p-8">
             <Box
               component="img"
               src="/images/whole cycle.png"
               alt={t('teleop.banner_alt')}
-              className="max-w-full max-h-full"
+              className="w-full object-contain"
             />
           </Box>
-        </Box>
+        </SectionReveal>
       </Box>
 
-      {/* Videos Section */}
-      <Box className="w-[80%] mx-auto py-[60px] max-md:w-[90%]">
-        <Box className="flex justify-center max-md:flex-col">
-          <Box className="flex-1 max-w-[800px]">
-            {items.map((item, i) => (
-              <VideoCard
-                key={i}
-                title={item.title}
-                description={item.description}
-                videoSrc={teleopVideoSrcs[i]}
-              />
+      <Box component="section" className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-40">
+        <Box className="mx-auto max-w-[1280px]">
+          <VideoCard
+            title={items[0].title}
+            description={items[0].description}
+            videoSrc={teleopVideoSrcs[0]}
+            featured
+          />
+          <Box className="mt-28 grid grid-cols-1 gap-x-8 gap-y-24 md:grid-cols-2">
+            {items.slice(1).map((item, index) => (
+              <Box key={item.title} className={index % 2 === 1 ? 'md:pt-24' : ''}>
+                <VideoCard
+                  title={item.title}
+                  description={item.description}
+                  videoSrc={teleopVideoSrcs[index + 1]}
+                />
+              </Box>
             ))}
           </Box>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

@@ -1,14 +1,24 @@
-import { Box, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import PartnerCarousel from '@/components/PartnerCarousel';
-import ApplicationCard from '@/components/ApplicationCard';
+import { Link } from 'react-router-dom';
+import HeroKineticCopy from '@/components/HeroKineticCopy';
+import ProductScrollShowcase, {
+  type ProductShowcaseItem,
+} from '@/components/ProductScrollShowcase';
 
 const productImages = [
   '/images/openarmz.jpg',
-  '/images/主图6.png',
-  '/images/主图4.png',
-  '/images/主图5.png',
+  '/images/LigntTrackerInertia20221020.png',
+  '/images/DataGloves.png',
+  '/images/Motion Tracker.jpg',
+];
+
+const productDestinations = [
+  '/teleop',
+  '/document/F-1彩页.pdf',
+  '/document/H-1彩页.pdf',
+  '/document/ZL9NSQ单页-0604.pdf',
 ];
 
 const appImages = [
@@ -21,170 +31,205 @@ const envImages = ['/images/reception.png', '/images/Lab.JPG', '/images/Datacent
 
 export default function HomePage() {
   const { t } = useTranslation();
-  const productItems = t('home.products.items', { returnObjects: true }) as {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const productItems = t('product.items', { returnObjects: true }) as {
     title: string;
     description: string;
+    link_text?: string;
   }[];
   const appItems = t('home.applications.items', { returnObjects: true }) as { title: string }[];
   const envItems = t('home.environments.items', { returnObjects: true }) as {
     title: string;
     description: string;
   }[];
+  const productShowcaseItems: ProductShowcaseItem[] = productItems.map((product, index) => ({
+    title: product.title,
+    description: product.description,
+    image: productImages[index],
+    href: productDestinations[index],
+    linkText: product.link_text || t('common.view_product_details'),
+  }));
 
   return (
-    <>
-      {/* Hero Section */}
-      <Box className="relative min-h-screen w-full overflow-hidden bg-[#04091e]">
-        <Box
-          component="video"
-          src="/videos/ZeroLabVid.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <Box className="absolute inset-0 bg-gradient-to-r from-[#04091e]/90 via-[#04091e]/65 to-[#04091e]/30" />
-        <Box className="relative z-10 min-h-screen flex items-end text-left text-white px-[8%] pb-[13vh] pt-[160px] max-md:px-6 max-md:pb-[11vh]">
-          <Box className="max-w-[820px]">
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: '44px', md: 'clamp(58px, 5.5vw, 88px)' },
-                mb: { xs: 3, md: 4 },
-                fontWeight: 700,
-                letterSpacing: '-0.045em',
-                lineHeight: 0.98,
-                whiteSpace: 'pre-line',
-              }}
-            >
-              {t('home.hero.title')}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ mb: 2, fontSize: { xs: '18px', md: '24px' }, fontWeight: 500 }}
-              className="max-w-[620px] leading-snug"
-            >
-              {t('home.hero.description_p1')}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{ mb: 5, fontSize: { xs: '15px', md: '17px' } }}
-              className="max-w-[590px] leading-relaxed text-white/75"
-            >
-              {t('home.hero.description_p2')}
-            </Typography>
-            <Link to="/product">
-              <Button
-                variant="outlined"
-                className="text-white border-white/70 px-7 py-2.5 text-[13px] font-semibold hover:border-[#08b4ce] hover:bg-[#08b4ce] transition-all duration-300 normal-case"
+    <Box className="overflow-x-clip bg-[#07090c] text-white">
+      <Box
+        ref={heroRef}
+        component="section"
+        className="relative h-[260dvh] w-full bg-[#050505] motion-reduce:h-auto motion-reduce:min-h-[100dvh]"
+      >
+        <Box className="sticky top-0 min-h-[100dvh] w-full overflow-hidden bg-[#050505] motion-reduce:relative">
+          <Box
+            component="video"
+            data-hero-media
+            src="/videos/ZeroLabVid.mp4"
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover opacity-0"
+          />
+          <Box className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/42 to-black/18" />
+          <Box className="relative min-h-[100dvh] text-left text-white">
+            <HeroKineticCopy heroRef={heroRef} title={t('home.hero.title')}>
+              <Typography
+                variant="body1"
+                sx={{ mb: 4, fontSize: { xs: '17px', md: '22px' }, fontWeight: 500 }}
+                className="max-w-[610px] leading-snug"
+              >
+                {t('home.hero.description_p1')}
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ mb: 5, fontSize: { xs: '14px', md: '16px' } }}
+                className="max-w-[580px] leading-relaxed text-white/60"
+              >
+                {t('home.hero.description_p2')}
+              </Typography>
+              <Link
+                to="/product"
+                className="inline-flex min-h-12 items-center border border-white/55 px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#4bd0e4] hover:bg-[#4bd0e4] hover:text-[#071013] active:scale-[0.98]"
               >
                 {t('common.explore_products')}
-              </Button>
-            </Link>
+              </Link>
+            </HeroKineticCopy>
           </Box>
         </Box>
       </Box>
 
-      {/* Partners Section */}
-      <PartnerCarousel />
+      <ProductScrollShowcase items={productShowcaseItems} />
 
-      {/* Products Section */}
-      <Box className="w-[80%] mx-auto pt-[100px] text-center max-md:w-[90%]">
-        <Box className="mb-4 text-center">
-          <Typography variant="h3" sx={{ fontWeight: 800, letterSpacing: '-0.02em', mb: 2 }}>
-            {t('home.products.title')}
+      <Box component="section" className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-40">
+        <Box className="mx-auto max-w-[1280px]">
+          <Typography
+            component="h2"
+            sx={{
+              fontSize: 'clamp(42px, 5vw, 76px)',
+              fontWeight: 600,
+              lineHeight: 0.96,
+              letterSpacing: '-0.05em',
+            }}
+            className="max-w-[800px] text-[clamp(42px,5vw,76px)] font-semibold leading-[0.96] tracking-[-0.05em]"
+          >
+            {t('home.applications.title')}
           </Typography>
-          <Box sx={{ width: 60, height: 3, bgcolor: '#08b4ce', mx: 'auto', borderRadius: 2 }} />
-        </Box>
-        <Typography
-          sx={{
-            fontSize: { xs: 14, md: 15 },
-            lineHeight: 1.8,
-            lineBreak: 'strict',
-          }}
-          className="mb-10 w-full text-[#777]"
-        >
-          {t('home.products.subtitle')}
-        </Typography>
-        <Box className="grid grid-cols-2 gap-x-3 gap-y-[51px] max-md:grid-cols-1">
-          {productItems.map((product, i) => (
-            <Box key={i} className="flex flex-col rounded-[10px] bg-[#dbdbdb] px-3 py-5">
-              <Typography variant="h6" sx={{ mb: 2 }} className="font-semibold">
-                {product.title}
-              </Typography>
-              <Box
-                component="img"
-                src={productImages[i]}
-                alt={product.title}
-                className="h-[400px] w-full object-cover max-md:h-[280px]"
-              />
-              <Typography className="flex-1 px-2.5 py-2.5 text-sm font-light leading-[22px] text-[#777]">
-                {product.description}
-              </Typography>
-              <Link to="/product" className="self-center">
-                <Button
-                  variant="outlined"
-                  className="border-[#08b4ce] px-[34px] py-3 text-[13px] font-normal text-[#08b4ce] transition-colors duration-300 hover:bg-[#08b4ce] hover:text-white normal-case"
+          <Typography className="mt-7 max-w-[680px] text-base leading-7 text-white/50">
+            {t('home.applications.subtitle')}
+          </Typography>
+
+          <Box className="mt-20 grid grid-cols-1 gap-x-7 gap-y-12 md:grid-cols-12">
+            {appItems.map((app, index) => {
+              const layout = index === 0 ? 'md:col-span-7 md:row-span-2' : 'md:col-span-5';
+              const mediaHeight = index === 0 ? 'md:h-[760px]' : 'md:h-[340px]';
+
+              return (
+                <Link
+                  key={app.title}
+                  to="/application"
+                  className={`group ${layout}`}
                 >
-                  {t('common.view_products')}
-                </Button>
-              </Link>
-            </Box>
-          ))}
+                  <Box className={`overflow-hidden bg-[#12151a] ${mediaHeight}`}>
+                    <Box
+                      component="img"
+                      src={appImages[index]}
+                      alt={app.title}
+                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
+                    />
+                  </Box>
+                  <Box className="mt-5 flex items-start justify-between gap-5">
+                    <Typography
+                      component="h3"
+                      sx={{
+                        fontSize: { xs: 20, md: 24 },
+                        fontWeight: 600,
+                        lineHeight: 1.2,
+                        letterSpacing: '-0.02em',
+                      }}
+                      className="max-w-[520px] text-xl font-semibold leading-tight tracking-[-0.02em] md:text-2xl"
+                    >
+                      {app.title}
+                    </Typography>
+                    <Box className="mt-2 h-px w-12 bg-[#4bd0e4] transition-[width] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-20" />
+                  </Box>
+                </Link>
+              );
+            })}
+          </Box>
         </Box>
       </Box>
 
-      {/* Applications Section */}
-      <Box className="w-[80%] mx-auto text-center pt-[50px] max-md:w-[90%]">
-        <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-          {t('home.applications.title')}
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{ mb: 10 }}
-          className="text-[#777] leading-relaxed text-left"
-        >
-          {t('home.applications.subtitle')}
-        </Typography>
-        <Box className="flex flex-wrap justify-between gap-5 max-md:flex-col">
-          {appItems.map((app, i) => (
-            <ApplicationCard key={i} title={app.title} image={appImages[i]} />
-          ))}
+      <Box component="section" className="bg-[#07090c] px-6 py-28 md:px-[6vw] md:py-40">
+        <Box className="mx-auto max-w-[1280px]">
+          <Typography
+            component="h2"
+            sx={{
+              fontSize: 'clamp(42px, 5vw, 76px)',
+              fontWeight: 600,
+              lineHeight: 0.96,
+              letterSpacing: '-0.05em',
+            }}
+            className="text-[clamp(42px,5vw,76px)] font-semibold leading-[0.96] tracking-[-0.05em]"
+          >
+            {t('home.environments.title')}
+          </Typography>
+
+          <Box className="mt-20 grid grid-cols-1 gap-x-7 gap-y-16 md:grid-cols-12">
+            {envItems.map((environment, index) => {
+              const layout = index === 0 ? 'md:col-span-7 md:row-span-2' : 'md:col-span-5';
+              const mediaHeight = index === 0 ? 'md:h-[720px]' : 'md:h-[320px]';
+
+              return (
+                <Box component="article" key={environment.title} className={layout}>
+                  <Box className={`overflow-hidden bg-[#101318] ${mediaHeight}`}>
+                    <Box
+                      component="img"
+                      src={envImages[index]}
+                      alt={environment.title}
+                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.025]"
+                    />
+                  </Box>
+                  <Typography
+                    component="h3"
+                    sx={{ fontSize: { xs: 20, md: 24 }, fontWeight: 600, letterSpacing: '-0.02em' }}
+                    className="mt-5 text-xl font-semibold tracking-[-0.02em] md:text-2xl"
+                  >
+                    {environment.title}
+                  </Typography>
+                  <Typography className="mt-3 max-w-[620px] text-sm leading-6 text-white/45">
+                    {environment.description}
+                  </Typography>
+                </Box>
+              );
+            })}
+          </Box>
         </Box>
       </Box>
 
-      {/* Environment Section */}
-      <Box className="w-[80%] mx-auto text-center pt-[60px] max-md:w-[90%]">
-        <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
-          {t('home.environments.title')}
-        </Typography>
-        <Box className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-          {envItems.map((env, i) => (
-            <Box key={i} className="flex flex-col rounded-xl overflow-hidden bg-white">
-              <Box className="relative overflow-hidden">
-                <Box
-                  component="img"
-                  src={envImages[i]}
-                  alt={env.title}
-                  className="w-full h-[240px] object-cover transition-transform duration-700 hover:scale-110 max-md:h-[200px]"
-                />
-                <Box className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </Box>
-              <Box className="p-5 flex flex-col flex-1 text-left">
-                <Typography variant="h6" sx={{ mb: 2 }} className="font-semibold">
-                  {env.title}
-                </Typography>
-                <Typography variant="body2" className="text-[#777] leading-relaxed text-sm flex-1">
-                  {env.description}
-                </Typography>
-              </Box>
-            </Box>
-          ))}
+      <Box component="section" className="bg-[#0a0c0f] px-6 py-32 md:px-[6vw] md:py-48">
+        <Box className="mx-auto max-w-[1280px]">
+          <Typography
+            component="h2"
+            sx={{
+              fontSize: 'clamp(48px, 7vw, 104px)',
+              fontWeight: 600,
+              lineHeight: 0.92,
+              letterSpacing: '-0.06em',
+            }}
+            className="max-w-[980px] text-[clamp(48px,7vw,104px)] font-semibold leading-[0.92] tracking-[-0.06em]"
+          >
+            {t('home.cta.title')}
+          </Typography>
+          <Typography className="mt-8 max-w-[600px] text-base leading-7 text-white/50">
+            {t('home.cta.description')}
+          </Typography>
+          <Link
+            to="/contact"
+            className="mt-12 inline-flex min-h-14 items-center bg-[#4bd0e4] px-7 py-4 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white active:scale-[0.98]"
+          >
+            {t('common.contact_us')}
+          </Link>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

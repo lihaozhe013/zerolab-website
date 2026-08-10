@@ -32,6 +32,8 @@ export default function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
   const { t, i18n } = useTranslation();
+  const isActive = (path: string) =>
+    location.pathname === path || (path === '/product' && location.pathname === '/teleop');
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh');
@@ -39,7 +41,17 @@ export default function Navbar() {
 
   return (
     <>
-      <AppBar position="fixed" sx={{ top: 0, background: 'transparent', boxShadow: 'none' }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          top: 0,
+          backgroundColor: 'rgba(5, 6, 8, 0.82)',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          boxShadow: 'none',
+          zIndex: 1200,
+        }}
+      >
         <Toolbar
           className="justify-between"
           sx={{
@@ -102,7 +114,7 @@ export default function Navbar() {
                     key={item.path}
                     to={item.path}
                     className={`relative whitespace-nowrap px-4 py-2.5 text-[15px] font-semibold transition-colors after:absolute after:bottom-1 after:left-4 after:right-4 after:h-0.5 after:origin-left after:bg-[#08b4ce] after:transition-transform after:duration-300 hover:text-[#72e5f3] hover:after:scale-x-100 ${
-                      location.pathname === item.path
+                      isActive(item.path)
                         ? 'text-[#72e5f3] after:scale-x-100'
                         : 'text-[#e5f5f7] after:scale-x-0'
                     }`}

@@ -13,23 +13,33 @@ export default function SolutionPage() {
   }[];
 
   return (
-    <>
-      <SubHeader title={t('solution.title')} backgroundImage="/images/Project.jpg" />
+    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+      <SubHeader
+        title={t('solution.title')}
+        subtitle={t('solution.intro')}
+      />
 
-      <Box className="w-[80%] mx-auto py-[60px] max-md:w-[90%]">
-        <Box className="flex justify-center max-md:flex-col">
-          <Box className="flex-1 max-w-[800px]">
-            {items.map((item, i) => (
-              <VideoCard
-                key={i}
-                title={item.title}
-                description={item.description}
-                videoSrc={solutionVideoSrcs[i]}
-              />
+      <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
+        <Box className="mx-auto max-w-[1280px]">
+          <VideoCard
+            title={items[0].title}
+            description={items[0].description}
+            videoSrc={solutionVideoSrcs[0]}
+            featured
+          />
+          <Box className="mt-28 grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-8">
+            {items.slice(1).map((item, index) => (
+              <Box key={item.title} className={index === 0 ? 'md:col-span-7' : 'md:col-span-5 md:pt-28'}>
+                <VideoCard
+                  title={item.title}
+                  description={item.description}
+                  videoSrc={solutionVideoSrcs[index + 1]}
+                />
+              </Box>
             ))}
           </Box>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

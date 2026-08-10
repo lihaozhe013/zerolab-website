@@ -1,82 +1,42 @@
-import { useCallback, useEffect, useRef } from 'react';
-import { Box, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import videojs from 'video.js';
-import 'video.js/dist/video-js.css';
+import { Box, Typography } from '@mui/material';
+import SectionReveal from '@/components/SectionReveal';
 
 interface VideoCardProps {
   title: string;
   description: string;
   videoSrc: string;
-  linkTo?: string;
+  featured?: boolean;
 }
 
-export default function VideoCard({
-  title,
-  description,
-  videoSrc,
-  linkTo = '/contact',
-}: VideoCardProps) {
-  const { t } = useTranslation();
-  const playerRef = useRef<ReturnType<typeof videojs> | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const disposePlayer = useCallback(() => {
-    if (playerRef.current) {
-      playerRef.current.dispose();
-      playerRef.current = null;
-    }
-  }, []);
-
-  useEffect(() => {
-    disposePlayer();
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const videoEl = document.createElement('video');
-    videoEl.className = 'video-js vjs-big-play-centered w-full h-full';
-    videoEl.setAttribute('playsinline', '');
-    container.appendChild(videoEl);
-
-    const player = videojs(videoEl, {
-      controls: true,
-      autoplay: true,
-      muted: true,
-      sources: [{ src: videoSrc, type: 'video/mp4' }],
-    });
-
-    playerRef.current = player;
-
-    return disposePlayer;
-  }, [videoSrc, disposePlayer]);
-
+export default function VideoCard({ title, description, videoSrc, featured = false }: VideoCardProps) {
   return (
-    <Box className="mb-8">
-      <Typography variant="h4" sx={{ mb: 3, fontWeight: 700 }} className="text-[#222]">
+    <SectionReveal component="article" className="group">
+      <Box className="overflow-hidden bg-[#111419]">
+        <Box
+          component="video"
+          src={videoSrc}
+          controls
+          muted
+          playsInline
+          preload="metadata"
+          className={`block w-full bg-black object-cover ${featured ? 'aspect-[16/8]' : 'aspect-video'}`}
+        />
+      </Box>
+      <Typography
+        component="h2"
+        sx={{
+          fontSize: featured ? 'clamp(30px, 4vw, 56px)' : 'clamp(24px, 2.5vw, 36px)',
+          fontWeight: 600,
+          lineHeight: 1.05,
+          letterSpacing: '-0.04em',
+        }}
+        className="mt-7 max-w-[900px] text-white"
+      >
         {title}
       </Typography>
-      <Box
-        ref={containerRef}
-        className="w-full rounded-xl overflow-hidden bg-black"
-        sx={{
-          aspectRatio: '16/9',
-          position: 'relative',
-          '& .video-js': { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
-        }}
-      />
-      <Typography variant="body2" sx={{ mt: 3, mb: 4 }} className="text-[#999] leading-relaxed">
+      <Typography className="mt-5 max-w-[760px] text-sm leading-7 text-white/55">
         {description}
       </Typography>
-      <Link to={linkTo} className="inline-block">
-        <Button
-          variant="outlined"
-          className="border-[#08b4ce] text-[#08b4ce] hover:bg-[#08b4ce] hover:text-white normal-case"
-        >
-          {t('common.contact_us')}
-        </Button>
-      </Link>
-    </Box>
+    </SectionReveal>
   );
 }

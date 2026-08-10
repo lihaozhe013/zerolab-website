@@ -11,6 +11,8 @@
     "title": "About Us"
   },
   "application": {
+    "cta_title": "Turn a motion challenge into a working system.",
+    "intro": "Motion capture systems for robotics, production, sport, immersive media, and rehabilitation.",
     "items": [
       {
         "description": "Using inertial full-body motion capture devices to collect human motion data for training humanoid robots is a cutting-edge and highly efficient approach. Unlike traditional camera-based motion capture systems, inertial motion capture devices are not affected by ambient lighting or occlusion, making them ideal for data collection in diverse complex environments. By capturing large volumes of high-quality human motion data, it provides rich training samples for the motion control systems of humanoid robots.",
@@ -53,10 +55,12 @@
     "email": "Email",
     "email_prompt": "info@zero-lab.tech",
     "hours": "Mon-Fri, 9:00 AM - 6:00 PM (UTC+8)",
+    "intro": "Talk with ZeroLab about motion capture, robot teleoperation, data collection, or product integration.",
     "map_marker": "ZeroLab",
     "phone": "Phone",
     "phone_number": "+86 021-55809628",
-    "title": "Contact Us"
+    "title": "Contact Us",
+    "visit": "Visit ZeroLab"
   },
   "footer": {
     "about_title": "ZeroLab",
@@ -105,10 +109,32 @@
     },
     "hero": {
       "description_p1": "Precision motion data for the next generation of robots.",
-      "description_p2": "ZeroLab turns human movement into high-fidelity data and seamless teleoperation—giving embodied AI the foundation to learn, adapt, and perform.",
+      "description_p2": "ZeroLab turns human movement into high-fidelity data and seamless teleoperation, giving embodied AI the foundation to learn, adapt, and perform.",
       "title": "HUMAN MOTION, MADE ACTIONABLE."
     },
+    "story": {
+      "title": "From human intent to robot action.",
+      "subtitle": "One continuous motion pipeline turns physical movement into structured data, control signals, and repeatable robotic behavior.",
+      "items": [
+        {
+          "verb": "Capture",
+          "title": "Movement becomes signal.",
+          "description": "Wearable sensors record full-body and hand motion with the precision needed for research, training, and control."
+        },
+        {
+          "verb": "Translate",
+          "title": "Signal becomes usable data.",
+          "description": "ZeroLab maps human motion into synchronized, high-fidelity data that embodied systems can understand."
+        },
+        {
+          "verb": "Act",
+          "title": "Data becomes robot behavior.",
+          "description": "Teleoperation and data collection systems transfer human intent into responsive robotic movement."
+        }
+      ]
+    },
     "products": {
+      "flagship": "Flagship system",
       "items": [
         {
           "description": "Leveraging ZeroLab's advanced motion capture technology, we provide high-precision teleoperation control and data acquisition solutions for humanoid robots. Through real-time motion capture, human-robot collaborative operation is achieved, widely applicable in industrial manufacturing, service robotics, education, and scientific research.",
@@ -129,6 +155,10 @@
       ],
       "subtitle": "ZeroLab provides a complete portfolio spanning wireless motion-capture chips, full-body inertial motion-capture systems, developer data gloves, and humanoid robot teleoperation and data collection.",
       "title": "Our Products"
+    },
+    "cta": {
+      "title": "Give robots better examples to learn from.",
+      "description": "Build motion datasets, teleoperation workflows, and embodied intelligence systems with ZeroLab."
     }
   },
   "nav": {
@@ -163,6 +193,8 @@
     "title": "Partners"
   },
   "product": {
+    "featured": "Flagship system",
+    "intro": "From motion-capture silicon to complete robot teleoperation and data-collection systems.",
     "items": [
       {
         "description": "A humanoid robot typically consists of around 30 motors, making traditional programming approaches insufficient for full-body control. ZeroLab provides complete data acquisition and teleoperation solutions ranging from motion mapping to motion control, helping users accelerate humanoid locomotion, anthropomorphic movement, imitation learning, and zero-shot transfer.",
@@ -189,9 +221,10 @@
     "title": "Products"
   },
   "solution": {
+    "intro": "See ZeroLab hardware and motion systems operating in real research, cultural, and interactive contexts.",
     "items": [
       {
-        "description": "Today we proudly introduce ZeroLab's latest AI motion capture chip, custom-designed for enhanced efficiency in orientation, angle, and velocity tracking. This chip features low power consumption, high precision, and ultra-compact size — infusing the soul of humanity into the core of AI, making lightspeed travel a reality. #AI #MotionCapture #MoCapChip #HumanoidRobot #MadeInChina #ZeroLab",
+        "description": "Today we proudly introduce ZeroLab's latest AI motion capture chip, custom-designed for enhanced efficiency in orientation, angle, and velocity tracking. This chip features low power consumption, high precision, and an ultra-compact form factor. #AI #MotionCapture #MoCapChip #HumanoidRobot #MadeInChina #ZeroLab",
         "title": "Industry KOL Joyce Endorses ZeroLab"
       },
       {
@@ -207,6 +240,8 @@
   },
   "teleop": {
     "banner_alt": "Full-Cycle Solution",
+    "cycle_description": "A connected workflow spanning human motion capture, motion mapping, robot control, data acquisition, and model training.",
+    "cycle_title": "One continuous teleoperation cycle.",
     "items": [
       {
         "description": "An OpenArm-based optimized motion capture upper-limb robot developed by a ZeroLab customer, enabling a low-cost, ultra-low-latency remote teleoperation solution. This system can be widely applied in various teleoperation scenarios and data acquisition tasks, providing efficient solutions for industrial automation and robot control. #AI #HumanoidRobot #MotionCapture #Teleoperation #OpenArm #ZeroLab",
@@ -214,17 +249,17 @@
         "video_src": ""
       },
       {
-        "description": "Through ZeroLab's motion capture system, a human operator controls the Unitree humanoid robot in real time, allowing the robot to perfectly replicate human movements — achieving a shadowing effect. Every subtle movement of the operator is captured with precision and transmitted to the robot in real time, demonstrating the ultimate human-robot interaction experience. #AI #HumanoidRobot #MotionCapture #Teleoperation #Shadowing #ZeroLab",
+        "description": "Through ZeroLab's motion capture system, a human operator controls the Unitree humanoid robot in real time, allowing the robot to replicate human movements with a shadowing effect. Every subtle movement of the operator is captured with precision and transmitted to the robot in real time. #AI #HumanoidRobot #MotionCapture #Teleoperation #Shadowing #ZeroLab",
         "title": "Shadowing - Real-Time Human Control of the Unitree Humanoid Robot",
         "video_src": "/videos/Shadowing.mp4"
       },
       {
-        "description": "In complex environments, ZeroLab's motion capture system still accurately captures operator movements and controls the Unitree humanoid robot in real time to complete various complex tasks. Whether fine hand motions or full-body coordination, the robot flawlessly replicates them — truly achieving a human-machine integrated control experience.",
+        "description": "In complex environments, ZeroLab's motion capture system still accurately captures operator movements and controls the Unitree humanoid robot in real time to complete various complex tasks. Whether fine hand motions or full-body coordination, the robot reproduces them through an integrated human-machine control workflow.",
         "title": "Shadowing 2 - Humanoid Robot Teleoperation in Complex Scenarios",
         "video_src": "/videos/Shadowing2.mp4"
       },
       {
-        "description": "By the end of 2024, ZeroLab MoCap achieved an integrated solution bridging robotic arm and dexterous hand remapping and teleoperation. This enables coordinated control of robotic arms and dexterous hands — users can collect motion data from both in real time through the MoCap system and transmit it for synchronized operation.",
+        "description": "By the end of 2024, ZeroLab MoCap achieved an integrated solution bridging robotic arm and dexterous hand remapping and teleoperation. This enables coordinated control of robotic arms and dexterous hands while collecting and transmitting motion data in real time.",
         "title": "ZeroLab MoCap Integrated Solution with Realman Robotic Arm & Ohand Dexterous Hand",
         "video_src": "/videos/FullBodyMoCapRealman.mp4"
       },
