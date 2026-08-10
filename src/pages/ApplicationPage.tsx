@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
+import MotionCaptureSection from '@/components/MotionCaptureSection';
 
 const appImages = [
   '/images/Teleoperation 2.png',
@@ -31,9 +32,19 @@ export default function ApplicationPage() {
 
   return (
     <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
-      <SubHeader
-        title={t('application.title')}
-        subtitle={t('application.intro')}
+      <SubHeader title={t('application.title')} subtitle={t('application.intro')} />
+
+      <MotionCaptureSection
+        heading={t('application.capture_lab.heading')}
+        description={t('application.capture_lab.description')}
+        captureLabel={t('application.capture_lab.capture_label')}
+        surfaceLabel={t('application.capture_lab.surface_label')}
+        playLabel={t('application.capture_lab.play_label')}
+        pauseLabel={t('application.capture_lab.pause_label')}
+        loadingLabel={t('application.capture_lab.loading_label')}
+        fallbackAlt={t('application.capture_lab.fallback_alt')}
+        sourceLabel={t('application.capture_lab.source_label')}
+        interactionLabel={t('application.capture_lab.interaction_label')}
       />
 
       <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">

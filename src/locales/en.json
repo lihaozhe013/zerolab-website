@@ -11,6 +11,18 @@
     "title": "About Us"
   },
   "application": {
+    "capture_lab": {
+      "capture_label": "Capture view",
+      "description": "See a recorded performance resolve into the joint structure that drives digital characters, robots, and training data.",
+      "fallback_alt": "Motion-capture performance in a virtual production environment",
+      "heading": "Movement, made legible.",
+      "interaction_label": "Click the model to trigger an impact response.",
+      "loading_label": "Loading motion model",
+      "pause_label": "Pause motion",
+      "play_label": "Play motion",
+      "source_label": "Interactive source clip: 74-joint rig, 5.58-second performance",
+      "surface_label": "Surface view"
+    },
     "cta_title": "Turn a motion challenge into a working system.",
     "intro": "Motion capture systems for robotics, production, sport, immersive media, and rehabilitation.",
     "items": [
@@ -76,19 +88,23 @@
   },
   "home": {
     "applications": {
+      "explore_label": "Explore applications",
       "items": [
         {
+          "description": "Map full-body movement into immersive worlds with low-latency, spatially coherent control.",
           "title": "MR Mixed Reality"
         },
         {
+          "description": "Capture repeatable human demonstrations for teleoperation, imitation learning, and embodied AI datasets.",
           "title": "Robot Data Collection & Teleoperation"
         },
         {
+          "description": "Measure technique frame by frame to support coaching, performance analysis, and rehabilitation.",
           "title": "Sports Training"
         }
       ],
-      "subtitle": "ZeroLab's products digitize human motion, enhancing immersion in VR/AR games and enabling realistic CG character animation for film and video production.",
-      "title": "Application"
+      "subtitle": "One motion system, applied across embodied AI, immersive production, and human performance.",
+      "title": "Applications"
     },
     "environments": {
       "items": [

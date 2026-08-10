@@ -11,6 +11,18 @@
     "title": "关于我们"
   },
   "application": {
+    "capture_lab": {
+      "capture_label": "捕捉视图",
+      "description": "将一段真人表演解析为关节结构，用于驱动数字角色、机器人动作与训练数据。",
+      "fallback_alt": "虚拟制片环境中的动作捕捉表演",
+      "heading": "让动作清晰可读。",
+      "interaction_label": "点击模型，触发受击动作。",
+      "loading_label": "正在载入动作模型",
+      "pause_label": "暂停动作",
+      "play_label": "播放动作",
+      "source_label": "交互式源动作：74 关节骨架，5.58 秒表演片段",
+      "surface_label": "表面视图"
+    },
     "cta_title": "将动作需求，转化为可用系统。",
     "intro": "面向机器人、虚拟制片、体育、沉浸媒体与康复训练的动作捕捉系统。",
     "items": [
@@ -76,18 +88,22 @@
   },
   "home": {
     "applications": {
+      "explore_label": "探索应用场景",
       "items": [
         {
+          "description": "将全身动作映射至沉浸式空间，实现低延迟、空间一致的交互控制。",
           "title": "MR混合现实"
         },
         {
+          "description": "采集可复现的人体示范数据，用于遥操作、模仿学习与具身智能数据集。",
           "title": "机器人数据采集和遥操作"
         },
         {
+          "description": "逐帧分析运动技术，为训练指导、表现评估与康复提供数据支持。",
           "title": "体育训练"
         }
       ],
-      "subtitle": "ZeroLab 的产品可以将人体动作数字化，应用于增强虚拟现实游戏的沉浸感，制作逼真的CG影视人物动画效果。",
+      "subtitle": "一套动作系统，连接具身智能、沉浸式内容与人体运动表现。",
       "title": "应用场景"
     },
     "environments": {

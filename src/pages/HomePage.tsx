@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import HeroKineticCopy from '@/components/HeroKineticCopy';
+import ApplicationSceneSelector from '@/components/ApplicationSceneSelector';
 import ProductScrollShowcase, {
   type ProductShowcaseItem,
 } from '@/components/ProductScrollShowcase';
@@ -21,11 +22,7 @@ const productDestinations = [
   '/document/ZL9NSQ单页-0604.pdf',
 ];
 
-const appImages = [
-  '/images/MixedReality.png',
-  '/images/Teleoperation 2.png',
-  '/images/Sports.png',
-];
+const appImages = ['/images/MixedReality.png', '/images/Teleoperation 2.png', '/images/Sports.png'];
 
 const envImages = ['/images/reception.png', '/images/Lab.JPG', '/images/Datacenter.JPG'];
 
@@ -37,7 +34,10 @@ export default function HomePage() {
     description: string;
     link_text?: string;
   }[];
-  const appItems = t('home.applications.items', { returnObjects: true }) as { title: string }[];
+  const appItems = t('home.applications.items', { returnObjects: true }) as {
+    title: string;
+    description: string;
+  }[];
   const envItems = t('home.environments.items', { returnObjects: true }) as {
     title: string;
     description: string;
@@ -99,64 +99,12 @@ export default function HomePage() {
 
       <ProductScrollShowcase items={productShowcaseItems} />
 
-      <Box component="section" className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-40">
-        <Box className="mx-auto max-w-[1280px]">
-          <Typography
-            component="h2"
-            sx={{
-              fontSize: 'clamp(42px, 5vw, 76px)',
-              fontWeight: 600,
-              lineHeight: 0.96,
-              letterSpacing: '-0.05em',
-            }}
-            className="max-w-[800px] text-[clamp(42px,5vw,76px)] font-semibold leading-[0.96] tracking-[-0.05em]"
-          >
-            {t('home.applications.title')}
-          </Typography>
-          <Typography className="mt-7 max-w-[680px] text-base leading-7 text-white/50">
-            {t('home.applications.subtitle')}
-          </Typography>
-
-          <Box className="mt-20 grid grid-cols-1 gap-x-7 gap-y-12 md:grid-cols-12">
-            {appItems.map((app, index) => {
-              const layout = index === 0 ? 'md:col-span-7 md:row-span-2' : 'md:col-span-5';
-              const mediaHeight = index === 0 ? 'md:h-[760px]' : 'md:h-[340px]';
-
-              return (
-                <Link
-                  key={app.title}
-                  to="/application"
-                  className={`group ${layout}`}
-                >
-                  <Box className={`overflow-hidden bg-[#12151a] ${mediaHeight}`}>
-                    <Box
-                      component="img"
-                      src={appImages[index]}
-                      alt={app.title}
-                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025]"
-                    />
-                  </Box>
-                  <Box className="mt-5 flex items-start justify-between gap-5">
-                    <Typography
-                      component="h3"
-                      sx={{
-                        fontSize: { xs: 20, md: 24 },
-                        fontWeight: 600,
-                        lineHeight: 1.2,
-                        letterSpacing: '-0.02em',
-                      }}
-                      className="max-w-[520px] text-xl font-semibold leading-tight tracking-[-0.02em] md:text-2xl"
-                    >
-                      {app.title}
-                    </Typography>
-                    <Box className="mt-2 h-px w-12 bg-[#4bd0e4] transition-[width] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-20" />
-                  </Box>
-                </Link>
-              );
-            })}
-          </Box>
-        </Box>
-      </Box>
+      <ApplicationSceneSelector
+        title={t('home.applications.title')}
+        subtitle={t('home.applications.subtitle')}
+        exploreLabel={t('home.applications.explore_label')}
+        items={appItems.map((item, index) => ({ ...item, image: appImages[index] }))}
+      />
 
       <Box component="section" className="bg-[#07090c] px-6 py-28 md:px-[6vw] md:py-40">
         <Box className="mx-auto max-w-[1280px]">
