@@ -15,7 +15,7 @@ const appImages = [
 
 const layouts = [
   'md:col-span-7',
-  'md:col-span-5 md:pt-24',
+  'md:col-span-5 md:pt-[calc(12.5%+0.5rem)]',
   'md:col-span-4',
   'md:col-span-8',
   'md:col-span-6',
@@ -81,7 +81,7 @@ export default function ApplicationPage() {
                   lineHeight: 1.05,
                   letterSpacing: '-0.035em',
                 }}
-                className="mt-7"
+                className="!mt-4 md:!mt-6"
               >
                 {item.title}
               </Typography>
