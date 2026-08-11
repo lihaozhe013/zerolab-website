@@ -15,11 +15,11 @@ const appImages = [
 
 const layouts = [
   'md:col-span-7',
-  'md:col-span-5 md:pt-[calc(12.5%+0.5rem)]',
+  'md:col-span-5',
   'md:col-span-4',
   'md:col-span-8',
   'md:col-span-6',
-  'md:col-span-6 md:pt-20',
+  'md:col-span-6',
 ];
 
 export default function ApplicationPage() {
