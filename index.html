@@ -2,6 +2,24 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (() => {
+        let savedTheme;
+        try {
+          savedTheme = localStorage.getItem('zerolab-theme');
+        } catch {
+          savedTheme = null;
+        }
+        const theme =
+          savedTheme === 'light' || savedTheme === 'dark'
+            ? savedTheme
+            : matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <link rel="icon" type="image/png" href="/images/LOGO1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>天璺科技ZeroLab</title>

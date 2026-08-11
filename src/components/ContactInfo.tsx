@@ -24,16 +24,13 @@ export default function ContactInfo() {
           key={item.title}
           className={index === 0 ? 'md:col-span-6' : 'md:col-span-3'}
         >
-          <Box className="h-px w-full bg-white/15" />
+          <Box className="h-px w-full bg-line" />
           <Typography className="mt-6 text-sm font-semibold text-[#4bd0e4]">
             {item.title}
           </Typography>
           <Box className="mt-7 space-y-2">
             {item.lines.map((line) => (
-              <Typography
-                key={line}
-                className="text-base leading-7 text-white/72"
-              >
+              <Typography key={line} className="text-base leading-7 text-muted">
                 {line}
               </Typography>
             ))}

@@ -39,14 +39,14 @@ export default function DownloadsPage() {
   );
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <SubHeader title={t('downloads.title')} subtitle={t('downloads.intro')} />
 
       <Box component="section" className="px-6 py-24 md:px-[6vw] md:py-36">
         <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-10">
           <Box component="aside" className="lg:col-span-3">
-            <Box className="border-t border-white/15 pt-5 lg:sticky lg:top-28">
-              <Typography className="text-xs font-semibold tracking-[0.18em] text-white/40">
+            <Box className="border-t border-line pt-5 lg:sticky lg:top-28">
+              <Typography className="text-xs font-semibold tracking-[0.18em] text-faint">
                 {t('downloads.contents')}
               </Typography>
               <Box component="nav" className="mt-6 flex flex-col">
@@ -55,16 +55,16 @@ export default function DownloadsPage() {
                     component="a"
                     href={`#${group.id}`}
                     key={group.id}
-                    className="group grid grid-cols-[32px_1fr] border-t border-white/10 py-4 text-sm text-white/60 transition-colors first:border-t-0 hover:text-[#4bd0e4]"
+                    className="group grid grid-cols-[32px_1fr] border-t border-line py-4 text-sm text-muted transition-colors first:border-t-0 hover:text-[#4bd0e4]"
                   >
-                    <span className="font-mono text-[11px] tabular-nums text-white/30 group-hover:text-[#4bd0e4]">
+                    <span className="font-mono text-[11px] tabular-nums text-faint group-hover:text-[#4bd0e4]">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <span>{group.title}</span>
                   </Box>
                 ))}
               </Box>
-              <Typography className="mt-8 text-xs leading-5 text-white/35">
+              <Typography className="mt-8 text-xs leading-5 text-faint">
                 {t('downloads.summary', { count: releaseCount })}
               </Typography>
             </Box>
@@ -81,11 +81,11 @@ export default function DownloadsPage() {
                 <Box>
                   <Typography
                     component="h2"
-                    className="text-base font-semibold text-white"
+                    className="text-base font-semibold text-ink"
                   >
                     {t('downloads.preview_title')}
                   </Typography>
-                  <Typography className="mt-2 max-w-[680px] text-sm leading-7 text-white/50">
+                  <Typography className="mt-2 max-w-[680px] text-sm leading-7 text-muted">
                     {t('downloads.preview_description')}
                   </Typography>
                 </Box>
@@ -102,7 +102,7 @@ export default function DownloadsPage() {
                   key={group.id}
                   className="scroll-mt-28"
                 >
-                  <Box className="mb-10 grid grid-cols-[40px_1fr] gap-5 border-b border-white/15 pb-7 md:grid-cols-[48px_1fr_auto] md:items-end">
+                  <Box className="mb-10 grid grid-cols-[40px_1fr] gap-5 border-b border-line pb-7 md:grid-cols-[48px_1fr_auto] md:items-end">
                     <GroupIcon
                       aria-hidden="true"
                       className="text-[#4bd0e4]"
@@ -123,26 +123,26 @@ export default function DownloadsPage() {
                       >
                         {group.title}
                       </Typography>
-                      <Typography className="mt-4 max-w-[650px] text-sm leading-7 text-white/45">
+                      <Typography className="mt-4 max-w-[650px] text-sm leading-7 text-muted">
                         {group.description}
                       </Typography>
                     </Box>
-                    <Typography className="col-start-2 font-mono text-xs tabular-nums text-white/35 md:col-start-3">
+                    <Typography className="col-start-2 font-mono text-xs tabular-nums text-faint md:col-start-3">
                       {group.items.length} {t('downloads.packages')}
                     </Typography>
                   </Box>
 
-                  <Box className="hidden grid-cols-[minmax(0,1fr)_90px_120px_140px] gap-5 border-b border-white/10 px-1 pb-4 md:grid">
-                    <Typography className="text-xs font-medium text-white/35">
+                  <Box className="hidden grid-cols-[minmax(0,1fr)_90px_120px_140px] gap-5 border-b border-line px-1 pb-4 md:grid">
+                    <Typography className="text-xs font-medium text-faint">
                       {t('downloads.columns.description')}
                     </Typography>
-                    <Typography className="text-xs font-medium text-white/35">
+                    <Typography className="text-xs font-medium text-faint">
                       {t('downloads.columns.version')}
                     </Typography>
-                    <Typography className="text-xs font-medium text-white/35">
+                    <Typography className="text-xs font-medium text-faint">
                       {t('downloads.columns.platform')}
                     </Typography>
-                    <Typography className="text-xs font-medium text-white/35">
+                    <Typography className="text-xs font-medium text-faint">
                       {t('downloads.columns.resource')}
                     </Typography>
                   </Box>
@@ -152,34 +152,34 @@ export default function DownloadsPage() {
                       <Box
                         component="article"
                         key={item.title}
-                        className="group grid grid-cols-1 gap-7 border-b border-white/10 px-1 py-8 transition-colors hover:border-[#4bd0e4]/35 md:grid-cols-[minmax(0,1fr)_90px_120px_140px] md:items-center md:gap-5"
+                        className="group grid grid-cols-1 gap-7 border-b border-line px-1 py-8 transition-colors hover:border-[#4bd0e4]/35 md:grid-cols-[minmax(0,1fr)_90px_120px_140px] md:items-center md:gap-5"
                       >
                         <Box>
                           <Typography
                             component="h3"
-                            className="text-base font-semibold tracking-[-0.02em] text-white md:text-lg"
+                            className="text-base font-semibold tracking-[-0.02em] text-ink md:text-lg"
                           >
                             {item.title}
                           </Typography>
-                          <Typography className="mt-2 max-w-[560px] text-sm leading-6 text-white/45">
+                          <Typography className="mt-2 max-w-[560px] text-sm leading-6 text-muted">
                             {item.description}
                           </Typography>
                         </Box>
 
                         <Box className="grid grid-cols-2 gap-6 md:contents">
                           <Box>
-                            <Typography className="mb-2 text-[11px] text-white/30 md:hidden">
+                            <Typography className="mb-2 text-[11px] text-faint md:hidden">
                               {t('downloads.columns.version')}
                             </Typography>
-                            <Typography className="font-mono text-xs tabular-nums text-white/55">
+                            <Typography className="font-mono text-xs tabular-nums text-muted">
                               {item.version}
                             </Typography>
                           </Box>
                           <Box>
-                            <Typography className="mb-2 text-[11px] text-white/30 md:hidden">
+                            <Typography className="mb-2 text-[11px] text-faint md:hidden">
                               {t('downloads.columns.platform')}
                             </Typography>
-                            <Typography className="text-xs text-white/55">
+                            <Typography className="text-xs text-muted">
                               {item.platform}
                             </Typography>
                           </Box>
@@ -188,7 +188,7 @@ export default function DownloadsPage() {
                         <button
                           type="button"
                           disabled
-                          className="inline-flex min-h-11 w-fit cursor-not-allowed items-center gap-2 border border-white/15 px-4 py-2 text-sm font-semibold text-white/30"
+                          className="inline-flex min-h-11 w-fit cursor-not-allowed items-center gap-2 border border-line px-4 py-2 text-sm font-semibold text-faint"
                         >
                           {t('downloads.coming_soon')}
                           <CloudDownloadOutlinedIcon
@@ -203,7 +203,7 @@ export default function DownloadsPage() {
               );
             })}
 
-            <SectionReveal className="border-t border-white/15 pt-10">
+            <SectionReveal className="border-t border-line pt-10">
               <Typography
                 component="h2"
                 sx={{
@@ -215,13 +215,13 @@ export default function DownloadsPage() {
               >
                 {t('downloads.help_title')}
               </Typography>
-              <Typography className="mt-5 max-w-[620px] text-sm leading-7 text-white/50">
+              <Typography className="mt-5 max-w-[620px] text-sm leading-7 text-muted">
                 {t('downloads.help_description')}
               </Typography>
               <Box
                 component="a"
                 href="mailto:info@zero-lab.tech"
-                className="mt-8 inline-flex min-h-12 items-center bg-[#4bd0e4] px-6 py-3 text-sm font-semibold text-[#071013] transition-[background-color,transform] duration-300 hover:bg-white active:scale-[0.98]"
+                className="mt-8 inline-flex min-h-12 items-center bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-[background-color,color,transform] duration-300 hover:bg-primary-dark hover:text-white active:scale-[0.98]"
               >
                 {t('downloads.contact')}
               </Box>

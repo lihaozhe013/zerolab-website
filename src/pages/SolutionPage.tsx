@@ -17,7 +17,7 @@ export default function SolutionPage() {
   }[];
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <SubHeader title={t('solution.title')} subtitle={t('solution.intro')} />
 
       <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">

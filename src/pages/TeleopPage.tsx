@@ -24,7 +24,7 @@ export default function TeleopPage() {
   }[];
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <SubHeader
         title={t('teleop.title')}
         subtitle={`${t('teleop.subtitle_line1')} ${t('teleop.subtitle_line2')}`}
@@ -55,7 +55,7 @@ export default function TeleopPage() {
             >
               {t('teleop.proof.title')}
             </Typography>
-            <Typography className="mt-8 max-w-[520px] text-base leading-8 text-white/55">
+            <Typography className="mt-8 max-w-[520px] text-base leading-8 text-muted">
               {t('teleop.proof.description')}
             </Typography>
           </Box>
@@ -63,18 +63,18 @@ export default function TeleopPage() {
             {proofItems.map((item, index) => (
               <Box
                 key={item.title}
-                className="group grid grid-cols-[48px_1fr] gap-5 border-t border-white/14 py-7 transition-colors duration-300 last:border-b hover:border-[#4bd0e4]/55 md:grid-cols-[64px_0.8fr_1.2fr] md:items-baseline md:gap-7"
+                className="group grid grid-cols-[48px_1fr] gap-5 border-t border-line py-7 transition-colors duration-300 last:border-b hover:border-[#4bd0e4]/55 md:grid-cols-[64px_0.8fr_1.2fr] md:items-baseline md:gap-7"
               >
                 <Typography className="font-mono text-xs tabular-nums text-[#4bd0e4]">
                   {String(index + 1).padStart(2, '0')}
                 </Typography>
                 <Typography
                   component="h3"
-                  className="text-lg font-semibold tracking-[-0.02em] text-white"
+                  className="text-lg font-semibold tracking-[-0.02em] text-ink"
                 >
                   {item.title}
                 </Typography>
-                <Typography className="col-start-2 mt-2 text-sm leading-7 text-white/50 md:col-start-3 md:mt-0">
+                <Typography className="col-start-2 mt-2 text-sm leading-7 text-muted md:col-start-3 md:mt-0">
                   {item.description}
                 </Typography>
               </Box>
@@ -97,7 +97,7 @@ export default function TeleopPage() {
             >
               {t('teleop.cycle_title')}
             </Typography>
-            <Typography className="mt-6 text-base leading-7 text-white/55">
+            <Typography className="mt-6 text-base leading-7 text-muted">
               {t('teleop.cycle_description')}
             </Typography>
           </Box>
@@ -114,7 +114,7 @@ export default function TeleopPage() {
 
       <Box
         component="section"
-        className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-40"
+        className="bg-section px-6 py-28 md:px-[6vw] md:py-40"
       >
         <Box className="mx-auto max-w-[1280px]">
           <VideoCard

@@ -41,7 +41,7 @@ export default function ProductPage() {
   );
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <SubHeader
         title={t('product.page_title')}
         subtitle={t('product.intro')}

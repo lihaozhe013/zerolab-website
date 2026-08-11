@@ -7,10 +7,10 @@ export default function AboutPage() {
   const { t } = useTranslation();
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <Box
         component="header"
-        className="grid min-h-[78dvh] grid-cols-1 bg-[#050608] pt-20 md:grid-cols-12"
+        className="grid min-h-[78dvh] grid-cols-1 bg-deep pt-20 md:grid-cols-12"
       >
         <Box className="flex items-end px-6 pb-14 pt-20 md:col-span-5 md:px-[6vw] md:pb-20 md:pt-24">
           <Box>
@@ -32,7 +32,7 @@ export default function AboutPage() {
           </Box>
         </Box>
 
-        <Box className="flex items-center justify-center bg-[#101318] md:col-span-7">
+        <Box className="flex items-center justify-center bg-panel md:col-span-7">
           <Box
             component="img"
             src="/images/AboutImage.JPG"
@@ -58,7 +58,7 @@ export default function AboutPage() {
             </Typography>
           </SectionReveal>
           <SectionReveal className="md:col-span-6 md:col-start-7 md:pt-2">
-            <Typography className="text-base leading-8 text-white/65 md:text-lg">
+            <Typography className="text-base leading-8 text-muted md:text-lg">
               {t('about.description')}
             </Typography>
             <Link

@@ -56,9 +56,13 @@
   },
   "common": {
     "contact_us": "联系我们",
+    "dark_mode": "深色模式",
     "explore_products": "探索产品",
     "learn_more": "了解更多",
+    "light_mode": "浅色模式",
     "send_email": "发送邮件咨询",
+    "switch_to_dark_mode": "切换到深色模式",
+    "switch_to_light_mode": "切换到浅色模式",
     "view_product_details": "查看产品详情",
     "view_products": "查看产品"
   },
@@ -109,15 +113,15 @@
         "items": [
           {
             "description": "配置 ZeroLab 动作捕捉硬件、完成角色校准、预览动作并录制动作数据。",
-            "platform": "—",
+            "platform": "-",
             "title": "动作捕捉软件",
-            "version": "—"
+            "version": "-"
           },
           {
             "description": "连接支持的机器人平台，管理动作映射与遥操作任务。",
-            "platform": "—",
+            "platform": "-",
             "title": "机器人遥操作软件",
-            "version": "—"
+            "version": "-"
           }
         ],
         "kind": "software",
@@ -129,15 +133,15 @@
         "items": [
           {
             "description": "用于接收和处理 ZeroLab 动作数据的 API、示例项目与集成资源。",
-            "platform": "—",
+            "platform": "-",
             "title": "ZeroLab SDK",
-            "version": "—"
+            "version": "-"
           },
           {
             "description": "用于将 ZeroLab 动作捕捉接入 ROS 2 机器人工作流的开发软件包。",
-            "platform": "—",
+            "platform": "-",
             "title": "ROS 2 软件包",
-            "version": "—"
+            "version": "-"
           }
         ],
         "kind": "developer",
@@ -149,15 +153,15 @@
         "items": [
           {
             "description": "用于在 Unity 中驱动角色与交互体验的集成软件包。",
-            "platform": "—",
+            "platform": "-",
             "title": "Unity 插件",
-            "version": "—"
+            "version": "-"
           },
           {
             "description": "用于 Unreal Engine 实时角色动画与虚拟制片的集成软件包。",
-            "platform": "—",
+            "platform": "-",
             "title": "Unreal Engine 插件",
-            "version": "—"
+            "version": "-"
           }
         ],
         "kind": "integration",

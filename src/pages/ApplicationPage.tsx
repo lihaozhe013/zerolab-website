@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
@@ -31,7 +30,7 @@ export default function ApplicationPage() {
   }[];
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <SubHeader
         title={t('application.title')}
         subtitle={t('application.intro')}
@@ -58,7 +57,7 @@ export default function ApplicationPage() {
               key={item.title}
               className={layouts[index]}
             >
-              <Box className="group overflow-hidden bg-[#111419]">
+              <Box className="group overflow-hidden bg-panel">
                 <Box
                   component="img"
                   src={appImages[index]}
@@ -82,53 +81,12 @@ export default function ApplicationPage() {
               >
                 {item.title}
               </Typography>
-              <Typography className="mt-5 max-w-[680px] text-sm leading-7 text-white/55">
+              <Typography className="mt-5 max-w-[680px] text-sm leading-7 text-muted">
                 {item.description}
               </Typography>
             </SectionReveal>
           ))}
         </Box>
-      </Box>
-
-      <Box
-        component="section"
-        className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-36"
-      >
-        <SectionReveal className="mx-auto max-w-[1280px]">
-          <Typography
-            component="h2"
-            sx={{
-              fontSize: 'clamp(42px, 6vw, 84px)',
-              fontWeight: 600,
-              lineHeight: 0.96,
-              letterSpacing: '-0.05em',
-            }}
-            className="max-w-[900px]"
-          >
-            {t('application.cta_title')}
-          </Typography>
-          <Box
-            component="figure"
-            className="mt-14 border border-white/10 bg-white/[0.025] p-1.5 md:mt-20 md:p-2"
-          >
-            <Box
-              component="img"
-              src="/images/Extra_info.png"
-              alt={t('application.extra_info_alt')}
-              width={2879}
-              height={1617}
-              loading="lazy"
-              decoding="async"
-              className="block h-auto w-full"
-            />
-          </Box>
-          <Link
-            to="/contact"
-            className="mt-10 inline-flex min-h-12 items-center bg-[#4bd0e4] px-6 py-3 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white active:scale-[0.98] md:mt-12"
-          >
-            {t('common.contact_us')}
-          </Link>
-        </SectionReveal>
       </Box>
     </Box>
   );

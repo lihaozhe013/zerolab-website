@@ -3,10 +3,15 @@ import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import HeroKineticCopy from '@/components/HeroKineticCopy';
-import ApplicationSceneSelector from '@/components/ApplicationSceneSelector';
 import ProductScrollShowcase, {
   type ProductShowcaseItem,
 } from '@/components/ProductScrollShowcase';
+import SectionRouteSync from '@/components/SectionRouteSync';
+import AboutPage from '@/pages/AboutPage';
+import ApplicationPage from '@/pages/ApplicationPage';
+import ContactPage from '@/pages/ContactPage';
+import DownloadsPage from '@/pages/DownloadsPage';
+import SolutionPage from '@/pages/SolutionPage';
 
 const productImages = [
   '/images/OpenArm.png',
@@ -24,18 +29,6 @@ const productDestinations = [
   '/document/Chip_brochure.pdf',
 ];
 
-const appImages = [
-  '/images/MixedReality.png',
-  '/images/Teleoperation 2.png',
-  '/images/Sports.png',
-];
-
-const envImages = [
-  '/images/reception.png',
-  '/images/Lab.JPG',
-  '/images/Datacenter.JPG',
-];
-
 export default function HomePage() {
   const { t } = useTranslation();
   const heroRef = useRef<HTMLDivElement>(null);
@@ -43,14 +36,6 @@ export default function HomePage() {
     title: string;
     description: string;
     link_text?: string;
-  }[];
-  const appItems = t('home.applications.items', { returnObjects: true }) as {
-    title: string;
-    description: string;
-  }[];
-  const envItems = t('home.environments.items', { returnObjects: true }) as {
-    title: string;
-    description: string;
   }[];
   const productShowcaseItems: ProductShowcaseItem[] = productItems.map(
     (product, index) => ({
@@ -63,7 +48,8 @@ export default function HomePage() {
   );
 
   return (
-    <Box className="overflow-x-clip bg-[#07090c] text-white">
+    <Box className="overflow-x-clip bg-page text-ink">
+      <SectionRouteSync />
       <Box
         ref={heroRef}
         component="section"
@@ -104,6 +90,7 @@ export default function HomePage() {
               </Typography>
               <Link
                 to="/product"
+                state={{ scrollToSection: true }}
                 className="inline-flex min-h-12 items-center border border-white/55 px-6 py-3 text-sm font-semibold text-white transition-[background-color,border-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#4bd0e4] hover:bg-[#4bd0e4] hover:text-[#071013] active:scale-[0.98]"
               >
                 {t('common.explore_products')}
@@ -113,106 +100,23 @@ export default function HomePage() {
         </Box>
       </Box>
 
-      <ProductScrollShowcase items={productShowcaseItems} />
-
-      <ApplicationSceneSelector
-        title={t('home.applications.title')}
-        subtitle={t('home.applications.subtitle')}
-        exploreLabel={t('home.applications.explore_label')}
-        items={appItems.map((item, index) => ({
-          ...item,
-          image: appImages[index],
-        }))}
-      />
-
-      <Box
-        component="section"
-        className="bg-[#07090c] px-6 py-28 md:px-[6vw] md:py-40"
-      >
-        <Box className="mx-auto max-w-[1280px]">
-          <Typography
-            component="h2"
-            sx={{
-              fontSize: 'clamp(42px, 5vw, 76px)',
-              fontWeight: 600,
-              lineHeight: 0.96,
-              letterSpacing: '-0.05em',
-            }}
-            className="text-[clamp(42px,5vw,76px)] font-semibold leading-[0.96] tracking-[-0.05em]"
-          >
-            {t('home.environments.title')}
-          </Typography>
-
-          <Box className="mt-20 grid grid-cols-1 gap-x-7 gap-y-16 md:grid-cols-12">
-            {envItems.map((environment, index) => {
-              const layout =
-                index === 0 ? 'md:col-span-7 md:row-span-2' : 'md:col-span-5';
-              const mediaHeight = index === 0 ? 'md:h-[720px]' : 'md:h-[320px]';
-
-              return (
-                <Box
-                  component="article"
-                  key={environment.title}
-                  className={layout}
-                >
-                  <Box
-                    className={`overflow-hidden bg-[#101318] ${mediaHeight}`}
-                  >
-                    <Box
-                      component="img"
-                      src={envImages[index]}
-                      alt={environment.title}
-                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.025]"
-                    />
-                  </Box>
-                  <Typography
-                    component="h3"
-                    sx={{
-                      fontSize: { xs: 20, md: 24 },
-                      fontWeight: 600,
-                      letterSpacing: '-0.02em',
-                    }}
-                    className="mt-5 text-xl font-semibold tracking-[-0.02em] md:text-2xl"
-                  >
-                    {environment.title}
-                  </Typography>
-                  <Typography className="mt-3 max-w-[620px] text-sm leading-6 text-white/45">
-                    {environment.description}
-                  </Typography>
-                </Box>
-              );
-            })}
-          </Box>
-        </Box>
+      <Box id="product" component="section" className="scroll-mt-20">
+        <ProductScrollShowcase items={productShowcaseItems} />
       </Box>
-
-      <Box
-        component="section"
-        className="bg-[#0a0c0f] px-6 py-32 md:px-[6vw] md:py-48"
-      >
-        <Box className="mx-auto max-w-[1280px]">
-          <Typography
-            component="h2"
-            sx={{
-              fontSize: 'clamp(48px, 7vw, 104px)',
-              fontWeight: 600,
-              lineHeight: 0.92,
-              letterSpacing: '-0.06em',
-            }}
-            className="max-w-[980px] text-[clamp(48px,7vw,104px)] font-semibold leading-[0.92] tracking-[-0.06em]"
-          >
-            {t('home.cta.title')}
-          </Typography>
-          <Typography className="mt-8 max-w-[600px] text-base leading-7 text-white/50">
-            {t('home.cta.description')}
-          </Typography>
-          <Link
-            to="/contact"
-            className="mt-12 inline-flex min-h-14 items-center bg-[#4bd0e4] px-7 py-4 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white active:scale-[0.98]"
-          >
-            {t('common.contact_us')}
-          </Link>
-        </Box>
+      <Box id="application" component="section" className="scroll-mt-20">
+        <ApplicationPage />
+      </Box>
+      <Box id="solution" component="section" className="scroll-mt-20">
+        <SolutionPage />
+      </Box>
+      <Box id="downloads" component="section" className="scroll-mt-20">
+        <DownloadsPage />
+      </Box>
+      <Box id="about" component="section" className="scroll-mt-20">
+        <AboutPage />
+      </Box>
+      <Box id="contact" component="section" className="scroll-mt-20">
+        <ContactPage />
       </Box>
     </Box>
   );

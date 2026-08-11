@@ -110,7 +110,7 @@ export default function ContactPage() {
   }, [directionsUrl, t]);
 
   return (
-    <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
+    <Box component="main" className="overflow-x-clip bg-page text-ink">
       <SubHeader
         title={t('contact.title')}
         subtitle={t('contact.intro')}
@@ -133,24 +133,24 @@ export default function ContactPage() {
             >
               {t('contact.visit')}
             </Typography>
-            <Typography className="mt-5 max-w-[560px] text-base leading-7 text-white/58">
+            <Typography className="mt-5 max-w-[560px] text-base leading-7 text-muted">
               {t('contact.map_hint')}
             </Typography>
-            <Box className="mt-10 overflow-hidden border border-white/10 bg-[#111419] p-1.5">
+            <Box className="mt-10 overflow-hidden border border-line bg-panel p-1.5">
               <Box className="relative">
                 <Box
                   ref={mapRef}
-                  className="h-[440px] w-full bg-[#111419] md:h-[620px]"
+                  className="h-[440px] w-full bg-panel md:h-[620px]"
                 />
                 {mapStatus !== 'ready' && (
-                  <Box className="absolute inset-0 flex items-center justify-center bg-[#111419] px-6 text-center">
+                  <Box className="absolute inset-0 flex items-center justify-center bg-panel px-6 text-center">
                     {mapStatus === 'loading' ? (
-                      <Typography className="text-sm text-white/58">
+                      <Typography className="text-sm text-muted">
                         {t('contact.map_loading')}
                       </Typography>
                     ) : (
                       <Box>
-                        <Typography className="text-sm text-white/58">
+                        <Typography className="text-sm text-muted">
                           {t('contact.map_error')}
                         </Typography>
                         <Box
@@ -158,7 +158,7 @@ export default function ContactPage() {
                           href={directionsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-5 inline-flex min-h-11 items-center bg-[#4bd0e4] px-5 py-2.5 text-sm font-semibold text-[#071013] transition-[background-color,transform] duration-300 hover:bg-white active:scale-[0.98]"
+                          className="mt-5 inline-flex min-h-11 items-center bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-[background-color,color,transform] duration-300 hover:bg-primary-dark hover:text-white active:scale-[0.98]"
                         >
                           {t('contact.get_directions')}
                         </Box>
@@ -167,8 +167,8 @@ export default function ContactPage() {
                   </Box>
                 )}
               </Box>
-              <Box className="flex flex-col gap-4 border-t border-white/10 px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-5">
-                <Typography className="text-sm leading-6 text-white/48">
+              <Box className="flex flex-col gap-4 border-t border-line px-4 py-4 sm:flex-row sm:items-center sm:justify-between md:px-5">
+                <Typography className="text-sm leading-6 text-muted">
                   {t('contact.map_pin_hint')}
                 </Typography>
                 <Box
@@ -176,7 +176,7 @@ export default function ContactPage() {
                   href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 shrink-0 items-center justify-center bg-[#4bd0e4] px-5 py-2.5 text-sm font-semibold text-[#071013] transition-[background-color,transform] duration-300 hover:bg-white active:scale-[0.98]"
+                  className="inline-flex min-h-11 shrink-0 items-center justify-center bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink transition-[background-color,color,transform] duration-300 hover:bg-primary-dark hover:text-white active:scale-[0.98]"
                 >
                   {t('contact.get_directions')}
                 </Box>

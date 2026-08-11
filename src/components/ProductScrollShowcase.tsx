@@ -180,16 +180,13 @@ export default function ProductScrollShowcase({
 
   if (useStaticLayout) {
     return (
-      <Box
-        component="section"
-        className="bg-[#07090c] px-6 pb-28 pt-12 text-white"
-      >
+      <Box component="section" className="bg-page px-6 pb-28 pt-12 text-ink">
         <Box className="mx-auto max-w-[1280px]">
           <Box className="-mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-3">
             {items.map((item) => (
               <Box
                 key={item.title}
-                className="w-[44vw] max-w-[190px] shrink-0 snap-start overflow-hidden bg-[#111419]"
+                className="w-[44vw] max-w-[190px] shrink-0 snap-start overflow-hidden bg-panel"
               >
                 <Box
                   component="img"
@@ -208,7 +205,7 @@ export default function ProductScrollShowcase({
                 href={item.href}
                 className="group block"
               >
-                <Box className="overflow-hidden bg-[#111419]">
+                <Box className="overflow-hidden bg-panel">
                   <Box
                     component="img"
                     src={item.image}
@@ -233,7 +230,7 @@ export default function ProductScrollShowcase({
                 >
                   {item.title}
                 </Typography>
-                <Typography className="mt-5 text-sm leading-7 text-white/55">
+                <Typography className="mt-5 text-sm leading-7 text-muted">
                   {item.description}
                 </Typography>
                 <Typography className="mt-8 text-sm font-semibold text-[#4bd0e4]">
@@ -253,7 +250,7 @@ export default function ProductScrollShowcase({
     <Box
       ref={sectionRef}
       component="section"
-      className="relative bg-[#07090c] text-white"
+      className="relative bg-page text-ink"
       style={{ height: `${200 + items.length * 100}dvh` }}
     >
       <Box className="sticky top-0 min-h-[100dvh] overflow-hidden">
@@ -268,8 +265,8 @@ export default function ProductScrollShowcase({
                 data-product-card
                 className={
                   index % 2 === 1
-                    ? 'relative mt-12 overflow-hidden bg-[#111419]'
-                    : 'relative overflow-hidden bg-[#111419]'
+                    ? 'relative mt-12 overflow-hidden bg-panel'
+                    : 'relative overflow-hidden bg-panel'
                 }
               >
                 <Box
@@ -285,7 +282,7 @@ export default function ProductScrollShowcase({
 
         <Box
           data-product-stage
-          className="invisible absolute z-10 overflow-hidden bg-[#111419] opacity-0"
+          className="invisible absolute z-10 overflow-hidden bg-panel opacity-0"
         >
           <Box
             data-product-media-track
@@ -336,10 +333,10 @@ export default function ProductScrollShowcase({
                 >
                   {item.title}
                 </Typography>
-                <Typography className="mt-7 max-w-[500px] text-sm leading-7 text-white/58">
+                <Typography className="mt-7 max-w-[500px] text-sm leading-7 text-muted">
                   {item.description}
                 </Typography>
-                <Typography className="mt-10 text-sm font-semibold text-[#4bd0e4] transition-colors duration-500 group-hover:text-white">
+                <Typography className="mt-10 text-sm font-semibold text-[#08b4ce] transition-colors duration-500 group-hover:text-ink">
                   {item.linkText}
                 </Typography>
               </Destination>

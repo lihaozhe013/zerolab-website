@@ -3,8 +3,39 @@
 @theme {
   --color-primary: #08b4ce;
   --color-primary-dark: #069ab0;
-  --color-text-primary: #222222;
-  --color-text-secondary: #777777;
+  --color-page: var(--theme-page);
+  --color-deep: var(--theme-deep);
+  --color-section: var(--theme-section);
+  --color-panel: var(--theme-panel);
+  --color-ink: var(--theme-ink);
+  --color-muted: var(--theme-muted);
+  --color-faint: var(--theme-faint);
+  --color-line: var(--theme-line);
+  --color-accent: #4bd0e4;
+  --color-accent-ink: #071013;
+}
+
+:root,
+:root[data-theme='dark'] {
+  --theme-page: #07090c;
+  --theme-deep: #050608;
+  --theme-section: #0a0c0f;
+  --theme-panel: #111419;
+  --theme-ink: #f2f8f9;
+  --theme-muted: #9ba5a8;
+  --theme-faint: #7a8588;
+  --theme-line: rgb(255 255 255 / 12%);
+}
+
+:root[data-theme='light'] {
+  --theme-page: #f3f7f8;
+  --theme-deep: #ffffff;
+  --theme-section: #e9f0f2;
+  --theme-panel: #ffffff;
+  --theme-ink: #10191c;
+  --theme-muted: #536166;
+  --theme-faint: #647277;
+  --theme-line: rgb(16 25 28 / 14%);
 }
 
 /* Inter variable font (English) */
@@ -44,8 +75,13 @@
 
   body {
     font-family: 'Avenir Next', 'Noto Sans SC', sans-serif;
+    background: var(--theme-page);
+    color: var(--theme-ink);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition:
+      background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 300ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html:lang(zh) body {

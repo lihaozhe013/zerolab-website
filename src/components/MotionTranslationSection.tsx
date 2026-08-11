@@ -82,7 +82,7 @@ export default function MotionTranslationSection({
 
   if (useStaticLayout) {
     return (
-      <Box component="section" className="bg-[#0a0c0f] px-6 py-24 text-white">
+      <Box component="section" className="bg-section px-6 py-24 text-ink">
         <Box className="mx-auto max-w-[1280px]">
           <Typography
             component="h2"
@@ -96,14 +96,14 @@ export default function MotionTranslationSection({
           >
             {heading}
           </Typography>
-          <Typography className="mt-6 max-w-[620px] text-base leading-7 text-white/55">
+          <Typography className="mt-6 max-w-[620px] text-base leading-7 text-muted">
             {description}
           </Typography>
 
           <Box className="mt-16 space-y-20">
             {steps.map((step) => (
               <Box component="article" key={step.verb}>
-                <Box className="overflow-hidden bg-[#111419]">
+                <Box className="overflow-hidden bg-panel">
                   <Box
                     component="img"
                     src={step.image}
@@ -126,7 +126,7 @@ export default function MotionTranslationSection({
                 >
                   {step.title}
                 </Typography>
-                <Typography className="mt-4 text-sm leading-6 text-white/55">
+                <Typography className="mt-4 text-sm leading-6 text-muted">
                   {step.description}
                 </Typography>
               </Box>
@@ -141,7 +141,7 @@ export default function MotionTranslationSection({
     <Box
       ref={sectionRef}
       component="section"
-      className="relative h-[320dvh] bg-[#0a0c0f] text-white"
+      className="relative h-[320dvh] bg-section text-ink"
     >
       <Box className="sticky top-0 grid min-h-[100dvh] grid-cols-12 overflow-hidden">
         <Box className="col-span-5 flex flex-col justify-between px-[7vw] py-[12vh] pr-[5vw]">
@@ -158,7 +158,7 @@ export default function MotionTranslationSection({
             >
               {heading}
             </Typography>
-            <Typography className="mt-7 max-w-[480px] text-base leading-7 text-white/50">
+            <Typography className="mt-7 max-w-[480px] text-base leading-7 text-muted">
               {description}
             </Typography>
           </Box>
@@ -185,7 +185,7 @@ export default function MotionTranslationSection({
                 >
                   {step.title}
                 </Typography>
-                <Typography className="mt-5 max-w-[440px] text-sm leading-6 text-white/55">
+                <Typography className="mt-5 max-w-[440px] text-sm leading-6 text-muted">
                   {step.description}
                 </Typography>
               </Box>
@@ -193,7 +193,7 @@ export default function MotionTranslationSection({
           </Box>
         </Box>
 
-        <Box className="relative col-span-7 m-4 ml-0 overflow-hidden bg-[#111419]">
+        <Box className="relative col-span-7 m-4 ml-0 overflow-hidden bg-panel">
           {steps.map((step) => (
             <Box
               key={step.image}

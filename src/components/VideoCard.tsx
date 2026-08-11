@@ -16,7 +16,7 @@ export default function VideoCard({
 }: VideoCardProps) {
   return (
     <SectionReveal component="article" className="group">
-      <Box className="overflow-hidden bg-[#111419]">
+      <Box className="overflow-hidden bg-panel">
         <Box
           component="video"
           src={videoSrc}
@@ -37,11 +37,11 @@ export default function VideoCard({
           lineHeight: 1.05,
           letterSpacing: '-0.04em',
         }}
-        className="mt-7 max-w-[900px] text-white"
+        className="mt-7 max-w-[900px] text-ink"
       >
         {title}
       </Typography>
-      <Typography className="mt-5 max-w-[760px] text-sm leading-7 text-white/55">
+      <Typography className="mt-5 max-w-[760px] text-sm leading-7 text-muted">
         {description}
       </Typography>
     </SectionReveal>

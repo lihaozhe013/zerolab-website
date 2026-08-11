@@ -107,9 +107,9 @@ export default function MotionCaptureSection({
     <Box
       ref={sectionRef}
       component="section"
-      className="bg-[#080b0e] px-6 py-24 text-white md:px-[6vw] md:py-36"
+      className="bg-section px-6 py-24 text-ink md:px-[6vw] md:py-36"
     >
-      <Box className="mx-auto grid max-w-[1280px] grid-cols-1 overflow-hidden bg-[#0d1115] md:min-h-[760px] md:grid-cols-12">
+      <Box className="mx-auto grid max-w-[1280px] grid-cols-1 overflow-hidden bg-panel md:min-h-[760px] md:grid-cols-12">
         <Box className="flex flex-col justify-between px-6 py-10 md:col-span-4 md:px-10 md:py-12 lg:px-14 lg:py-16">
           <Box>
             <Typography
@@ -124,7 +124,7 @@ export default function MotionCaptureSection({
             >
               {heading}
             </Typography>
-            <Typography className="mt-7 max-w-[480px] text-base leading-7 text-white/55">
+            <Typography className="mt-7 max-w-[480px] text-base leading-7 text-muted">
               {description}
             </Typography>
           </Box>
@@ -144,7 +144,7 @@ export default function MotionCaptureSection({
                     className={`min-h-11 border px-4 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
                       mode === 'capture'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
-                        : 'border-white/20 text-white/70 hover:border-white/45 hover:text-white'
+                        : 'border-line text-muted hover:border-[#4bd0e4] hover:text-ink'
                     }`}
                   >
                     {captureLabel}
@@ -156,7 +156,7 @@ export default function MotionCaptureSection({
                     className={`min-h-11 border px-4 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
                       mode === 'surface'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
-                        : 'border-white/20 text-white/70 hover:border-white/45 hover:text-white'
+                        : 'border-line text-muted hover:border-[#4bd0e4] hover:text-ink'
                     }`}
                   >
                     {surfaceLabel}
@@ -165,12 +165,12 @@ export default function MotionCaptureSection({
                     type="button"
                     aria-pressed={!playing}
                     onClick={() => setPlaying((current) => !current)}
-                    className="min-h-11 border border-white/20 px-4 py-2 text-sm font-semibold text-white/70 transition-colors duration-300 hover:border-white/45 hover:text-white active:scale-[0.98]"
+                    className="min-h-11 border border-line px-4 py-2 text-sm font-semibold text-muted transition-colors duration-300 hover:border-[#4bd0e4] hover:text-ink active:scale-[0.98]"
                   >
                     {playing ? pauseLabel : playLabel}
                   </button>
                 </Box>
-                <Typography className="mt-5 text-xs leading-5 text-white/35">
+                <Typography className="mt-5 text-xs leading-5 text-faint">
                   {sourceLabel}
                 </Typography>
               </>

@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { useThemeMode } from '@/ThemeModeProvider';
 
 const partnerSrcs = [
   '/images/partner1.png',
@@ -25,21 +26,19 @@ const partnerSrcs = [
 
 export default function PartnerCarousel() {
   const { t } = useTranslation();
+  const { mode } = useThemeMode();
   const partnerNames = t('partners.names', { returnObjects: true }) as string[];
 
   return (
     <Box
       component="section"
-      className="overflow-hidden bg-[#07090c] py-20 text-white md:py-24"
+      className="overflow-hidden bg-page py-20 text-ink md:py-24"
     >
       <Box className="mx-auto mb-12 flex w-[min(1280px,calc(100%-48px))] items-end justify-between md:w-[min(1280px,calc(100%-12vw))]">
-        <Typography
-          component="h2"
-          className="text-sm font-medium text-white/45"
-        >
+        <Typography component="h2" className="text-sm font-medium text-muted">
           {t('partners.title')}
         </Typography>
-        <Box className="h-px flex-1 bg-white/10 ml-8" />
+        <Box className="ml-8 h-px flex-1 bg-line" />
       </Box>
 
       <Box className="partner-marquee-mask">
@@ -58,8 +57,11 @@ export default function PartnerCarousel() {
                   alt={groupIndex === 1 ? '' : partnerNames[index] || ''}
                   className="h-14 w-36 flex-none object-contain opacity-45 grayscale transition-[filter,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-90 md:h-16 md:w-44"
                   sx={{
-                    filter: 'grayscale(1) invert(1)',
-                    mixBlendMode: 'screen',
+                    filter:
+                      mode === 'dark'
+                        ? 'grayscale(1) invert(1)'
+                        : 'grayscale(1)',
+                    mixBlendMode: mode === 'dark' ? 'screen' : 'multiply',
                   }}
                 />
               ))}

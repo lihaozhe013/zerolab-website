@@ -28,7 +28,7 @@ export default function ApplicationSceneSelector({
   return (
     <Box
       component="section"
-      className="bg-[#0a0c0f] px-6 py-28 text-white md:px-[6vw] md:py-40"
+      className="bg-section px-6 py-28 text-ink md:px-[6vw] md:py-40"
     >
       <Box className="mx-auto max-w-[1280px]">
         <Typography
@@ -43,11 +43,11 @@ export default function ApplicationSceneSelector({
         >
           {title}
         </Typography>
-        <Typography className="mt-7 max-w-[680px] text-base leading-7 text-white/50">
+        <Typography className="mt-7 max-w-[680px] text-base leading-7 text-muted">
           {subtitle}
         </Typography>
 
-        <Box className="mt-16 overflow-hidden bg-[#101419] md:mt-20">
+        <Box className="mt-16 overflow-hidden bg-panel md:mt-20">
           <Box className="relative min-h-[380px] overflow-hidden md:min-h-[520px]">
             {items.map((item, index) => (
               <Box
@@ -67,7 +67,7 @@ export default function ApplicationSceneSelector({
             <Box className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06080a]/45 via-transparent to-[#06080a]/10" />
           </Box>
 
-          <Box className="grid gap-10 border-t border-white/10 bg-[#080b0e] px-6 py-8 md:grid-cols-12 md:items-end md:gap-12 md:px-10 md:py-10 lg:px-14 lg:py-12">
+          <Box className="grid gap-10 border-t border-line bg-panel px-6 py-8 md:grid-cols-12 md:items-end md:gap-12 md:px-10 md:py-10 lg:px-14 lg:py-12">
             <Box className="md:col-span-7">
               <Typography
                 component="h3"
@@ -82,12 +82,12 @@ export default function ApplicationSceneSelector({
               >
                 {activeItem.title}
               </Typography>
-              <Typography className="mt-5 max-w-[600px] text-sm leading-6 text-white/65 md:text-base md:leading-7">
+              <Typography className="mt-5 max-w-[600px] text-sm leading-6 text-muted md:text-base md:leading-7">
                 {activeItem.description}
               </Typography>
               <Link
                 to="/application"
-                className="mt-7 inline-flex min-h-11 items-center gap-2 border-b border-[#4bd0e4] py-2 text-sm font-semibold text-white transition-[color,gap] duration-300 hover:gap-3 hover:text-[#4bd0e4] active:translate-y-px"
+                className="mt-7 inline-flex min-h-11 items-center gap-2 border-b border-[#4bd0e4] py-2 text-sm font-semibold text-ink transition-[color,gap] duration-300 hover:gap-3 hover:text-[#08b4ce] active:translate-y-px"
               >
                 {exploreLabel}
                 <ArrowOutwardIcon sx={{ fontSize: 18 }} aria-hidden="true" />
@@ -109,8 +109,8 @@ export default function ApplicationSceneSelector({
                     onPointerEnter={() => setActiveIndex(index)}
                     className={`group relative flex min-h-14 w-full items-center border-t px-1 py-4 text-left transition-[border-color,color,padding] duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#4bd0e4] active:translate-y-px md:min-h-16 ${
                       isActive
-                        ? 'border-[#4bd0e4] pl-4 text-white'
-                        : 'border-white/20 text-white/50 hover:border-white/45 hover:pl-2 hover:text-white'
+                        ? 'border-[#4bd0e4] pl-4 text-ink'
+                        : 'border-line text-muted hover:border-[#4bd0e4] hover:pl-2 hover:text-ink'
                     }`}
                   >
                     <span className="text-sm font-semibold leading-snug md:text-base">

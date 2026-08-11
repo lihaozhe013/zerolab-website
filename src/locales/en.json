@@ -56,9 +56,13 @@
   },
   "common": {
     "contact_us": "Contact Us",
+    "dark_mode": "Dark mode",
     "explore_products": "Explore Products",
     "learn_more": "Learn More",
+    "light_mode": "Light mode",
     "send_email": "Email Us",
+    "switch_to_dark_mode": "Switch to dark mode",
+    "switch_to_light_mode": "Switch to light mode",
     "view_product_details": "View Product Details",
     "view_products": "View Products"
   },
@@ -109,15 +113,15 @@
         "items": [
           {
             "description": "Configure ZeroLab motion-capture hardware, calibrate performers, preview movement, and record motion data.",
-            "platform": "—",
+            "platform": "-",
             "title": "Motion Capture Software",
-            "version": "—"
+            "version": "-"
           },
           {
             "description": "Operate supported robot platforms and manage motion mapping and teleoperation sessions.",
-            "platform": "—",
+            "platform": "-",
             "title": "Robot Teleoperation Software",
-            "version": "—"
+            "version": "-"
           }
         ],
         "kind": "software",
@@ -129,15 +133,15 @@
         "items": [
           {
             "description": "APIs, sample projects, and integration resources for receiving and processing ZeroLab motion data.",
-            "platform": "—",
+            "platform": "-",
             "title": "ZeroLab SDK",
-            "version": "—"
+            "version": "-"
           },
           {
             "description": "Developer package for connecting ZeroLab motion capture to ROS 2 robotics workflows.",
-            "platform": "—",
+            "platform": "-",
             "title": "ROS 2 Package",
-            "version": "—"
+            "version": "-"
           }
         ],
         "kind": "developer",
@@ -149,15 +153,15 @@
         "items": [
           {
             "description": "Integration package for driving characters and interactive experiences in Unity.",
-            "platform": "—",
+            "platform": "-",
             "title": "Unity Plugin",
-            "version": "—"
+            "version": "-"
           },
           {
             "description": "Integration package for real-time character animation and virtual production in Unreal Engine.",
-            "platform": "—",
+            "platform": "-",
             "title": "Unreal Engine Plugin",
-            "version": "—"
+            "version": "-"
           }
         ],
         "kind": "integration",
