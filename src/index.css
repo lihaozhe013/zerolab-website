@@ -106,6 +106,34 @@
   }
 }
 
+@layer components {
+  .site-content
+    :is(h1, h2)
+    + p:not(.heading-copy--compact):not(.heading-copy--inline) {
+    margin-top: clamp(1.75rem, 2vw, 2.25rem) !important;
+  }
+
+  .site-content
+    :is(h3, h4, h5, h6)
+    + p:not(.heading-copy--compact):not(.heading-copy--inline) {
+    margin-top: clamp(1rem, 1.2vw, 1.5rem) !important;
+  }
+
+  .site-content p.heading-copy--compact {
+    margin-top: 1rem !important;
+  }
+
+  .site-content p.heading-copy--inline {
+    margin-top: 0.5rem !important;
+  }
+
+  @media (min-width: 768px) {
+    .site-content p.heading-copy--inline {
+      margin-top: 0 !important;
+    }
+  }
+}
+
 .hero-kinetic-glyph {
   display: inline-block;
   opacity: 0;

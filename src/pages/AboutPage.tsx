@@ -57,7 +57,7 @@ export default function AboutPage() {
               {t('about.title')}
             </Typography>
           </SectionReveal>
-          <SectionReveal className="md:col-span-6 md:col-start-7 md:pt-2">
+          <SectionReveal className="md:col-span-6 md:col-start-7 md:pt-10">
             <Typography className="text-base leading-8 text-muted md:text-lg">
               {t('about.description')}
             </Typography>

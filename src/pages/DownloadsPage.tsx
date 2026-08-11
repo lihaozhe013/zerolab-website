@@ -85,7 +85,7 @@ export default function DownloadsPage() {
                   >
                     {t('downloads.preview_title')}
                   </Typography>
-                  <Typography className="mt-2 max-w-[680px] text-sm leading-7 text-muted">
+                  <Typography className="heading-copy--compact mt-2 max-w-[680px] text-sm leading-7 text-muted">
                     {t('downloads.preview_description')}
                   </Typography>
                 </Box>
