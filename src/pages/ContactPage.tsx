@@ -5,7 +5,6 @@ import ContactInfo from '@/components/ContactInfo';
 import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 declare const AMap: any;
 
 const LOCATION = [121.533309, 31.27254] as const;
