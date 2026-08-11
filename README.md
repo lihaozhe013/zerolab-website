@@ -1,64 +1,108 @@
 # ZeroLab Website
 
-天璺科技（上海）有限公司官方网站
+The official website for ZeroLab Technologies. ZeroLab develops motion-capture hardware, embodied-AI teleoperation systems, and motion-data solutions for robotics, immersive production, sports, and rehabilitation.
 
-## 技术栈
+This repository contains a bilingual React website with product pages, application scenarios, teleoperation demos, downloads, and contact information.
 
-- **Vite 8** - 构建工具
-- **React 19** - UI 框架
-- **TypeScript** (ES2024)
-- **MUI v9** - 组件库
-- **Tailwind CSS v4** - 样式
-- **React Router v7** - 路由
+## Tech stack
 
-## 快速开始
+- React 19 and TypeScript
+- Vite 8
+- React Router 7
+- MUI 9 and Tailwind CSS 4
+- Three.js, React Three Fiber, and GSAP
+- i18next and react-i18next
+- AMap JavaScript API
+
+## Prerequisites
+
+- Node.js
+- pnpm
+- uv (only required for the optional internationalization tools)
+
+## Getting started
+
+Install dependencies and start the development server:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## 构建
+Vite will print the local development URL in the terminal.
+
+## Available commands
+
+| Command            | Description                                           |
+| ------------------ | ----------------------------------------------------- |
+| `pnpm dev`         | Start the development server.                         |
+| `pnpm build`       | Type-check the project and create a production build. |
+| `pnpm preview`     | Preview the production build locally.                 |
+| `pnpm format`      | Format the project with Prettier.                     |
+| `pnpm exec tsc -b` | Check TypeScript for errors.                          |
+
+Before committing, run:
 
 ```bash
-pnpm build
+pnpm format
+pnpm exec tsc -b
 ```
 
-## 项目结构
+This project does not use ESLint.
 
+## Internationalization
+
+The site supports Simplified Chinese and English. Translation resources are stored in:
+
+- `src/locales/zh.json`
+- `src/locales/en.json`
+
+The application detects the user's language from local storage and the browser, and falls back to English. To maintain the translation files, install the optional CLI dependencies and use the Make targets:
+
+```bash
+make i18n-setup
+make i18n-check
+make i18n-sort
+make i18n-stats
+make i18n-diff
+make i18n-fix
 ```
-├── src/
-│   ├── components/    # 可复用组件
-│   ├── pages/         # 页面组件（7个路由）
-│   ├── theme.ts       # MUI 主题配置
-│   └── App.tsx        # 路由入口
-├── public/
-│   ├── images/        # 图片资源（需外部管理）
-│   ├── videos/        # 视频资源（需外部管理）
-│   └── document/      # 文档资源（需外部管理）
-└── index.html
+
+The internationalization tools live in `scripts/i18n_tools/` and use `uv` to manage their Python environment.
+
+## Site routes
+
+| Path           | Page                                 |
+| -------------- | ------------------------------------ |
+| `/`            | Home                                 |
+| `/about`       | About ZeroLab                        |
+| `/product`     | Products                             |
+| `/solution`    | Solutions and case studies           |
+| `/application` | Applications                         |
+| `/teleop`      | Robot teleoperation                  |
+| `/downloads`   | Software and developer resources     |
+| `/contact`     | Contact and headquarters information |
+
+## Static assets
+
+Large binary assets are intentionally excluded from Git. Populate `public/` with the externally managed assets before running or deploying the site:
+
+- `public/images/` — logos, product images, banners, and other visual assets
+- `public/videos/` — product and teleoperation videos
+- `public/document/` — brochures and downloadable documents
+
+Without these files, referenced images, videos, and documents will not load correctly.
+
+## Project structure
+
+```text
+src/
+├── components/   Reusable UI components
+├── pages/        Route-level page components
+├── locales/      Chinese and English translation resources
+├── App.tsx       Application routes
+├── i18n.ts       Internationalization setup
+└── theme.ts      MUI theme configuration
+scripts/
+└── i18n_tools/   Translation maintenance CLI
 ```
-
-## 资源管理
-
-**重要：二进制资源文件未纳入 Git 版本管理**，需要在部署时手动放置到 `public/` 目录下：
-
-| 目录               | 内容                                         | 格式          |
-| ------------------ | -------------------------------------------- | ------------- |
-| `public/images/`   | 合作伙伴 Logo、产品图片、场景图片、Banner 等 | png, jpg, gif |
-| `public/videos/`   | 产品演示视频                                 | mp4           |
-| `public/document/` | 产品彩页、开发者资料                         | pdf, rar      |
-
-首次部署时，请将对应的资源文件放入上述目录，否则页面中的图片、视频、文档链接将无法加载。
-
-## 路由
-
-| 路径           | 页面                 |
-| -------------- | -------------------- |
-| `/`            | 首页                 |
-| `/about`       | 关于我们             |
-| `/product`     | 产品详情（全屏翻页） |
-| `/project`     | 方案展示             |
-| `/application` | 应用场景             |
-| `/contact`     | 联系我们（高德地图） |
-| `/teleop`      | 遥操作方案           |
