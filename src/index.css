@@ -107,6 +107,22 @@
 }
 
 @layer components {
+  .site-content :is(h1, h2) {
+    line-height: 1.08 !important;
+  }
+
+  .site-content h3 {
+    line-height: 1.14 !important;
+  }
+
+  html:lang(zh) .site-content :is(h1, h2) {
+    line-height: 1.22 !important;
+  }
+
+  html:lang(zh) .site-content h3 {
+    line-height: 1.28 !important;
+  }
+
   .site-content
     :is(h1, h2)
     + p:not(.heading-copy--compact):not(.heading-copy--inline) {
