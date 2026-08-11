@@ -50,6 +50,21 @@ pnpm exec tsc -b
 
 This project does not use ESLint.
 
+## Continuous integration and deployment layout
+
+The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies, checks formatting, checks TypeScript, builds the site, and uploads `dist/` as the deployment artifact.
+
+Keep the externally managed `public/` directory alongside the root `index.html` when running or building locally:
+
+```text
+.
+├── index.html
+├── public/
+└── src/
+```
+
+Vite serves `public/` from the site root and copies its contents into `dist/` during a production build. The final artifact therefore has `index.html` and the copied asset directories at the same level; it must not contain a nested `dist/public/` directory. Deploy `dist/` as the web root. Because `public/` is excluded from Git, any assets unavailable to CI must be provided separately at that same web root.
+
 ## Internationalization
 
 The site supports Simplified Chinese and English. Translation resources are stored in:

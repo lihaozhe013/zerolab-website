@@ -28,6 +28,8 @@ void i18next
       escapeValue: false,
     },
   })
-  .then(() => syncDocumentLanguage(i18next.resolvedLanguage ?? i18next.language));
+  .then(() =>
+    syncDocumentLanguage(i18next.resolvedLanguage ?? i18next.language),
+  );
 
 export default i18next;

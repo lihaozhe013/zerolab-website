@@ -18,6 +18,9 @@
 ## Git Tracking
 
 - The `public/` directory is too large and must not be included in Git.
+- Keep `public/` next to the root `index.html` when running or building the site locally. Vite serves files from `public/` at the site root.
+- The CI deployment artifact is `dist/`. It must contain `index.html` and the compiled assets at the same site root, and must not contain a nested `dist/public/` directory. Vite copies the contents of `public/` into `dist/`; it does not copy the `public/` directory itself.
+- When deploying the CI artifact, serve `dist/` as the web root. If the external `public/` assets are not available during CI, provision those assets separately at the same web root as `index.html`.
 
 ## Development Tools and Shell
 
