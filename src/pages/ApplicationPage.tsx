@@ -62,7 +62,11 @@ export default function ApplicationPage() {
                   component="img"
                   src={appImages[index]}
                   alt={item.title}
-                  className={`w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] ${
+                  className={`w-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    index === 0
+                      ? 'bg-[#d7d9d8] object-contain'
+                      : 'object-cover group-hover:scale-[1.025]'
+                  } ${
                     index === 0 || index === 3
                       ? 'aspect-[16/10]'
                       : 'aspect-[4/3]'
