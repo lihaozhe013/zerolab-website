@@ -25,7 +25,10 @@ export default function ContactInfo() {
           className={index === 0 ? 'md:col-span-6' : 'md:col-span-3'}
         >
           <Box className="h-px w-full bg-line" />
-          <Typography className="mt-6 text-sm font-semibold text-[#4bd0e4]">
+          <Typography
+            sx={{ mt: 5 }}
+            className="text-sm font-semibold text-[#4bd0e4]"
+          >
             {item.title}
           </Typography>
           <Box className="mt-7 space-y-2">
