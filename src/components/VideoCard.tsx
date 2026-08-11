@@ -8,7 +8,12 @@ interface VideoCardProps {
   featured?: boolean;
 }
 
-export default function VideoCard({ title, description, videoSrc, featured = false }: VideoCardProps) {
+export default function VideoCard({
+  title,
+  description,
+  videoSrc,
+  featured = false,
+}: VideoCardProps) {
   return (
     <SectionReveal component="article" className="group">
       <Box className="overflow-hidden bg-[#111419]">
@@ -25,7 +30,9 @@ export default function VideoCard({ title, description, videoSrc, featured = fal
       <Typography
         component="h2"
         sx={{
-          fontSize: featured ? 'clamp(30px, 4vw, 56px)' : 'clamp(24px, 2.5vw, 36px)',
+          fontSize: featured
+            ? 'clamp(30px, 4vw, 56px)'
+            : 'clamp(24px, 2.5vw, 36px)',
           fontWeight: 600,
           lineHeight: 1.05,
           letterSpacing: '-0.04em',

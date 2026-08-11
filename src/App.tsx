@@ -7,6 +7,7 @@ import SolutionPage from '@/pages/SolutionPage';
 import ApplicationPage from '@/pages/ApplicationPage';
 import ContactPage from '@/pages/ContactPage';
 import TeleopPage from '@/pages/TeleopPage';
+import DownloadsPage from '@/pages/DownloadsPage';
 import ScrollToTop from '@/components/ScrollToTop';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="application" element={<ApplicationPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="teleop" element={<TeleopPage />} />
+          <Route path="downloads" element={<DownloadsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

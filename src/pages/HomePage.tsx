@@ -9,22 +9,32 @@ import ProductScrollShowcase, {
 } from '@/components/ProductScrollShowcase';
 
 const productImages = [
-  '/images/openarmz.jpg',
-  '/images/LigntTrackerInertia20221020.png',
-  '/images/DataGloves.png',
-  '/images/Motion Tracker.jpg',
+  '/images/OpenArm.png',
+  '/images/Teleop.png',
+  '/images/F2Pro+.png',
+  '/images/Data_gloves.png',
+  '/images/Motion_Tracker.png',
 ];
 
 const productDestinations = [
   '/teleop',
-  '/document/F-1彩页.pdf',
-  '/document/H-1彩页.pdf',
-  '/document/ZL9NSQ单页-0604.pdf',
+  '/document/如影随形-汉语版20260309.pdf',
+  '/document/F-2Brochure.pdf',
+  '/document/DataGloves Brochure.pdf',
+  '/document/Chip_brochure.pdf',
 ];
 
-const appImages = ['/images/MixedReality.png', '/images/Teleoperation 2.png', '/images/Sports.png'];
+const appImages = [
+  '/images/MixedReality.png',
+  '/images/Teleoperation 2.png',
+  '/images/Sports.png',
+];
 
-const envImages = ['/images/reception.png', '/images/Lab.JPG', '/images/Datacenter.JPG'];
+const envImages = [
+  '/images/reception.png',
+  '/images/Lab.JPG',
+  '/images/Datacenter.JPG',
+];
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -42,13 +52,15 @@ export default function HomePage() {
     title: string;
     description: string;
   }[];
-  const productShowcaseItems: ProductShowcaseItem[] = productItems.map((product, index) => ({
-    title: product.title,
-    description: product.description,
-    image: productImages[index],
-    href: productDestinations[index],
-    linkText: product.link_text || t('common.view_product_details'),
-  }));
+  const productShowcaseItems: ProductShowcaseItem[] = productItems.map(
+    (product, index) => ({
+      title: product.title,
+      description: product.description,
+      image: productImages[index],
+      href: productDestinations[index],
+      linkText: product.link_text || t('common.view_product_details'),
+    }),
+  );
 
   return (
     <Box className="overflow-x-clip bg-[#07090c] text-white">
@@ -74,7 +86,11 @@ export default function HomePage() {
             <HeroKineticCopy heroRef={heroRef} title={t('home.hero.title')}>
               <Typography
                 variant="body1"
-                sx={{ mb: 4, fontSize: { xs: '17px', md: '22px' }, fontWeight: 500 }}
+                sx={{
+                  mb: 4,
+                  fontSize: { xs: '17px', md: '22px' },
+                  fontWeight: 500,
+                }}
                 className="max-w-[610px] leading-snug"
               >
                 {t('home.hero.description_p1')}
@@ -103,10 +119,16 @@ export default function HomePage() {
         title={t('home.applications.title')}
         subtitle={t('home.applications.subtitle')}
         exploreLabel={t('home.applications.explore_label')}
-        items={appItems.map((item, index) => ({ ...item, image: appImages[index] }))}
+        items={appItems.map((item, index) => ({
+          ...item,
+          image: appImages[index],
+        }))}
       />
 
-      <Box component="section" className="bg-[#07090c] px-6 py-28 md:px-[6vw] md:py-40">
+      <Box
+        component="section"
+        className="bg-[#07090c] px-6 py-28 md:px-[6vw] md:py-40"
+      >
         <Box className="mx-auto max-w-[1280px]">
           <Typography
             component="h2"
@@ -123,12 +145,19 @@ export default function HomePage() {
 
           <Box className="mt-20 grid grid-cols-1 gap-x-7 gap-y-16 md:grid-cols-12">
             {envItems.map((environment, index) => {
-              const layout = index === 0 ? 'md:col-span-7 md:row-span-2' : 'md:col-span-5';
+              const layout =
+                index === 0 ? 'md:col-span-7 md:row-span-2' : 'md:col-span-5';
               const mediaHeight = index === 0 ? 'md:h-[720px]' : 'md:h-[320px]';
 
               return (
-                <Box component="article" key={environment.title} className={layout}>
-                  <Box className={`overflow-hidden bg-[#101318] ${mediaHeight}`}>
+                <Box
+                  component="article"
+                  key={environment.title}
+                  className={layout}
+                >
+                  <Box
+                    className={`overflow-hidden bg-[#101318] ${mediaHeight}`}
+                  >
                     <Box
                       component="img"
                       src={envImages[index]}
@@ -138,7 +167,11 @@ export default function HomePage() {
                   </Box>
                   <Typography
                     component="h3"
-                    sx={{ fontSize: { xs: 20, md: 24 }, fontWeight: 600, letterSpacing: '-0.02em' }}
+                    sx={{
+                      fontSize: { xs: 20, md: 24 },
+                      fontWeight: 600,
+                      letterSpacing: '-0.02em',
+                    }}
                     className="mt-5 text-xl font-semibold tracking-[-0.02em] md:text-2xl"
                   >
                     {environment.title}
@@ -153,7 +186,10 @@ export default function HomePage() {
         </Box>
       </Box>
 
-      <Box component="section" className="bg-[#0a0c0f] px-6 py-32 md:px-[6vw] md:py-48">
+      <Box
+        component="section"
+        className="bg-[#0a0c0f] px-6 py-32 md:px-[6vw] md:py-48"
+      >
         <Box className="mx-auto max-w-[1280px]">
           <Typography
             component="h2"

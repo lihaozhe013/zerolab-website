@@ -33,7 +33,10 @@ function KineticTitle({ title }: { title: string }) {
       variant="h1"
       aria-label={title.replaceAll('\n', ' ')}
       sx={{
-        fontSize: { xs: 'clamp(42px, 11vw, 62px)', md: 'clamp(64px, 7vw, 108px)' },
+        fontSize: {
+          xs: 'clamp(42px, 11vw, 62px)',
+          md: 'clamp(64px, 7vw, 108px)',
+        },
         fontWeight: 650,
         letterSpacing: '-0.06em',
         lineHeight: 0.9,
@@ -45,7 +48,10 @@ function KineticTitle({ title }: { title: string }) {
         return (
           <span key={`${title}-${lineIndex}`} aria-hidden="true">
             {words.map((word, wordIndex) => (
-              <span key={`${word}-${wordIndex}`} className="inline-block whitespace-nowrap">
+              <span
+                key={`${word}-${wordIndex}`}
+                className="inline-block whitespace-nowrap"
+              >
                 {Array.from(word).map((glyph) => {
                   const index = glyphIndex++;
                   const style: GlyphStyle = {
@@ -53,7 +59,11 @@ function KineticTitle({ title }: { title: string }) {
                     '--glyph-tilt': `${((index % 4) - 1.5) * 1.2}deg`,
                   };
                   return (
-                    <span key={`${glyph}-${index}`} className="hero-kinetic-glyph" style={style}>
+                    <span
+                      key={`${glyph}-${index}`}
+                      className="hero-kinetic-glyph"
+                      style={style}
+                    >
                       {glyph}
                     </span>
                   );
@@ -76,8 +86,8 @@ export default function HeroKineticCopy({
 }: HeroKineticCopyProps) {
   const copyRef = useRef<HTMLDivElement>(null);
   const detailsRef = useRef<HTMLDivElement>(null);
-  const [reducedMotion, setReducedMotion] = useState(() =>
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  const [reducedMotion, setReducedMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   );
 
   useEffect(() => {
@@ -110,8 +120,14 @@ export default function HeroKineticCopy({
       };
       const finalY = () => {
         const rect = copy.getBoundingClientRect();
-        const bottomInset = window.innerHeight * (window.innerWidth < 768 ? 0.1 : 0.12);
-        return window.innerHeight - bottomInset - rect.top - rect.height * finalScale();
+        const bottomInset =
+          window.innerHeight * (window.innerWidth < 768 ? 0.1 : 0.12);
+        return (
+          window.innerHeight -
+          bottomInset -
+          rect.top -
+          rect.height * finalScale()
+        );
       };
 
       if (reducedMotion) {
@@ -172,7 +188,11 @@ export default function HeroKineticCopy({
       });
 
       scrollTimeline
-        .to(copy, { x: finalX, y: finalY, scale: finalScale, duration: 0.72 }, 0)
+        .to(
+          copy,
+          { x: finalX, y: finalY, scale: finalScale, duration: 0.72 },
+          0,
+        )
         .to(media, { autoAlpha: 1, duration: 0.44 }, 0.72)
         .to(details, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.74)
         // Extending the scrub timeline creates a calm reading beat after the media is fully revealed.

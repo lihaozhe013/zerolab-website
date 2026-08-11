@@ -6,7 +6,10 @@ interface ApplicationCardProps {
   image: string;
 }
 
-export default function ApplicationCard({ title, image }: ApplicationCardProps) {
+export default function ApplicationCard({
+  title,
+  image,
+}: ApplicationCardProps) {
   return (
     <Box
       component={Link}

@@ -1,5 +1,13 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
-import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react';
+import {
+  Component,
+  lazy,
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 
 const MotionCaptureCanvas = lazy(() => import('./MotionCaptureCanvas'));
 
@@ -67,7 +75,9 @@ export default function MotionCaptureSection({
   interactionLabel,
 }: MotionCaptureSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+  const prefersReducedMotion = useMediaQuery(
+    '(prefers-reduced-motion: reduce)',
+  );
   const [nearViewport, setNearViewport] = useState(false);
   const [webGLAvailable] = useState(supportsWebGL);
   const [mode, setMode] = useState<'capture' | 'surface'>('capture');
@@ -90,7 +100,8 @@ export default function MotionCaptureSection({
     return () => observer.disconnect();
   }, []);
 
-  const showScene = nearViewport && webGLAvailable === true && !prefersReducedMotion;
+  const showScene =
+    nearViewport && webGLAvailable === true && !prefersReducedMotion;
 
   return (
     <Box
@@ -121,7 +132,11 @@ export default function MotionCaptureSection({
           <Box className="mt-12 md:mt-16">
             {showScene && (
               <>
-                <Box className="flex flex-wrap gap-2" role="group" aria-label={heading}>
+                <Box
+                  className="flex flex-wrap gap-2"
+                  role="group"
+                  aria-label={heading}
+                >
                   <button
                     type="button"
                     aria-pressed={mode === 'capture'}

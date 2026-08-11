@@ -4,7 +4,13 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import zh from '@/locales/zh.json';
 import en from '@/locales/en.json';
 
-i18next
+const syncDocumentLanguage = (language: string) => {
+  document.documentElement.lang = language.startsWith('zh') ? 'zh-CN' : 'en';
+};
+
+i18next.on('languageChanged', syncDocumentLanguage);
+
+void i18next
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
@@ -21,6 +27,7 @@ i18next
     interpolation: {
       escapeValue: false,
     },
-  });
+  })
+  .then(() => syncDocumentLanguage(i18next.resolvedLanguage ?? i18next.language));
 
 export default i18next;

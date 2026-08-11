@@ -28,9 +28,15 @@ export default function PartnerCarousel() {
   const partnerNames = t('partners.names', { returnObjects: true }) as string[];
 
   return (
-    <Box component="section" className="overflow-hidden bg-[#07090c] py-20 text-white md:py-24">
+    <Box
+      component="section"
+      className="overflow-hidden bg-[#07090c] py-20 text-white md:py-24"
+    >
       <Box className="mx-auto mb-12 flex w-[min(1280px,calc(100%-48px))] items-end justify-between md:w-[min(1280px,calc(100%-12vw))]">
-        <Typography component="h2" className="text-sm font-medium text-white/45">
+        <Typography
+          component="h2"
+          className="text-sm font-medium text-white/45"
+        >
           {t('partners.title')}
         </Typography>
         <Box className="h-px flex-1 bg-white/10 ml-8" />
@@ -39,7 +45,11 @@ export default function PartnerCarousel() {
       <Box className="partner-marquee-mask">
         <Box className="partner-marquee-track">
           {[0, 1].map((groupIndex) => (
-            <Box key={groupIndex} className="partner-marquee-group" aria-hidden={groupIndex === 1}>
+            <Box
+              key={groupIndex}
+              className="partner-marquee-group"
+              aria-hidden={groupIndex === 1}
+            >
               {partnerSrcs.map((src, index) => (
                 <Box
                   key={`${groupIndex}-${src}`}
@@ -47,7 +57,10 @@ export default function PartnerCarousel() {
                   src={src}
                   alt={groupIndex === 1 ? '' : partnerNames[index] || ''}
                   className="h-14 w-36 flex-none object-contain opacity-45 grayscale transition-[filter,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:opacity-90 md:h-16 md:w-44"
-                  sx={{ filter: 'grayscale(1) invert(1)', mixBlendMode: 'screen' }}
+                  sx={{
+                    filter: 'grayscale(1) invert(1)',
+                    mixBlendMode: 'screen',
+                  }}
                 />
               ))}
             </Box>

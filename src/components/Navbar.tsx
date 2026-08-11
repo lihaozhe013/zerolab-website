@@ -23,6 +23,7 @@ const navItems = [
   { key: 'product', path: '/product' },
   { key: 'solution', path: '/solution' },
   { key: 'application', path: '/application' },
+  { key: 'downloads', path: '/downloads' },
   { key: 'contact', path: '/contact' },
 ];
 
@@ -33,7 +34,8 @@ export default function Navbar() {
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const isActive = (path: string) =>
-    location.pathname === path || (path === '/product' && location.pathname === '/teleop');
+    location.pathname === path ||
+    (path === '/product' && location.pathname === '/teleop');
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh');
@@ -76,7 +78,10 @@ export default function Navbar() {
           {isMobile ? (
             <Box
               className="flex items-center gap-1 rounded-full px-1.5 py-1"
-              sx={{ backgroundColor: 'rgba(57, 60, 73, 0.72)', backdropFilter: 'blur(12px)' }}
+              sx={{
+                backgroundColor: 'rgba(57, 60, 73, 0.72)',
+                backdropFilter: 'blur(12px)',
+              }}
             >
               <Button
                 onClick={toggleLang}
@@ -99,16 +104,18 @@ export default function Navbar() {
               >
                 {i18n.language === 'zh' ? 'EN' : '中文'}
               </Button>
-              <IconButton sx={{ color: 'white' }} onClick={() => setDrawerOpen(true)} edge="end" size="large">
+              <IconButton
+                sx={{ color: 'white' }}
+                onClick={() => setDrawerOpen(true)}
+                edge="end"
+                size="large"
+              >
                 <MenuIcon />
               </IconButton>
             </Box>
           ) : (
             <Box className="flex items-center gap-2">
-              <Box
-                component="nav"
-                className="flex items-center px-2 py-2"
-              >
+              <Box component="nav" className="flex items-center px-2 py-2">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
@@ -147,7 +154,11 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
 
-      <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
         <Box className="w-[250px] bg-[#08b4ce] h-full text-white">
           <Box className="flex justify-end p-4">
             <IconButton color="inherit" onClick={() => setDrawerOpen(false)}>
@@ -157,7 +168,11 @@ export default function Navbar() {
           <List>
             {navItems.map((item) => (
               <ListItem key={item.path} disablePadding>
-                <Link to={item.path} onClick={() => setDrawerOpen(false)} className="w-full">
+                <Link
+                  to={item.path}
+                  onClick={() => setDrawerOpen(false)}
+                  className="w-full"
+                >
                   <ListItemText
                     primary={t(`nav.${item.key}`)}
                     className="px-6 py-2 text-white hover:bg-white/10"

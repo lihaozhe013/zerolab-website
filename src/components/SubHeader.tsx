@@ -6,7 +6,11 @@ interface SubHeaderProps {
   backgroundImage?: string;
 }
 
-export default function SubHeader({ title, subtitle, backgroundImage }: SubHeaderProps) {
+export default function SubHeader({
+  title,
+  subtitle,
+  backgroundImage,
+}: SubHeaderProps) {
   const hasLongTitle = title.length > 38;
 
   return (

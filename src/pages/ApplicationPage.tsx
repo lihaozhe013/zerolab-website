@@ -32,7 +32,10 @@ export default function ApplicationPage() {
 
   return (
     <Box component="main" className="overflow-x-clip bg-[#07090c] text-white">
-      <SubHeader title={t('application.title')} subtitle={t('application.intro')} />
+      <SubHeader
+        title={t('application.title')}
+        subtitle={t('application.intro')}
+      />
 
       <MotionCaptureSection
         heading={t('application.capture_lab.heading')}
@@ -50,14 +53,20 @@ export default function ApplicationPage() {
       <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
         <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-x-8 gap-y-24 md:grid-cols-12">
           {items.map((item, index) => (
-            <SectionReveal component="article" key={item.title} className={layouts[index]}>
+            <SectionReveal
+              component="article"
+              key={item.title}
+              className={layouts[index]}
+            >
               <Box className="group overflow-hidden bg-[#111419]">
                 <Box
                   component="img"
                   src={appImages[index]}
                   alt={item.title}
                   className={`w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] ${
-                    index === 0 || index === 3 ? 'aspect-[16/10]' : 'aspect-[4/3]'
+                    index === 0 || index === 3
+                      ? 'aspect-[16/10]'
+                      : 'aspect-[4/3]'
                   }`}
                 />
               </Box>
@@ -81,7 +90,10 @@ export default function ApplicationPage() {
         </Box>
       </Box>
 
-      <Box component="section" className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-36">
+      <Box
+        component="section"
+        className="bg-[#0a0c0f] px-6 py-28 md:px-[6vw] md:py-36"
+      >
         <SectionReveal className="mx-auto max-w-[1280px]">
           <Typography
             component="h2"
@@ -95,9 +107,24 @@ export default function ApplicationPage() {
           >
             {t('application.cta_title')}
           </Typography>
+          <Box
+            component="figure"
+            className="mt-14 border border-white/10 bg-white/[0.025] p-1.5 md:mt-20 md:p-2"
+          >
+            <Box
+              component="img"
+              src="/images/Extra_info.png"
+              alt={t('application.extra_info_alt')}
+              width={2879}
+              height={1617}
+              loading="lazy"
+              decoding="async"
+              className="block h-auto w-full"
+            />
+          </Box>
           <Link
             to="/contact"
-            className="mt-10 inline-flex min-h-12 items-center bg-[#4bd0e4] px-6 py-3 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white active:scale-[0.98]"
+            className="mt-10 inline-flex min-h-12 items-center bg-[#4bd0e4] px-6 py-3 text-sm font-semibold text-[#071013] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white active:scale-[0.98] md:mt-12"
           >
             {t('common.contact_us')}
           </Link>

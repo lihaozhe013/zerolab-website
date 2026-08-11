@@ -5,8 +5,14 @@ import SectionReveal from '@/components/SectionReveal';
 export default function ContactInfo() {
   const { t } = useTranslation();
   const items = [
-    { title: t('contact.address_title'), lines: [t('contact.address_subtitle')] },
-    { title: t('contact.phone'), lines: [t('contact.phone_number'), t('contact.hours')] },
+    {
+      title: t('contact.address_title'),
+      lines: [t('contact.address_subtitle')],
+    },
+    {
+      title: t('contact.phone'),
+      lines: [t('contact.phone_number'), t('contact.hours')],
+    },
     { title: t('contact.email'), lines: [t('contact.email_prompt')] },
   ];
 
@@ -24,7 +30,10 @@ export default function ContactInfo() {
           </Typography>
           <Box className="mt-7 space-y-2">
             {item.lines.map((line) => (
-              <Typography key={line} className="text-base leading-7 text-white/72">
+              <Typography
+                key={line}
+                className="text-base leading-7 text-white/72"
+              >
                 {line}
               </Typography>
             ))}

@@ -1,12 +1,20 @@
 import { Box, type BoxProps } from '@mui/material';
 import { useEffect, useRef } from 'react';
 
-export default function SectionReveal({ children, className = '', ...props }: BoxProps) {
+export default function SectionReveal({
+  children,
+  className = '',
+  ...props
+}: BoxProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = ref.current;
-    if (!element || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (
+      !element ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    )
+      return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

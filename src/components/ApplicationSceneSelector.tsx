@@ -26,7 +26,10 @@ export default function ApplicationSceneSelector({
   const activeItem = items[activeIndex];
 
   return (
-    <Box component="section" className="bg-[#0a0c0f] px-6 py-28 text-white md:px-[6vw] md:py-40">
+    <Box
+      component="section"
+      className="bg-[#0a0c0f] px-6 py-28 text-white md:px-[6vw] md:py-40"
+    >
       <Box className="mx-auto max-w-[1280px]">
         <Typography
           component="h2"
@@ -44,26 +47,27 @@ export default function ApplicationSceneSelector({
           {subtitle}
         </Typography>
 
-        <Box className="relative mt-16 min-h-[760px] overflow-hidden bg-[#101419] md:mt-20 md:min-h-[780px]">
-          {items.map((item, index) => (
-            <Box
-              key={item.title}
-              component="img"
-              src={item.image}
-              alt={index === activeIndex ? item.title : ''}
-              aria-hidden={index !== activeIndex}
-              className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                index === activeIndex
-                  ? 'scale-100 opacity-100'
-                  : 'pointer-events-none scale-[1.035] opacity-0'
-              }`}
-            />
-          ))}
+        <Box className="mt-16 overflow-hidden bg-[#101419] md:mt-20">
+          <Box className="relative min-h-[380px] overflow-hidden md:min-h-[520px]">
+            {items.map((item, index) => (
+              <Box
+                key={item.title}
+                component="img"
+                src={item.image}
+                alt={index === activeIndex ? item.title : ''}
+                aria-hidden={index !== activeIndex}
+                className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  index === activeIndex
+                    ? 'scale-100 opacity-100'
+                    : 'pointer-events-none scale-[1.035] opacity-0'
+                }`}
+              />
+            ))}
 
-          <Box className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06080a] via-[#06080a]/35 to-[#06080a]/10" />
-          <Box className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#06080a]/65 via-transparent to-transparent" />
+            <Box className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06080a]/45 via-transparent to-[#06080a]/10" />
+          </Box>
 
-          <Box className="absolute inset-x-0 bottom-0 grid gap-10 px-6 pb-7 pt-24 md:grid-cols-12 md:items-end md:gap-12 md:px-10 md:pb-10 lg:px-14 lg:pb-14">
+          <Box className="grid gap-10 border-t border-white/10 bg-[#080b0e] px-6 py-8 md:grid-cols-12 md:items-end md:gap-12 md:px-10 md:py-10 lg:px-14 lg:py-12">
             <Box className="md:col-span-7">
               <Typography
                 component="h3"

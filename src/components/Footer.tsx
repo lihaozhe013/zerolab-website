@@ -5,16 +5,35 @@ import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
   const { t } = useTranslation();
-  const products = t('product.items', { returnObjects: true }) as { title: string }[];
+  const products = t('product.items', { returnObjects: true }) as {
+    title: string;
+  }[];
 
   const footerGroups = [
     {
       title: t('nav.product'),
       links: [
         { label: products[0].title, to: '/teleop' },
-        { label: products[1].title, to: '/document/F-1彩页.pdf', external: true },
-        { label: products[2].title, to: '/document/H-1彩页.pdf', external: true },
-        { label: products[3].title, to: '/document/ZL9NSQ单页-0604.pdf', external: true },
+        {
+          label: products[1].title,
+          to: '/document/如影随形-汉语版20260309.pdf',
+          external: true,
+        },
+        {
+          label: products[2].title,
+          to: '/document/F-2Brochure.pdf',
+          external: true,
+        },
+        {
+          label: products[3].title,
+          to: '/document/DataGloves Brochure.pdf',
+          external: true,
+        },
+        {
+          label: products[4].title,
+          to: '/document/Chip_brochure.pdf',
+          external: true,
+        },
       ],
     },
     {
@@ -22,6 +41,7 @@ export default function Footer() {
       links: [
         { label: t('application.title'), to: '/application' },
         { label: t('nav.solution'), to: '/solution' },
+        { label: t('nav.downloads'), to: '/downloads' },
       ],
     },
     {
@@ -34,7 +54,10 @@ export default function Footer() {
   ];
 
   return (
-    <Box component="footer" className="w-full border-t border-white/10 bg-[#050608] text-white">
+    <Box
+      component="footer"
+      className="w-full border-t border-white/10 bg-[#050608] text-white"
+    >
       <Box className="mx-auto grid w-[min(1280px,calc(100%-64px))] grid-cols-12 gap-x-0 gap-y-16 pb-24 pt-20 max-md:w-[calc(100%-32px)] max-md:pb-14 max-md:pt-14 lg:gap-x-10">
         <Box className="col-span-12 min-w-0 w-full max-w-full lg:col-span-5">
           <Box
@@ -48,10 +71,18 @@ export default function Footer() {
             {t('footer.address')}
           </Typography>
           <Box className="mt-5 space-y-1 text-sm text-white/75">
-            <Typography component="a" href="tel:+862155809628" className="block text-sm">
+            <Typography
+              component="a"
+              href="tel:+862155809628"
+              className="block text-sm"
+            >
               {t('footer.phone')}
             </Typography>
-            <Typography component="a" href="mailto:info@zero-lab.tech" className="block text-sm">
+            <Typography
+              component="a"
+              href="mailto:info@zero-lab.tech"
+              className="block text-sm"
+            >
               info@zero-lab.tech
             </Typography>
           </Box>
@@ -120,7 +151,9 @@ export default function Footer() {
           <Typography className="text-xs text-inherit">
             © {new Date().getFullYear()} ZeroLab. {t('footer.rights')}
           </Typography>
-          <Typography className="text-xs text-inherit">{t('footer.icp')}</Typography>
+          <Typography className="text-xs text-inherit">
+            {t('footer.icp')}
+          </Typography>
         </Box>
       </Box>
     </Box>
