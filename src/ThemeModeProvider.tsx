@@ -34,9 +34,7 @@ const getInitialMode = (): ThemeMode => {
   }
   if (savedMode === 'light' || savedMode === 'dark') return savedMode;
 
-  return window.matchMedia('(prefers-color-scheme: light)').matches
-    ? 'light'
-    : 'dark';
+  return 'dark';
 };
 
 export function ThemeModeProvider({ children }: { children: ReactNode }) {
