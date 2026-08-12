@@ -30,6 +30,7 @@ export default function VideoCard({
       <Typography
         component="h2"
         sx={{
+          marginTop: { xs: '12px', md: '24px' },
           fontSize: featured
             ? 'clamp(30px, 4vw, 56px)'
             : 'clamp(24px, 2.5vw, 36px)',
@@ -37,7 +38,7 @@ export default function VideoCard({
           lineHeight: 1.05,
           letterSpacing: '-0.04em',
         }}
-        className="mt-7 max-w-[900px] text-ink"
+        className="max-w-[900px] text-ink"
       >
         {title}
       </Typography>
