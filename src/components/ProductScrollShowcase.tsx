@@ -137,9 +137,9 @@ export default function ProductScrollShowcase({
           },
           {
             left: 16,
-            top: 16,
+            top: 96,
             width: () => section.clientWidth * (7 / 12) - 16,
-            height: () => window.innerHeight - 32,
+            height: () => window.innerHeight - 112,
             duration: 0.82,
             ease: 'power2.inOut',
             immediateRender: false,

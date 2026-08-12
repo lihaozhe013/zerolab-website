@@ -74,7 +74,7 @@ export default function TeleopPage() {
                 >
                   {item.title}
                 </Typography>
-                <Typography className="col-start-2 mt-2 text-sm leading-7 text-muted md:col-start-3 md:mt-0">
+                <Typography className="heading-copy--inline col-start-2 mt-2 text-sm leading-7 text-muted md:col-start-3 md:mt-0">
                   {item.description}
                 </Typography>
               </Box>

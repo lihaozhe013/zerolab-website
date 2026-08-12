@@ -15,11 +15,11 @@ const appImages = [
 
 const layouts = [
   'md:col-span-7',
-  'md:col-span-5 md:pt-24',
+  'md:col-span-5',
   'md:col-span-4',
   'md:col-span-8',
   'md:col-span-6',
-  'md:col-span-6 md:pt-20',
+  'md:col-span-6',
 ];
 
 export default function ApplicationPage() {
@@ -62,7 +62,11 @@ export default function ApplicationPage() {
                   component="img"
                   src={appImages[index]}
                   alt={item.title}
-                  className={`w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.025] ${
+                  className={`w-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    index === 0
+                      ? 'bg-[#d7d9d8] object-contain'
+                      : 'object-cover group-hover:scale-[1.025]'
+                  } ${
                     index === 0 || index === 3
                       ? 'aspect-[16/10]'
                       : 'aspect-[4/3]'
@@ -77,7 +81,7 @@ export default function ApplicationPage() {
                   lineHeight: 1.05,
                   letterSpacing: '-0.035em',
                 }}
-                className="mt-7"
+                className="!mt-4 md:!mt-6"
               >
                 {item.title}
               </Typography>
