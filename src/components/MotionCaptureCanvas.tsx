@@ -11,7 +11,7 @@ interface MotionCaptureCanvasProps {
   interactionLabel: string;
 }
 
-const MODEL_PATH = '/models/motion-capture-idle.glb';
+const MODEL_PATH = '/models/IdleTrim_processed_character.glb';
 const HIT_MODEL_PATH = '/models/motion-capture-hit.glb';
 
 const CAPTURE_JOINTS = new Set([
@@ -124,10 +124,17 @@ function CaptureRig({
     () => new Float32Array(captureBones.length * 3),
     [captureBones.length],
   );
-  const motionClips = useMemo(
-    () => [...animations, ...hitAnimations],
-    [animations, hitAnimations],
-  );
+  const motionClips = useMemo(() => {
+    const idleClip = animations[0]?.clone();
+    const hitClip = hitAnimations[0]?.clone();
+
+    if (idleClip) idleClip.name = 'idle';
+    if (hitClip) hitClip.name = 'hit';
+
+    return [idleClip, hitClip].filter(
+      (clip): clip is THREE.AnimationClip => clip !== undefined,
+    );
+  }, [animations, hitAnimations]);
   const { actions, mixer } = useAnimations(motionClips, model);
 
   useEffect(() => {
@@ -149,7 +156,7 @@ function CaptureRig({
   );
 
   useEffect(() => {
-    const action = actions.idle3_processed;
+    const action = actions.idle;
     if (!action) return;
 
     action.reset().fadeIn(0.45).play();
@@ -159,13 +166,13 @@ function CaptureRig({
   }, [actions]);
 
   useEffect(() => {
-    const action = actions.idle3_processed;
+    const action = actions.idle;
     action?.setEffectiveTimeScale(playing ? 1 : 0);
   }, [actions, playing]);
 
   useEffect(() => {
-    const idleAction = actions.idle3_processed;
-    const hitAction = actions.under_attack_1;
+    const idleAction = actions.idle;
+    const hitAction = actions.hit;
     if (!idleAction || !hitAction || reactionRequest === 0) return;
 
     idleAction.fadeOut(0.1);
@@ -178,8 +185,8 @@ function CaptureRig({
   }, [actions, reactionRequest]);
 
   useEffect(() => {
-    const idleAction = actions.idle3_processed;
-    const hitAction = actions.under_attack_1;
+    const idleAction = actions.idle;
+    const hitAction = actions.hit;
     if (!idleAction || !hitAction) return;
 
     const handleFinished = (event: { action: THREE.AnimationAction }) => {
@@ -311,7 +318,7 @@ export default function MotionCaptureCanvas({
   return (
     <Canvas
       aria-label={interactionLabel}
-      camera={{ fov: 30, near: 0.1, far: 50, position: [0, 0.05, 3.6] }}
+      camera={{ fov: 30, near: 0.1, far: 50, position: [0, 0.05, 4.2] }}
       className="touch-none cursor-grab focus:outline-none active:cursor-grabbing focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-[#4bd0e4]"
       dpr={[1, 1.5]}
       gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
@@ -328,6 +335,7 @@ export default function MotionCaptureCanvas({
         dampingFactor={0.07}
         enableDamping
         enablePan={false}
+        enableZoom={false}
         maxDistance={5.2}
         maxPolarAngle={Math.PI}
         minDistance={2.8}

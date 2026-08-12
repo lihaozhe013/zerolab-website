@@ -133,7 +133,7 @@ export default function MotionCaptureSection({
             {showScene && (
               <>
                 <Box
-                  className="flex flex-wrap gap-2"
+                  className="flex flex-nowrap gap-2 overflow-x-auto pb-1"
                   role="group"
                   aria-label={heading}
                 >
@@ -141,7 +141,7 @@ export default function MotionCaptureSection({
                     type="button"
                     aria-pressed={mode === 'capture'}
                     onClick={() => setMode('capture')}
-                    className={`min-h-11 border px-4 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
+                    className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
                       mode === 'capture'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
                         : 'border-line text-muted hover:border-[#4bd0e4] hover:text-ink'
@@ -153,7 +153,7 @@ export default function MotionCaptureSection({
                     type="button"
                     aria-pressed={mode === 'surface'}
                     onClick={() => setMode('surface')}
-                    className={`min-h-11 border px-4 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
+                    className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
                       mode === 'surface'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
                         : 'border-line text-muted hover:border-[#4bd0e4] hover:text-ink'
@@ -165,7 +165,7 @@ export default function MotionCaptureSection({
                     type="button"
                     aria-pressed={!playing}
                     onClick={() => setPlaying((current) => !current)}
-                    className="min-h-11 border border-line px-4 py-2 text-sm font-semibold text-muted transition-colors duration-300 hover:border-[#4bd0e4] hover:text-ink active:scale-[0.98]"
+                    className="min-h-11 shrink-0 whitespace-nowrap border border-line px-3 py-2 text-sm font-semibold text-muted transition-colors duration-300 hover:border-[#4bd0e4] hover:text-ink active:scale-[0.98]"
                   >
                     {playing ? pauseLabel : playLabel}
                   </button>

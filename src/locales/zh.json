@@ -16,11 +16,11 @@
       "description": "将一段真人表演解析为关节结构，用于驱动数字角色、机器人动作与训练数据。",
       "fallback_alt": "虚拟制片环境中的动作捕捉表演",
       "heading": "让动作清晰可读。",
-      "interaction_label": "拖动旋转，滚动缩放。点击模型可触发受击动作。",
+      "interaction_label": "拖动旋转。点击模型可触发受击动作。",
       "loading_label": "正在载入动作模型",
       "pause_label": "暂停动作",
       "play_label": "播放动作",
-      "source_label": "交互式源动作：74 关节骨架，5.58 秒表演片段",
+      "source_label": "交互式源动作：74 关节骨架，5.96 秒表演片段",
       "surface_label": "表面视图"
     },
     "cta_title": "将动作需求，转化为可用系统。",
