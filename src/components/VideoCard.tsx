@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import SectionReveal from '@/components/SectionReveal';
+import VideoPlayer from '@/components/VideoPlayer';
 
 interface VideoCardProps {
   title: string;
@@ -17,13 +18,8 @@ export default function VideoCard({
   return (
     <SectionReveal component="article" className="group">
       <Box className="overflow-hidden bg-panel">
-        <Box
-          component="video"
+        <VideoPlayer
           src={videoSrc}
-          controls
-          muted
-          playsInline
-          preload="metadata"
           className={`block w-full bg-black object-cover ${featured ? 'aspect-[16/8]' : 'aspect-video'}`}
         />
       </Box>

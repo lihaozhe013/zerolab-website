@@ -150,6 +150,28 @@
   }
 }
 
+/* Keep Video.js controls usable before playback and in narrow layouts. */
+.video-js.zerolab-video-player .vjs-control-bar {
+  display: flex !important;
+  visibility: visible;
+  opacity: 1;
+}
+
+.video-js.zerolab-video-player .vjs-progress-control {
+  display: flex !important;
+  flex: 1 1 auto;
+  min-width: 4rem;
+}
+
+.video-js.zerolab-video-player .vjs-progress-holder {
+  height: 0.5em;
+  background-color: rgb(255 255 255 / 35%);
+}
+
+.video-js.zerolab-video-player .vjs-play-progress {
+  background-color: #4bd0e4;
+}
+
 .hero-kinetic-glyph {
   display: inline-block;
   opacity: 0;
