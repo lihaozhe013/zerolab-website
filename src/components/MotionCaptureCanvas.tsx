@@ -11,8 +11,8 @@ interface MotionCaptureCanvasProps {
   interactionLabel: string;
 }
 
-const MODEL_PATH = '/models/IdleTrim_processed_character.glb';
-const HIT_MODEL_PATH = '/models/motion-capture-hit.glb';
+const MODEL_PATH = '/models/run.glb';
+const HIT_MODEL_PATH = '/models/hit.glb';
 
 const CAPTURE_JOINTS = new Set([
   'Hips',
