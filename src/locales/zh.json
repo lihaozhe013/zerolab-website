@@ -55,6 +55,7 @@
     "title": "应用领域"
   },
   "common": {
+    "back_to_products": "返回产品页",
     "contact_us": "联系我们",
     "dark_mode": "深色模式",
     "explore_products": "探索产品",
