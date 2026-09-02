@@ -82,7 +82,7 @@ export default function Navbar() {
             minHeight: { xs: 72, md: 80 },
           }}
         >
-          <Link to="/" state={{ scrollToSection: true }}>
+          <Link to="/">
             <Box
               component="img"
               src="/images/LOGO1.png"
@@ -157,7 +157,6 @@ export default function Navbar() {
                   <Link
                     key={item.path}
                     to={item.path}
-                    state={{ scrollToSection: true }}
                     className={`relative whitespace-nowrap px-4 py-2.5 text-[15px] font-semibold transition-colors after:absolute after:bottom-1 after:left-4 after:right-4 after:h-0.5 after:origin-left after:bg-[#08b4ce] after:transition-transform after:duration-300 hover:text-[#08b4ce] hover:after:scale-x-100 ${
                       isActive(item.path)
                         ? 'text-[#08b4ce] after:scale-x-100'
@@ -232,7 +231,6 @@ export default function Navbar() {
               <ListItem key={item.path} disablePadding>
                 <Link
                   to={item.path}
-                  state={{ scrollToSection: true }}
                   onClick={() => setDrawerOpen(false)}
                   className="w-full"
                 >

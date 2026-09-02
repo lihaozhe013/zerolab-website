@@ -3,6 +3,7 @@ import ComputerOutlinedIcon from '@mui/icons-material/ComputerOutlined';
 import ExtensionOutlinedIcon from '@mui/icons-material/ExtensionOutlined';
 import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined';
 import { Box, Typography } from '@mui/material';
+import type { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
@@ -53,7 +54,15 @@ export default function DownloadsPage() {
                 {groups.map((group, index) => (
                   <Box
                     component="a"
-                    href={`#${group.id}`}
+                    // Under HashRouter a raw `#id` href would be treated as a
+                    // route change, so scroll to the anchor programmatically.
+                    href="#/downloads"
+                    onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+                      event.preventDefault();
+                      document
+                        .getElementById(group.id)
+                        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
                     key={group.id}
                     className="group grid grid-cols-[32px_1fr] border-t border-line py-4 text-sm text-muted transition-colors first:border-t-0 hover:text-[#4bd0e4]"
                   >
