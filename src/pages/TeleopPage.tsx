@@ -29,6 +29,8 @@ export default function TeleopPage() {
         title={t('teleop.title')}
         subtitle={`${t('teleop.subtitle_line1')} ${t('teleop.subtitle_line2')}`}
         backgroundImage="/images/teleoperation.png"
+        backHref="/product"
+        backLabel={t('common.back_to_products')}
       />
 
       <Box

@@ -1,16 +1,22 @@
+import { ArrowBack } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useThemeMode } from '@/ThemeModeProvider';
 
 interface SubHeaderProps {
   title: string;
   subtitle?: string;
   backgroundImage?: string;
+  backHref?: string;
+  backLabel?: string;
 }
 
 export default function SubHeader({
   title,
   subtitle,
   backgroundImage,
+  backHref,
+  backLabel,
 }: SubHeaderProps) {
   const { mode } = useThemeMode();
   const isLight = mode === 'light';
@@ -54,6 +60,15 @@ export default function SubHeader({
       />
 
       <Box className="mx-auto w-full max-w-[1280px]">
+        {backHref && backLabel && (
+          <Link
+            to={backHref}
+            className="mb-10 inline-flex min-h-11 items-center gap-2 border border-current px-4 py-2 text-sm font-semibold opacity-80 transition-[background-color,color,opacity,transform] duration-300 hover:bg-[#08b4ce] hover:text-[#071013] hover:opacity-100 active:scale-[0.98]"
+          >
+            <ArrowBack fontSize="small" />
+            {backLabel}
+          </Link>
+        )}
         <Typography
           component="h1"
           sx={{
