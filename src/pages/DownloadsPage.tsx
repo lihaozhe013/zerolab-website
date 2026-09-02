@@ -59,9 +59,10 @@ export default function DownloadsPage() {
                     href="#/downloads"
                     onClick={(event: MouseEvent<HTMLAnchorElement>) => {
                       event.preventDefault();
-                      document
-                        .getElementById(group.id)
-                        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      document.getElementById(group.id)?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                      });
                     }}
                     key={group.id}
                     className="group grid grid-cols-[32px_1fr] border-t border-line py-4 text-sm text-muted transition-colors first:border-t-0 hover:text-[#4bd0e4]"
