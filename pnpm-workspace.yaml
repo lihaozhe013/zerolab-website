@@ -1,0 +1,4 @@
+# This file makes pnpm treat the project root as a standalone workspace
+# root, so it does not walk up to the unrelated pnpm workspace defined
+# in the home directory (which hosts globally installed CLI tools).
+# The project intentionally keeps its own committed lockfile.
