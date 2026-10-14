@@ -15,16 +15,20 @@
 }
 
 .product-brochure {
-  --brochure-page: #07090c;
-  --brochure-text: #f2f2f2;
-  --brochure-muted: #b3b3b3;
-  --brochure-rule: #747474;
+  --brochure-page: var(--theme-page);
+  --brochure-text: var(--theme-ink);
+  --brochure-muted: var(--theme-muted);
+  --brochure-rule: var(--theme-faint);
   --brochure-table: #242424;
   min-height: 100vh;
   overflow: clip;
   padding: 104px 0 72px;
   background: var(--brochure-page);
   color: var(--brochure-text);
+}
+
+:root[data-theme='light'] .product-brochure {
+  --brochure-table: #e9f0f2;
 }
 
 .product-brochure__pages {

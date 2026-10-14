@@ -34,7 +34,7 @@ The source document is used only to generate the web content and local assets. T
 
 `src/components/ProductBrochure.tsx` renders text as HTML, rules and table shapes as SVG, and product and scenario photography as image elements. Repeating running headers, footer rules, and printed page numbers are omitted; the central page content keeps its source coordinates and layout. Desktop pages retain the source page ratio. Under 768 px, the same content reflows in source-page and top-to-bottom reading order with 16 px minimum text.
 
-The recreation uses the website's dark page background (`#07090c`) continuously, without individual sheet backgrounds or gaps. Primary text uses `#F2F2F2`, secondary text uses `#B3B3B3`, and rules and table surfaces use `#747474` / `#242424`. Product photography and brand marks retain their original colors. Black and dark partner/platform marks keep a light backing area so their source artwork remains legible on the dark page.
+The recreation uses the website's active theme background continuously, without individual sheet backgrounds or gaps. In dark mode it follows `#07090c` with light text; in light mode it follows `#f3f7f8` with dark text. Rules, table surfaces, and text use the active theme's matching colors. Product photography and brand marks retain their original colors. Black and dark partner/platform marks keep a light backing area so their source artwork remains legible in both themes.
 
 ## Asset provenance
 

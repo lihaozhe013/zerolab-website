@@ -65,6 +65,13 @@ function isContentDecoration(decoration: BrochureDecoration) {
   );
 }
 
+function resolveDecorationColor(color: string | undefined) {
+  if (!color) return color;
+  if (color === '#747474') return 'var(--brochure-rule)';
+  if (color === '#242424') return 'var(--brochure-table)';
+  return color;
+}
+
 function PageDecoration({ decoration }: { decoration: BrochureDecoration }) {
   if ('x1' in decoration) {
     return (
@@ -73,7 +80,7 @@ function PageDecoration({ decoration }: { decoration: BrochureDecoration }) {
         y1={decoration.y1}
         x2={decoration.x2}
         y2={decoration.y2}
-        stroke={decoration.color}
+        stroke={resolveDecorationColor(decoration.color)}
         strokeWidth={decoration.width}
         vectorEffect="non-scaling-stroke"
       />
@@ -86,8 +93,8 @@ function PageDecoration({ decoration }: { decoration: BrochureDecoration }) {
       y={decoration.y}
       width={decoration.w}
       height={decoration.h}
-      stroke={decoration.stroke}
-      fill={decoration.fill}
+      stroke={resolveDecorationColor(decoration.stroke)}
+      fill={resolveDecorationColor(decoration.fill)}
       strokeWidth={decoration.strokeWidth}
       vectorEffect="non-scaling-stroke"
     />
