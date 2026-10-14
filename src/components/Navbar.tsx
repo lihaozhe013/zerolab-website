@@ -42,8 +42,9 @@ export default function Navbar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
-  const [homeAtTop, setHomeAtTop] = useState(
-    () => location.pathname === '/' && window.scrollY < 48,
+  const isHome = location.pathname === '/';
+  const [homeHeroVisible, setHomeHeroVisible] = useState(
+    () => isHome && window.scrollY < window.innerHeight - 80,
   );
   const { t, i18n } = useTranslation();
   const { mode, toggleMode } = useThemeMode();
@@ -57,7 +58,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const updateHomePosition = () => {
-      setHomeAtTop(location.pathname === '/' && window.scrollY < 48);
+      const hero = document.querySelector('.home-hero');
+      setHomeHeroVisible(
+        location.pathname === '/' &&
+          !!hero &&
+          hero.getBoundingClientRect().bottom > 80,
+      );
     };
     updateHomePosition();
     window.addEventListener('scroll', updateHomePosition, { passive: true });
@@ -71,19 +77,30 @@ export default function Navbar() {
   return (
     <>
       <AppBar
+        className={
+          isHome
+            ? homeHeroVisible
+              ? 'home-navbar home-navbar--overlay'
+              : 'home-navbar'
+            : undefined
+        }
         position="fixed"
         sx={{
           top: 0,
-          backgroundColor: homeAtTop
+          backgroundColor: homeHeroVisible
             ? 'transparent'
-            : mode === 'dark'
-              ? 'rgba(5, 6, 8, 0.82)'
-              : 'rgba(255, 255, 255, 0.86)',
-          backgroundImage: homeAtTop ? 'none' : undefined,
-          backdropFilter: homeAtTop ? 'none' : 'blur(14px)',
-          WebkitBackdropFilter: homeAtTop ? 'none' : 'blur(14px)',
+            : isHome && mode === 'dark'
+              ? 'rgba(8, 8, 8, 0.88)'
+              : isHome
+                ? 'rgba(250, 250, 248, 0.9)'
+                : mode === 'dark'
+                  ? 'rgba(5, 6, 8, 0.82)'
+                  : 'rgba(255, 255, 255, 0.86)',
+          backgroundImage: isHome ? 'none' : undefined,
+          backdropFilter: homeHeroVisible ? 'none' : 'blur(14px)',
+          WebkitBackdropFilter: homeHeroVisible ? 'none' : 'blur(14px)',
           borderBottom: '1px solid',
-          borderColor: homeAtTop
+          borderColor: homeHeroVisible
             ? 'transparent'
             : mode === 'dark'
               ? 'rgba(255,255,255,0.08)'
@@ -109,6 +126,11 @@ export default function Navbar() {
               sx={{
                 height: { xs: 46, md: 58 },
                 display: 'block',
+                filter: isHome
+                  ? homeHeroVisible || mode === 'dark'
+                    ? 'grayscale(1) brightness(2.6)'
+                    : 'grayscale(1) brightness(0.3)'
+                  : 'none',
                 transition: 'transform 180ms ease',
                 '&:hover': { transform: 'scale(0.95)' },
               }}
@@ -121,8 +143,12 @@ export default function Navbar() {
               sx={{
                 backgroundColor:
                   mode === 'dark'
-                    ? 'rgba(57, 60, 73, 0.72)'
-                    : 'rgba(233, 240, 242, 0.9)',
+                    ? isHome
+                      ? 'rgba(42, 42, 42, 0.78)'
+                      : 'rgba(57, 60, 73, 0.72)'
+                    : isHome && homeHeroVisible
+                      ? 'rgba(244, 244, 242, 0.9)'
+                      : 'rgba(233, 240, 242, 0.9)',
                 backdropFilter: 'blur(12px)',
               }}
             >
@@ -151,9 +177,11 @@ export default function Navbar() {
                   py: 0.75,
                   textTransform: 'none',
                   '&:hover': {
-                    borderColor: '#08b4ce',
-                    color: '#08b4ce',
-                    backgroundColor: 'rgba(8,180,206,0.1)',
+                    borderColor: isHome ? 'currentColor' : '#08b4ce',
+                    color: isHome ? 'var(--theme-ink)' : '#08b4ce',
+                    backgroundColor: isHome
+                      ? 'rgba(0,0,0,0.08)'
+                      : 'rgba(8,180,206,0.1)',
                   },
                 }}
               >
@@ -191,15 +219,25 @@ export default function Navbar() {
                 title={nextModeLabel}
                 onClick={toggleMode}
                 sx={{
-                  color: 'var(--theme-ink)',
-                  border: '1px solid var(--theme-line)',
+                  color: homeHeroVisible ? '#f4f4f2' : 'var(--theme-ink)',
+                  border: homeHeroVisible
+                    ? '1px solid rgba(255,255,255,0.42)'
+                    : '1px solid var(--theme-line)',
                   width: 52,
                   height: 52,
                   transition:
                     'color 300ms cubic-bezier(0.16,1,0.3,1), border-color 300ms cubic-bezier(0.16,1,0.3,1), transform 180ms ease',
                   '&:hover': {
-                    color: '#08b4ce',
-                    borderColor: '#08b4ce',
+                    color: isHome
+                      ? homeHeroVisible || mode === 'dark'
+                        ? '#ffffff'
+                        : '#111111'
+                      : '#08b4ce',
+                    borderColor: isHome
+                      ? homeHeroVisible || mode === 'dark'
+                        ? '#ffffff'
+                        : '#111111'
+                      : '#08b4ce',
                   },
                   '&:active': { transform: 'scale(0.96)' },
                 }}
@@ -214,8 +252,15 @@ export default function Navbar() {
                 onClick={toggleLang}
                 startIcon={<LanguageIcon />}
                 sx={{
-                  color: '#071013',
-                  backgroundColor: '#08b4ce',
+                  color:
+                    isHome && !homeHeroVisible && mode === 'light'
+                      ? '#f4f4f2'
+                      : '#111111',
+                  backgroundColor: isHome
+                    ? !homeHeroVisible && mode === 'light'
+                      ? '#202020'
+                      : '#f2f2f0'
+                    : '#08b4ce',
                   fontSize: 15,
                   fontWeight: 700,
                   borderRadius: '999px',
@@ -223,7 +268,11 @@ export default function Navbar() {
                   px: 2.5,
                   textTransform: 'none',
                   '&:hover': {
-                    backgroundColor: '#069ab0',
+                    backgroundColor: isHome
+                      ? !homeHeroVisible && mode === 'light'
+                        ? '#444444'
+                        : '#d1d1ce'
+                      : '#069ab0',
                   },
                 }}
               >

@@ -3,6 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import heroMotionTransfer from '@/assets/hero-motion-transfer.webp';
 import MotionSignalVisual from '@/components/MotionSignalVisual';
 import './home.css';
 
@@ -50,6 +51,12 @@ export default function HomePage() {
   return (
     <div className="home">
       <section className="home-hero" aria-labelledby="home-title">
+        <img
+          className="home-hero__image"
+          src={heroMotionTransfer}
+          alt=""
+          aria-hidden="true"
+        />
         <div className="home-hero__inner">
           <div className="home-hero__copy">
             <p className="home-hero__signature">ZeroLab</p>
@@ -74,7 +81,6 @@ export default function HomePage() {
               {t('home.hero.scroll_label')}
             </button>
           </div>
-          <MotionSignalVisual />
         </div>
         <div className="home-hero__baseline" aria-hidden="true">
           <span />
@@ -89,8 +95,11 @@ export default function HomePage() {
         aria-labelledby="home-story-title"
       >
         <div className="home-story__intro">
-          <h2 id="home-story-title">{t('home.story.title')}</h2>
-          <p>{t('home.story.subtitle')}</p>
+          <div className="home-story__intro-copy">
+            <h2 id="home-story-title">{t('home.story.title')}</h2>
+            <p>{t('home.story.subtitle')}</p>
+          </div>
+          <MotionSignalVisual />
         </div>
         <div className="home-story__stages">
           <div className="home-story__rail" aria-hidden="true">
