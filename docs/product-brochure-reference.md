@@ -50,7 +50,7 @@ The recreation uses the website's active theme background continuously, without 
 - `logos/`: the handbook's brand, platform, and partner marks.
 - `fonts/`: the PDF's embedded Arial regular and Arial Narrow bold subsets.
 
-Every displayed page image in the generated data records its source PDF image path. The `source-<hash>` filename contains the first 16 hexadecimal characters of the embedded image's SHA-256 fingerprint. The derived image filename and PDF page position identify the corresponding web asset. Standalone product photos with a white perimeter use a feathered exterior-only alpha mask; the unmodified source remains in `originals/`. A narrow off-page image fragment on source page 27 is excluded because it is not visible in the rendered handbook page.
+Every displayed page image in the generated data records its source PDF image path. The `source-<hash>` filename contains the first 16 hexadecimal characters of the embedded image's SHA-256 fingerprint. The derived image filename and PDF page position identify the corresponding web asset. Standalone product photos with a white perimeter use a feathered exterior-only alpha mask; the unmodified source remains in `originals/`. Narrow off-page image fragments on source pages 22 and 27 are excluded because they are not visible in the rendered handbook content.
 
 Two source-folder images were verified as higher-resolution instances of the exact H2 glove photography embedded in the handbook. The H2 and H2 Pro pages reuse the same embedded image; H2 Pro+ has a separate matching image.
 
@@ -59,7 +59,7 @@ Two source-folder images were verified as higher-resolution instances of the exa
 | 14 and 16     | `products/h2-dexterous-data-gloves.png` | `source-h2-dexterous-data-gloves.png` | `13679985ffb52ac09dd3f91d620eb79dbf62cee51f2caae345681f3276ac47f1` |
 | 18            | `products/h2-pro-plus-data-gloves.png`  | `source-h2-pro-plus-data-gloves.png`  | `a92eae78a8cc5a58dfb336d8f42e29b8d707602c980732496e38e085f0af2c01` |
 
-The source images and derived web assets are kept outside Git because the repository ignores `public/`. Provision `public/product-brochure/` at the deployed site root alongside `index.html` and the compiled assets.
+The source images and derived web assets are tracked in `public/product-brochure/` alongside the site source. Vite copies them into the deployment artifact with the rest of `public/`.
 
 ## Regenerating the data
 

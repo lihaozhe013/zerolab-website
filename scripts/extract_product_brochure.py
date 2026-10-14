@@ -69,7 +69,6 @@ ASSET_NAMES: dict[tuple[int, int], tuple[str, str, bool]] = {
     (21, 3): ("scenarios/robot-data-collection.webp", "Robot data collection", False),
     (21, 4): ("scenarios/physical-ai-training.webp", "Physical AI training", False),
     (21, 5): ("scenarios/contact-task-validation.webp", "Complex contact task validation", False),
-    (22, 2): ("scenarios/openarm-zm-page-edge.webp", "OpenArm-Zm scenario image edge", False),
     (23, 0): ("products/openarm-zm-scenario.webp", "OpenArm-Zm scenario", False),
     (23, 1): ("scenarios/industrial-maintenance.webp", "Industrial equipment maintenance", False),
     (23, 2): ("scenarios/research-data-collection.webp", "Research data collection", False),
@@ -380,6 +379,8 @@ def extract_brochure(
             images = []
 
             for image_index, image_layout in enumerate(layout_page.images):
+                if source_page_number == 22 and image_index == 2:
+                    continue
                 image_width = float(image_layout["x1"]) - float(image_layout["x0"])
                 if (
                     source_page_number == 27

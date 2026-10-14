@@ -10,9 +10,7 @@ export function isContentLine(line: BrochureLine) {
 }
 
 export function isContentImage(image: BrochureImage) {
-  return !/\/(?:brand-(symbol|wordmark)\.png|openarm-zm-page-edge\.webp)$/.test(
-    image.src,
-  );
+  return !/\/brand-(symbol|wordmark)\.png$/.test(image.src);
 }
 
 export function isSectionHeading(line: BrochureLine) {

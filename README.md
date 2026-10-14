@@ -52,7 +52,7 @@ This project does not use ESLint.
 
 ## Continuous integration and deployment layout
 
-The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies, checks formatting, checks TypeScript, builds the site, and uploads `dist/` as the deployment artifact.
+The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies, checks formatting, checks TypeScript, builds the site, and uploads `dist/` as the deployment artifact. Static assets in `public/` are tracked with the source repository and included in the build.
 
 Keep the externally managed `public/` directory alongside the root `index.html` when running or building locally:
 
@@ -63,7 +63,7 @@ Keep the externally managed `public/` directory alongside the root `index.html` 
 └── src/
 ```
 
-Vite serves `public/` from the site root and copies its contents into `dist/` during a production build. The final artifact therefore has `index.html` and the copied asset directories at the same level; it must not contain a nested `dist/public/` directory. Deploy `dist/` as the web root. Because `public/` is excluded from Git, any assets unavailable to CI must be provided separately at that same web root.
+Vite serves `public/` from the site root and copies its contents into `dist/` during a production build. The final artifact therefore has `index.html` and the copied asset directories at the same level; it must not contain a nested `dist/public/` directory. Deploy `dist/` as the web root.
 
 ## Internationalization
 
@@ -100,13 +100,21 @@ The legacy `/solution` route redirects to `/product`, and `/teleop` redirects to
 
 ## Static assets
 
-Large binary assets are intentionally excluded from Git. Populate `public/` with the externally managed assets before running or deploying the site:
+Static assets are stored and versioned in `public/`:
 
 - `public/images/` — logos, product images, banners, and other visual assets
 - `public/document/` — brochures and downloadable documents
-- `public/product-brochure/` — locally provisioned web assets for the product-handbook recreation; page data is tracked in `src/content/productBrochureData.json`
+- `public/product-brochure/` — source and web assets for the product-handbook recreation; page data is tracked in `src/content/productBrochureData.json`
 
-Without these files, referenced images and documents will not load correctly.
+Run the media scanner to find files that no longer have literal references in application source:
+
+```bash
+pnpm assets:scan
+node scripts/scan-public-assets.mjs --check
+node scripts/scan-public-assets.mjs --delete
+```
+
+The default scan is read-only. `--delete` removes only unreferenced image and video files. Fonts, models, documents, and other file types are left untouched.
 
 ## Project structure
 
