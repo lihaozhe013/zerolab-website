@@ -32,6 +32,10 @@ The source document is used only to generate the web content and local assets. T
 
 ## Rendering and content
 
+Both languages use the `product_brochure` keys in the global `src/locales/zh.json` and `src/locales/en.json` i18next resources. `productBrochureContent.json` records explicit semantic blocks, image references, and source-text ranges. Chinese rendering slices the global copy back into the exact original lines and font runs; English rendering uses complete paragraphs, explicit card grids, and semantic tables. The source extraction remains a reference rather than a separate translation dictionary.
+
+English content uses a 960 px maximum width and the site's Inter font. Original column counts are retained from 1024 px, capped at two columns from 769–1023 px, and collapsed to one column below that range. Image compositions retain their source geometry independently of text wrapping. The intentional empty region before the OpenArm-Z+ scenarios remains on desktop. Theme colors and chapter IDs are shared between languages.
+
 `src/content/productBrochureData.json` stores selectable text lines, source coordinates, page dimensions, image placements, and monochrome vector decorations. CJK compatibility radicals emitted by the PDF text extractor are normalized to their displayed ideographs. No page is rendered as a screenshot, and the web page does not load a PDF viewer.
 
 `src/components/ProductBrochure.tsx` renders text as HTML, rules and table shapes as SVG, and product and scenario photography as image elements. Repeating running headers, footer rules, and printed page numbers are omitted; the central page content keeps its source coordinates and layout. Header artwork is excluded by its asset identity, so product images near the top edge remain visible. Desktop pages retain the source page ratio.
@@ -88,6 +92,8 @@ uv run --no-project --with pdfplumber --with pypdf --with pillow \
 The refresh verifies the reference fingerprint and every extracted text line before writing metadata.
 
 ## Alignment checks
+
+Run `pnpm brochure:check` to verify all 26 sections, matching locale keys, exact Chinese source lines and mixed-font runs, translation references, and image coverage. The browser audit selects its checks by the active renderer. English checks include copy coverage, untranslated content, image loading, grid alignment, table rows, and overflow; they run independently of Chinese font calibration.
 
 In the local Vite browser's developer console, run:
 

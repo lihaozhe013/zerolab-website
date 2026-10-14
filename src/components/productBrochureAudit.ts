@@ -1,8 +1,12 @@
+import { auditResponsiveBrochure } from './productBrochureResponsiveAudit';
+
 type AlignmentIssue = { page: string; kind: string; detail: string };
 
 export function auditProductBrochure() {
   const root = document.querySelector<HTMLElement>('.product-brochure');
   if (!root) throw new Error('Open the product page before running this audit');
+  if (root.dataset.renderer === 'responsive')
+    return auditResponsiveBrochure(root);
   const mobile = window.matchMedia('(max-width: 768px)').matches;
   const issues: AlignmentIssue[] = [];
   let lineCount = 0;

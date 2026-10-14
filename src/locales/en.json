@@ -337,5 +337,1055 @@
     ],
     "page_title": "Our Products",
     "title": "Products"
+  },
+  "product_brochure": {
+    "products": {
+      "zl9nsq": {
+        "introduction": {
+          "index": "01",
+          "model": "ZL9NSQ",
+          "title": "Next-Generation Ultra-Thin Motion-Capture Sensor Chip",
+          "subtitle": "",
+          "description": "ZeroLab ZL9NSQ is a low-power, high-precision all-in-one motion-capture chip. Built with the latest Chiplet technology, it packs high integration into a tiny 10 × 10 × 2 mm package, with no external circuitry required—just plug and play.",
+          "additional_description": "It integrates seamlessly into wearables such as clothing and wristbands, reducing costs and improving efficiency to accelerate large-scale commercial deployment.",
+          "caption": "Actual Size"
+        },
+        "images": {
+          "zl9nsq_size_comparison": "ZL9NSQ size comparison",
+          "zl9nsq_chip_on_fingertip": "ZL9NSQ chip on fingertip",
+          "motion_capture": "Motion Data Capture",
+          "machine_perception": "Virtual Reality Interaction",
+          "remote_tracking": "Machine Perception",
+          "virtual_reality": "Remote Positioning and Tracking"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "compact_design_powerful_performance": {
+              "title": "Compact Design, Powerful Performance",
+              "description": "Advanced Chiplet manufacturing delivers an exceptionally compact chip with lightweight, industry-leading computing performance."
+            },
+            "high_reliability_longer_service_life": {
+              "title": "High Reliability, Longer Service Life",
+              "description": "Thickened WBBGA solder-ball packaging improves lead reliability, boosts moisture and abrasion resistance, and extends chip life."
+            },
+            "eco_friendly_lower_cost": {
+              "title": "Eco-Friendly, Lower Cost",
+              "description": "Compared with conventional processes, WBBGA packaging is more eco-friendly and significantly reduces packaging costs."
+            },
+            "flexible_applications_broad_use_cases": {
+              "title": "Flexible Applications, Broad Use Cases",
+              "description": "The chip is compact and lightweight, making it easy to integrate into small smart devices and bringing motion capture to more use cases."
+            }
+          }
+        },
+        "scenarios": {
+          "title": "Application Scenarios",
+          "source_subtitle": "",
+          "items": {
+            "motion_data_capture": {
+              "title": "Motion Data Capture",
+              "description": "With sub-millimeter accuracy, it captures human movement and body data in real time for applications such as sports analysis and health monitoring."
+            },
+            "virtual_reality_interaction": {
+              "title": "Virtual Reality Interaction",
+              "description": "It precisely tracks body movement for smooth, immersive virtual interaction and a lifelike virtual-reality experience."
+            },
+            "machine_perception": {
+              "title": "Machine Perception",
+              "description": "It accurately determines device position, angle, and orientation, giving robots, drones, and IoT devices stronger environmental awareness and interaction capabilities."
+            },
+            "remote_positioning_and_tracking": {
+              "title": "Remote Positioning and Tracking",
+              "description": "Wide-area mobile data communications enable precise remote tracking of movement and status, supporting smarter logistics, transportation, public safety, and other sectors."
+            }
+          }
+        },
+        "technical_specifications": {
+          "title": "Technical Specifications",
+          "source_subtitle": "",
+          "items": {
+            "performance_comparison": {
+              "title": "Performance Comparison"
+            },
+            "product_features": {
+              "title": "Product Features",
+              "description": "Industry-first ultra-compact 10 × 10 × 2 mm motion-capture SiP sensor chip",
+              "description_1": "Advanced Chiplet integration with a built-in high-performance antenna",
+              "description_2": "Built-in 2.4 GHz RF SoC; supports Bluetooth BLE 5.2 and ZeroLab's proprietary low-latency protocol",
+              "description_3": "Built-in 3-axis accelerometer, gyroscope, and magnetometer",
+              "description_4": "Single 3.3 V supply with no external circuitry required, lower power draw, and longer standby time"
+            }
+          },
+          "table": {
+            "headers": {
+              "value": "Conventional Motion-Capture Sensor",
+              "comparison_value": "ZL9NSQ Motion-Capture Sensor Chip"
+            },
+            "rows": {
+              "solution_size": {
+                "parameter": "Solution Size",
+                "value": "40×40mm",
+                "comparison_value": "Fully Integrated 10 × 10 mm SiP Chip"
+              },
+              "power_consumption": {
+                "parameter": "Power Consumption",
+                "value": "Approximately 200 mW",
+                "comparison_value": "Approximately 50 mW"
+              },
+              "latency": {
+                "parameter": "Latency",
+                "value": "30ms",
+                "comparison_value": "20ms"
+              },
+              "orientation_accuracy": {
+                "parameter": "Orientation Accuracy",
+                "value": "0.5–1°",
+                "comparison_value": "0.1°"
+              },
+              "solution_cost": {
+                "parameter": "Solution Cost",
+                "value": "Several hundred thousand",
+                "comparison_value": "Approximately 1/10 the cost of a conventional motion-capture sensor"
+              }
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "operating_voltage": {
+                "parameter": "Operating Voltage",
+                "value": "3.3V"
+              },
+              "operating_current": {
+                "parameter": "Operating Current",
+                "value": "<15mA"
+              },
+              "built_in_orientation_sensors": {
+                "parameter": "Built-In Orientation Sensors",
+                "value": "3-axis accelerometer, 3-axis gyroscope, 3-axis magnetometer"
+              },
+              "accelerometer_range": {
+                "parameter": "Accelerometer Range",
+                "value": "±2/±4/±8/±16g"
+              },
+              "magnetometer_range": {
+                "parameter": "Magnetometer Range",
+                "value": "±800uT"
+              },
+              "gyroscope_range": {
+                "parameter": "Gyroscope Range",
+                "value": "±256/512/1024/2048dps"
+              },
+              "orientation_accuracy": {
+                "parameter": "Orientation Accuracy",
+                "value": "Static accuracy: X/Y axes 0.05°, Z axis 0.5°; dynamic accuracy: X/Y axes 0.1°, Z axis 0.5°"
+              },
+              "output_data_format": {
+                "parameter": "Output Data Format",
+                "value": "Orientation quaternion / Euler angles / angular velocity / acceleration / linear acceleration / magnetic field / battery level"
+              },
+              "output_interface": {
+                "parameter": "Output Interface",
+                "value": "UART / I2C / SPI / BLE 5.2 / ZeroLab proprietary protocol"
+              },
+              "expansion_interface": {
+                "parameter": "Expansion Interface",
+                "value": "Analog signal input (AD0 defaults to battery-level detection)"
+              },
+              "external_antenna_expansion": {
+                "parameter": "External Antenna Expansion",
+                "value": "Supported"
+              },
+              "chip_dimensions": {
+                "parameter": "Chip Dimensions",
+                "value": "10mmX10mmX2mm"
+              }
+            }
+          }
+        }
+      },
+      "f1": {
+        "introduction": {
+          "index": "02",
+          "model": "F1",
+          "title": "Full-Body Motion-Capture Suit",
+          "subtitle": "",
+          "description": "F1 is a full-body motion-capture system with 13 wireless sensors and comfortable straps marked for each body area, enabling fast and reliable data capture. Designed for film and animation, ergonomics, rehabilitation, and biomechanics, it is an ideal choice for professionals in these fields."
+        },
+        "images": {
+          "f1_full_body_suit": "F1 full-body suit",
+          "f1_strap_sensor": "F1 strap sensor",
+          "f1_tracker_unit": "F1 tracker unit"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "long_battery_life": {
+              "title": "Long Battery Life",
+              "description": "In open, interference-free environments, data transmission reaches up to 20 m, keeping capture stable throughout extended sessions with continuous data transmission."
+            },
+            "lightweight_and_easy_to_wear": {
+              "title": "Lightweight and Easy to Wear",
+              "description": "Comfortable, close-fitting straps with body-area labels help users quickly identify each strap and put on the suit with ease."
+            },
+            "high_precision": {
+              "title": "High Precision",
+              "description": "13 wireless sensors capture movement data from every body segment, meeting the precision requirements of film and animation production."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "dimensions": {
+                "parameter": "Dimensions",
+                "value": "42x31x16mm"
+              },
+              "weight": {
+                "parameter": "Weight",
+                "value": "17g"
+              },
+              "gyroscope_range": {
+                "parameter": "Gyroscope Range",
+                "value": "±2000dps"
+              },
+              "accelerometer_range": {
+                "parameter": "Accelerometer Range",
+                "value": "±16g"
+              },
+              "static_orientation_accuracy": {
+                "parameter": "Static Orientation Accuracy",
+                "value": "roll/pitch/yaw:0.5°"
+              },
+              "dynamic_orientation_accuracy": {
+                "parameter": "Dynamic Orientation Accuracy",
+                "value": "roll/pitch/yaw:1.0°"
+              },
+              "output_data": {
+                "parameter": "Output Data",
+                "value": "Euler angles, quaternions"
+              },
+              "operating_voltage": {
+                "parameter": "Operating Voltage",
+                "value": "3.3v"
+              },
+              "battery_capacity": {
+                "parameter": "Battery Capacity",
+                "value": "200mAh"
+              },
+              "operating_time": {
+                "parameter": "Operating Time",
+                "value": "Over 10 hours"
+              },
+              "operating_temperature": {
+                "parameter": "Operating Temperature",
+                "value": "-40°C ~ 85°C"
+              },
+              "communication_method": {
+                "parameter": "Communication Method",
+                "value": "ZeroLab 2.4 GHz proprietary protocol"
+              },
+              "data_output_rate": {
+                "parameter": "Data Output Rate",
+                "value": "50Hz"
+              },
+              "latency": {
+                "parameter": "Latency",
+                "value": "<20ms"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5h"
+              }
+            }
+          }
+        }
+      },
+      "h1": {
+        "introduction": {
+          "index": "03",
+          "model": "H1",
+          "title": "Data Gloves",
+          "subtitle": "",
+          "description": "H1 is an affordable, high-precision, lightweight data glove. It combines a built-in 10-bit high-resolution bend sensor with an integrated inertial orientation module and low-latency communication to capture fine hand movements accurately in real time.",
+          "additional_description": "Ideal for MR interaction, robot and drone control, and other applications, it provides an efficient, intuitive user experience."
+        },
+        "images": {
+          "h1_data_gloves": "H1 data gloves"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "excellent_value": {
+              "title": "Excellent Value",
+              "description": "It delivers professional-grade data capture while keeping costs in check, making it ideal for users seeking a balance of performance and price."
+            },
+            "lightweight_and_easy_to_wear": {
+              "title": "Lightweight and Easy to Wear",
+              "description": "The lightweight, integrated design reduces strain on the hand for comfortable extended wear, and makes MR interaction and device control more flexible and intuitive."
+            },
+            "high_precision": {
+              "title": "High Precision",
+              "description": "Each finger has a high-precision 10-bit bend sensor, paired with an integrated inertial orientation module that detects subtle changes in hand movements and captures every nuance with precision."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "dimensions": {
+                "parameter": "Dimensions",
+                "value": "200x110x50mm"
+              },
+              "weight": {
+                "parameter": "Weight",
+                "value": "58g"
+              },
+              "gyroscope_range": {
+                "parameter": "Gyroscope Range",
+                "value": "±2000dps"
+              },
+              "accelerometer_range": {
+                "parameter": "Accelerometer Range",
+                "value": "±16g"
+              },
+              "static_orientation_accuracy": {
+                "parameter": "Static Orientation Accuracy",
+                "value": "roll/pitch/yaw:0.5°"
+              },
+              "dynamic_orientation_accuracy": {
+                "parameter": "Dynamic Orientation Accuracy",
+                "value": "roll/pitch/yaw:1.0°"
+              },
+              "finger_bend_measurement_resolution": {
+                "parameter": "Finger Bend Measurement Resolution",
+                "value": "10-bit"
+              },
+              "output_data": {
+                "parameter": "Output Data",
+                "value": "Euler angles, quaternions, finger-bend resolution"
+              },
+              "operating_voltage": {
+                "parameter": "Operating Voltage",
+                "value": "3.3v"
+              },
+              "battery_capacity": {
+                "parameter": "Battery Capacity",
+                "value": "200mAh"
+              },
+              "operating_time": {
+                "parameter": "Operating Time",
+                "value": "8-10h"
+              },
+              "operating_temperature": {
+                "parameter": "Operating Temperature",
+                "value": "-40°C ~ 85°C"
+              },
+              "communication_method": {
+                "parameter": "Communication Method",
+                "value": "ZeroLab 2.4 GHz proprietary protocol / BLE 5.2"
+              },
+              "data_output_rate": {
+                "parameter": "Data Output Rate",
+                "value": "120Hz"
+              },
+              "latency": {
+                "parameter": "Latency",
+                "value": "<20ms"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5h"
+              }
+            }
+          }
+        }
+      },
+      "f2": {
+        "introduction": {
+          "index": "04",
+          "model": "F2",
+          "title": "Full-Body Motion-Capture Suit",
+          "subtitle": "",
+          "description": "F2 is a high-precision full-body motion-capture system with connection and calibration in seconds and stable wireless transmission up to 20 meters. Its data gloves fit mainstream 6-degree-of-freedom dexterous hands. With optical-level capture accuracy, low cost, and flexibility, it is well suited to large-scale deployment."
+        },
+        "images": {
+          "f2_tracker_case": "F2 tracker case",
+          "f2_data_gloves": "F2 data gloves",
+          "f2_tracker_unit": "F2 tracker unit",
+          "ros": "ROS logo",
+          "windows": "Windows 11 logo",
+          "ubuntu": "Ubuntu logo",
+          "unreal_engine": "Unreal Engine logo",
+          "unity": "Unity logo"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "wearing": {
+              "title": "A More Comfortable Wear Experience",
+              "description": "A streamlined design enables fast connection and calibration, so users can put it on quickly and comfortably, greatly improving workflow efficiency."
+            },
+            "more_hand_degrees_of_freedom_captured": {
+              "title": "More Hand Degrees of Freedom Captured",
+              "description": "The upgraded data gloves are designed for 80% of mainstream 6-degree-of-freedom dexterous hands for accurate, broadly compatible hand-motion mapping."
+            },
+            "more_accurate_human_motion_data": {
+              "title": "More Accurate Human Motion Data",
+              "description": "Motion-capture accuracy comparable to optical systems, with both high precision and low cost, making them a flexible choice for large-scale deployment."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "Signal Latency",
+                "value": "≤ 7.5 ms (limited by the operating system)"
+              },
+              "sensor_data_types": {
+                "parameter": "Sensor Data Types",
+                "value": "Euler angles, quaternions, finger-bend resolution"
+              },
+              "sensor_rate": {
+                "parameter": "Sensor Rate",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "Battery Life",
+                "value": "Over 10 hours"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5 hours"
+              },
+              "communication_protocol": {
+                "parameter": "Communication Protocol",
+                "value": "ZeroLab 2.4 GHz proprietary protocol"
+              },
+              "signal_range": {
+                "parameter": "Signal Range",
+                "value": "20 meters"
+              },
+              "wearable_design": {
+                "parameter": "Wearable Design",
+                "value": "Elastic, non-slip straps"
+              },
+              "motion_capture_sensor_count": {
+                "parameter": "Motion-Capture Sensor Count",
+                "value": "15 motion trackers; one pair of data gloves"
+              },
+              "hand_motion_data_capture": {
+                "parameter": "Hand Motion Data Capture",
+                "value": "ZeroLab G3 data gloves"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "Compatible Platforms"
+        }
+      },
+      "f2_pro_plus": {
+        "introduction": {
+          "index": "05",
+          "model": "F2 Pro+",
+          "title": "Full-Body Motion-Capture Suit",
+          "subtitle": "",
+          "description": "F2 Pro+ is a high-precision full-body motion-capture system with connection and calibration in seconds and stable wireless transmission up to 50 meters. Its data gloves fit mainstream 6-degree-of-freedom dexterous hands. With optical-level capture accuracy, low cost, and flexibility, it is well suited to large-scale deployment."
+        },
+        "images": {
+          "f2_pro_plus_gloves": "F2 Pro+ data gloves",
+          "f2_pro_plus_tracker_case": "F2 Pro+ tracker case",
+          "f2_pro_plus_tracker": "F2 Pro+ tracker",
+          "ros": "ROS logo",
+          "windows": "Windows 11 logo",
+          "ubuntu": "Ubuntu logo",
+          "unreal_engine": "Unreal Engine logo",
+          "unity": "Unity logo"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "extended_wireless_data_range": {
+              "title": "Extended Wireless Data Range",
+              "description": "With a tested range of over 50 meters, users can capture data freely across wider spaces while maintaining stable operation even in environments with complex signal interference."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "Signal Latency",
+                "value": "≤ 7.5 ms (limited by the operating system)"
+              },
+              "sensor_data_types": {
+                "parameter": "Sensor Data Types",
+                "value": "Euler angles, quaternions, finger-bend resolution"
+              },
+              "sensor_rate": {
+                "parameter": "Sensor Rate",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "Battery Life",
+                "value": "Over 10 hours"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5 hours"
+              },
+              "communication_protocol": {
+                "parameter": "Communication Protocol",
+                "value": "ZeroLab 2.4 GHz proprietary protocol"
+              },
+              "signal_range": {
+                "parameter": "Signal Range",
+                "value": "Over 50 meters"
+              },
+              "wearable_design": {
+                "parameter": "Wearable Design",
+                "value": "Elastic, non-slip straps"
+              },
+              "motion_capture_sensor_count": {
+                "parameter": "Motion-Capture Sensor Count",
+                "value": "15 motion trackers; one pair of data gloves"
+              },
+              "hand_motion_data_capture": {
+                "parameter": "Hand Motion Data Capture",
+                "value": "ZeroLab G3 data gloves"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "Compatible Platforms"
+        }
+      },
+      "h2": {
+        "introduction": {
+          "index": "06",
+          "model": "H2",
+          "title": "Dexterous Hand Data Gloves",
+          "subtitle": "",
+          "description": "H2 dexterous hand data gloves are designed for 6-degree-of-freedom hands and fit over 80% of mass-produced models. Lightweight, breathable fabric is comfortable to wear; sensor modules can be removed, and the fabric can be washed for easy maintenance. A high-precision sensor on the back of the hand captures hand pose accurately for comprehensive, reliable hand-motion data."
+        },
+        "images": {
+          "h2_dexterous_data_gloves": "H2 dexterous hand data gloves",
+          "ros": "ROS logo",
+          "unity": "Unity logo",
+          "engineai": "EngineAI logo",
+          "oymotion": "OYMotion logo"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "designed_for_6_dof_dexterous_hands": {
+              "title": "Designed for 6-DoF Dexterous Hands",
+              "description": "Designed for 6-degree-of-freedom hands, it fits over 80% of mass-produced models."
+            },
+            "lightweight_and_breathable": {
+              "title": "Lightweight and Breathable",
+              "description": "The close-fitting, breathable glove fabric keeps it light, comfortable, and easy to use."
+            },
+            "removable_and_washable": {
+              "title": "Removable and Washable",
+              "description": "Finger sensors and the motion-sensing module on the back of the hand can be removed so the glove fabric can be washed."
+            },
+            "high_precision_motion_capture": {
+              "title": "High-Precision Motion Capture",
+              "description": "The high-precision orientation sensor on the back of the hand accurately captures pose and provides comprehensive hand-motion data."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "Signal Latency",
+                "value": "≤ 7.5 ms (limited by the operating system)"
+              },
+              "finger_sensor_type": {
+                "parameter": "Finger Sensor Type",
+                "value": "Euler angles, quaternions, finger-bend resolution"
+              },
+              "sensor_rate": {
+                "parameter": "Sensor Rate",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "Battery Life",
+                "value": "10 hours"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5 hours"
+              },
+              "weight": {
+                "parameter": "Weight",
+                "value": "87g"
+              },
+              "communication_protocol": {
+                "parameter": "Communication Protocol",
+                "value": "Bluetooth BLE 5.2"
+              },
+              "signal_range": {
+                "parameter": "Signal Range",
+                "value": "10 meters"
+              },
+              "fabric_size_options": {
+                "parameter": "Fabric Size Options",
+                "value": "S,M,L"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "Compatible Platforms",
+          "source_subtitle": ""
+        }
+      },
+      "h2_pro": {
+        "introduction": {
+          "index": "07",
+          "model": "H2 Pro",
+          "title": "Dexterous Hand Data Gloves",
+          "subtitle": "",
+          "description": "H2 Pro dexterous hand data gloves are designed for 6-degree-of-freedom hands and fit over 80% of mass-produced models. Lightweight, breathable fabric is comfortable to wear; sensor modules can be removed and the fabric can be washed for easy maintenance. A high-precision sensor on the back of the hand captures hand pose accurately for comprehensive, reliable hand-motion data."
+        },
+        "images": {
+          "h2_dexterous_data_gloves": "H2 Pro data gloves",
+          "ros": "ROS logo",
+          "unity": "Unity logo",
+          "engineai": "EngineAI logo",
+          "oymotion": "OYMotion logo"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "interference_resistant_proprietary_protocol": {
+              "title": "Interference-Resistant Proprietary Protocol",
+              "description": "Our proprietary communication protocol filters out environmental electromagnetic noise to keep data stable and accurate, without packet loss, in demanding conditions."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "Signal Latency",
+                "value": "≤ 7.5 ms (limited by the operating system)"
+              },
+              "finger_sensor_type": {
+                "parameter": "Finger Sensor Type",
+                "value": "Euler angles, quaternions, finger-bend resolution"
+              },
+              "sensor_rate": {
+                "parameter": "Sensor Rate",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "Battery Life",
+                "value": "10 hours"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5 hours"
+              },
+              "weight": {
+                "parameter": "Weight",
+                "value": "87g"
+              },
+              "communication_protocol": {
+                "parameter": "Communication Protocol",
+                "value": "ZeroLab 2.4 GHz proprietary protocol"
+              },
+              "signal_range": {
+                "parameter": "Signal Range",
+                "value": "15 meters"
+              },
+              "fabric_size_options": {
+                "parameter": "Fabric Size Options",
+                "value": "S,M,L"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "Compatible Platforms",
+          "source_subtitle": ""
+        }
+      },
+      "h2_pro_plus": {
+        "introduction": {
+          "index": "08",
+          "model": "H2 Pro+",
+          "title": "Dexterous Hand Data Gloves",
+          "subtitle": "",
+          "description": "H2 Pro+ dexterous hand data gloves are designed for 6-degree-of-freedom hands and fit over 80% of mass-produced models, with connection and calibration in seconds and stable 50-meter wireless transmission. Lightweight, breathable fabric is comfortable to wear; sensor modules can be removed and the fabric washed for easy maintenance. A high-precision sensor on the back of the hand captures hand pose accurately for comprehensive, reliable hand-motion data."
+        },
+        "images": {
+          "h2_pro_plus_data_gloves": "H2 Pro+ data gloves",
+          "ros": "ROS logo",
+          "unity": "Unity logo",
+          "engineai": "EngineAI logo",
+          "oymotion": "OYMotion logo"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "extended_wireless_range": {
+              "title": "Extended Wireless Range",
+              "description": "Move freely across larger or more complex workspaces with wide-area wireless coverage and uninterrupted data capture throughout the workspace."
+            }
+          }
+        },
+        "specifications": {
+          "title": "Product Specifications",
+          "source_subtitle": "",
+          "table": {
+            "headers": {
+              "parameter": "Parameter",
+              "value": "Value"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "Signal Latency",
+                "value": "≤ 7.5 ms (limited by the operating system)"
+              },
+              "finger_sensor_type": {
+                "parameter": "Finger Sensor Type",
+                "value": "Euler angles, quaternions, finger-bend resolution"
+              },
+              "sensor_rate": {
+                "parameter": "Sensor Rate",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "Battery Life",
+                "value": "10 hours"
+              },
+              "charging_time": {
+                "parameter": "Charging Time",
+                "value": "0.5 hours"
+              },
+              "weight": {
+                "parameter": "Weight",
+                "value": "87g"
+              },
+              "communication_protocol": {
+                "parameter": "Communication Protocol",
+                "value": "ZeroLab 2.4 GHz proprietary protocol"
+              },
+              "signal_range": {
+                "parameter": "Signal Range",
+                "value": "50 meters"
+              },
+              "fabric_size_options": {
+                "parameter": "Fabric Size Options",
+                "value": "S,M,L"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "Compatible Platforms",
+          "source_subtitle": ""
+        }
+      },
+      "openarm_z": {
+        "introduction": {
+          "index": "09",
+          "model": "OpenArm-Z",
+          "title": "Motion-Capture Teleoperation Robot System",
+          "subtitle": "",
+          "description": "MoCap Tele-OpenArm-Z is a full-body motion-capture and teleoperation system for humanoid robots. It uses ZeroLab F2 Pro+ to drive OpenArm arms and ROHand dexterous hands, mapping human movement to robot operation with low latency and high consistency.",
+          "additional_description": "It translates fine human movement into real robot actions in real time for data capture, demonstration learning, and humanoid robot manipulation training.",
+          "specification_0": "Dual Arms, 7 Degrees of Freedom",
+          "specification_1": "Arm Reach: 633 mm",
+          "specification_2": "Single-Arm Weight: 6 kg",
+          "specification_3": "Single-Arm Peak Payload: 6.0 kg",
+          "specification_4": "CAN-FD Control Rate: 1 kHz",
+          "specification_5": "Dexterous Hand Model: ROH-LiteS",
+          "specification_6": "Dexterous Hand DoF: 11 moving joints, including 6 active joints"
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "items": {
+            "natural_teleoperation": {
+              "title": "Natural Teleoperation",
+              "description": "The robot mirrors human movement, with virtually no learning curve."
+            },
+            "high_precision_data_capture": {
+              "title": "High-Precision Data Capture",
+              "description": "Captures orientation, quaternions, and finger-bend data to meet imitation and reinforcement learning requirements."
+            },
+            "low_latency_wireless_operation": {
+              "title": "Low-Latency Wireless Operation",
+              "description": "≤ 7.5 ms system latency, with wireless operation up to 50 m for complex testing and field environments."
+            },
+            "a_complete_arm_and_hand_loop": {
+              "title": "A Complete Arm-and-Hand Loop",
+              "description": "OpenArm provides safe, compliant arm motion, while ROHand provides reliable, fine-grained grasping."
+            },
+            "open_and_extensible": {
+              "title": "Open and Extensible",
+              "description": "Open hardware and system architecture support research, enterprise development, and deployment at scale."
+            }
+          }
+        },
+        "images": {
+          "openarm_hands": "OpenArm-Z data gloves",
+          "openarm_z_robot": "OpenArm-Z robot",
+          "robot_operation": "Humanoid Robot Teleoperation and Demonstration",
+          "robot_data_collection": "Manipulation Data Capture",
+          "physical_ai_training": "Embodied AI / Physical AI Training",
+          "contact_task_validation": "Complex Contact-Task Validation (Grasping, Tool Use, Assembly)"
+        },
+        "scenarios": {
+          "title": "Application Scenarios",
+          "items": {
+            "humanoid_robot_teleoperation_and_demonstration": {
+              "title": "Humanoid Robot Teleoperation and Demonstration"
+            },
+            "manipulation_data_capture": {
+              "title": "Manipulation Data Capture"
+            },
+            "embodied_ai_physical_ai_training": {
+              "title": "Embodied AI / Physical AI Training"
+            },
+            "complex_contact_task_validation_grasping_tool_use_assembly": {
+              "title": "Complex Contact-Task Validation (Grasping, Tool Use, Assembly)"
+            }
+          }
+        }
+      },
+      "openarm_zm": {
+        "introduction": {
+          "index": "10",
+          "model": "OpenArm-Zm",
+          "title": "Motion-Capture Teleoperation Robot System",
+          "subtitle": "",
+          "description": "MoCap Tele-OpenArm-Zm is a mobile, full-body motion-capture and teleoperation system for humanoid robots. It uses the ZeroLab F2 Pro+ system to drive OpenArm arms and ROHand dexterous hands mounted on a wheeled base. It maps human movement to robot operation with low latency and high consistency, while adding autonomous height adjustment and omnidirectional mobility.",
+          "additional_description": "It supports cross-space work, wide-area data capture, dynamic demonstrations, and humanoid robot manipulation training in complex environments."
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "natural_teleoperation_and_mobile_operation": {
+              "title": "Natural Teleoperation and Mobile Operation",
+              "description": "With a wheeled base and autonomous lift, operators can control the arms and guide the robot freely through its environment, adjust its height, and enable true mobile operation on the move."
+            },
+            "high_precision_multidimensional_data_capture": {
+              "title": "High-Precision, Multidimensional Data Capture",
+              "description": "Captures full-dimensional data for base position, lift height, arm pose, quaternions, and finger bend, supporting imitation learning and reinforcement learning for combined movement and manipulation, helping models learn precise operation while moving."
+            },
+            "low_latency_wide_area_wireless_operation": {
+              "title": "Low-Latency, Wide-Area Wireless Operation",
+              "description": "≤ 7.5 ms system latency and wireless operation up to 50 m. The robot can travel long distances in complex lab or field settings without losing signal, meeting the needs of large workspaces for wide-area operation."
+            },
+            "flexible_expansion_for_any_environment": {
+              "title": "Flexible Expansion for Any Environment",
+              "description": "The wheeled platform and open system architecture remove fixed-base constraints and support further development for research and enterprise use. Deploy it in narrow corridors or open spaces to expand where humanoid robots can work."
+            }
+          }
+        },
+        "images": {
+          "openarm_zm_scenario": "OpenArm-Zm scenario",
+          "industrial_maintenance": "Inspection and Maintenance of Large Industrial Equipment",
+          "research_data_collection": "Research Data Capture in Unstructured Environments"
+        },
+        "scenarios": {
+          "title": "Application Scenarios",
+          "source_subtitle": "",
+          "items": {
+            "inspection_and_maintenance_of_large_industrial_equipment": {
+              "title": "Inspection and Maintenance of Large Industrial Equipment"
+            },
+            "research_data_capture_in_unstructured_environments": {
+              "title": "Research Data Capture in Unstructured Environments"
+            }
+          }
+        }
+      },
+      "openarm_z_plus": {
+        "introduction": {
+          "index": "11",
+          "model": "OpenArm-Z+",
+          "title": "Motion-Capture Teleoperation Robot System",
+          "subtitle": "",
+          "description": "MoCap Tele-OpenArm-Z+ is a mobile, full-body motion-capture and teleoperation system for humanoid robots. It uses the ZeroLab F2 Pro motion-capture system as input to drive OpenArm arms and ROHand dexterous hands mounted on a wheeled base with a biomimetic waist. Low-latency mapping translates human movement into mobile robot operation.",
+          "additional_description": "The new biomimetic waist closely follows human motion, enabling high-fidelity real-robot data capture and accelerating the deployment of embodied-AI solutions."
+        },
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "biomimetic_waist_and_full_range_mobile_operation": {
+              "title": "Biomimetic Waist and Full-Range Mobile Operation",
+              "description": "A flexible, bendable waist combines with a wheeled base and autonomous lift for a human-like combination of mobility, height adjustment, waist bending, and arm operation, with more natural operation and broader coverage."
+            },
+            "high_fidelity_real_robot_data_capture": {
+              "title": "High-Fidelity Real-Robot Data Capture",
+              "description": "Captures full-body motion, including waist-joint angles, to match real human movement and provide practical training data for embodied-AI models, helping accelerate algorithm deployment."
+            },
+            "low_latency_wide_area_wireless_operation": {
+              "title": "Low-Latency, Wide-Area Wireless Operation",
+              "description": "≤ 7.5 ms system latency and wireless operation up to 50 m. Supports long-distance travel in complex lab and field settings without signal loss, across large workspaces for wide-area operation."
+            },
+            "flexible_expansion_for_any_environment": {
+              "title": "Flexible Expansion for Any Environment",
+              "description": "The wheeled platform and open waist-control interface remove fixed-base and rigid-torso constraints, while supporting further development and expanding humanoid robot applications."
+            }
+          }
+        },
+        "scenarios": {
+          "title": "Application Scenarios",
+          "source_subtitle": "",
+          "items": {
+            "smart_retail": {
+              "title": "Smart Retail"
+            },
+            "intelligent_warehousing": {
+              "title": "Intelligent Warehousing"
+            }
+          }
+        },
+        "images": {
+          "smart_retail": "Smart Retail",
+          "intelligent_warehousing": "Intelligent Warehousing"
+        }
+      },
+      "motion_data_platform": {
+        "introduction": {
+          "eyebrow": "An Open Ecosystem, Tailored to You",
+          "title": "A Dedicated Motion-Data Platform for the F2 Pro+ Humanoid Robot",
+          "description": "F2 Pro+ is more than a high-precision full-body motion-capture system—it is the “data engine” for embodied-AI training in humanoid robots. We have established deep strategic partnerships with leading robotics companies in China, providing dedicated software platforms with 100% compatibility with each brand’s underlying architecture to make motion-data capture and real-robot integration more efficient and precise."
+        },
+        "images": {
+          "humanoid_data_platform": "Humanoid robot data platform"
+        }
+      },
+      "ecosystem": {
+        "advantages": {
+          "title": "Product Advantages",
+          "source_subtitle": "",
+          "items": {
+            "seamless_integration": {
+              "title": "Seamless Integration",
+              "description": "No one-size-fits-all solution that may not be compatible. Each platform is tailored to the robot’s underlying logic and ready to use."
+            },
+            "direct_data_pipeline": {
+              "title": "Direct Data Pipeline",
+              "description": "High-precision human motion is converted directly into executable joint trajectories, eliminating data conversion errors."
+            },
+            "faster_deployment": {
+              "title": "Faster Deployment",
+              "description": "Shorten the development cycle for an in-house data platform so humanoid robot training and real-world deployment move forward sooner."
+            }
+          }
+        },
+        "partners": {
+          "title": "Partners",
+          "source_subtitle": "",
+          "items": {
+            "asd": {
+              "title": "ASD",
+              "description": "Flowing Motion · Intelligent Manufacturing Hub"
+            },
+            "engineai": {
+              "title": "EngineAI",
+              "description": "Intuitive Collaboration · Empowering Every Possibility"
+            },
+            "fourier_intelligence": {
+              "title": "Fourier Intelligence",
+              "description": "Unity of Form and Function · Intelligent Care"
+            },
+            "matrix_robotics": {
+              "title": "Matrix Robotics",
+              "description": "All Things in One · Matrix Collaboration System"
+            },
+            "pndbotics": {
+              "title": "PndBotics",
+              "description": "Nature-Inspired · Pnd Intelligent Control System"
+            },
+            "unitree_robotics": {
+              "title": "Unitree Robotics",
+              "description": "Like a Shadow · Embodied Avatar System"
+            },
+            "zhejiang_humanoid_robot_innovation_center": {
+              "title": "Zhejiang Humanoid Robot Innovation Center",
+              "description": "Knowledge and Action as One · Leading Digital Intelligence System"
+            }
+          }
+        },
+        "images": {
+          "partner_asd": "ASD logo",
+          "partner_engineai": "EngineAI logo",
+          "partner_fourier": "Fourier Intelligence logo",
+          "partner_matrix": "Matrix Robotics logo",
+          "partner_pndbotics": "PndBotics logo",
+          "partner_unitree": "Unitree Robotics logo",
+          "partner_zhejiang_humanoid_center": "Zhejiang Humanoid Robot Innovation Center logo"
+        }
+      }
+    },
+    "accessibility": {
+      "section": "Product section {{number}}",
+      "specifications": "Product specifications"
+    }
   }
 }

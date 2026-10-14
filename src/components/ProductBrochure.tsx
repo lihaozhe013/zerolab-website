@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import data from '@/content/productBrochureData.json';
+import EnglishBrochurePage from './EnglishBrochurePage';
+import { brochureContent, localizeSourcePage } from './productBrochureContent';
+import useBrochureAudit from './useBrochureAudit';
 import './product-brochure.css';
 import useBrochureTextMetrics from './useBrochureTextMetrics';
 import MobileBrochurePage from './MobileBrochurePage';
@@ -121,7 +125,7 @@ function DesktopPage({ page }: { page: (typeof data.pages)[number] }) {
         <img
           className={`brochure-page__positioned-image${needsLightLogoBacking(image.src) ? ' has-light-logo-backing' : ''}`}
           src={image.src}
-          alt=""
+          alt={image.alt}
           key={`${image.src}-${index}`}
           draggable={false}
           style={{
@@ -183,8 +187,16 @@ function DesktopPage({ page }: { page: (typeof data.pages)[number] }) {
 
 export default function ProductBrochure() {
   const { hash } = useLocation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage ?? i18n.language;
+  const isEnglish = language.startsWith('en');
   const root = useRef<HTMLDivElement>(null);
-  useBrochureTextMetrics(root);
+  useBrochureTextMetrics(root, !isEnglish);
+
+  useBrochureAudit(root, language);
+  const pages = data.pages.map((page, index) =>
+    isEnglish ? page : localizeSourcePage(page, brochureContent[index], t),
+  );
 
   useEffect(() => {
     if (!hash) return;
@@ -207,17 +219,33 @@ export default function ProductBrochure() {
   }, [hash]);
 
   return (
-    <div className="product-brochure" lang="zh" ref={root}>
+    <div
+      className={`product-brochure${isEnglish ? ' is-english' : ''}`}
+      lang={isEnglish ? 'en' : 'zh-CN'}
+      data-renderer={isEnglish ? 'responsive' : 'source'}
+      ref={root}
+    >
       <div className="product-brochure__pages">
-        {data.pages.map((page) => (
+        {pages.map((page, index) => (
           <article
             className="brochure-page"
             id={page.id}
             key={page.sourcePage}
-            aria-label={`Product handbook page ${page.sourcePage}`}
+            aria-label={t('product_brochure.accessibility.section', {
+              number: page.sourcePage,
+            })}
           >
-            <DesktopPage page={page} />
-            <MobileBrochurePage page={page} />
+            {isEnglish ? (
+              <EnglishBrochurePage
+                page={page}
+                content={brochureContent[index]}
+              />
+            ) : (
+              <>
+                <DesktopPage page={page} />
+                <MobileBrochurePage page={page} />
+              </>
+            )}
           </article>
         ))}
       </div>

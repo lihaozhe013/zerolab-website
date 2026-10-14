@@ -337,5 +337,1055 @@
     ],
     "page_title": "我们的产品 Products",
     "title": "产品"
+  },
+  "product_brochure": {
+    "products": {
+      "zl9nsq": {
+        "introduction": {
+          "index": "01",
+          "model": "ZL9NSQ",
+          "title": "全新超轻薄动作捕捉传感器芯片",
+          "subtitle": "New Generation Ultralight Motion Sensor Chip",
+          "description": "ZeroLab ZL9NSQ是一款低功耗、高精度的All-In-One动捕芯片。采用最新Chiplet技术,在10x10x2mm极小封装内实现高集成度,免外围电路即插即用。",
+          "additional_description": "该芯片可无缝嵌入衣物、手环等可穿戴设备,有效降本增效,极大推动了大规模商业部署。",
+          "caption": "实物大小"
+        },
+        "images": {
+          "zl9nsq_size_comparison": "ZL9NSQ 尺寸对比",
+          "zl9nsq_chip_on_fingertip": "指尖上的 ZL9NSQ 芯片",
+          "motion_capture": "动作数据采集",
+          "machine_perception": "虚拟现实互动",
+          "remote_tracking": "机器智能感知",
+          "virtual_reality": "远程定位跟踪"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "compact_design_powerful_performance": {
+              "title": "极致小体积,性能强劲",
+              "description": "采用前沿 Chiplet 制造工艺,芯片尺寸实现极致轻量化,运算性能达到行业领先水平。"
+            },
+            "high_reliability_longer_service_life": {
+              "title": "高可靠性,寿命更长",
+              "description": "采用WBBGA增厚倒球工艺,大幅提高引线可靠性,增强防潮防磨能力,延长芯片使用寿命。"
+            },
+            "eco_friendly_lower_cost": {
+              "title": "环保低成本",
+              "description": "相比传统工艺, WBBGA工艺更加环保,且大幅降低了封装成本。"
+            },
+            "flexible_applications_broad_use_cases": {
+              "title": "应用灵活,场景广泛",
+              "description": "芯片轻薄小巧, 便于嵌入智能小型化设备,为MotionCapture技术拓展更多应用场景。"
+            }
+          }
+        },
+        "scenarios": {
+          "title": "应用场景",
+          "source_subtitle": "Application Scenarios",
+          "items": {
+            "motion_data_capture": {
+              "title": "动作数据采集",
+              "description": "具备亚毫米级精度,实时捕捉人体动作与身体数据,广泛应用于运动分析与身体状态监测。"
+            },
+            "virtual_reality_interaction": {
+              "title": "虚拟现实互动",
+              "description": "精准追踪身体动作,实现流畅的沉浸式虚拟交互,带来逼真的虚拟现实体验。"
+            },
+            "machine_perception": {
+              "title": "机器智能感知",
+              "description": "精确判断设备位置、角度及姿态,赋予机器人、无人机及物联网设备更强的环境感知与交互智能。"
+            },
+            "remote_positioning_and_tracking": {
+              "title": "远程定位跟踪",
+              "description": "支持大范围移动数据通信,实现远程动作与状态的精准采集跟踪,助力物流、交通、消防等领域的智能化升级。"
+            }
+          }
+        },
+        "technical_specifications": {
+          "title": "技术规格",
+          "source_subtitle": "Technical Specifications",
+          "items": {
+            "performance_comparison": {
+              "title": "数据对比"
+            },
+            "product_features": {
+              "title": "产品特性",
+              "description": "业界首创超小体积10x10x2mm动作捕捉SiP芯片传感器",
+              "description_1": "采用先进的Chiplet集成电路工艺,内置高性能天线",
+              "description_2": "内置RF2.4GHz SoC,支持蓝牙BLE5.2及Zerolab自有低延时通信协议",
+              "description_3": "内置三轴加速度计、三轴陀螺仪、三轴磁力计",
+              "description_4": "3.3V电压单电源供电(无需任何外围电路),更低的电压供电,更长的待机时间"
+            }
+          },
+          "table": {
+            "headers": {
+              "value": "传统动作捕捉传感器",
+              "comparison_value": "ZL9NSQ动作捕捉传感器芯片"
+            },
+            "rows": {
+              "solution_size": {
+                "parameter": "方 案 尺 寸",
+                "value": "40×40mm",
+                "comparison_value": "10×10mm全集成SiP芯片"
+              },
+              "power_consumption": {
+                "parameter": "方案功耗",
+                "value": "200mW级别",
+                "comparison_value": "50mW级别"
+              },
+              "latency": {
+                "parameter": "延迟",
+                "value": "30ms",
+                "comparison_value": "20ms"
+              },
+              "orientation_accuracy": {
+                "parameter": "姿态精度",
+                "value": "0.5-1度",
+                "comparison_value": "0.1度"
+              },
+              "solution_cost": {
+                "parameter": "方案成本",
+                "value": "约几十万",
+                "comparison_value": "约为传统动作捕捉传感器的 1/10"
+              }
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "operating_voltage": {
+                "parameter": "工作电压",
+                "value": "3.3V"
+              },
+              "operating_current": {
+                "parameter": "工作电流",
+                "value": "<15mA"
+              },
+              "built_in_orientation_sensors": {
+                "parameter": "内置姿态传感器",
+                "value": "三轴加速度、三轴角速度、三轴磁力计"
+              },
+              "accelerometer_range": {
+                "parameter": "加速度量程",
+                "value": "±2/±4/±8/±16g"
+              },
+              "magnetometer_range": {
+                "parameter": "磁力计量程",
+                "value": "±800uT"
+              },
+              "gyroscope_range": {
+                "parameter": "陀螺仪量程",
+                "value": "±256/512/1024/2048dps"
+              },
+              "orientation_accuracy": {
+                "parameter": "姿态精度",
+                "value": "静态精度:X/Y轴0.05°,Z轴0.5;动态精度:X/Y轴0.1°,Z轴0.5°"
+              },
+              "output_data_format": {
+                "parameter": "输出数据格式",
+                "value": "姿态四元数/姿态欧拉角/角速度/加速度/线性加速度/磁场/电池电量"
+              },
+              "output_interface": {
+                "parameter": "输出接口",
+                "value": "UART/I2C/SPI/BLE5.2/Zerolab专用协议"
+              },
+              "expansion_interface": {
+                "parameter": "扩展接口",
+                "value": "模拟信号输入(AD0缺省为电池电量检测)"
+              },
+              "external_antenna_expansion": {
+                "parameter": "天线外部扩展",
+                "value": "支持"
+              },
+              "chip_dimensions": {
+                "parameter": "芯片尺寸",
+                "value": "10mmX10mmX2mm"
+              }
+            }
+          }
+        }
+      },
+      "f1": {
+        "introduction": {
+          "index": "02",
+          "model": "F1",
+          "title": "全身动作捕捉套装",
+          "subtitle": "F1 Full Body MoCap Suites",
+          "description": "F1 是一套全身动作捕捉系统,配备13个无线传感器与带部位提示的舒适绑带,支持快速、可靠的数据捕捉。该系统专为影视动画、人体工程学、康复医疗及生物力学等场景设计,是专业从业人员的理想选择。"
+        },
+        "images": {
+          "f1_full_body_suit": "F1 全身动作捕捉套装",
+          "f1_strap_sensor": "F1 绑带传感器",
+          "f1_tracker_unit": "F1 动作追踪器"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "long_battery_life": {
+              "title": "持久续航",
+              "description": "在空旷无干扰环境下,数据传输范围可达20米,保障长时间动捕过程中数据的持续、稳定传输。"
+            },
+            "lightweight_and_easy_to_wear": {
+              "title": "轻便穿戴",
+              "description": "配备贴身舒适的固定绑带,并设有部位提示标贴,帮助使用者快速识别与佩戴,实现便捷穿戴。"
+            },
+            "high_precision": {
+              "title": "高精度",
+              "description": "搭载13个无线传感器,精准捕捉身体各节点动作数据,满足影视专业与动画制作等领域的高精度需求。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "dimensions": {
+                "parameter": "尺寸",
+                "value": "42x31x16mm"
+              },
+              "weight": {
+                "parameter": "重量",
+                "value": "17g"
+              },
+              "gyroscope_range": {
+                "parameter": "陀螺仪量程",
+                "value": "±2000dps"
+              },
+              "accelerometer_range": {
+                "parameter": "加速度计量程",
+                "value": "±16g"
+              },
+              "static_orientation_accuracy": {
+                "parameter": "静态姿态精度",
+                "value": "roll/pitch/yaw:0.5°"
+              },
+              "dynamic_orientation_accuracy": {
+                "parameter": "动态姿态精度",
+                "value": "roll/pitch/yaw:1.0°"
+              },
+              "output_data": {
+                "parameter": "输出数据",
+                "value": "欧拉角、四元数"
+              },
+              "operating_voltage": {
+                "parameter": "工作电压",
+                "value": "3.3v"
+              },
+              "battery_capacity": {
+                "parameter": "电池容量",
+                "value": "200mAh"
+              },
+              "operating_time": {
+                "parameter": "工作时长",
+                "value": "10h以上"
+              },
+              "operating_temperature": {
+                "parameter": "工作温度",
+                "value": "-40°C ~ 85°C"
+              },
+              "communication_method": {
+                "parameter": "通讯方式",
+                "value": "Zero Lab 2.4G私有协议"
+              },
+              "data_output_rate": {
+                "parameter": "数据输出帧率",
+                "value": "50Hz"
+              },
+              "latency": {
+                "parameter": "时延",
+                "value": "<20ms"
+              },
+              "charging_time": {
+                "parameter": "充电时长",
+                "value": "0.5h"
+              }
+            }
+          }
+        }
+      },
+      "h1": {
+        "introduction": {
+          "index": "03",
+          "model": "H1",
+          "title": "数据手套",
+          "subtitle": "H1 Data Gloves",
+          "description": "H1是一款高性价比、高精度且轻便的数据手套。它内置10-bit高精度弯曲传感器与一体化惯性姿态模块,结合低延迟通讯,能实时精准捕捉手部精细动作。",
+          "additional_description": "该产品广泛适用于MR人机交互、机器人及无人机控制等领域,为用户提供高效便捷的操作体验。"
+        },
+        "images": {
+          "h1_data_gloves": "H1 数据手套"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "excellent_value": {
+              "title": "高性价比",
+              "description": "在提供专业级数据采集能力的同时兼顾成本效益,是追求性能与价格平衡用户的理想选择。"
+            },
+            "lightweight_and_easy_to_wear": {
+              "title": "轻便穿戴",
+              "description": "采用轻便的一体化模块设计,有效减轻手部负担,确保长时间佩戴的舒适性,让MR交互与设备控制更加灵活自如。"
+            },
+            "high_precision": {
+              "title": "高精度",
+              "description": "每根手指均配备10-bit分辨率高精度弯曲传感器,结合一体化惯性姿态模块,敏锐捕捉手部细微变化,精准呈现动作细节。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "dimensions": {
+                "parameter": "尺寸",
+                "value": "200x110x50mm"
+              },
+              "weight": {
+                "parameter": "重量",
+                "value": "58g"
+              },
+              "gyroscope_range": {
+                "parameter": "陀螺仪量程",
+                "value": "±2000dps"
+              },
+              "accelerometer_range": {
+                "parameter": "加速度计量程",
+                "value": "±16g"
+              },
+              "static_orientation_accuracy": {
+                "parameter": "静态姿态精度",
+                "value": "roll/pitch/yaw:0.5°"
+              },
+              "dynamic_orientation_accuracy": {
+                "parameter": "动态姿态精度",
+                "value": "roll/pitch/yaw:1.0°"
+              },
+              "finger_bend_measurement_resolution": {
+                "parameter": "手指弯曲测量分辨率",
+                "value": "10-bit"
+              },
+              "output_data": {
+                "parameter": "输出数据",
+                "value": "欧拉角、四元数、手指弯曲分辨率"
+              },
+              "operating_voltage": {
+                "parameter": "工作电压",
+                "value": "3.3v"
+              },
+              "battery_capacity": {
+                "parameter": "电池容量",
+                "value": "200mAh"
+              },
+              "operating_time": {
+                "parameter": "工作时长",
+                "value": "8-10h"
+              },
+              "operating_temperature": {
+                "parameter": "工作温度",
+                "value": "-40°C ~ 85°C"
+              },
+              "communication_method": {
+                "parameter": "通讯方式",
+                "value": "Zero Lab 2.4G私有协议/BLE 5.2"
+              },
+              "data_output_rate": {
+                "parameter": "数据输出帧率",
+                "value": "120Hz"
+              },
+              "latency": {
+                "parameter": "时延",
+                "value": "<20ms"
+              },
+              "charging_time": {
+                "parameter": "充电时长",
+                "value": "0.5h"
+              }
+            }
+          }
+        }
+      },
+      "f2": {
+        "introduction": {
+          "index": "04",
+          "model": "F2",
+          "title": "全身动作捕捉套装",
+          "subtitle": "F2 Full Body MoCap Suites",
+          "description": "F2是一套高精度全身动作捕捉系统,支持秒级连接校准与20米稳定无线传输。其配套数据手套完美适配主流6自由度灵巧手,在实现媲美光学动捕精度的同时,兼具低成本与高灵活性,非常适合大批量部署使用。"
+        },
+        "images": {
+          "f2_tracker_case": "F2 追踪器收纳箱",
+          "f2_data_gloves": "F2 数据手套",
+          "f2_tracker_unit": "F2 动作追踪器",
+          "ros": "ROS 标识",
+          "windows": "Windows 11 标识",
+          "ubuntu": "Ubuntu 标识",
+          "unreal_engine": "Unreal Engine 标识",
+          "unity": "Unity 标识"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "wearing": {
+              "title": "更好的穿戴使用体验",
+              "description": "采用简洁高效的设计,支持秒级数据连接与校准,让用户更快速、舒适地完成穿戴,大幅提升工作效率。"
+            },
+            "more_hand_degrees_of_freedom_captured": {
+              "title": "更多的手部自由度数据采集",
+              "description": "配备升级版数据手套,专为市面上80%的6自由度灵巧手设计,通用性极佳,能精准实现手部动作映射。"
+            },
+            "more_accurate_human_motion_data": {
+              "title": "更准确的人体动作数据采集",
+              "description": "动作数据精度媲美光学动捕设备,兼具“高精度、低成本”优势,使用更灵活,是大规模部署应用的理想选择。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "信号延迟",
+                "value": "≤7.5ms(由操作系统限制决定)"
+              },
+              "sensor_data_types": {
+                "parameter": "传感器数据类型",
+                "value": "欧拉角,四元数,手指弯曲分辨率"
+              },
+              "sensor_rate": {
+                "parameter": "传感器速率",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "电池续航",
+                "value": "10小时以上"
+              },
+              "charging_time": {
+                "parameter": "充电时间",
+                "value": "0.5小时"
+              },
+              "communication_protocol": {
+                "parameter": "通信协议",
+                "value": "Zero Lab 2.4G私有协议"
+              },
+              "signal_range": {
+                "parameter": "信号传输距离",
+                "value": "20米"
+              },
+              "wearable_design": {
+                "parameter": "穿戴类型",
+                "value": "弹性防滑绑带"
+              },
+              "motion_capture_sensor_count": {
+                "parameter": "动作捕捉传感数量",
+                "value": "15个Motion Tracker1双数据手套"
+              },
+              "hand_motion_data_capture": {
+                "parameter": "手部动作数据采集",
+                "value": "Zero Lab G3 数据手套"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "适配平台Adaptive Platform"
+        }
+      },
+      "f2_pro_plus": {
+        "introduction": {
+          "index": "05",
+          "model": "F2 Pro+",
+          "title": "全身动作捕捉套装",
+          "subtitle": "F2 Pro+ Full Body MoCap Suites",
+          "description": "F2 Pro+是一套高精度全身动作捕捉系统,支持秒级连接校准与50米稳定无线传输。其配套数据手套完美适配主流6自由度灵巧手,在实现媲美光学动捕精度的同时,兼具低成本与高灵活性,非常适合大批量部署使用。"
+        },
+        "images": {
+          "f2_pro_plus_gloves": "F2 Pro+ 数据手套",
+          "f2_pro_plus_tracker_case": "F2 Pro+ 追踪器收纳箱",
+          "f2_pro_plus_tracker": "F2 Pro+ 动作追踪器",
+          "ros": "ROS 标识",
+          "windows": "Windows 11 标识",
+          "ubuntu": "Ubuntu 标识",
+          "unreal_engine": "Unreal Engine 标识",
+          "unity": "Unity 标识"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "extended_wireless_data_range": {
+              "title": "更大的无线数据传输距离",
+              "description": "信号传输范围达50米以上(测试空间),支持在更广阔的空间内自由采集数据,且在复杂信号环境中仍能稳定运行。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "信号延迟",
+                "value": "≤7.5ms(由操作系统限制决定)"
+              },
+              "sensor_data_types": {
+                "parameter": "传感器数据类型",
+                "value": "欧拉角,四元数,手指弯曲分辨率"
+              },
+              "sensor_rate": {
+                "parameter": "传感器速率",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "电池续航",
+                "value": "10小时以上"
+              },
+              "charging_time": {
+                "parameter": "充电时间",
+                "value": "0.5小时"
+              },
+              "communication_protocol": {
+                "parameter": "通信协议",
+                "value": "Zero Lab 2.4G私有协议"
+              },
+              "signal_range": {
+                "parameter": "信号传输距离",
+                "value": "50米以上"
+              },
+              "wearable_design": {
+                "parameter": "穿戴类型",
+                "value": "弹性防滑绑带"
+              },
+              "motion_capture_sensor_count": {
+                "parameter": "动作捕捉传感数量",
+                "value": "15个Motion Tracker1双数据手套"
+              },
+              "hand_motion_data_capture": {
+                "parameter": "手部动作数据采集",
+                "value": "Zero Lab G3 数据手套"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "适配平台Adaptive Platform"
+        }
+      },
+      "h2": {
+        "introduction": {
+          "index": "06",
+          "model": "H2",
+          "title": "灵巧手数据手套",
+          "subtitle": "H2 Dexterous Hand Data Gloves",
+          "description": "H2灵巧手数据手套专为6自由度灵巧手打造,兼容市面上超80%的量产机型。它采用轻便透气的舒适材质,支持传感器模块拆卸与织物水洗,维护便捷。凭借手背的高精度姿态传感器,它能精准捕捉手部姿态,提供全面、可靠的手部动作数据采集能力。"
+        },
+        "images": {
+          "h2_dexterous_data_gloves": "H2 灵巧手数据手套",
+          "ros": "ROS 标识",
+          "unity": "Unity 标识",
+          "engineai": "众擎机器人标识",
+          "oymotion": "OYMotion 标识"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "designed_for_6_dof_dexterous_hands": {
+              "title": "6自由度灵巧手适配",
+              "description": "专为6自由度灵巧手设计,兼容市面上超过80%的量产型6自由度灵巧手。"
+            },
+            "lightweight_and_breathable": {
+              "title": "轻便透气",
+              "description": "手套材质贴合性极佳且透气性增强,使其轻便、佩戴舒适且易于使用。"
+            },
+            "removable_and_washable": {
+              "title": "可拆卸与可水洗",
+              "description": "手指传感器和手背运动感应模块可从手套上拆卸,使得手套织物可以进行水洗。"
+            },
+            "high_precision_motion_capture": {
+              "title": "高精度动作捕捉",
+              "description": "手背上的高精度姿态传感器模块能够准确检测手部姿态数据,提供全面的手部动作数据采集能力。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "信号延迟",
+                "value": "≤7.5ms(由操作系统限制决定)"
+              },
+              "finger_sensor_type": {
+                "parameter": "手指传感器类型",
+                "value": "欧拉角,四元数,手指弯曲分辨率"
+              },
+              "sensor_rate": {
+                "parameter": "传感器速率",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "电池续航",
+                "value": "10小时"
+              },
+              "charging_time": {
+                "parameter": "充电时间",
+                "value": "0.5小时"
+              },
+              "weight": {
+                "parameter": "重量",
+                "value": "87g"
+              },
+              "communication_protocol": {
+                "parameter": "通信协议",
+                "value": "蓝牙BLE 5.2"
+              },
+              "signal_range": {
+                "parameter": "信号传输距离",
+                "value": "10米"
+              },
+              "fabric_size_options": {
+                "parameter": "织物尺码信息",
+                "value": "S,M,L"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "适配平台",
+          "source_subtitle": "Adaptive Platform"
+        }
+      },
+      "h2_pro": {
+        "introduction": {
+          "index": "07",
+          "model": "H2 Pro",
+          "title": "灵巧手数据手套",
+          "subtitle": "H2 Pro Dexterous Hand Data Gloves",
+          "description": "H2 Pro灵巧手数据手套专为6自由度灵巧手打造,兼容市面上超80%的量产机型。它采用轻便透气的舒适材质,支持传感器模块拆卸与织物水洗,维护便捷。凭借手背的高精度姿态传感器,它能精准捕捉手部姿态,提供全面、可靠的手部动作数据采集能力。"
+        },
+        "images": {
+          "h2_dexterous_data_gloves": "H2 Pro 灵巧手数据手套",
+          "ros": "ROS 标识",
+          "unity": "Unity 标识",
+          "engineai": "众擎机器人标识",
+          "oymotion": "OYMotion 标识"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "interference_resistant_proprietary_protocol": {
+              "title": "私有协议抗干扰",
+              "description": "采用自研私有通信协议,有效屏蔽环境电磁噪声,确保在复杂工况下数据传输依然稳定、精准不丢包。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "信号延迟",
+                "value": "≤7.5ms(由操作系统限制决定)"
+              },
+              "finger_sensor_type": {
+                "parameter": "手指传感器类型",
+                "value": "欧拉角,四元数,手指弯曲分辨率"
+              },
+              "sensor_rate": {
+                "parameter": "传感器速率",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "电池续航",
+                "value": "10小时"
+              },
+              "charging_time": {
+                "parameter": "充电时间",
+                "value": "0.5小时"
+              },
+              "weight": {
+                "parameter": "重量",
+                "value": "87g"
+              },
+              "communication_protocol": {
+                "parameter": "通信协议",
+                "value": "Zero Lab 2.4G私有协议"
+              },
+              "signal_range": {
+                "parameter": "信号传输距离",
+                "value": "15米"
+              },
+              "fabric_size_options": {
+                "parameter": "织物尺码信息",
+                "value": "S,M,L"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "适配平台",
+          "source_subtitle": "Adaptive Platform"
+        }
+      },
+      "h2_pro_plus": {
+        "introduction": {
+          "index": "08",
+          "model": "H2 Pro+",
+          "title": "灵巧手数据手套",
+          "subtitle": "H2 Pro+ Dexterous Hand Data Gloves",
+          "description": "H2 Pro+灵巧手数据手套专为6自由度灵巧手打造,兼容市面上超80%的量产机型,支持秒级连接校准与50米稳定无线传输。它采用轻便透气的舒适材质,支持传感器模块拆卸与织物水洗,维护便捷。凭借手背的高精度姿态传感器,它能精准捕捉手部姿态,提供全面、可靠的手部动作数据采集能力。"
+        },
+        "images": {
+          "h2_pro_plus_data_gloves": "H2 Pro+ 灵巧手数据手套",
+          "ros": "ROS 标识",
+          "unity": "Unity 标识",
+          "engineai": "众擎机器人标识",
+          "oymotion": "OYMotion 标识"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "extended_wireless_range": {
+              "title": "超远信号传输距离",
+              "description": "支持更广阔的无线作业范围,让用户在复杂或大范围空间内也能自由移动,数据采集无死角。"
+            }
+          }
+        },
+        "specifications": {
+          "title": "产品参数",
+          "source_subtitle": "Product Parameters",
+          "table": {
+            "headers": {
+              "parameter": "参数",
+              "value": "参数值"
+            },
+            "rows": {
+              "signal_latency": {
+                "parameter": "信号延迟",
+                "value": "≤7.5ms(由操作系统限制决定)"
+              },
+              "finger_sensor_type": {
+                "parameter": "手指传感器类型",
+                "value": "欧拉角,四元数,手指弯曲分辨率"
+              },
+              "sensor_rate": {
+                "parameter": "传感器速率",
+                "value": "50Hz"
+              },
+              "battery_life": {
+                "parameter": "电池续航",
+                "value": "10小时"
+              },
+              "charging_time": {
+                "parameter": "充电时间",
+                "value": "0.5小时"
+              },
+              "weight": {
+                "parameter": "重量",
+                "value": "87g"
+              },
+              "communication_protocol": {
+                "parameter": "通信协议",
+                "value": "Zero Lab 2.4G私有协议"
+              },
+              "signal_range": {
+                "parameter": "信号传输距离",
+                "value": "50米"
+              },
+              "fabric_size_options": {
+                "parameter": "织物尺码信息",
+                "value": "S,M,L"
+              }
+            }
+          }
+        },
+        "platforms": {
+          "title": "适配平台",
+          "source_subtitle": "Adaptive Platform"
+        }
+      },
+      "openarm_z": {
+        "introduction": {
+          "index": "09",
+          "model": "OpenArm-Z",
+          "title": "动作捕捉远程遥操作机器人系统",
+          "subtitle": "MoCap Tele-OpenArm-Z Teleoperation System",
+          "description": "MoCap Tele-OpenArm-Z 是一套面向人形机器人的全身动捕与远程遥操作系统。该系统以 ZeroLab F2 Pro+ 动捕设备为输入端,驱动 OpenArm 机械臂与 ROHand 灵巧手,实现人体动作到机器人操作的低延迟、高一致性映射。",
+          "additional_description": "它能实时将人类的精细动作转化为机器人的真实操作行为,广泛适用于数据采集、示教学习及人形机器人操作能力训练等场景。",
+          "specification_0": "双臂7自由度",
+          "specification_1": "臂展:633mm",
+          "specification_2": "单臂重量:6kg",
+          "specification_3": "单臂峰值负载:6.0kg",
+          "specification_4": "CAN-FD 控制频率:1kHz",
+          "specification_5": "灵巧手型号:ROH-LiteS",
+          "specification_6": "灵巧手自由度:11个运动关节,其中6个主动关节"
+        },
+        "advantages": {
+          "title": "产品优势Product Advantages",
+          "items": {
+            "natural_teleoperation": {
+              "title": "自然遥操作",
+              "description": "人怎么动,机器人就怎么动,几乎无需学习成本。"
+            },
+            "high_precision_data_capture": {
+              "title": "高精度数据采集",
+              "description": "输出姿态、四元数与手指弯曲数据,满足模仿学习与强化学习需求。"
+            },
+            "low_latency_wireless_operation": {
+              "title": "低延迟、无线作业",
+              "description": "≤7.5ms系统延迟,最远50m无线操作,适应复杂实验与现场环境。"
+            },
+            "a_complete_arm_and_hand_loop": {
+              "title": "完整“臂+手”闭环",
+              "description": "OpenArm负责安全、顺应的人形臂运动,ROHand提供真实可用的精细抓取能力。"
+            },
+            "open_and_extensible": {
+              "title": "开放、可扩展",
+              "description": "硬件与系统架构开放,适合科研、企业二次开发与规模化部署。"
+            }
+          }
+        },
+        "images": {
+          "openarm_hands": "OpenArm-Z 数据手套",
+          "openarm_z_robot": "OpenArm-Z 机器人",
+          "robot_operation": "人形机器人遥操作与示教",
+          "robot_data_collection": "操作数据采集",
+          "physical_ai_training": "具身智能 /Physical AI训练",
+          "contact_task_validation": "复杂接触任务验证 (抓取、工具使用、装配)"
+        },
+        "scenarios": {
+          "title": "应用场景Application Scenarios",
+          "items": {
+            "humanoid_robot_teleoperation_and_demonstration": {
+              "title": "人形机器人遥操作与示教"
+            },
+            "manipulation_data_capture": {
+              "title": "操作数据采集"
+            },
+            "embodied_ai_physical_ai_training": {
+              "title": "具身智能 /Physical AI训练"
+            },
+            "complex_contact_task_validation_grasping_tool_use_assembly": {
+              "title": "复杂接触任务验证 (抓取、工具使用、装配)"
+            }
+          }
+        }
+      },
+      "openarm_zm": {
+        "introduction": {
+          "index": "10",
+          "model": "OpenArm-Zm",
+          "title": "动作捕捉远程遥操作机器人系统",
+          "subtitle": "MoCap Tele-OpenArm-Zm Teleoperation System",
+          "description": "MoCap Tele-OpenArm-Zm 是一套面向人形机器人的移动式全身动捕与远程遥操作系统。 该系统以 ZeroLab F2 Pro+ 全身动捕设备为输入端,驱动搭载于轮式底盘上的 OpenArm 机械臂与ROHand 灵巧手。系统不仅实现了人体动作到机器人操作的低延迟、高一致性映射,更赋予了机器人自主升降与全向移动能力。",
+          "additional_description": "它能广泛适用于跨空间作业、大范围数据采集、动态示教学习及复杂场景下的人形机器人操作能力训练。"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "natural_teleoperation_and_mobile_operation": {
+              "title": "自然遥操作与移动作业",
+              "description": "结合轮式底盘与自主升降功能,操作者不仅能控制手臂动作,还能指挥机器人在环境中自由穿梭与高度调节,实现真正的“行走式”作业。"
+            },
+            "high_precision_multidimensional_data_capture": {
+              "title": "高精度多维数据采集",
+              "description": "输出包含底盘位置、升降高度、臂部姿态、四元数与手指弯曲的全维数据。满足模仿学习与强化学习对“移动+操作”复合数据的需求,让模型学会如何在运动中保持精准操作。"
+            },
+            "low_latency_wide_area_wireless_operation": {
+              "title": "低延迟无线广域作业",
+              "description": "≤ 7.5ms 系统延迟,最远 50m 无线操作。支持机器人在复杂的实验与现场环境中长距离移动而不丢失信号,适应大范围的空间作业需求。"
+            },
+            "flexible_expansion_for_any_environment": {
+              "title": "灵活扩展与全场景适应",
+              "description": "轮式移动平台打破了固定基座的限制,配合开放的系统架构,适合科研与企业进行二次开发。无论是狭窄通道还是开阔场地,都能灵活部署,极大拓展了人形机器人的应用边界。"
+            }
+          }
+        },
+        "images": {
+          "openarm_zm_scenario": "OpenArm-Zm 应用场景",
+          "industrial_maintenance": "大型工业设备巡检与运维",
+          "research_data_collection": "非结构化环境下的科研数据采集"
+        },
+        "scenarios": {
+          "title": "应用场景",
+          "source_subtitle": "Application Scenarios",
+          "items": {
+            "inspection_and_maintenance_of_large_industrial_equipment": {
+              "title": "大型工业设备巡检与运维"
+            },
+            "research_data_capture_in_unstructured_environments": {
+              "title": "非结构化环境下的科研数据采集"
+            }
+          }
+        }
+      },
+      "openarm_z_plus": {
+        "introduction": {
+          "index": "11",
+          "model": "OpenArm-Z+",
+          "title": "动作捕捉远程遥操作机器人系统",
+          "subtitle": "MoCap Tele-OpenArm-Z+ Teleoperation System",
+          "description": "MoCap Tele-OpenArm-Z+ 是一套面向人形机器人的移动式全身动捕与遥操作系统。该系统以 ZeroLab F2 Pro 动捕设备为输入端,驱动搭载于轮式底盘与仿生腰部结构上的 OpenArm 机械臂与 ROHand 灵巧手。系统通过低延迟映射,实时将人类动作转化为机器人的移动操作行为。",
+          "additional_description": "其新增的仿生腰部设计完美复刻人类运动轨迹,支持高保真真机数据采集,加速具身智能方案落地。"
+        },
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "biomimetic_waist_and_full_range_mobile_operation": {
+              "title": "仿生腰部与全维移动作业",
+              "description": "新增可灵活弯曲的腰部结构,结合轮式底盘与自主升降,实现“移动+升降+腰部弯曲+手臂操作”的类人运动模式,作业更自然、覆盖更广。"
+            },
+            "high_fidelity_real_robot_data_capture": {
+              "title": "高保真真机数采与落地",
+              "description": "精准采集包含腰部关节角度在内的全身运动数据,完美贴合人类真实运动轨迹,为具身智能模型提供极具实战价值的训练素材,加速算法落地。"
+            },
+            "low_latency_wide_area_wireless_operation": {
+              "title": "低延迟无线广域作业",
+              "description": "≤ 7.5ms 系统延迟,最远 50m 无线操作。支持机器人在复杂的实验与现场环境中长距离移动而不丢失信号,适应大范围的空间作业需求。"
+            },
+            "flexible_expansion_for_any_environment": {
+              "title": "灵活扩展与全场景适应",
+              "description": "轮式移动平台搭配开放式腰部控制接口,打破固定基座与刚性躯干的限制,支持二次开发,极大拓展了人形机器人的应用边界。"
+            }
+          }
+        },
+        "scenarios": {
+          "title": "应用场景",
+          "source_subtitle": "Application Scenarios",
+          "items": {
+            "smart_retail": {
+              "title": "智慧零售"
+            },
+            "intelligent_warehousing": {
+              "title": "智能仓储"
+            }
+          }
+        },
+        "images": {
+          "smart_retail": "智慧零售",
+          "intelligent_warehousing": "智能仓储"
+        }
+      },
+      "motion_data_platform": {
+        "introduction": {
+          "eyebrow": "开放生态,量身定制:",
+          "title": "F2 Pro+人形机器人专属动作数据平台",
+          "description": "F2 Pro+不仅是一套高精度全身动捕系统,更是人形机器人具身智能训练的“数据引擎”。我们已与国内顶尖机器人企业达成深度战略合作,提供100%适配各品牌底层架构的专属软件平台,让动作数据采集与真机绑定更高效、更精准。"
+        },
+        "images": {
+          "humanoid_data_platform": "人形机器人动作数据平台"
+        }
+      },
+      "ecosystem": {
+        "advantages": {
+          "title": "产品优势",
+          "source_subtitle": "Product Advantages",
+          "items": {
+            "seamless_integration": {
+              "title": "无缝绑定",
+              "description": "拒绝“万能但不兼容”的通用方案,专为各品牌机器人底层逻辑定制,开箱即用。"
+            },
+            "direct_data_pipeline": {
+              "title": "数据直通",
+              "description": "将高精度人体动作直接转化为目标机器人可执行的关节轨迹,消除数据转换误差。"
+            },
+            "faster_deployment": {
+              "title": "加速落地",
+              "description": "大幅缩短企业自建数据平台的研发周期,让人形机器人训练与真机部署快人一步。"
+            }
+          }
+        },
+        "partners": {
+          "title": "合作伙伴",
+          "source_subtitle": "Partner",
+          "items": {
+            "asd": {
+              "title": "爱仕达",
+              "description": "行云流水 · 智造中枢系统"
+            },
+            "engineai": {
+              "title": "众擎机器人",
+              "description": "心有灵犀 · 擎动万象系统"
+            },
+            "fourier_intelligence": {
+              "title": "傅利叶智能",
+              "description": "形神合一 · 智护康宁系统"
+            },
+            "matrix_robotics": {
+              "title": "矩阵超智",
+              "description": "万象归一 · 矩阵协同系统"
+            },
+            "pndbotics": {
+              "title": "柏奥尼克机器人",
+              "description": "浑然天成 · 柏奥智控系统"
+            },
+            "unitree_robotics": {
+              "title": "宇树科技",
+              "description": "如影随形 · 身外化身系统"
+            },
+            "zhejiang_humanoid_robot_innovation_center": {
+              "title": "浙江人形机器人创新中心",
+              "description": "知行合一 · 领航数智系统"
+            }
+          }
+        },
+        "images": {
+          "partner_asd": "爱仕达",
+          "partner_engineai": "众擎机器人标识",
+          "partner_fourier": "傅利叶智能",
+          "partner_matrix": "矩阵超智",
+          "partner_pndbotics": "柏奥尼克机器人",
+          "partner_unitree": "宇树科技",
+          "partner_zhejiang_humanoid_center": "浙江人形机器人创新中心"
+        }
+      }
+    },
+    "accessibility": {
+      "section": "产品章节 {{number}}",
+      "specifications": "产品参数"
+    }
   }
 }

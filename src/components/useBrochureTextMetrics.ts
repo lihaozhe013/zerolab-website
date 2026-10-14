@@ -2,8 +2,10 @@ import { useLayoutEffect, type RefObject } from 'react';
 
 export default function useBrochureTextMetrics(
   root: RefObject<HTMLDivElement | null>,
+  enabled = true,
 ) {
   useLayoutEffect(() => {
+    if (!enabled) return;
     const element = root.current;
     if (!element) return;
     let frame = 0;
@@ -41,16 +43,6 @@ export default function useBrochureTextMetrics(
           text.style.transform = `translateY(${-baseline}px) scaleX(${scale})`;
         }
       }
-      if (import.meta.env.DEV) {
-        void import('./productBrochureAudit').then(
-          ({ auditProductBrochure }) => {
-            if (!disposed)
-              element.dataset.alignmentAudit = JSON.stringify(
-                auditProductBrochure(),
-              );
-          },
-        );
-      }
     };
 
     const schedule = () => {
@@ -76,5 +68,5 @@ export default function useBrochureTextMetrics(
       observer.disconnect();
       themeObserver.disconnect();
     };
-  }, [root]);
+  }, [root, enabled]);
 }
