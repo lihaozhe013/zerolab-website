@@ -43,6 +43,24 @@ Its original dimensions, 612.283 × 858.898 pt, are reference coordinates for
 existing artwork and Chinese text alignment. They are not a web page-height
 requirement.
 
+### Floating chapter navigation
+
+- Provide a Notion-style table of contents for the 13 stable chapters, separate
+  from the handbook content and its alignment audits.
+- On desktop widths above 1100px, show a compact vertical rail of horizontal
+  marks on the right. Mouse hover opens a clickable chapter list; leaving closes
+  it unless keyboard focus remains within the navigation.
+- Highlight the current chapter as the reader scrolls. Recalculate after resizing
+  and changes to the content height, including language and image loading.
+- At widths up to 1100px, use a bottom-right button with a tap-to-toggle list.
+  Keep the list within the viewport and scroll it internally when necessary.
+- Use existing chapter fragments and router history for links, including repeated
+  activation of the same chapter. Align targets below the fixed site navigation.
+- Support keyboard focus, Escape to dismiss, outside-click dismissal, translated
+  labels, both themes, and reduced motion. Hide the control beyond Product content.
+- Keep this navigation independent of the Chinese and English content renderers;
+  derive product names from their existing global translations.
+
 ### Routes and chapter identity
 
 Use the existing `HashRouter` and shared site navigation and footer. The logical

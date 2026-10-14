@@ -339,6 +339,10 @@
     "title": "产品"
   },
   "product_brochure": {
+    "navigation": {
+      "title": "\u672c\u9875\u76ee\u5f55",
+      "platform": "\u52a8\u4f5c\u6570\u636e\u5e73\u53f0"
+    },
     "products": {
       "zl9nsq": {
         "introduction": {

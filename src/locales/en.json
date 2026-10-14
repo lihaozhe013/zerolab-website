@@ -339,6 +339,10 @@
     "title": "Products"
   },
   "product_brochure": {
+    "navigation": {
+      "title": "On this page",
+      "platform": "Motion-Data Platform"
+    },
     "products": {
       "zl9nsq": {
         "introduction": {

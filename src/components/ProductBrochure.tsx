@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import data from '@/content/productBrochureData.json';
 import EnglishBrochurePage from './EnglishBrochurePage';
+import ProductTableOfContents from './ProductTableOfContents';
 import { brochureContent, localizeSourcePage } from './productBrochureContent';
 import useBrochureAudit from './useBrochureAudit';
 import './product-brochure.css';
@@ -205,64 +206,67 @@ export default function ProductBrochure() {
   }, [hash]);
 
   return (
-    <div
-      className={`product-brochure${isEnglish ? ' is-english' : ''}`}
-      lang={isEnglish ? 'en' : 'zh-CN'}
-      data-renderer={isEnglish ? 'responsive' : 'source'}
-      ref={root}
-    >
-      <div className="product-brochure__pages">
-        {pages.map((page, index) => {
-          const bounds = getPageContentBounds(page);
-          const chapterStart =
-            index > 0 &&
-            brochureContent[index].blocks.some((block) =>
-              block.children.some(
-                (child) =>
-                  child.type === 'text' &&
-                  (child.role === 'index' || child.role === 'eyebrow'),
-              ),
-            );
-          return (
-            <Fragment key={page.sourcePage}>
-              {chapterStart && (
-                <div
-                  className="brochure-product-separator"
-                  data-chapter={page.id}
-                  aria-hidden="true"
-                />
-              )}
-              <article
-                className="brochure-page"
-                id={page.id}
-                style={
-                  {
-                    '--brochure-content-ratio': `${page.width} / ${bounds.height}`,
-                    '--brochure-canvas-height': `${(page.height / page.width) * 100}cqw`,
-                    '--brochure-canvas-offset': `${(-bounds.top / page.width) * 100}cqw`,
-                  } as CSSProperties
-                }
-                aria-label={t('product_brochure.accessibility.section', {
-                  number: page.sourcePage,
-                })}
-              >
-                {isEnglish ? (
-                  <EnglishBrochurePage
-                    page={page}
-                    content={brochureContent[index]}
+    <>
+      <ProductTableOfContents />
+      <div
+        className={`product-brochure${isEnglish ? ' is-english' : ''}`}
+        lang={isEnglish ? 'en' : 'zh-CN'}
+        data-renderer={isEnglish ? 'responsive' : 'source'}
+        ref={root}
+      >
+        <div className="product-brochure__pages">
+          {pages.map((page, index) => {
+            const bounds = getPageContentBounds(page);
+            const chapterStart =
+              index > 0 &&
+              brochureContent[index].blocks.some((block) =>
+                block.children.some(
+                  (child) =>
+                    child.type === 'text' &&
+                    (child.role === 'index' || child.role === 'eyebrow'),
+                ),
+              );
+            return (
+              <Fragment key={page.sourcePage}>
+                {chapterStart && (
+                  <div
+                    className="brochure-product-separator"
+                    data-chapter={page.id}
+                    aria-hidden="true"
                   />
-                ) : (
-                  <>
-                    <DesktopPage page={page} />
-                    <MobileBrochurePage page={page} />
-                  </>
                 )}
-              </article>
-            </Fragment>
-          );
-        })}
+                <article
+                  className="brochure-page"
+                  id={page.id}
+                  style={
+                    {
+                      '--brochure-content-ratio': `${page.width} / ${bounds.height}`,
+                      '--brochure-canvas-height': `${(page.height / page.width) * 100}cqw`,
+                      '--brochure-canvas-offset': `${(-bounds.top / page.width) * 100}cqw`,
+                    } as CSSProperties
+                  }
+                  aria-label={t('product_brochure.accessibility.section', {
+                    number: page.sourcePage,
+                  })}
+                >
+                  {isEnglish ? (
+                    <EnglishBrochurePage
+                      page={page}
+                      content={brochureContent[index]}
+                    />
+                  ) : (
+                    <>
+                      <DesktopPage page={page} />
+                      <MobileBrochurePage page={page} />
+                    </>
+                  )}
+                </article>
+              </Fragment>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
