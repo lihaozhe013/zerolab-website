@@ -41,7 +41,7 @@ function SourceCopy({
 function MobileImage({ image }: { image: BrochureImage }) {
   return (
     <img
-      className={`brochure-page__mobile-image${image.src.includes('/logos/') ? ' is-logo' : ''}${image.src.endsWith('/openarm-zm-page-edge.webp') ? ' is-page-edge' : ''}${needsLightLogoBacking(image.src) ? ' has-light-logo-backing' : ''}`}
+      className={`brochure-page__mobile-image${image.src.includes('/logos/') ? ' is-logo' : ''}${needsLightLogoBacking(image.src) ? ' has-light-logo-backing' : ''}`}
       src={image.src}
       alt={image.alt}
       width={Math.round(image.w * 100)}

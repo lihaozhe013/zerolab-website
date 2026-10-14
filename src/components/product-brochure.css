@@ -314,10 +314,6 @@
     width: 100%;
   }
 
-  .brochure-page__mobile-figure:has(.is-page-edge) {
-    display: none;
-  }
-
   .is-logos .brochure-page__mobile-image.is-logo {
     max-width: 120px;
     max-height: 40px;
