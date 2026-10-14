@@ -23,7 +23,7 @@ export default function HomePage() {
             src={heroMotionTransfer}
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-30"
+            className="absolute inset-0 h-full w-full object-cover opacity-[0.15]"
           />
           <Box className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/8 to-transparent" />
           <Box className="relative min-h-[100dvh] text-left text-white">
