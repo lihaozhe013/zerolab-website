@@ -216,28 +216,28 @@
       "title": "Environment"
     },
     "hero": {
-      "description_p1": "Precision motion data for the next generation of robots.",
-      "description_p2": "ZeroLab turns human movement into high-fidelity data and seamless teleoperation, giving embodied AI the foundation to learn, adapt, and perform.",
-      "title": "HUMAN MOTION, MADE ACTIONABLE."
+      "description_p1": "Capture human movement. Turn intent into signals that travel and act.",
+      "scroll_label": "Explore the motion",
+      "title": "Motion, beyond the body."
     },
     "story": {
-      "title": "From human intent to robot action.",
-      "subtitle": "One continuous motion pipeline turns physical movement into structured data, control signals, and repeatable robotic behavior.",
+      "title": "Movement has a language.",
+      "subtitle": "A signal leaves the body, passes through data, and becomes a new action.",
       "items": [
         {
           "verb": "Capture",
-          "title": "Movement becomes signal.",
-          "description": "Wearable sensors record full-body and hand motion with the precision needed for research, training, and control."
+          "title": "It starts in the body.",
+          "description": "Record posture and trajectory. Give every movement a clear shape."
         },
         {
-          "verb": "Translate",
-          "title": "Signal becomes usable data.",
-          "description": "ZeroLab maps human motion into synchronized, high-fidelity data that embodied systems can understand."
+          "verb": "Map",
+          "title": "It travels as data.",
+          "description": "Organize continuous motion into signals that can move and repeat."
         },
         {
           "verb": "Act",
-          "title": "Data becomes robot behavior.",
-          "description": "Teleoperation and data collection systems transfer human intent into responsive robotic movement."
+          "title": "It reaches a new body.",
+          "description": "Let signals drive action and carry human intent further."
         }
       ]
     },
@@ -265,8 +265,10 @@
       "title": "Our Products"
     },
     "cta": {
-      "title": "Give robots better examples to learn from.",
-      "description": "Build motion datasets, teleoperation workflows, and embodied intelligence systems with ZeroLab."
+      "title": "One motion. More possibilities.",
+      "description": "Build motion datasets, teleoperation workflows, and embodied intelligence systems with ZeroLab.",
+      "product_label": "Explore products",
+      "application_label": "Explore applications"
     }
   },
   "nav": {

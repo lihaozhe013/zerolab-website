@@ -172,23 +172,6 @@
   background-color: #4bd0e4;
 }
 
-.hero-kinetic-glyph {
-  display: inline-block;
-  opacity: 0;
-  filter: blur(7px);
-  transform: translate3d(var(--glyph-drift), 1.15em, 0)
-    rotate(var(--glyph-tilt));
-  will-change: transform, opacity, filter;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-kinetic-glyph {
-    opacity: 1;
-    filter: none;
-    transform: none;
-  }
-}
-
 .section-reveal {
   opacity: 0;
   transform: translateY(36px);

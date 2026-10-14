@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
   AppBar,
@@ -42,6 +42,9 @@ export default function Navbar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
+  const [homeAtTop, setHomeAtTop] = useState(
+    () => location.pathname === '/' && window.scrollY < 48,
+  );
   const { t, i18n } = useTranslation();
   const { mode, toggleMode } = useThemeMode();
   const nextModeLabel =
@@ -51,6 +54,15 @@ export default function Navbar() {
   const isActive = (path: string) =>
     location.pathname === path ||
     (path === '/product' && location.pathname === '/teleop');
+
+  useEffect(() => {
+    const updateHomePosition = () => {
+      setHomeAtTop(location.pathname === '/' && window.scrollY < 48);
+    };
+    updateHomePosition();
+    window.addEventListener('scroll', updateHomePosition, { passive: true });
+    return () => window.removeEventListener('scroll', updateHomePosition);
+  }, [location.pathname]);
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'zh' ? 'en' : 'zh');
@@ -62,17 +74,24 @@ export default function Navbar() {
         position="fixed"
         sx={{
           top: 0,
-          backgroundColor:
-            mode === 'dark'
+          backgroundColor: homeAtTop
+            ? 'transparent'
+            : mode === 'dark'
               ? 'rgba(5, 6, 8, 0.82)'
               : 'rgba(255, 255, 255, 0.86)',
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)',
+          backgroundImage: homeAtTop ? 'none' : undefined,
+          backdropFilter: homeAtTop ? 'none' : 'blur(14px)',
+          WebkitBackdropFilter: homeAtTop ? 'none' : 'blur(14px)',
           borderBottom: '1px solid',
-          borderColor:
-            mode === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(16,25,28,0.1)',
+          borderColor: homeAtTop
+            ? 'transparent'
+            : mode === 'dark'
+              ? 'rgba(255,255,255,0.08)'
+              : 'rgba(16,25,28,0.1)',
           boxShadow: 'none',
           zIndex: 1200,
+          transition:
+            'background-color 240ms ease, border-color 240ms ease, backdrop-filter 240ms ease',
         }}
       >
         <Toolbar
