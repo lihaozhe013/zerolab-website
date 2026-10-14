@@ -137,7 +137,7 @@ export default function HeroKineticCopy({
         return;
       }
 
-      gsap.set(media, { autoAlpha: 0.06 });
+      gsap.set(media, { autoAlpha: 0.12 });
       gsap.set(details, {
         autoAlpha: 0,
         y: 24,
