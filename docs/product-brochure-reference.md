@@ -32,7 +32,11 @@ The source document is used only to generate the web content and local assets. T
 
 `src/content/productBrochureData.json` stores selectable text lines, source coordinates, page dimensions, image placements, and monochrome vector decorations. CJK compatibility radicals emitted by the PDF text extractor are normalized to their displayed ideographs. No page is rendered as a screenshot, and the web page does not load a PDF viewer.
 
-`src/components/ProductBrochure.tsx` renders text as HTML, rules and table shapes as SVG, and product and scenario photography as image elements. Repeating running headers, footer rules, and printed page numbers are omitted; the central page content keeps its source coordinates and layout. Desktop pages retain the source page ratio. Under 768 px, the same content reflows in source-page and top-to-bottom reading order with 16 px minimum text.
+`src/components/ProductBrochure.tsx` renders text as HTML, rules and table shapes as SVG, and product and scenario photography as image elements. Repeating running headers, footer rules, and printed page numbers are omitted; the central page content keeps its source coordinates and layout. Header artwork is excluded by its asset identity, so product images near the top edge remain visible. Desktop pages retain the source page ratio.
+
+The extracted `baseline` comes from each text matrix, rather than the PDF font bounding box. Mixed-font lines also record separate runs, preserving each run's original size, weight, width, and baseline. `useBrochureTextMetrics.ts` aligns HTML baseline probes to those coordinates and fits each line or run to its recorded width after fonts load and when the viewport changes. This preserves table centers, column edges, and bilingual heading alignment despite differences between PDF and browser font metrics. Source dash patterns remain dotted, rectangle fills render behind rules, and table headers share the same row and column geometry as their borders.
+
+At 768 px and below, `MobileBrochurePage.tsx` groups headings, descriptions, and images into complete content blocks in source reading order, with 16 px minimum text. Two-column parameter tables wrap within the viewport; the three-column comparison table scrolls locally. Image dimensions reserve layout space, and captions stay with their source images. The empty white image-edge fragment on source page 22 retains its desktop crop but is hidden in the mobile reading layout so it does not create a tall blank block. Chapter navigation waits for fonts to settle before positioning its target.
 
 The recreation uses the website's active theme background continuously, without individual sheet backgrounds or gaps. In dark mode it follows `#07090c` with light text; in light mode it follows `#f3f7f8` with dark text. Rules, table surfaces, and text use the active theme's matching colors. Product photography and brand marks retain their original colors. Black and dark partner/platform marks keep a light backing area so their source artwork remains legible in both themes.
 
@@ -70,3 +74,27 @@ uv run --no-project --python "$PYTHON" python scripts/extract_product_brochure.p
 ```
 
 Keep `public/` beside `index.html` when running or building locally. `pnpm build` removes the source PDF from the deployment artifact while retaining the generated `product-brochure/` web assets.
+
+Refresh baseline and dash metadata without rewriting approved copy or assets:
+
+```bash
+uv run --no-project --with pdfplumber --with pypdf --with pillow \
+  python scripts/extract_product_brochure.py "$HANDBOOK_PDF" \
+  public/product-brochure src/content/productBrochureData.json --refresh-layout
+```
+
+The refresh verifies the reference fingerprint and every extracted text line before writing metadata.
+
+## Alignment checks
+
+In the local Vite browser's developer console, run:
+
+```javascript
+const { auditProductBrochure } =
+  await import('/src/components/productBrochureAudit.ts');
+auditProductBrochure();
+```
+
+This development-only module checks every desktop text baseline, line width, and left edge with a 0.5 px tolerance; mobile block overlap, minimum text size, shared table row edges, and two-column table overflow; image loading; desktop/mobile copy and image coverage; and whole-page horizontal overflow. The local development page also runs it after layout calibration and stores the current report in the product root's `data-alignment-audit` attribute. The development import is removed from the production build.
+
+Run the check at 360, 390, 768, 1280, and 1440 px in both themes after fonts and images finish loading. Review all 26 desktop sections alongside the reference and inspect mobile headings, tables, scenario captions, and partner groups. Geometry checks identify measurable drift; screenshots are still required to assess optical alignment and intentional source offsets. Use viewport screenshots for narrow-screen comparisons because full-page captures can temporarily change scrollbar width and text wrapping.

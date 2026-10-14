@@ -154,7 +154,9 @@ def compact_color(value: Any, *, fill: bool = False) -> str:
     return "#747474"
 
 
-def group_character_lines(chars: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def group_character_lines(
+    chars: list[dict[str, Any]], page_height: float = PAGE_HEIGHT
+) -> list[dict[str, Any]]:
     rows: dict[float, list[dict[str, Any]]] = {}
     for char in chars:
         top = round(float(char["top"]) * 2) / 2
@@ -194,10 +196,42 @@ def group_character_lines(chars: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     color_value = char.get("non_stroking_color")
                     break
             size = sum(float(char.get("size", 0)) for char in chunk) / len(chunk)
+            run_chunks: list[list[dict[str, Any]]] = []
+            for char in chunk:
+                key = (char["fontname"], round(float(char["size"]), 2), round(float(char["matrix"][5]), 3))
+                previous = run_chunks[-1][-1] if run_chunks else None
+                previous_key = (
+                    previous["fontname"], round(float(previous["size"]), 2), round(float(previous["matrix"][5]), 3)
+                ) if previous else None
+                if key != previous_key:
+                    run_chunks.append([])
+                run_chunks[-1].append(char)
+            runs = []
+            if len(run_chunks) > 1:
+                for index, run in enumerate(run_chunks):
+                    run_text = "".join(char["text"] for char in run)
+                    if index == 0:
+                        run_text = run_text.lstrip()
+                    if index == len(run_chunks) - 1:
+                        run_text = run_text.rstrip()
+                    run_font = str(run[0]["fontname"])
+                    runs.append({
+                        "text": unicodedata.normalize("NFKC", run_text).translate(CJK_RADICAL_REPLACEMENTS),
+                        "x": round(min(float(char["x0"]) for char in run), 3),
+                        "w": round(max(float(char["x1"]) for char in run) - min(float(char["x0"]) for char in run), 3),
+                        "baseline": round(page_height - float(run[0]["matrix"][5]), 3),
+                        "size": round(float(run[0]["size"]), 2),
+                        "font": run_font,
+                        "bold": "bold" in run_font.casefold() or "medium" in run_font.casefold(),
+                    })
             lines.append(
                 {
                     "x": round(min(float(char["x0"]) for char in chunk), 3),
                     "y": round(top, 3),
+                    "baseline": round(
+                        page_height - sum(float(char["matrix"][5]) for char in chunk) / len(chunk),
+                        3,
+                    ),
                     "w": round(max(float(char["x1"]) for char in chunk) - min(float(char["x0"]) for char in chunk), 3),
                     "h": round(max(float(char["bottom"]) for char in chunk) - min(float(char["top"]) for char in chunk), 3),
                     "size": round(size, 2),
@@ -207,9 +241,31 @@ def group_character_lines(chars: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "text": unicodedata.normalize("NFKC", text).translate(
                         CJK_RADICAL_REPLACEMENTS
                     ),
+                    "runs": runs,
                 }
             )
     return sorted(lines, key=lambda line: (line["y"], line["x"]))
+
+
+def refresh_layout(source: Path, data_path: Path) -> None:
+    """Refresh geometry without rewriting approved copy or image assets."""
+    payload = json.loads(data_path.read_text())
+    fingerprint = hashlib.sha256(source.read_bytes()).hexdigest()
+    if fingerprint != payload["source"]["sha256"]:
+        raise ValueError("The reference PDF fingerprint has changed")
+    with pdfplumber.open(source) as document:
+        for page in payload["pages"]:
+            reference = document.pages[page["sourcePage"] - 1]
+            extracted = group_character_lines(reference.chars, float(reference.height))
+            if [line["text"] for line in extracted] != [line["text"] for line in page["lines"]]:
+                raise ValueError(f"Copy mismatch on source page {page['sourcePage']}")
+            for line, updated in zip(page["lines"], extracted, strict=True):
+                line["baseline"] = updated["baseline"]
+                line["runs"] = updated["runs"]
+            rules = [item for item in page["decorations"] if item["type"] == "line"]
+            for rule, reference_rule in zip(rules, reference.lines, strict=True):
+                rule["dash"] = (reference_rule.get("dash") or ([], 0))[0]
+    data_path.write_text(json.dumps(payload, ensure_ascii=True, indent=2) + "\n")
 
 
 def image_bytes(image: Any) -> bytes:
@@ -412,7 +468,7 @@ def extract_brochure(
                     }
                 )
 
-            lines = group_character_lines(layout_page.chars)
+            lines = group_character_lines(layout_page.chars, float(layout_page.height))
             decorations = []
             for rule in layout_page.lines:
                 color = rule.get("stroking_color")
@@ -424,6 +480,7 @@ def extract_brochure(
                     "y2": round(float(rule["bottom"]), 3),
                     "color": "#777777" if is_brand_accent(color) else compact_color(color),
                     "width": round(float(rule.get("linewidth") or 0.45), 3),
+                    "dash": (rule.get("dash") or ([], 0))[0],
                 })
             for rect in layout_page.rects:
                 stroke = rect.get("stroking_color")
@@ -485,7 +542,11 @@ def main() -> None:
     parser.add_argument("assets_dir", type=Path)
     parser.add_argument("data_file", type=Path)
     parser.add_argument("--source-assets-dir", type=Path)
+    parser.add_argument("--refresh-layout", action="store_true")
     args = parser.parse_args()
+    if args.refresh_layout:
+        refresh_layout(args.source_pdf, args.data_file)
+        return
     extract_brochure(
         args.source_pdf, args.assets_dir, args.data_file, args.source_assets_dir
     )

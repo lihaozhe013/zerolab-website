@@ -1,52 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import data from '@/content/productBrochureData.json';
 import './product-brochure.css';
-
-type BrochureLine = (typeof data.pages)[number]['lines'][number];
-type BrochureImage = (typeof data.pages)[number]['images'][number];
-type BrochureDecoration = (typeof data.pages)[number]['decorations'][number];
+import useBrochureTextMetrics from './useBrochureTextMetrics';
+import MobileBrochurePage from './MobileBrochurePage';
+import {
+  getFontFamily,
+  getPageTable,
+  isContentLine,
+  isContentImage,
+  isSectionHeading,
+  needsLightLogoBacking,
+  type BrochureDecoration,
+  type BrochureLine,
+  type BrochureImage,
+} from './productBrochureLayout';
 
 const fontFaces = {
   'arial-regular': 'Brochure Arial',
   'arial-narrow-bold': 'Brochure Arial Narrow',
 } as const;
 
-const lightBackedLogoFiles = new Set([
-  'engineai.png',
-  'partner-asd.png',
-  'partner-engineai.png',
-  'partner-fourier.png',
-  'partner-matrix.png',
-  'partner-pndbotics.png',
-  'partner-unitree.png',
-  'partner-zhejiang-humanoid-center.png',
-  'ros.png',
-  'unity.png',
-  'unreal-engine.png',
-]);
-
-function needsLightLogoBacking(src: string) {
-  return lightBackedLogoFiles.has(src.split('/').at(-1) ?? '');
-}
-
-function getFontFamily(font: string) {
-  if (font.includes('ArialNarrow'))
-    return 'Brochure Arial Narrow, Arial, sans-serif';
-  if (font.includes('ArialMT')) return 'Brochure Arial, Arial, sans-serif';
-  return 'Noto Sans SC, sans-serif';
-}
-
 function percent(value: number, total: number) {
   return `${(value / total) * 100}%`;
-}
-
-function isContentLine(line: BrochureLine) {
-  return !(line.y < 55 || (line.y > 790 && /^\d{2}$/.test(line.text)));
-}
-
-function isContentImage(image: BrochureImage) {
-  return image.y >= 55;
 }
 
 function isContentDecoration(decoration: BrochureDecoration) {
@@ -82,7 +58,8 @@ function PageDecoration({ decoration }: { decoration: BrochureDecoration }) {
         y2={decoration.y2}
         stroke={resolveDecorationColor(decoration.color)}
         strokeWidth={decoration.width}
-        vectorEffect="non-scaling-stroke"
+        strokeDasharray={decoration.dash?.join(' ') || undefined}
+        strokeLinecap={decoration.dash?.length ? 'round' : undefined}
       />
     );
   }
@@ -93,15 +70,15 @@ function PageDecoration({ decoration }: { decoration: BrochureDecoration }) {
       y={decoration.y}
       width={decoration.w}
       height={decoration.h}
-      stroke={resolveDecorationColor(decoration.stroke)}
+      stroke="none"
       fill={resolveDecorationColor(decoration.fill)}
       strokeWidth={decoration.strokeWidth}
-      vectorEffect="non-scaling-stroke"
     />
   );
 }
 
 function DesktopPage({ page }: { page: (typeof data.pages)[number] }) {
+  const table = getPageTable(page);
   return (
     <div className="brochure-page__canvas">
       <svg
@@ -110,14 +87,34 @@ function DesktopPage({ page }: { page: (typeof data.pages)[number] }) {
         preserveAspectRatio="none"
         focusable="false"
       >
+        {table && (
+          <rect
+            className="brochure-page__table-header"
+            x={table.columns[0]}
+            y={table.top}
+            width={table.columns.at(-1)! - table.columns[0]}
+            height={table.rowHeight}
+          />
+        )}
         {page.decorations
           .filter(isContentDecoration)
+          .sort((a, b) => Number(a.type === 'line') - Number(b.type === 'line'))
           .map((decoration, index) => (
             <PageDecoration
               decoration={decoration}
               key={`${decoration.type}-${index}`}
             />
           ))}
+        {page.lines.filter(isSectionHeading).map((line, index) => {
+          const baseline = line.runs[0]?.baseline ?? line.baseline;
+          return (
+            <polygon
+              className="brochure-page__section-marker"
+              key={`marker-${index}`}
+              points={`${line.x - 19.97},${baseline - 17} ${line.x - 7.97},${baseline - 8} ${line.x - 19.97},${baseline + 1}`}
+            />
+          );
+        })}
       </svg>
 
       {page.images.filter(isContentImage).map((image, index) => (
@@ -138,96 +135,79 @@ function DesktopPage({ page }: { page: (typeof data.pages)[number] }) {
 
       {page.lines.filter(isContentLine).map((line, index) => (
         <span
-          className={`brochure-page__positioned-line${line.bold ? ' is-bold' : ''}${line.accent ? ' is-accent' : ''}`}
+          className={`brochure-page__positioned-line${line.bold ? ' is-bold' : ''}${line.accent ? ' is-accent' : ''}${line.runs.length ? ' has-runs' : ''}`}
+          data-source-baseline={line.baseline}
+          data-source-width={line.w}
           key={`${line.x}-${line.y}-${index}`}
           style={{
             left: percent(line.x, page.width),
-            top: percent(
-              line.font.includes('ArialMT') &&
-                line.size === 20 &&
-                line.y === 271.5
-                ? line.y + 20
-                : line.y,
-              page.height,
-            ),
+            top: percent(line.baseline, page.height),
             width: percent(line.w, page.width),
-            height: percent(line.h, page.height),
             fontSize: `${(line.size / page.width) * 100}cqw`,
             fontFamily: getFontFamily(line.font),
           }}
         >
-          {line.text}
+          {line.runs.length ? (
+            line.runs.map((run, i) => (
+              <span
+                className={`brochure-page__run${run.bold ? ' is-bold' : ''}`}
+                key={i}
+                style={{
+                  left: percent(run.x - line.x, line.w),
+                  top: `${((run.baseline - line.baseline) / page.width) * 100}cqw`,
+                  width: percent(run.w, line.w),
+                  fontSize: `${(run.size / page.width) * 100}cqw`,
+                  fontFamily: getFontFamily(run.font),
+                }}
+              >
+                <span className="brochure-page__text">
+                  {run.text}
+                  <span
+                    className="brochure-page__baseline"
+                    aria-hidden="true"
+                  />
+                </span>
+              </span>
+            ))
+          ) : (
+            <span className="brochure-page__text">
+              {line.text}
+              <span className="brochure-page__baseline" aria-hidden="true" />
+            </span>
+          )}
         </span>
       ))}
     </div>
   );
 }
 
-function MobilePage({ page }: { page: (typeof data.pages)[number] }) {
-  const items = [
-    ...page.lines.filter(isContentLine).map((line, index) => ({
-      kind: 'line' as const,
-      line,
-      index,
-      y: line.y,
-      x: line.x,
-    })),
-    ...page.images.filter(isContentImage).map((image, index) => ({
-      kind: 'image' as const,
-      image,
-      index,
-      y: image.y,
-      x: image.x,
-    })),
-  ].sort((a, b) => a.y - b.y || a.x - b.x || a.kind.localeCompare(b.kind));
-
-  return (
-    <div className="brochure-page__mobile-flow">
-      {items.map((item) =>
-        item.kind === 'line' ? (
-          <p
-            className={`brochure-page__mobile-line${item.line.bold ? ' is-bold' : ''}${item.line.size >= 40 ? ' is-index' : ''}${item.line.size >= 18 && item.line.size < 40 ? ' is-heading' : ''}`}
-            key={`line-${item.index}`}
-            style={{ fontFamily: getFontFamily(item.line.font) }}
-          >
-            {item.line.text}
-          </p>
-        ) : (
-          <img
-            className={`brochure-page__mobile-image${needsLightLogoBacking(item.image.src) ? ' has-light-logo-backing' : ''}`}
-            src={item.image.src}
-            alt={item.image.alt}
-            key={`image-${item.index}`}
-            loading="lazy"
-            draggable={false}
-            style={{
-              width: percent(item.image.w, page.width),
-              maxWidth: '100%',
-            }}
-          />
-        ),
-      )}
-    </div>
-  );
-}
-
 export default function ProductBrochure() {
   const { hash } = useLocation();
+  const root = useRef<HTMLDivElement>(null);
+  useBrochureTextMetrics(root);
 
   useEffect(() => {
     if (!hash) return;
     const targetId = decodeURIComponent(hash.slice(1));
-    const frame = window.requestAnimationFrame(() => {
-      document.getElementById(targetId)?.scrollIntoView({
-        block: 'start',
-        behavior: 'instant',
+    let disposed = false;
+    let frame = 0;
+    void document.fonts.ready.then(() => {
+      if (disposed) return;
+      frame = window.requestAnimationFrame(() => {
+        document.getElementById(targetId)?.scrollIntoView({
+          block: 'start',
+          behavior: 'instant',
+        });
       });
     });
-    return () => window.cancelAnimationFrame(frame);
+    return () => {
+      disposed = true;
+      window.cancelAnimationFrame(frame);
+    };
   }, [hash]);
 
   return (
-    <div className="product-brochure" lang="zh">
+    <div className="product-brochure" lang="zh" ref={root}>
       <div className="product-brochure__pages">
         {data.pages.map((page) => (
           <article
@@ -237,7 +217,7 @@ export default function ProductBrochure() {
             aria-label={`Product handbook page ${page.sourcePage}`}
           >
             <DesktopPage page={page} />
-            <MobilePage page={page} />
+            <MobileBrochurePage page={page} />
           </article>
         ))}
       </div>
