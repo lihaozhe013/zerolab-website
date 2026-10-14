@@ -217,8 +217,8 @@
   padding-left: 24px;
   margin-top: 16px;
 }
-.english-brochure.has-source-whitespace {
-  padding-top: min(85vw, 815px);
+.product-brochure.is-english .brochure-product-separator {
+  margin-block: -28px;
 }
 @media (min-width: 769px) and (max-width: 1023px) {
   .english-brochure__grid {
@@ -263,7 +263,7 @@
     max-width: 120px;
     height: 40px;
   }
-  .english-brochure.has-source-whitespace {
-    padding-top: 0;
+  .product-brochure.is-english .brochure-product-separator {
+    margin-block: -20px;
   }
 }

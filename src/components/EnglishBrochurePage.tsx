@@ -260,9 +260,7 @@ export default function EnglishBrochurePage({
   content: ContentPage;
 }) {
   return (
-    <div
-      className={`english-brochure${page.sourcePage === 25 ? ' has-source-whitespace' : ''}`}
-    >
+    <div className="english-brochure">
       {content.blocks.map((section) => (
         <section className="english-brochure__section" key={section.id}>
           {section.children.map((block, i) => (

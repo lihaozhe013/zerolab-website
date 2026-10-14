@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { Fragment, useEffect, useRef, type CSSProperties } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import data from '@/content/productBrochureData.json';
@@ -11,8 +11,10 @@ import MobileBrochurePage from './MobileBrochurePage';
 import {
   getFontFamily,
   getPageTable,
+  getPageContentBounds,
   isContentLine,
   isContentImage,
+  isContentDecoration,
   isSectionHeading,
   needsLightLogoBacking,
   type BrochureDecoration,
@@ -27,22 +29,6 @@ const fontFaces = {
 
 function percent(value: number, total: number) {
   return `${(value / total) * 100}%`;
-}
-
-function isContentDecoration(decoration: BrochureDecoration) {
-  if (
-    'x1' in decoration &&
-    typeof decoration.y1 === 'number' &&
-    typeof decoration.y2 === 'number'
-  ) {
-    const horizontal = Math.abs(decoration.y2 - decoration.y1) < 0.1;
-    const runningRule =
-      horizontal && (decoration.y1 < 55 || decoration.y1 > 800);
-    return !runningRule;
-  }
-  return (
-    'y' in decoration && typeof decoration.y === 'number' && decoration.y >= 55
-  );
 }
 
 function resolveDecorationColor(color: string | undefined) {
@@ -226,28 +212,55 @@ export default function ProductBrochure() {
       ref={root}
     >
       <div className="product-brochure__pages">
-        {pages.map((page, index) => (
-          <article
-            className="brochure-page"
-            id={page.id}
-            key={page.sourcePage}
-            aria-label={t('product_brochure.accessibility.section', {
-              number: page.sourcePage,
-            })}
-          >
-            {isEnglish ? (
-              <EnglishBrochurePage
-                page={page}
-                content={brochureContent[index]}
-              />
-            ) : (
-              <>
-                <DesktopPage page={page} />
-                <MobileBrochurePage page={page} />
-              </>
-            )}
-          </article>
-        ))}
+        {pages.map((page, index) => {
+          const bounds = getPageContentBounds(page);
+          const chapterStart =
+            index > 0 &&
+            brochureContent[index].blocks.some((block) =>
+              block.children.some(
+                (child) =>
+                  child.type === 'text' &&
+                  (child.role === 'index' || child.role === 'eyebrow'),
+              ),
+            );
+          return (
+            <Fragment key={page.sourcePage}>
+              {chapterStart && (
+                <div
+                  className="brochure-product-separator"
+                  data-chapter={page.id}
+                  aria-hidden="true"
+                />
+              )}
+              <article
+                className="brochure-page"
+                id={page.id}
+                style={
+                  {
+                    '--brochure-content-ratio': `${page.width} / ${bounds.height}`,
+                    '--brochure-canvas-height': `${(page.height / page.width) * 100}cqw`,
+                    '--brochure-canvas-offset': `${(-bounds.top / page.width) * 100}cqw`,
+                  } as CSSProperties
+                }
+                aria-label={t('product_brochure.accessibility.section', {
+                  number: page.sourcePage,
+                })}
+              >
+                {isEnglish ? (
+                  <EnglishBrochurePage
+                    page={page}
+                    content={brochureContent[index]}
+                  />
+                ) : (
+                  <>
+                    <DesktopPage page={page} />
+                    <MobileBrochurePage page={page} />
+                  </>
+                )}
+              </article>
+            </Fragment>
+          );
+        })}
       </div>
     </div>
   );

@@ -59,6 +59,12 @@ export function auditProductBrochure() {
         )!;
         const expected = line.getBoundingClientRect();
         const actual = text.getBoundingClientRect();
+        const pageBounds = page.getBoundingClientRect();
+        if (
+          actual.top < pageBounds.top - 0.5 ||
+          actual.bottom > pageBounds.bottom + 0.5
+        )
+          report('content-clipping', line.textContent || '');
         const baselineError = Math.abs(
           marker.getBoundingClientRect().top - expected.top,
         );
@@ -128,6 +134,15 @@ export function auditProductBrochure() {
     for (const image of visibleImages) {
       if (!image.complete || !image.naturalWidth)
         report('image-loading', image.getAttribute('src') || '');
+      if (!mobile) {
+        const bounds = image.getBoundingClientRect();
+        const pageBounds = page.getBoundingClientRect();
+        if (
+          bounds.top < pageBounds.top - 0.5 ||
+          bounds.bottom > pageBounds.bottom + 0.5
+        )
+          report('image-clipping', image.getAttribute('src') || '');
+      }
     }
   }
 

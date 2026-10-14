@@ -13,6 +13,52 @@ export function isContentImage(image: BrochureImage) {
   return !/\/brand-(symbol|wordmark)\.png$/.test(image.src);
 }
 
+export function isContentDecoration(decoration: BrochureDecoration) {
+  if (
+    'x1' in decoration &&
+    typeof decoration.y1 === 'number' &&
+    typeof decoration.y2 === 'number'
+  ) {
+    const horizontal = Math.abs(decoration.y2 - decoration.y1) < 0.1;
+    return !(horizontal && (decoration.y1 < 55 || decoration.y1 > 800));
+  }
+  return (
+    'y' in decoration && typeof decoration.y === 'number' && decoration.y >= 55
+  );
+}
+
+export function getPageContentBounds(page: BrochurePage) {
+  const extents: [number, number][] = [];
+  for (const line of page.lines.filter(isContentLine)) {
+    const runs = line.runs.length ? line.runs : [line];
+    for (const run of runs)
+      extents.push([run.baseline - run.size, run.baseline]);
+  }
+  for (const image of page.images.filter(isContentImage))
+    extents.push([image.y, image.y + image.h]);
+  for (const decoration of page.decorations.filter(isContentDecoration)) {
+    if (
+      'x1' in decoration &&
+      typeof decoration.y1 === 'number' &&
+      typeof decoration.y2 === 'number'
+    ) {
+      extents.push([
+        Math.min(decoration.y1, decoration.y2),
+        Math.max(decoration.y1, decoration.y2),
+      ]);
+    } else if (
+      'y' in decoration &&
+      typeof decoration.y === 'number' &&
+      typeof decoration.h === 'number'
+    ) {
+      extents.push([decoration.y, decoration.y + decoration.h]);
+    }
+  }
+  const top = Math.max(0, Math.min(...extents.map(([start]) => start)) - 12);
+  const bottom = Math.max(...extents.map(([, end]) => end)) + 12;
+  return { top, bottom, height: bottom - top };
+}
+
 export function isSectionHeading(line: BrochureLine) {
   return line.x > 50 && line.x < 65 && line.size >= 14 && line.size <= 18;
 }
