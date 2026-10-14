@@ -90,14 +90,22 @@
 }
 
 .home-hero {
+  --hero-progress: 0;
   --home-ink: #f4f4f2;
   --home-muted: #bcbcb9;
   --home-accent: #ededeb;
   --home-line: rgb(255 255 255 / 31%);
   position: relative;
-  min-height: 100svh;
+  height: 260svh;
   background: #030303;
   color: var(--home-ink);
+}
+
+.home-hero__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
   isolation: isolate;
 }
 
@@ -109,23 +117,23 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: grayscale(1) contrast(1.12) brightness(0.84);
+  opacity: 0.64;
 }
 
-.home-hero::before {
+.home-hero__veil {
   position: absolute;
   inset: 0;
   z-index: -1;
+  opacity: 0.78;
   background:
     linear-gradient(
       90deg,
-      rgb(0 0 0 / 94%) 0%,
-      rgb(0 0 0 / 78%) 28%,
-      rgb(0 0 0 / 28%) 62%,
-      rgb(0 0 0 / 10%) 100%
+      rgb(0 0 0 / 82%) 0%,
+      rgb(0 0 0 / 55%) 28%,
+      rgb(0 0 0 / 17%) 62%,
+      transparent 100%
     ),
-    linear-gradient(0deg, rgb(0 0 0 / 58%), transparent 42%);
-  content: '';
+    linear-gradient(0deg, rgb(0 0 0 / 38%), transparent 42%);
 }
 
 .home-hero__inner {
@@ -140,7 +148,9 @@
 .home-hero__copy {
   position: relative;
   z-index: 2;
-  width: min(68%, 760px);
+  width: fit-content;
+  max-width: min(68%, 760px);
+  text-shadow: 0 2px 30px rgb(0 0 0 / 65%);
 }
 
 .home-hero__signature {
@@ -231,6 +241,15 @@ html:lang(zh) .home-hero h1 {
   justify-content: space-between;
   height: 1px;
   background: var(--home-line);
+}
+
+.home-hero__baseline::before {
+  position: absolute;
+  inset: 0;
+  background: var(--home-accent);
+  content: '';
+  transform: scaleX(var(--hero-progress));
+  transform-origin: left center;
 }
 
 .home-hero__baseline span {
@@ -515,7 +534,7 @@ html:lang(zh) .home-outro h2 {
   }
 
   .home-hero__copy {
-    width: min(100%, 670px);
+    max-width: min(100%, 670px);
   }
 
   .home-hero__signature {
@@ -546,13 +565,13 @@ html:lang(zh) .home-outro h2 {
 }
 
 @media (max-width: 600px) {
-  .home-hero::before {
+  .home-hero__veil {
     background: linear-gradient(
       0deg,
-      #000 0%,
-      rgb(0 0 0 / 94%) 24%,
-      rgb(0 0 0 / 69%) 52%,
-      rgb(0 0 0 / 9%) 100%
+      rgb(0 0 0 / 90%) 0%,
+      rgb(0 0 0 / 70%) 24%,
+      rgb(0 0 0 / 36%) 52%,
+      transparent 100%
     );
   }
 
@@ -660,6 +679,23 @@ html:lang(zh) .home-outro h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-hero {
+    --hero-progress: 1;
+    height: auto;
+  }
+
+  .home-hero__stage {
+    position: relative;
+  }
+
+  .home-hero__image {
+    opacity: 1;
+  }
+
+  .home-hero__veil {
+    opacity: 0.45;
+  }
+
   .home-hero__scroll,
   .home-outro__links a {
     transition: none;

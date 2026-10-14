@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import heroMotionTransfer from '@/assets/hero-motion-transfer.webp';
@@ -17,10 +17,66 @@ type StoryItem = {
 
 export default function HomePage() {
   const { t } = useTranslation();
+  const heroRef = useRef<HTMLElement>(null);
   const storyRef = useRef<HTMLElement>(null);
   const storyItems = t('home.story.items', {
     returnObjects: true,
   }) as StoryItem[];
+
+  useLayoutEffect(() => {
+    const hero = heroRef.current;
+    const image = hero?.querySelector<HTMLElement>('.home-hero__image');
+    const veil = hero?.querySelector<HTMLElement>('.home-hero__veil');
+    const copy = hero?.querySelector<HTMLElement>('.home-hero__copy');
+    const description = hero?.querySelector<HTMLElement>(
+      '.home-hero__description',
+    );
+    if (!hero || !image || !veil || !copy || !description) return;
+
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const timeline = gsap.timeline({
+        defaults: { ease: 'none', duration: 1 },
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.6,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      timeline
+        .fromTo(image, { opacity: 0.64 }, { opacity: 1 }, 0)
+        .fromTo(veil, { opacity: 0.78 }, { opacity: 0.18 }, 0)
+        .fromTo(
+          copy,
+          {
+            y: 0,
+            scale: 1,
+            transformOrigin: 'left center',
+          },
+          {
+            y: () => (window.innerWidth < 600 ? -24 : -40),
+            scale: () => (window.innerWidth < 600 ? 1.025 : 1.05),
+            duration: 0.75,
+            ease: 'power1.out',
+          },
+          0,
+        )
+        .fromTo(
+          description,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.45, ease: 'power1.out' },
+          0.15,
+        )
+        .fromTo(hero, { '--hero-progress': 0 }, { '--hero-progress': 1 }, 0);
+
+      return () => timeline.kill();
+    });
+
+    return () => media.revert();
+  }, []);
 
   useEffect(() => {
     const story = storyRef.current;
@@ -50,41 +106,44 @@ export default function HomePage() {
 
   return (
     <div className="home">
-      <section className="home-hero" aria-labelledby="home-title">
-        <img
-          className="home-hero__image"
-          src={heroMotionTransfer}
-          alt=""
-          aria-hidden="true"
-        />
-        <div className="home-hero__inner">
-          <div className="home-hero__copy">
-            <p className="home-hero__signature">ZeroLab</p>
-            <h1 id="home-title">{t('home.hero.title')}</h1>
-            <p className="home-hero__description">
-              {t('home.hero.description_p1')}
-            </p>
-            <button
-              className="home-hero__scroll"
-              type="button"
-              onClick={() =>
-                storyRef.current?.scrollIntoView({
-                  behavior: window.matchMedia(
-                    '(prefers-reduced-motion: reduce)',
-                  ).matches
-                    ? 'auto'
-                    : 'smooth',
-                })
-              }
-            >
-              <span className="home-hero__scroll-line" aria-hidden="true" />
-              {t('home.hero.scroll_label')}
-            </button>
+      <section ref={heroRef} className="home-hero" aria-labelledby="home-title">
+        <div className="home-hero__stage">
+          <img
+            className="home-hero__image"
+            src={heroMotionTransfer}
+            alt=""
+            aria-hidden="true"
+          />
+          <div className="home-hero__veil" aria-hidden="true" />
+          <div className="home-hero__inner">
+            <div className="home-hero__copy">
+              <p className="home-hero__signature">ZeroLab</p>
+              <h1 id="home-title">{t('home.hero.title')}</h1>
+              <p className="home-hero__description">
+                {t('home.hero.description_p1')}
+              </p>
+              <button
+                className="home-hero__scroll"
+                type="button"
+                onClick={() =>
+                  storyRef.current?.scrollIntoView({
+                    behavior: window.matchMedia(
+                      '(prefers-reduced-motion: reduce)',
+                    ).matches
+                      ? 'auto'
+                      : 'smooth',
+                  })
+                }
+              >
+                <span className="home-hero__scroll-line" aria-hidden="true" />
+                {t('home.hero.scroll_label')}
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="home-hero__baseline" aria-hidden="true">
-          <span />
-          <span />
+          <div className="home-hero__baseline" aria-hidden="true">
+            <span />
+            <span />
+          </div>
         </div>
       </section>
 
