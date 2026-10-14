@@ -10,6 +10,8 @@
 
 The source document is used only to generate the web content and local assets. The build removes the source PDF from `dist/` by checking its SHA-256 fingerprint.
 
+`renders/` contains rasterized source pages and comparison sheets used for visual quality checks. They are reference artifacts only and are not loaded by the website.
+
 ## Page map
 
 | Source pages | Content                                     |
