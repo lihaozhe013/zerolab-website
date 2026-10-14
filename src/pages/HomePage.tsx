@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import heroMotionTransfer from '@/assets/hero-motion-transfer.webp';
 import HeroKineticCopy from '@/components/HeroKineticCopy';
 
 export default function HomePage() {
@@ -17,17 +18,14 @@ export default function HomePage() {
       >
         <Box className="sticky top-0 min-h-[100dvh] w-full overflow-hidden bg-[#050505] motion-reduce:relative">
           <Box
-            component="video"
+            component="img"
             data-hero-media
-            src="/videos/ZeroLabVid.mp4"
-            muted
-            loop
-            playsInline
-            preload="metadata"
+            src={heroMotionTransfer}
+            alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover opacity-0"
+            className="absolute inset-0 h-full w-full object-cover opacity-30"
           />
-          <Box className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/42 to-black/18" />
+          <Box className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/8 to-transparent" />
           <Box className="relative min-h-[100dvh] text-left text-white">
             <HeroKineticCopy heroRef={heroRef} title={t('home.hero.title')}>
               <Typography

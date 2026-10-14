@@ -101,32 +101,26 @@ export default function HeroKineticCopy({
     const hero = heroRef.current;
     const copy = copyRef.current;
     const details = detailsRef.current;
-    const media = hero?.querySelector<HTMLVideoElement>('[data-hero-media]');
+    const media = hero?.querySelector<HTMLElement>('[data-hero-media]');
     if (!hero || !media || !copy || !details) return;
-
-    media.pause();
-    media.currentTime = 0;
 
     const context = gsap.context(() => {
       const glyphs = copy.querySelectorAll<HTMLElement>('.hero-kinetic-glyph');
-      let isVideoPlaying = false;
       const holdProgress = { value: 0 };
 
       const finalScale = () => (window.innerWidth < 768 ? 0.82 : 0.68);
       const finalX = () => {
-        const rect = copy.getBoundingClientRect();
         const inset = window.innerWidth < 768 ? 24 : window.innerWidth * 0.08;
-        return inset - rect.left;
+        return inset - copy.offsetLeft;
       };
       const finalY = () => {
-        const rect = copy.getBoundingClientRect();
         const bottomInset =
           window.innerHeight * (window.innerWidth < 768 ? 0.1 : 0.12);
         return (
           window.innerHeight -
           bottomInset -
-          rect.top -
-          rect.height * finalScale()
+          copy.offsetTop -
+          copy.offsetHeight * finalScale()
         );
       };
 
@@ -143,7 +137,7 @@ export default function HeroKineticCopy({
         return;
       }
 
-      gsap.set(media, { autoAlpha: 0 });
+      gsap.set(media, { autoAlpha: 0.3 });
       gsap.set(details, {
         autoAlpha: 0,
         y: 24,
@@ -171,19 +165,6 @@ export default function HeroKineticCopy({
           end: 'bottom bottom',
           scrub: 1,
           invalidateOnRefresh: true,
-          onUpdate: ({ progress }) => {
-            const shouldPlay = progress >= 0.4;
-            if (shouldPlay === isVideoPlaying) return;
-
-            isVideoPlaying = shouldPlay;
-            if (shouldPlay) {
-              void media.play().catch(() => {
-                isVideoPlaying = false;
-              });
-            } else {
-              media.pause();
-            }
-          },
         },
       });
 
@@ -193,16 +174,13 @@ export default function HeroKineticCopy({
           { x: finalX, y: finalY, scale: finalScale, duration: 0.72 },
           0,
         )
-        .to(media, { autoAlpha: 1, duration: 0.44 }, 0.72)
+        .to(media, { autoAlpha: 1, duration: 0.9 }, 0)
         .to(details, { autoAlpha: 1, y: 0, duration: 0.2 }, 0.74)
-        // Extending the scrub timeline creates a calm reading beat after the media is fully revealed.
+        // Extending the scrub timeline creates a calm reading beat after the image is fully revealed.
         .to(holdProgress, { value: 1, duration: 0.65 }, 1.16);
     }, copy);
 
-    return () => {
-      media.pause();
-      context.revert();
-    };
+    return () => context.revert();
   }, [heroRef, reducedMotion, title]);
 
   return (
