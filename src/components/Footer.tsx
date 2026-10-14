@@ -6,34 +6,33 @@ import { useTranslation } from 'react-i18next';
 export default function Footer() {
   const { t } = useTranslation();
   const isHome = useLocation().pathname === '/';
-  const products = t('product.items', { returnObjects: true }) as {
-    title: string;
-  }[];
+  const brochureSection = (id: string) => ({
+    pathname: '/product',
+    hash: `#${id}`,
+  });
 
   const footerGroups = [
     {
       title: t('nav.product'),
       links: [
-        { label: products[0].title, to: '/teleop' },
+        { label: 'ZL9NSQ', to: brochureSection('zl9nsq-chip') },
+        { label: 'F1', to: brochureSection('f1-full-body-suit') },
+        { label: 'H1', to: brochureSection('h1-data-gloves') },
+        { label: 'F2', to: brochureSection('f2-full-body-suit') },
+        { label: 'F2 Pro+', to: brochureSection('f2-pro-plus-full-body-suit') },
+        { label: 'H2', to: brochureSection('h2-dexterous-data-gloves') },
+        { label: 'H2 Pro', to: brochureSection('h2-pro-data-gloves') },
+        { label: 'H2 Pro+', to: brochureSection('h2-pro-plus-data-gloves') },
+        { label: 'OpenArm-Z', to: brochureSection('openarm-z') },
+        { label: 'OpenArm-Zm', to: brochureSection('openarm-zm') },
+        { label: 'OpenArm-Z+', to: brochureSection('openarm-z-plus') },
         {
-          label: products[1].title,
-          to: '/document/如影随形-汉语版20260309.pdf',
-          external: true,
+          label: t('footer.product_platform'),
+          to: brochureSection('custom-motion-data-platform'),
         },
         {
-          label: products[2].title,
-          to: '/document/F-2Brochure.pdf',
-          external: true,
-        },
-        {
-          label: products[3].title,
-          to: '/document/DataGloves Brochure.pdf',
-          external: true,
-        },
-        {
-          label: products[4].title,
-          to: '/document/Chip_brochure.pdf',
-          external: true,
+          label: t('footer.product_partners'),
+          to: brochureSection('partners'),
         },
       ],
     },
@@ -41,7 +40,6 @@ export default function Footer() {
       title: t('nav.application'),
       links: [
         { label: t('application.title'), to: '/application' },
-        { label: t('nav.solution'), to: '/solution' },
         { label: t('nav.downloads'), to: '/downloads' },
       ],
     },
@@ -120,27 +118,15 @@ export default function Footer() {
                 {group.title}
               </Typography>
               <Box className="mt-5 flex flex-col gap-4">
-                {group.links.map((link) =>
-                  link.external ? (
-                    <a
-                      key={`${group.title}-${link.to}-${link.label}`}
-                      href={link.to}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="break-words text-sm leading-6 text-ink transition-colors hover:text-[#08b4ce]"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={`${group.title}-${link.to}-${link.label}`}
-                      to={link.to}
-                      className="break-words text-sm leading-6 text-ink transition-colors hover:text-[#08b4ce]"
-                    >
-                      {link.label}
-                    </Link>
-                  ),
-                )}
+                {group.links.map((link) => (
+                  <Link
+                    key={`${group.title}-${link.to}-${link.label}`}
+                    to={link.to}
+                    className="break-words text-sm leading-6 text-ink transition-colors hover:text-[#08b4ce]"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </Box>
             </Box>
           ))}

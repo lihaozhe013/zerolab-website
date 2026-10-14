@@ -1,0 +1,172 @@
+@font-face {
+  font-family: 'Brochure Arial';
+  src: url('/product-brochure/fonts/arial-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brochure Arial Narrow';
+  src: url('/product-brochure/fonts/arial-narrow-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+.product-brochure {
+  --brochure-page: #07090c;
+  --brochure-text: #f2f2f2;
+  --brochure-muted: #b3b3b3;
+  --brochure-rule: #747474;
+  --brochure-table: #242424;
+  min-height: 100vh;
+  overflow: clip;
+  padding: 104px 0 72px;
+  background: var(--brochure-page);
+  color: var(--brochure-text);
+}
+
+.product-brochure__pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.brochure-page {
+  position: relative;
+  container-type: inline-size;
+  width: min(960px, calc(100% - 48px));
+  aspect-ratio: 612.283 / 858.898;
+  overflow: hidden;
+  scroll-margin-top: 96px;
+  background: transparent;
+  color: var(--brochure-text);
+  isolation: isolate;
+}
+
+.brochure-page__canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  color: var(--brochure-text);
+}
+
+.brochure-page__decoration {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.brochure-page__positioned-image {
+  position: absolute;
+  display: block;
+  object-fit: cover;
+  user-select: none;
+}
+
+.brochure-page__positioned-image.has-light-logo-backing,
+.brochure-page__mobile-image.has-light-logo-backing {
+  background: #f2f2f2;
+}
+
+.brochure-page__positioned-line {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  color: var(--brochure-muted);
+  font-weight: 400;
+  line-height: 1;
+  text-align: left;
+  white-space: pre;
+}
+
+.brochure-page__positioned-line.is-bold {
+  color: var(--brochure-text);
+  font-weight: 700;
+}
+
+.brochure-page__positioned-line.is-accent {
+  color: var(--brochure-muted);
+}
+
+.brochure-page__mobile-flow {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .product-brochure {
+    padding: 88px 0 40px;
+  }
+
+  .product-brochure__pages {
+    align-items: stretch;
+    gap: 0;
+    padding: 0 12px;
+  }
+
+  .brochure-page {
+    width: 100%;
+    aspect-ratio: auto;
+    overflow: visible;
+    padding: 8px 18px 24px;
+    scroll-margin-top: 84px;
+  }
+
+  .brochure-page__canvas {
+    display: none;
+  }
+
+  .brochure-page__mobile-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .brochure-page__mobile-line {
+    width: 100%;
+    color: var(--brochure-muted);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  .brochure-page__mobile-line.is-bold {
+    color: var(--brochure-text);
+    font-weight: 700;
+  }
+
+  .brochure-page__mobile-line.is-heading {
+    margin-top: 12px;
+    color: var(--brochure-text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .brochure-page__mobile-line.is-index {
+    color: var(--brochure-muted);
+    font-family: 'Brochure Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .brochure-page__mobile-image {
+    display: block;
+    height: auto;
+    max-height: 360px;
+    margin: 6px auto 12px;
+    object-fit: contain;
+    object-position: left center;
+  }
+}

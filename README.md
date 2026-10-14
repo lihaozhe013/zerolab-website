@@ -2,7 +2,7 @@
 
 The official website for ZeroLab Technologies. ZeroLab develops motion-capture hardware, embodied-AI teleoperation systems, and motion-data solutions for robotics, immersive production, sports, and rehabilitation.
 
-This repository contains a bilingual React website with product pages, application scenarios, teleoperation demos, downloads, and contact information.
+This repository contains a bilingual React website with product pages, application scenarios, downloads, and contact information.
 
 ## Tech stack
 
@@ -91,22 +91,22 @@ The internationalization tools live in `scripts/i18n_tools/` and use `uv` to man
 | -------------- | ------------------------------------ |
 | `/`            | Home                                 |
 | `/about`       | About ZeroLab                        |
-| `/product`     | Products                             |
-| `/solution`    | Solutions and case studies           |
+| `/product`     | Product handbook                     |
 | `/application` | Applications                         |
-| `/teleop`      | Robot teleoperation                  |
 | `/downloads`   | Software and developer resources     |
 | `/contact`     | Contact and headquarters information |
+
+The legacy `/solution` route redirects to `/product`, and `/teleop` redirects to the OpenArm-Z section on that page.
 
 ## Static assets
 
 Large binary assets are intentionally excluded from Git. Populate `public/` with the externally managed assets before running or deploying the site:
 
 - `public/images/` — logos, product images, banners, and other visual assets
-- `public/videos/` — product and teleoperation videos
 - `public/document/` — brochures and downloadable documents
+- `public/product-brochure/` — locally provisioned web assets for the product-handbook recreation; page data is tracked in `src/content/productBrochureData.json`
 
-Without these files, referenced images, videos, and documents will not load correctly.
+Without these files, referenced images and documents will not load correctly.
 
 ## Project structure
 
