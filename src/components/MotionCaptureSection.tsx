@@ -87,7 +87,13 @@ export default function MotionCaptureSection({
   const [nearViewport, setNearViewport] = useState(false);
   const [webGLAvailable] = useState(supportsWebGL);
   const [mode, setMode] = useState<MotionMode>('in-place');
+  const [cameraReset, setCameraReset] = useState(0);
   const [playing, setPlaying] = useState(!prefersReducedMotion);
+
+  function selectMode(nextMode: MotionMode) {
+    setMode(nextMode);
+    setCameraReset((current) => current + 1);
+  }
 
   useEffect(() => {
     if (prefersReducedMotion) setPlaying(false);
@@ -159,7 +165,7 @@ export default function MotionCaptureSection({
                   <button
                     type="button"
                     aria-pressed={mode === 'in-place'}
-                    onClick={() => setMode('in-place')}
+                    onClick={() => selectMode('in-place')}
                     className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 ${
                       mode === 'in-place'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
@@ -171,7 +177,7 @@ export default function MotionCaptureSection({
                   <button
                     type="button"
                     aria-pressed={mode === 'root-motion'}
-                    onClick={() => setMode('root-motion')}
+                    onClick={() => selectMode('root-motion')}
                     className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 ${
                       mode === 'root-motion'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
@@ -203,6 +209,7 @@ export default function MotionCaptureSection({
               <Suspense fallback={<StageFallback alt={fallbackAlt} />}>
                 <MotionCaptureCanvas
                   mode={mode}
+                  cameraReset={cameraReset}
                   playing={playing}
                   reducedMotion={prefersReducedMotion}
                   loadingLabel={loadingLabel}

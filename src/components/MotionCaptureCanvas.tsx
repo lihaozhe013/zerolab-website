@@ -11,6 +11,7 @@ import {
 
 interface MotionCaptureCanvasProps {
   mode: MotionMode;
+  cameraReset: number;
   playing: boolean;
   reducedMotion: boolean;
   loadingLabel: string;
@@ -22,9 +23,13 @@ const VIEW_DIRECTION = new THREE.Vector3(1, 0.45, 1.7).normalize();
 
 function Performance({
   mode,
+  cameraReset,
   playing,
   reducedMotion,
-}: Pick<MotionCaptureCanvasProps, 'mode' | 'playing' | 'reducedMotion'>) {
+}: Pick<
+  MotionCaptureCanvasProps,
+  'mode' | 'cameraReset' | 'playing' | 'reducedMotion'
+>) {
   const { scene, animations } = useGLTF(MODEL_PATH);
   const performance = useMemo(() => {
     if (!animations[0]) throw new Error('The performance has no animation.');
@@ -49,9 +54,7 @@ function Performance({
     const controls = controlsRef.current;
     if (!controls || !(camera instanceof THREE.PerspectiveCamera)) return;
     const frame = performance.frames[mode];
-    const direction = initialized.current
-      ? camera.position.clone().sub(controls.target).normalize()
-      : VIEW_DIRECTION;
+    const direction = VIEW_DIRECTION;
     const destination = frame.center
       .clone()
       .addScaledVector(
@@ -81,7 +84,15 @@ function Performance({
       toTarget: frame.center.clone(),
     };
     controls.enabled = false;
-  }, [camera, mode, performance, reducedMotion, size.width, size.height]);
+  }, [
+    camera,
+    mode,
+    cameraReset,
+    performance,
+    reducedMotion,
+    size.width,
+    size.height,
+  ]);
 
   useEffect(() => {
     performance.mixer.clipAction(animations[0]).play();
@@ -136,7 +147,9 @@ function Performance({
         enableDamping
         dampingFactor={0.07}
         enablePan={false}
-        enableZoom={false}
+        enableZoom
+        minDistance={0.5}
+        maxDistance={60}
         minPolarAngle={0.15}
         maxPolarAngle={Math.PI / 2 - 0.03}
         rotateSpeed={0.65}
@@ -173,6 +186,7 @@ function SceneLoader({ label }: { label: string }) {
 
 export default function MotionCaptureCanvas({
   mode,
+  cameraReset,
   playing,
   reducedMotion,
   loadingLabel,
@@ -193,6 +207,7 @@ export default function MotionCaptureCanvas({
       <Suspense fallback={<SceneLoader label={loadingLabel} />}>
         <Performance
           mode={mode}
+          cameraReset={cameraReset}
           playing={playing}
           reducedMotion={reducedMotion}
         />

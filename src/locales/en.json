@@ -17,7 +17,7 @@
       "capture_device_name": "F2 Pro+ Full Body MoCap Suites",
       "fallback_alt": "Motion-capture performance in a virtual production environment",
       "heading": "Movement, made legible.",
-      "interaction_label": "Drag to rotate. Switch modes to explore the full movement.",
+      "interaction_label": "Drag to rotate. Scroll to zoom. Select a mode to reset the view.",
       "loading_label": "Loading motion model",
       "pause_label": "Pause",
       "play_label": "Play",

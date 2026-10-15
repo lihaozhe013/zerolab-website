@@ -17,7 +17,7 @@
       "capture_device_name": "F2 Pro+ Full Body MoCap Suites",
       "fallback_alt": "虚拟制片环境中的动作捕捉表演",
       "heading": "让动作清晰可读。",
-      "interaction_label": "拖动旋转模型。切换模式，查看完整动作轨迹。",
+      "interaction_label": "拖动旋转，滚轮缩放。点击模式可回到预设视角。",
       "loading_label": "正在载入动作模型",
       "pause_label": "暂停动作",
       "play_label": "播放动作",
