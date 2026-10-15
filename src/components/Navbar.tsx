@@ -23,6 +23,7 @@ import { useThemeMode } from '@/ThemeModeProvider';
 import { siteSections } from '@/siteSections';
 
 const navOrder = [
+  'home',
   'product',
   'application',
   'downloads',
@@ -31,6 +32,7 @@ const navOrder = [
 ] as const;
 
 const navItems = navOrder.map((key) => {
+  if (key === 'home') return { key, path: '/' };
   const section = siteSections.find((item) => item.key === key);
   if (!section) throw new Error(`Missing site section for ${key}`);
   return section;
@@ -201,6 +203,7 @@ export default function Navbar() {
                   <Link
                     key={item.path}
                     to={item.path}
+                    aria-current={isActive(item.path) ? 'page' : undefined}
                     className={`relative whitespace-nowrap px-4 py-2.5 text-[15px] font-semibold transition-colors after:absolute after:bottom-1 after:left-4 after:right-4 after:h-0.5 after:origin-left after:bg-[#08b4ce] after:transition-transform after:duration-300 hover:text-[#08b4ce] hover:after:scale-x-100 ${
                       isActive(item.path)
                         ? 'text-[#08b4ce] after:scale-x-100'
@@ -296,6 +299,7 @@ export default function Navbar() {
               <ListItem key={item.path} disablePadding>
                 <Link
                   to={item.path}
+                  aria-current={isActive(item.path) ? 'page' : undefined}
                   onClick={() => setDrawerOpen(false)}
                   className="w-full"
                 >
