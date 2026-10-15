@@ -1,10 +1,9 @@
-import CloudDownloadOutlinedIcon from '@mui/icons-material/CloudDownloadOutlined';
 import ComputerOutlinedIcon from '@mui/icons-material/ComputerOutlined';
 import ExtensionOutlinedIcon from '@mui/icons-material/ExtensionOutlined';
 import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined';
 import { Box, Typography } from '@mui/material';
-import type { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import PageTableOfContents from '@/components/PageTableOfContents';
 import SectionReveal from '@/components/SectionReveal';
 import SubHeader from '@/components/SubHeader';
 
@@ -18,8 +17,6 @@ interface SoftwareGroup {
   items: Array<{
     title: string;
     description: string;
-    version: string;
-    platform: string;
   }>;
 }
 
@@ -34,210 +31,104 @@ export default function DownloadsPage() {
   const groups = t('downloads.groups', {
     returnObjects: true,
   }) as SoftwareGroup[];
-  const releaseCount = groups.reduce(
-    (total, group) => total + group.items.length,
-    0,
-  );
-
   return (
     <Box component="main" className="overflow-x-clip bg-page text-ink">
+      <PageTableOfContents
+        chapters={groups.map((group) => ({ id: group.id, label: group.title }))}
+        title={t('downloads.contents')}
+        pathname="/downloads"
+        contentSelector=".software-directory"
+      />
       <SubHeader title={t('downloads.title')} subtitle={t('downloads.intro')} />
 
-      <Box component="section" className="px-6 py-24 md:px-[6vw] md:py-36">
-        <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-10">
-          <Box component="aside" className="lg:col-span-3">
-            <Box className="border-t border-line pt-5 lg:sticky lg:top-28">
-              <Typography className="text-xs font-semibold tracking-[0.18em] text-faint">
-                {t('downloads.contents')}
-              </Typography>
-              <Box component="nav" className="mt-6 flex flex-col">
-                {groups.map((group, index) => (
-                  <Box
-                    component="a"
-                    // Under HashRouter a raw `#id` href would be treated as a
-                    // route change, so scroll to the anchor programmatically.
-                    href="#/downloads"
-                    onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-                      event.preventDefault();
-                      document.getElementById(group.id)?.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                      });
-                    }}
-                    key={group.id}
-                    className="group grid grid-cols-[32px_1fr] border-t border-line py-4 text-sm text-muted transition-colors first:border-t-0 hover:text-[#4bd0e4]"
-                  >
-                    <span className="font-mono text-[11px] tabular-nums text-faint group-hover:text-[#4bd0e4]">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>{group.title}</span>
-                  </Box>
-                ))}
-              </Box>
-              <Typography className="mt-8 text-xs leading-5 text-faint">
-                {t('downloads.summary', { count: releaseCount })}
-              </Typography>
-            </Box>
-          </Box>
+      <Box component="section" className="px-6 py-20 md:px-[6vw] md:py-28">
+        <Box className="software-directory mx-auto max-w-[1040px] space-y-20">
+          {groups.map((group) => {
+            const GroupIcon = groupIcons[group.kind];
 
-          <Box className="space-y-24 lg:col-span-9 lg:col-start-5">
-            <SectionReveal className="border border-[#4bd0e4]/30 bg-[#4bd0e4]/[0.045] p-6 md:p-8">
-              <Box className="flex items-start gap-4">
-                <CloudDownloadOutlinedIcon
-                  aria-hidden="true"
-                  className="mt-0.5 shrink-0 text-[#4bd0e4]"
-                  sx={{ fontSize: 26 }}
-                />
-                <Box>
-                  <Typography
-                    component="h2"
-                    className="text-base font-semibold text-ink"
-                  >
-                    {t('downloads.preview_title')}
-                  </Typography>
-                  <Typography className="heading-copy--compact mt-2 max-w-[680px] text-sm leading-7 text-muted">
-                    {t('downloads.preview_description')}
+            return (
+              <SectionReveal
+                component="section"
+                id={group.id}
+                key={group.id}
+                className="scroll-mt-28"
+              >
+                <Box className="mb-3 border-b border-line pb-7">
+                  <Box className="flex items-center gap-4 md:gap-5">
+                    <Box className="flex size-10 shrink-0 items-center justify-center text-accent md:size-12">
+                      <GroupIcon
+                        aria-hidden="true"
+                        sx={{ fontSize: { xs: 28, md: 32 } }}
+                      />
+                    </Box>
+                    <Typography
+                      component="h2"
+                      sx={{
+                        fontSize: 'clamp(30px, 3.7vw, 52px)',
+                        fontWeight: 600,
+                        lineHeight: 1,
+                        letterSpacing: '-0.04em',
+                      }}
+                    >
+                      {group.title}
+                    </Typography>
+                  </Box>
+                  <Typography className="mt-5 max-w-[650px] text-sm leading-7 text-muted">
+                    {group.description}
                   </Typography>
                 </Box>
-              </Box>
-            </SectionReveal>
 
-            {groups.map((group, groupIndex) => {
-              const GroupIcon = groupIcons[group.kind];
-
-              return (
-                <SectionReveal
-                  component="section"
-                  id={group.id}
-                  key={group.id}
-                  className="scroll-mt-28"
-                >
-                  <Box className="mb-10 grid grid-cols-[40px_1fr] gap-5 border-b border-line pb-7 md:grid-cols-[48px_1fr_auto] md:items-end">
-                    <GroupIcon
-                      aria-hidden="true"
-                      className="text-[#4bd0e4]"
-                      sx={{ fontSize: 28 }}
-                    />
-                    <Box>
-                      <Typography className="mb-3 font-mono text-xs tabular-nums text-[#4bd0e4]">
-                        {String(groupIndex + 1).padStart(2, '0')}
-                      </Typography>
+                <Box component="ul" className="list-none">
+                  {group.items.map((item) => (
+                    <Box
+                      component="li"
+                      key={item.title}
+                      className="grid grid-cols-1 gap-3 border-b border-line py-7 md:grid-cols-[minmax(180px,0.7fr)_minmax(0,1.3fr)] md:items-baseline md:gap-8 md:py-8"
+                    >
                       <Typography
-                        component="h2"
-                        sx={{
-                          fontSize: 'clamp(30px, 3.7vw, 52px)',
-                          fontWeight: 600,
-                          lineHeight: 1,
-                          letterSpacing: '-0.04em',
-                        }}
+                        component="h3"
+                        className="text-base font-semibold tracking-[-0.02em] text-ink md:text-lg"
                       >
-                        {group.title}
+                        {item.title}
                       </Typography>
-                      <Typography className="mt-4 max-w-[650px] text-sm leading-7 text-muted">
-                        {group.description}
+                      <Typography className="max-w-[620px] text-sm leading-6 text-muted">
+                        {item.description}
                       </Typography>
                     </Box>
-                    <Typography className="col-start-2 font-mono text-xs tabular-nums text-faint md:col-start-3">
-                      {group.items.length} {t('downloads.packages')}
-                    </Typography>
-                  </Box>
-
-                  <Box className="hidden grid-cols-[minmax(0,1fr)_90px_120px_140px] gap-5 border-b border-line px-1 pb-4 md:grid">
-                    <Typography className="text-xs font-medium text-faint">
-                      {t('downloads.columns.description')}
-                    </Typography>
-                    <Typography className="text-xs font-medium text-faint">
-                      {t('downloads.columns.version')}
-                    </Typography>
-                    <Typography className="text-xs font-medium text-faint">
-                      {t('downloads.columns.platform')}
-                    </Typography>
-                    <Typography className="text-xs font-medium text-faint">
-                      {t('downloads.columns.resource')}
-                    </Typography>
-                  </Box>
-
-                  <Box>
-                    {group.items.map((item) => (
-                      <Box
-                        component="article"
-                        key={item.title}
-                        className="group grid grid-cols-1 gap-7 border-b border-line px-1 py-8 transition-colors hover:border-[#4bd0e4]/35 md:grid-cols-[minmax(0,1fr)_90px_120px_140px] md:items-center md:gap-5"
-                      >
-                        <Box>
-                          <Typography
-                            component="h3"
-                            className="text-base font-semibold tracking-[-0.02em] text-ink md:text-lg"
-                          >
-                            {item.title}
-                          </Typography>
-                          <Typography className="mt-2 max-w-[560px] text-sm leading-6 text-muted">
-                            {item.description}
-                          </Typography>
-                        </Box>
-
-                        <Box className="grid grid-cols-2 gap-6 md:contents">
-                          <Box>
-                            <Typography className="mb-2 text-[11px] text-faint md:hidden">
-                              {t('downloads.columns.version')}
-                            </Typography>
-                            <Typography className="font-mono text-xs tabular-nums text-muted">
-                              {item.version}
-                            </Typography>
-                          </Box>
-                          <Box>
-                            <Typography className="mb-2 text-[11px] text-faint md:hidden">
-                              {t('downloads.columns.platform')}
-                            </Typography>
-                            <Typography className="text-xs text-muted">
-                              {item.platform}
-                            </Typography>
-                          </Box>
-                        </Box>
-
-                        <button
-                          type="button"
-                          disabled
-                          className="inline-flex min-h-11 w-fit cursor-not-allowed items-center gap-2 border border-line px-4 py-2 text-sm font-semibold text-faint"
-                        >
-                          {t('downloads.coming_soon')}
-                          <CloudDownloadOutlinedIcon
-                            sx={{ fontSize: 18 }}
-                            aria-hidden="true"
-                          />
-                        </button>
-                      </Box>
-                    ))}
-                  </Box>
-                </SectionReveal>
-              );
-            })}
-
-            <SectionReveal className="border-t border-line pt-10">
-              <Typography
-                component="h2"
-                sx={{
-                  fontSize: 'clamp(30px, 3.5vw, 48px)',
-                  fontWeight: 600,
-                  lineHeight: 1,
-                  letterSpacing: '-0.04em',
-                }}
-              >
-                {t('downloads.help_title')}
-              </Typography>
-              <Typography className="mt-5 max-w-[620px] text-sm leading-7 text-muted">
-                {t('downloads.help_description')}
-              </Typography>
-              <Box
-                component="a"
-                href="mailto:info@zero-lab.tech"
-                className="mt-8 inline-flex min-h-12 items-center bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-[background-color,color,transform] duration-300 hover:bg-primary-dark hover:text-white active:scale-[0.98]"
-              >
-                {t('downloads.contact')}
-              </Box>
-            </SectionReveal>
-          </Box>
+                  ))}
+                </Box>
+              </SectionReveal>
+            );
+          })}
         </Box>
+
+        <SectionReveal className="mx-auto mt-20 grid max-w-[1280px] gap-7 rounded-2xl border border-line bg-panel p-7 md:mt-28 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12 md:p-12 lg:gap-20 lg:p-14">
+          <Box className="min-w-0">
+            <Typography
+              component="h2"
+              sx={{
+                fontSize: 'clamp(28px, 2.8vw, 40px)',
+                fontWeight: 600,
+                lineHeight: 1.2,
+                letterSpacing: '-0.03em',
+              }}
+            >
+              {t('downloads.help_title')}
+            </Typography>
+          </Box>
+          <Box className="min-w-0">
+            <Typography className="max-w-[540px] text-base leading-7 text-muted">
+              {t('downloads.help_description')}
+            </Typography>
+            <Box
+              component="a"
+              href="mailto:info@zero-lab.tech"
+              className="mt-7 inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-ink transition-colors hover:bg-primary-dark hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            >
+              {t('downloads.contact')}
+            </Box>
+          </Box>
+        </SectionReveal>
       </Box>
     </Box>
   );

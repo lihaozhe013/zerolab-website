@@ -102,51 +102,36 @@
     "wechat_prompt": "扫码关注 ZeroLab 微信公众号。"
   },
   "downloads": {
-    "columns": {
-      "description": "资料说明",
-      "platform": "平台",
-      "resource": "资源",
-      "version": "版本"
-    },
-    "coming_soon": "即将开放",
-    "contact": "联系软件支持",
-    "contents": "本页目录",
+    "contact": "咨询软件与技术支持",
+    "contents": "本页分类",
     "groups": [
       {
-        "description": "用于设备设置、校准、实时动作预览、录制与机器人操作的桌面应用。",
+        "description": "用于设备设置、动作校准与预览、动作录制和机器人遥操作的桌面工具。",
         "id": "desktop-software",
         "items": [
           {
             "description": "配置 ZeroLab 动作捕捉硬件、完成角色校准、预览动作并录制动作数据。",
-            "platform": "-",
-            "title": "动作捕捉软件",
-            "version": "-"
+            "title": "动作捕捉软件"
           },
           {
             "description": "连接支持的机器人平台，管理动作映射与遥操作任务。",
-            "platform": "-",
-            "title": "机器人遥操作软件",
-            "version": "-"
+            "title": "机器人遥操作软件"
           }
         ],
         "kind": "software",
         "title": "桌面软件"
       },
       {
-        "description": "用于基于 ZeroLab 动作数据开发应用的程序库、软件包与示例。",
+        "description": "用于接入和处理 ZeroLab 动作数据的 SDK、ROS 2 软件包与开发资源。",
         "id": "developer-tools",
         "items": [
           {
             "description": "用于接收和处理 ZeroLab 动作数据的 API、示例项目与集成资源。",
-            "platform": "-",
-            "title": "ZeroLab SDK",
-            "version": "-"
+            "title": "ZeroLab SDK"
           },
           {
             "description": "用于将 ZeroLab 动作捕捉接入 ROS 2 机器人工作流的开发软件包。",
-            "platform": "-",
-            "title": "ROS 2 软件包",
-            "version": "-"
+            "title": "ROS 2 软件包"
           }
         ],
         "kind": "developer",
@@ -158,29 +143,21 @@
         "items": [
           {
             "description": "用于在 Unity 中驱动角色与交互体验的集成软件包。",
-            "platform": "-",
-            "title": "Unity 插件",
-            "version": "-"
+            "title": "Unity 插件"
           },
           {
             "description": "用于 Unreal Engine 实时角色动画与虚拟制片的集成软件包。",
-            "platform": "-",
-            "title": "Unreal Engine 插件",
-            "version": "-"
+            "title": "Unreal Engine 插件"
           }
         ],
         "kind": "integration",
         "title": "插件与集成"
       }
     ],
-    "help_description": "如需提前获取软件、咨询兼容性、部署支持或集成指导，请联系 ZeroLab。",
-    "help_title": "需要提前获取软件？",
-    "intro": "汇集 ZeroLab 动作捕捉与机器人遥操作系统的软件、SDK、插件及集成包。",
-    "packages": "个软件包",
-    "preview_description": "此页面用于确定软件发布目录的最终格式。待提供经过验证的软件包和版本信息后，将启用下载操作。",
-    "preview_title": "软件目录预览",
-    "summary": "计划发布 {{count}} 个软件包",
-    "title": "下载中心"
+    "help_description": "请告诉我们你的设备、软件和工作流程。ZeroLab 团队可协助你了解软件获取、兼容性、部署与集成。",
+    "help_title": "获取软件与技术支持",
+    "intro": "了解 ZeroLab 动作捕捉、机器人遥操作及开发集成配套软件。如需软件获取、兼容性咨询或技术支持，请联系我们。",
+    "title": "软件与技术支持"
   },
   "home": {
     "applications": {
@@ -279,7 +256,7 @@
     "about": "关于",
     "application": "应用",
     "contact": "联系",
-    "downloads": "下载",
+    "downloads": "软件支持",
     "home": "首页",
     "product": "产品"
   },

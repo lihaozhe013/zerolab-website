@@ -102,85 +102,62 @@
     "wechat_prompt": "Scan to follow ZeroLab on WeChat."
   },
   "downloads": {
-    "columns": {
-      "description": "Description",
-      "platform": "Platform",
-      "resource": "Resource",
-      "version": "Version"
-    },
-    "coming_soon": "Coming soon",
     "contact": "Contact software support",
-    "contents": "On this page",
+    "contents": "Browse categories",
     "groups": [
       {
-        "description": "Desktop applications for device setup, calibration, live motion preview, recording, and robot operation.",
+        "description": "Desktop tools for device setup, motion calibration and preview, recording, and robot teleoperation.",
         "id": "desktop-software",
         "items": [
           {
             "description": "Configure ZeroLab motion-capture hardware, calibrate performers, preview movement, and record motion data.",
-            "platform": "-",
-            "title": "Motion Capture Software",
-            "version": "-"
+            "title": "Motion Capture Software"
           },
           {
             "description": "Operate supported robot platforms and manage motion mapping and teleoperation sessions.",
-            "platform": "-",
-            "title": "Robot Teleoperation Software",
-            "version": "-"
+            "title": "Robot Teleoperation Software"
           }
         ],
         "kind": "software",
         "title": "Desktop software"
       },
       {
-        "description": "Libraries, packages, and examples for building applications with ZeroLab motion data.",
+        "description": "SDKs, ROS 2 packages, and developer resources for working with ZeroLab motion data.",
         "id": "developer-tools",
         "items": [
           {
             "description": "APIs, sample projects, and integration resources for receiving and processing ZeroLab motion data.",
-            "platform": "-",
-            "title": "ZeroLab SDK",
-            "version": "-"
+            "title": "ZeroLab SDK"
           },
           {
             "description": "Developer package for connecting ZeroLab motion capture to ROS 2 robotics workflows.",
-            "platform": "-",
-            "title": "ROS 2 Package",
-            "version": "-"
+            "title": "ROS 2 Package"
           }
         ],
         "kind": "developer",
         "title": "SDK & developer tools"
       },
       {
-        "description": "Connect ZeroLab motion data to real-time engines and production tools.",
+        "description": "Connect ZeroLab motion data with real-time engines and production tools.",
         "id": "plugins-integrations",
         "items": [
           {
             "description": "Integration package for driving characters and interactive experiences in Unity.",
-            "platform": "-",
-            "title": "Unity Plugin",
-            "version": "-"
+            "title": "Unity Plugin"
           },
           {
             "description": "Integration package for real-time character animation and virtual production in Unreal Engine.",
-            "platform": "-",
-            "title": "Unreal Engine Plugin",
-            "version": "-"
+            "title": "Unreal Engine Plugin"
           }
         ],
         "kind": "integration",
         "title": "Plugins & integrations"
       }
     ],
-    "help_description": "Contact ZeroLab for early access, compatibility questions, deployment support, or integration guidance.",
-    "help_title": "Need access before release?",
-    "intro": "Software, SDKs, plugins, and integration packages for ZeroLab motion-capture and robot teleoperation systems.",
-    "packages": "packages",
-    "preview_description": "This page establishes the release catalog format. Download actions will be enabled when verified software packages and version details are supplied.",
-    "preview_title": "Software catalog preview",
-    "summary": "{{count}} planned software packages",
-    "title": "Downloads"
+    "help_description": "Tell us about your setup and workflow. Our team can help with software access, compatibility, deployment, and integration.",
+    "help_title": "Get software and technical support",
+    "intro": "Explore ZeroLab software for motion capture, robot teleoperation, and development integrations. Contact our team for software access, compatibility guidance, or technical support.",
+    "title": "Software & technical support"
   },
   "home": {
     "applications": {
@@ -279,7 +256,7 @@
     "about": "About",
     "application": "Application",
     "contact": "Contact",
-    "downloads": "Downloads",
+    "downloads": "Software",
     "home": "Home",
     "product": "Product"
   },
