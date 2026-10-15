@@ -21,7 +21,7 @@
 - Install Git LFS and run `git lfs install` before adding or pushing `public/` files.
 - Keep `public/` next to the root `index.html` when running or building the site locally. Vite serves files from `public/` at the site root.
 - The CI deployment artifact is `dist/`. It must contain `index.html` and the compiled assets at the same site root, and must not contain a nested `dist/public/` directory. Vite copies the contents of `public/` into `dist/`; it does not copy the `public/` directory itself.
-- Both GitHub Actions workflows must check out Git LFS objects so builds and deployments contain the real `public/` assets.
+- All CI and deployment builds must use the reusable CI workflow, which checks out Git LFS objects so artifacts contain the real `public/` assets.
 - When deploying the CI artifact, serve `dist/` as the web root.
 
 ## Development Tools and Shell

@@ -7,7 +7,6 @@
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/exclude-reference-pdf.mjs",
     "preview": "vite preview",
-    "pages:publish": "bash scripts/publish-pages.sh",
     "format": "prettier . --write",
     "assets:scan": "node scripts/scan-public-assets.mjs",
     "brochure:check": "node scripts/check-product-brochure.mjs"

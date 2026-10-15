@@ -2,11 +2,20 @@ name: CI
 
 on:
   push:
+    branches-ignore:
+      - main
   pull_request:
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      deploy-pages:
+        description: Build and upload the GitHub Pages artifact.
+        type: boolean
+        default: false
 
 permissions:
   contents: read
+  pages: read
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -42,8 +51,15 @@ jobs:
       - name: Check TypeScript
         run: pnpm exec tsc -b
 
+      - name: Configure GitHub Pages
+        if: ${{ inputs.deploy-pages == true }}
+        id: pages
+        uses: actions/configure-pages@v6
+
       - name: Build website
         run: pnpm build
+        env:
+          GITHUB_PAGES_BASE: ${{ steps.pages.outputs.base_path || '' }}/
 
       - name: Verify deployment layout
         shell: bash
@@ -55,8 +71,15 @@ jobs:
           fi
 
       - name: Upload deployment artifact
+        if: ${{ inputs.deploy-pages != true }}
         uses: actions/upload-artifact@v7
         with:
           name: zerolab-website-dist
           path: dist/
           if-no-files-found: error
+
+      - name: Upload GitHub Pages artifact
+        if: ${{ inputs.deploy-pages == true }}
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/

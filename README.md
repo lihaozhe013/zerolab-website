@@ -34,14 +34,13 @@ Vite will print the local development URL in the terminal.
 
 ## Available commands
 
-| Command              | Description                                                                 |
-| -------------------- | --------------------------------------------------------------------------- |
-| `pnpm dev`           | Start the development server.                                               |
-| `pnpm build`         | Type-check the project and create a production build.                       |
-| `pnpm preview`       | Preview the production build locally.                                       |
-| `pnpm pages:publish` | Merge the current branch into `publish` and push it to deploy GitHub Pages. |
-| `pnpm format`        | Format the project with Prettier.                                           |
-| `pnpm exec tsc -b`   | Check TypeScript for errors.                                                |
+| Command            | Description                                           |
+| ------------------ | ----------------------------------------------------- |
+| `pnpm dev`         | Start the development server.                         |
+| `pnpm build`       | Type-check the project and create a production build. |
+| `pnpm preview`     | Preview the production build locally.                 |
+| `pnpm format`      | Format the project with Prettier.                     |
+| `pnpm exec tsc -b` | Check TypeScript for errors.                          |
 
 Before committing, run:
 
@@ -54,19 +53,23 @@ This project does not use ESLint.
 
 ## Publishing to GitHub Pages
 
-Configure the repository's Pages source to **GitHub Actions** once in **Settings → Pages**. Commit your changes, make sure the working tree is clean, then run:
+Configure the repository's Pages source to **GitHub Actions** once in **Settings → Pages**. If the `github-pages` environment has branch restrictions, allow deployments from `main` in **Settings → Environments → github-pages**.
+
+Merge changes into `main`, or commit on `main` and push:
 
 ```bash
-pnpm pages:publish
+git push origin main
 ```
 
-The command merges the current branch into `publish` in a temporary Git worktree and pushes that branch to `origin`. A push to `publish` runs `.github/workflows/deploy-pages.yml`, which builds `dist/` and deploys it to GitHub Pages. Set `PUBLISH_REMOTE` to use a configured remote other than `origin`.
+A push to `main` runs `.github/workflows/deploy-pages.yml`. It calls the reusable CI workflow to check formatting, check TypeScript, build the website, verify the deployment layout, and upload the Pages artifact. The deployment job publishes that same artifact only after all checks pass. No separate publishing branch or local publishing command is needed.
 
-The build uses the repository-name URL prefix required by GitHub Pages project sites. Files in `public/` are tracked with Git LFS, and the deployment workflow downloads those objects during checkout.
+To redeploy manually, run **Deploy GitHub Pages** from the Actions tab with the `main` branch selected. Runs on other branches skip deployment. Deployments run one at a time without cancelling an active deployment.
+
+The build uses the base path returned by GitHub Pages, supporting both project-site URL prefixes and custom domains. Files in `public/` are tracked with Git LFS and downloaded during the reusable workflow's checkout.
 
 ## Continuous integration and deployment layout
 
-The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies, checks formatting, checks TypeScript, builds the site, and uploads `dist/` as the deployment artifact. Both workflows check out Git LFS objects before building.
+The GitHub Actions workflow in `.github/workflows/ci.yml` runs for pull requests, pushes to branches other than `main`, and manual checks. It installs dependencies, checks formatting, checks TypeScript, builds the site, verifies the deployment layout, and uploads `dist/` as `zerolab-website-dist` for inspection. Pushes to `main` run these same checks through the deployment workflow instead of starting a duplicate CI build. Every build checks out Git LFS objects before building. CI has read-only permissions; only the deployment job requests Pages write and OIDC permissions.
 
 Keep the `public/` directory alongside the root `index.html` when running or building locally:
 
