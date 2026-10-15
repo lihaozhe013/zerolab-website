@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import ContactInfo from '@/components/ContactInfo';
+import ContactHero from '@/components/ContactHero';
 import SectionReveal from '@/components/SectionReveal';
-import SubHeader from '@/components/SubHeader';
 
 declare const AMap: any;
 
@@ -110,22 +109,19 @@ export default function ContactPage() {
   }, [directionsUrl, t]);
 
   return (
-    <Box component="main" className="overflow-x-clip bg-page text-ink">
-      <SubHeader
-        title={t('contact.title')}
-        subtitle={t('contact.intro')}
-        backgroundImage="/images/reception.png"
-      />
+    <Box className="overflow-x-clip bg-page text-ink">
+      <ContactHero />
 
-      <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
+      <Box
+        component="section"
+        className="border-t border-line bg-section px-6 py-12 md:px-[6vw] md:py-20"
+      >
         <Box className="mx-auto max-w-[1280px]">
-          <ContactInfo />
-
-          <SectionReveal className="mt-28 md:mt-40">
+          <SectionReveal>
             <Typography
               component="h2"
               sx={{
-                fontSize: 'clamp(36px, 5vw, 72px)',
+                fontSize: 'clamp(32px, 3.5vw, 48px)',
                 fontWeight: 600,
                 lineHeight: 0.96,
                 letterSpacing: '-0.05em',
@@ -133,14 +129,14 @@ export default function ContactPage() {
             >
               {t('contact.visit')}
             </Typography>
-            <Typography className="mt-5 max-w-[560px] text-base leading-7 text-muted">
+            <Typography className="heading-copy--compact max-w-[560px] text-base leading-7 text-muted">
               {t('contact.map_hint')}
             </Typography>
-            <Box className="mt-10 overflow-hidden border border-line bg-panel p-1.5">
+            <Box className="mt-8 overflow-hidden border border-line bg-panel">
               <Box className="relative">
                 <Box
                   ref={mapRef}
-                  className="h-[440px] w-full bg-panel md:h-[620px]"
+                  className="h-[360px] w-full bg-panel md:h-[480px]"
                 />
                 {mapStatus !== 'ready' && (
                   <Box className="absolute inset-0 flex items-center justify-center bg-panel px-6 text-center">
