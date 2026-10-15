@@ -13,6 +13,8 @@
   "application": {
     "capture_lab": {
       "description": "Explore a recorded performance in place or with its original movement through space.",
+      "capture_device_heading": "Captured with",
+      "capture_device_name": "F2 Pro+ Full Body MoCap Suites",
       "fallback_alt": "Motion-capture performance in a virtual production environment",
       "heading": "Movement, made legible.",
       "interaction_label": "Drag to rotate. Switch modes to explore the full movement.",

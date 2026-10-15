@@ -23,6 +23,8 @@ interface MotionCaptureSectionProps {
   loadingLabel: string;
   fallbackAlt: string;
   sourceLabel: string;
+  captureDeviceHeading: string;
+  captureDeviceName: string;
   interactionLabel: string;
 }
 
@@ -74,6 +76,8 @@ export default function MotionCaptureSection({
   loadingLabel,
   fallbackAlt,
   sourceLabel,
+  captureDeviceHeading,
+  captureDeviceName,
   interactionLabel,
 }: MotionCaptureSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -132,6 +136,16 @@ export default function MotionCaptureSection({
             <Typography className="mt-7 max-w-[480px] text-base leading-7 text-muted">
               {description}
             </Typography>
+            {showScene && (
+              <Box className="mt-8 max-w-[340px] border-l-2 border-[#4bd0e4] pl-4">
+                <Typography className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#4bd0e4]">
+                  {captureDeviceHeading}
+                </Typography>
+                <Typography className="mt-2 text-sm font-medium leading-6 text-ink">
+                  {captureDeviceName}
+                </Typography>
+              </Box>
+            )}
           </Box>
 
           <Box className="mt-12 md:mt-16">

@@ -46,6 +46,10 @@ export default function ApplicationPage() {
         loadingLabel={t('application.capture_lab.loading_label')}
         fallbackAlt={t('application.capture_lab.fallback_alt')}
         sourceLabel={t('application.capture_lab.source_label')}
+        captureDeviceHeading={t(
+          'application.capture_lab.capture_device_heading',
+        )}
+        captureDeviceName={t('application.capture_lab.capture_device_name')}
         interactionLabel={t('application.capture_lab.interaction_label')}
       />
 

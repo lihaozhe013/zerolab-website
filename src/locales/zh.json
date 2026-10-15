@@ -13,6 +13,8 @@
   "application": {
     "capture_lab": {
       "description": "查看一段动作演示，切换原地动作与保留完整位移的模式。",
+      "capture_device_heading": "采集设备",
+      "capture_device_name": "F2 Pro+ Full Body MoCap Suites",
       "fallback_alt": "虚拟制片环境中的动作捕捉表演",
       "heading": "让动作清晰可读。",
       "interaction_label": "拖动旋转模型。切换模式，查看完整动作轨迹。",
