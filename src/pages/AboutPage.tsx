@@ -1,75 +1,108 @@
-import { Box, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import SectionReveal from '@/components/SectionReveal';
+import { Link } from 'react-router-dom';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
+import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
+import './about.css';
 
 export default function AboutPage() {
   const { t } = useTranslation();
+  const exploreCompany = () => {
+    document.getElementById('about-company')?.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'instant'
+        : 'smooth',
+    });
+  };
 
   return (
-    <Box component="main" className="overflow-x-clip bg-page text-ink">
-      <Box
-        component="header"
-        className="grid min-h-[78dvh] grid-cols-1 bg-deep pt-20 md:grid-cols-12"
+    <div className="about-page">
+      <header className="about-hero about-container">
+        <div className="about-hero__masthead">
+          <p>{t('about.eyebrow')}</p>
+          <span>ZeroLab</span>
+        </div>
+        <div className="about-hero__grid">
+          <div className="about-hero__copy">
+            <h1>{t('about.headline')}</h1>
+            <p className="about-hero__company">{t('about.company_name')}</p>
+            <button
+              className="about-explore"
+              onClick={exploreCompany}
+              type="button"
+            >
+              <span className="about-explore__icon">
+                <SouthRoundedIcon aria-hidden="true" />
+              </span>
+              {t('about.story_label')}
+            </button>
+          </div>
+          <figure className="about-hero__portrait">
+            <img
+              src="/images/AboutImage.JPG"
+              alt={t('about.collab_alt')}
+              fetchPriority="high"
+              width="1600"
+              height="900"
+            />
+            <figcaption>
+              <span className="about-status" aria-hidden="true" />
+              {t('about.company_name')}
+            </figcaption>
+          </figure>
+        </div>
+      </header>
+      <section
+        id="about-company"
+        className="about-company about-container"
+        aria-labelledby="about-company-title"
       >
-        <Box className="flex items-end px-6 pb-14 pt-20 md:col-span-5 md:px-[6vw] md:pb-20 md:pt-24">
-          <Box>
-            <Typography className="mb-6 text-sm font-semibold text-[#4bd0e4]">
-              {t('about.eyebrow')}
-            </Typography>
-            <Typography
-              component="h1"
-              sx={{
-                fontSize: 'clamp(44px, 5vw, 76px)',
-                fontWeight: 650,
-                lineHeight: 0.94,
-                letterSpacing: '-0.055em',
-              }}
-              className="max-w-[650px] text-balance"
-            >
-              {t('about.headline')}
-            </Typography>
-          </Box>
-        </Box>
-
-        <Box className="flex items-center justify-center bg-panel md:col-span-7">
-          <Box
-            component="img"
-            src="/images/AboutImage.JPG"
-            alt={t('about.collab_alt')}
-            className="block h-auto max-h-[calc(78dvh-5rem)] w-full object-contain object-center"
+        <div className="about-section-heading">
+          <span className="about-mark" aria-hidden="true" />
+          <h2 id="about-company-title">{t('about.title')}</h2>
+        </div>
+        <div className="about-company__copy">
+          <p>{t('about.description')}</p>
+          <Link className="about-text-link" to="/application">
+            {t('home.applications.explore_label')}
+            <ArrowForwardRoundedIcon aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+      <section
+        className="about-environment about-container"
+        aria-labelledby="about-environment-title"
+      >
+        <div className="about-environment__visual">
+          <h2 id="about-environment-title">{t('home.environments.title')}</h2>
+          <img
+            src="/images/reception.png"
+            alt={t('home.environments.items.0.title')}
+            loading="lazy"
+            width="1000"
+            height="800"
           />
-        </Box>
-      </Box>
-
-      <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
-        <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-16 md:grid-cols-12 md:gap-8">
-          <SectionReveal className="md:col-span-5">
-            <Typography
-              component="h2"
-              sx={{
-                fontSize: 'clamp(40px, 5vw, 72px)',
-                fontWeight: 600,
-                lineHeight: 0.96,
-                letterSpacing: '-0.05em',
-              }}
-            >
-              {t('about.title')}
-            </Typography>
-          </SectionReveal>
-          <SectionReveal className="md:col-span-6 md:col-start-7 md:pt-10">
-            <Typography className="text-base leading-8 text-muted md:text-lg">
-              {t('about.description')}
-            </Typography>
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex min-h-12 items-center border border-[#4bd0e4] px-6 py-3 text-sm font-semibold text-[#4bd0e4] transition-[background-color,color,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-[#4bd0e4] hover:text-[#071013] active:scale-[0.98]"
-            >
-              {t('about.careers_cta')}
-            </Link>
-          </SectionReveal>
-        </Box>
-      </Box>
-    </Box>
+        </div>
+        <div className="about-environment__details">
+          {[0, 1, 2].map((index) => (
+            <article key={index}>
+              <h3>{t(`home.environments.items.${index}.title`)}</h3>
+              <p>{t(`home.environments.items.${index}.description`)}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="about-contact" aria-labelledby="about-contact-title">
+        <div className="about-container about-contact__inner">
+          <div>
+            <h2 id="about-contact-title">{t('home.cta.title')}</h2>
+            <p>{t('contact.intro')}</p>
+          </div>
+          <Link className="about-contact__link" to="/contact">
+            {t('about.careers_cta')}
+            <ArrowForwardRoundedIcon aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }
