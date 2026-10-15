@@ -13,15 +13,6 @@ const appImages = [
   '/images/Rehabilitation training.jpg',
 ];
 
-const layouts = [
-  'md:col-span-7',
-  'md:col-span-5',
-  'md:col-span-4',
-  'md:col-span-8',
-  'md:col-span-6',
-  'md:col-span-6',
-];
-
 export default function ApplicationPage() {
   const { t } = useTranslation();
   const items = t('application.items', { returnObjects: true }) as {
@@ -54,44 +45,45 @@ export default function ApplicationPage() {
       />
 
       <Box component="section" className="px-6 py-28 md:px-[6vw] md:py-40">
-        <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-x-8 gap-y-24 md:grid-cols-12">
+        <Box className="mx-auto grid max-w-[1280px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:[grid-auto-rows:1fr]">
           {items.map((item, index) => (
             <SectionReveal
               component="article"
               key={item.title}
-              className={layouts[index]}
+              className="h-full"
             >
-              <Box className="group overflow-hidden bg-panel">
-                <Box
-                  component="img"
-                  src={appImages[index]}
-                  alt={item.title}
-                  className={`w-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    index === 0
-                      ? 'bg-[#d7d9d8] object-contain'
-                      : 'object-cover group-hover:scale-[1.025]'
-                  } ${
-                    index === 0 || index === 3
-                      ? 'aspect-[16/10]'
-                      : 'aspect-[4/3]'
-                  }`}
-                />
+              <Box className="group flex h-full flex-col overflow-hidden bg-panel">
+                <Box className="aspect-[4/3] shrink-0 overflow-hidden bg-[#d7d9d8]">
+                  <Box
+                    component="img"
+                    src={appImages[index]}
+                    alt={item.title}
+                    loading="lazy"
+                    className={`h-full w-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      index === 0
+                        ? 'object-contain'
+                        : 'object-cover group-hover:scale-[1.025]'
+                    }`}
+                  />
+                </Box>
+                <Box className="flex flex-1 flex-col px-6 py-7 md:px-8 md:py-9">
+                  <Typography
+                    component="h2"
+                    sx={{
+                      fontSize: 'clamp(26px, 2.6vw, 38px)',
+                      fontWeight: 600,
+                      lineHeight: 1.08,
+                      letterSpacing: '-0.035em',
+                    }}
+                    className="min-h-[2.2em]"
+                  >
+                    {item.title}
+                  </Typography>
+                  <Typography className="mt-5 text-sm leading-7 text-muted">
+                    {item.description}
+                  </Typography>
+                </Box>
               </Box>
-              <Typography
-                component="h2"
-                sx={{
-                  fontSize: 'clamp(28px, 3vw, 44px)',
-                  fontWeight: 600,
-                  lineHeight: 1.05,
-                  letterSpacing: '-0.035em',
-                }}
-                className="!mt-4 md:!mt-6"
-              >
-                {item.title}
-              </Typography>
-              <Typography className="mt-5 max-w-[680px] text-sm leading-7 text-muted">
-                {item.description}
-              </Typography>
             </SectionReveal>
           ))}
         </Box>
