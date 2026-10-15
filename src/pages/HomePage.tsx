@@ -117,7 +117,6 @@ export default function HomePage() {
           <div className="home-hero__veil" aria-hidden="true" />
           <div className="home-hero__inner">
             <div className="home-hero__copy">
-              <p className="home-hero__signature">ZeroLab</p>
               <h1 id="home-title">{t('home.hero.title')}</h1>
               <p className="home-hero__description">
                 {t('home.hero.description_p1')}

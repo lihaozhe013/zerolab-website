@@ -153,14 +153,6 @@
   text-shadow: 0 2px 30px rgb(0 0 0 / 65%);
 }
 
-.home-hero__signature {
-  margin-bottom: clamp(24px, 3vw, 42px) !important;
-  color: var(--home-accent);
-  font-size: clamp(16px, 1.4vw, 20px);
-  font-weight: 650;
-  letter-spacing: -0.06em;
-}
-
 .home-hero h1 {
   max-width: 760px;
   font-size: clamp(58px, 6.4vw, 104px);
@@ -537,10 +529,6 @@ html:lang(zh) .home-outro h2 {
     max-width: min(100%, 670px);
   }
 
-  .home-hero__signature {
-    margin-bottom: 36px !important;
-  }
-
   .home-hero h1,
   html:lang(zh) .home-hero h1 {
     max-width: 11em;
@@ -582,10 +570,6 @@ html:lang(zh) .home-outro h2 {
   .home-hero__inner {
     padding-top: 112px;
     padding-bottom: 88px;
-  }
-
-  .home-hero__signature {
-    margin-bottom: 24px !important;
   }
 
   .home-hero h1,
