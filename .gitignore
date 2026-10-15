@@ -30,3 +30,6 @@ dist-ssr
 
 Skills/SKILL.md
 skills-lock.json
+
+# External runtime assets are provisioned separately from source control.
+/public/

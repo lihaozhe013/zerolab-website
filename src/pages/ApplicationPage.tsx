@@ -39,8 +39,8 @@ export default function ApplicationPage() {
       <MotionCaptureSection
         heading={t('application.capture_lab.heading')}
         description={t('application.capture_lab.description')}
-        captureLabel={t('application.capture_lab.capture_label')}
-        surfaceLabel={t('application.capture_lab.surface_label')}
+        inPlaceLabel={t('application.capture_lab.in_place_label')}
+        rootMotionLabel={t('application.capture_lab.root_motion_label')}
         playLabel={t('application.capture_lab.play_label')}
         pauseLabel={t('application.capture_lab.pause_label')}
         loadingLabel={t('application.capture_lab.loading_label')}

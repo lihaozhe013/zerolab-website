@@ -12,16 +12,16 @@
   },
   "application": {
     "capture_lab": {
-      "capture_label": "Capture view",
-      "description": "See a recorded performance resolve into the joint structure that drives digital characters, robots, and training data.",
+      "description": "Explore a recorded performance in place or with its original movement through space.",
       "fallback_alt": "Motion-capture performance in a virtual production environment",
       "heading": "Movement, made legible.",
-      "interaction_label": "Drag to rotate. Click the model to trigger an impact response.",
+      "interaction_label": "Drag to rotate. Switch modes to explore the full movement.",
       "loading_label": "Loading motion model",
       "pause_label": "Pause",
       "play_label": "Play",
-      "source_label": "Interactive source clip: 74-joint rig, 5.96-second performance",
-      "surface_label": "Surface view"
+      "source_label": "74-joint rig / 8.58-second performance",
+      "in_place_label": "In place",
+      "root_motion_label": "Root motion"
     },
     "cta_title": "Turn a motion challenge into a working system.",
     "extra_info_alt": "Motion capture connecting virtual interaction with humanoid robotics",

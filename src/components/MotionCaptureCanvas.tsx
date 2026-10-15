@@ -1,298 +1,163 @@
-import { Html, OrbitControls, useAnimations, useGLTF } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { Grid, Html, OrbitControls, useGLTF } from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Suspense, useEffect, useMemo, useRef, type ComponentRef } from 'react';
 import * as THREE from 'three';
-import { clone } from 'three/examples/jsm/utils/SkeletonUtils.js';
+import {
+  cameraDistance,
+  MODEL_PATH,
+  preparePerformance,
+  type MotionMode,
+} from './motion-capture/performance';
 
 interface MotionCaptureCanvasProps {
-  mode: 'capture' | 'surface';
+  mode: MotionMode;
   playing: boolean;
+  reducedMotion: boolean;
   loadingLabel: string;
   interactionLabel: string;
 }
 
-const MODEL_PATH = '/models/run.glb';
-const HIT_MODEL_PATH = '/models/hit.glb';
+const TRANSITION_DURATION = 1.2;
+const VIEW_DIRECTION = new THREE.Vector3(1, 0.45, 1.7).normalize();
 
-const CAPTURE_JOINTS = new Set([
-  'Hips',
-  'Spine',
-  'Spine1',
-  'Spine2',
-  'Neck',
-  'Neck1',
-  'Head',
-  'RightShoulder',
-  'RightArm',
-  'RightForeArm',
-  'RightHand',
-  'LeftShoulder',
-  'LeftArm',
-  'LeftForeArm',
-  'LeftHand',
-  'RightUpLeg',
-  'RightLeg',
-  'RightFoot',
-  'RightToeBase',
-  'LeftUpLeg',
-  'LeftLeg',
-  'LeftFoot',
-  'LeftToeBase',
-]);
-
-interface CaptureRigProps {
-  mode: MotionCaptureCanvasProps['mode'];
-  playing: boolean;
-  reactionRequest: number;
-  requestReaction: () => void;
-}
-
-function CaptureRig({
+function Performance({
   mode,
   playing,
-  reactionRequest,
-  requestReaction,
-}: CaptureRigProps) {
+  reducedMotion,
+}: Pick<MotionCaptureCanvasProps, 'mode' | 'playing' | 'reducedMotion'>) {
   const { scene, animations } = useGLTF(MODEL_PATH);
-  const { animations: hitAnimations } = useGLTF(HIT_MODEL_PATH);
-  const { model, authoredMaterials } = useMemo(() => {
-    const clonedModel = clone(scene);
-    const materials: Array<{
-      material: THREE.Material;
-      opacity: number;
-      transparent: boolean;
-      depthWrite: boolean;
-    }> = [];
-
-    clonedModel.traverse((node) => {
-      if (!(node instanceof THREE.Mesh)) return;
-
-      const sourceMaterials = Array.isArray(node.material)
-        ? node.material
-        : [node.material];
-      const clonedMaterials = sourceMaterials.map((sourceMaterial) => {
-        const material = sourceMaterial.clone();
-        materials.push({
-          material,
-          opacity: material.opacity,
-          transparent: material.transparent,
-          depthWrite: material.depthWrite,
-        });
-        return material;
-      });
-
-      node.material = Array.isArray(node.material)
-        ? clonedMaterials
-        : clonedMaterials[0];
-      node.frustumCulled = false;
-    });
-
-    return { model: clonedModel, authoredMaterials: materials };
-  }, [scene]);
-  const rigRef = useRef<THREE.Group>(null);
-  const pointerStartRef = useRef<{ x: number; y: number } | null>(null);
-  const lineGeometryRef = useRef<THREE.BufferGeometry>(null);
-  const pointGeometryRef = useRef<THREE.BufferGeometry>(null);
-  const tempA = useMemo(() => new THREE.Vector3(), []);
-  const tempB = useMemo(() => new THREE.Vector3(), []);
-  const bones = useMemo(() => {
-    const result: THREE.Bone[] = [];
-    model.traverse((node) => {
-      if (node instanceof THREE.Bone) result.push(node);
-    });
-    return result;
-  }, [model]);
-  const captureBones = useMemo(
-    () => bones.filter((bone) => CAPTURE_JOINTS.has(bone.name)),
-    [bones],
-  );
-  const boneLinks = useMemo(
-    () =>
-      captureBones.flatMap((bone) =>
-        bone.parent instanceof THREE.Bone &&
-        CAPTURE_JOINTS.has(bone.parent.name)
-          ? [[bone.parent, bone] as const]
-          : [],
-      ),
-    [captureBones],
-  );
-  const linePositions = useMemo(
-    () => new Float32Array(boneLinks.length * 2 * 3),
-    [boneLinks.length],
-  );
-  const pointPositions = useMemo(
-    () => new Float32Array(captureBones.length * 3),
-    [captureBones.length],
-  );
-  const motionClips = useMemo(() => {
-    const idleClip = animations[0]?.clone();
-    const hitClip = hitAnimations[0]?.clone();
-
-    if (idleClip) idleClip.name = 'idle';
-    if (hitClip) hitClip.name = 'hit';
-
-    return [idleClip, hitClip].filter(
-      (clip): clip is THREE.AnimationClip => clip !== undefined,
-    );
-  }, [animations, hitAnimations]);
-  const { actions, mixer } = useAnimations(motionClips, model);
+  const performance = useMemo(() => {
+    if (!animations[0]) throw new Error('The performance has no animation.');
+    return preparePerformance(scene, animations[0]);
+  }, [scene, animations]);
+  const { camera, size } = useThree();
+  const controlsRef = useRef<ComponentRef<typeof OrbitControls>>(null);
+  const displacementGroup = useRef<THREE.Group>(null);
+  const blend = useRef(mode === 'root-motion' ? 1 : 0);
+  const initialized = useRef(false);
+  const transition = useRef<{
+    elapsed: number;
+    fromBlend: number;
+    toBlend: number;
+    fromPosition: THREE.Vector3;
+    toPosition: THREE.Vector3;
+    fromTarget: THREE.Vector3;
+    toTarget: THREE.Vector3;
+  } | null>(null);
 
   useEffect(() => {
-    authoredMaterials.forEach(
-      ({ material, opacity, transparent, depthWrite }) => {
-        material.opacity = mode === 'capture' ? opacity * 0.34 : opacity;
-        material.transparent = mode === 'capture' ? true : transparent;
-        material.depthWrite = mode === 'capture' ? false : depthWrite;
-        material.needsUpdate = true;
-      },
-    );
-  }, [authoredMaterials, mode]);
+    const controls = controlsRef.current;
+    if (!controls || !(camera instanceof THREE.PerspectiveCamera)) return;
+    const frame = performance.frames[mode];
+    const direction = initialized.current
+      ? camera.position.clone().sub(controls.target).normalize()
+      : VIEW_DIRECTION;
+    const destination = frame.center
+      .clone()
+      .addScaledVector(
+        direction,
+        cameraDistance(frame, size.width / size.height, camera.fov, direction),
+      );
+    const toBlend = mode === 'root-motion' ? 1 : 0;
 
-  useEffect(
-    () => () => {
-      authoredMaterials.forEach(({ material }) => material.dispose());
-    },
-    [authoredMaterials],
-  );
+    if (!initialized.current || reducedMotion) {
+      camera.position.copy(destination);
+      controls.target.copy(frame.center);
+      blend.current = toBlend;
+      transition.current = null;
+      controls.enabled = true;
+      controls.update();
+      initialized.current = true;
+      return;
+    }
+
+    transition.current = {
+      elapsed: 0,
+      fromBlend: blend.current,
+      toBlend,
+      fromPosition: camera.position.clone(),
+      toPosition: destination,
+      fromTarget: controls.target.clone(),
+      toTarget: frame.center.clone(),
+    };
+    controls.enabled = false;
+  }, [camera, mode, performance, reducedMotion, size.width, size.height]);
 
   useEffect(() => {
-    const action = actions.idle;
-    if (!action) return;
-
-    action.reset().fadeIn(0.45).play();
+    performance.mixer.clipAction(animations[0]).play();
     return () => {
-      action.fadeOut(0.2);
+      performance.mixer.stopAllAction();
+      performance.mixer.uncacheRoot(performance.model);
     };
-  }, [actions]);
+  }, [performance, animations]);
 
-  useEffect(() => {
-    const action = actions.idle;
-    action?.setEffectiveTimeScale(playing ? 1 : 0);
-  }, [actions, playing]);
-
-  useEffect(() => {
-    const idleAction = actions.idle;
-    const hitAction = actions.hit;
-    if (!idleAction || !hitAction || reactionRequest === 0) return;
-
-    idleAction.fadeOut(0.1);
-    hitAction
-      .reset()
-      .setLoop(THREE.LoopOnce, 1)
-      .setEffectiveTimeScale(1)
-      .fadeIn(0.1)
-      .play();
-  }, [actions, reactionRequest]);
-
-  useEffect(() => {
-    const idleAction = actions.idle;
-    const hitAction = actions.hit;
-    if (!idleAction || !hitAction) return;
-
-    const handleFinished = (event: { action: THREE.AnimationAction }) => {
-      if (event.action !== hitAction) return;
-      hitAction.fadeOut(0.16);
-      idleAction
-        .reset()
-        .setEffectiveTimeScale(playing ? 1 : 0)
-        .fadeIn(0.22)
-        .play();
-    };
-
-    mixer.addEventListener('finished', handleFinished);
-    return () => mixer.removeEventListener('finished', handleFinished);
-  }, [actions, mixer, playing]);
-
-  useFrame(() => {
-    const rig = rigRef.current;
-    const lineGeometry = lineGeometryRef.current;
-    const pointGeometry = pointGeometryRef.current;
-    if (!rig || !lineGeometry || !pointGeometry) return;
-
-    rig.updateWorldMatrix(true, true);
-
-    const lineAttribute = lineGeometry.getAttribute(
-      'position',
-    ) as THREE.BufferAttribute;
-    boneLinks.forEach(([parent, child], index) => {
-      parent.getWorldPosition(tempA);
-      child.getWorldPosition(tempB);
-      rig.worldToLocal(tempA);
-      rig.worldToLocal(tempB);
-      lineAttribute.setXYZ(index * 2, tempA.x, tempA.y, tempA.z);
-      lineAttribute.setXYZ(index * 2 + 1, tempB.x, tempB.y, tempB.z);
-    });
-    lineAttribute.needsUpdate = true;
-
-    const pointAttribute = pointGeometry.getAttribute(
-      'position',
-    ) as THREE.BufferAttribute;
-    captureBones.forEach((bone, index) => {
-      bone.getWorldPosition(tempA);
-      rig.worldToLocal(tempA);
-      pointAttribute.setXYZ(index, tempA.x, tempA.y, tempA.z);
-    });
-    pointAttribute.needsUpdate = true;
+  useFrame((_, delta) => {
+    // Clamp background-tab gaps so resuming does not skip the performance.
+    if (playing) performance.mixer.update(Math.min(delta, 0.05));
+    const current = transition.current;
+    const controls = controlsRef.current;
+    if (current && controls) {
+      current.elapsed = Math.min(current.elapsed + delta, TRANSITION_DURATION);
+      const progress = current.elapsed / TRANSITION_DURATION;
+      const eased = progress * progress * (3 - 2 * progress);
+      blend.current = THREE.MathUtils.lerp(
+        current.fromBlend,
+        current.toBlend,
+        eased,
+      );
+      camera.position.lerpVectors(
+        current.fromPosition,
+        current.toPosition,
+        eased,
+      );
+      controls.target.lerpVectors(current.fromTarget, current.toTarget, eased);
+      controls.update();
+      if (progress === 1) {
+        transition.current = null;
+        controls.enabled = true;
+      }
+    }
+    if (displacementGroup.current) {
+      const { root, origin } = performance;
+      // Cancel only horizontal travel; preserve vertical bounce and every joint track.
+      displacementGroup.current.position.set(
+        -(root.position.x - origin.x) * (1 - blend.current),
+        0,
+        -(root.position.z - origin.z) * (1 - blend.current),
+      );
+    }
   });
 
-  const skeletonOpacity = mode === 'capture' ? 0.92 : 0.2;
-
   return (
-    <group
-      ref={rigRef}
-      position={[0, -0.9, 0]}
-      rotation={[0, 0.08, 0]}
-      onPointerDown={(event) => {
-        event.stopPropagation();
-        pointerStartRef.current = { x: event.clientX, y: event.clientY };
-      }}
-      onPointerUp={(event) => {
-        event.stopPropagation();
-        const pointerStart = pointerStartRef.current;
-        pointerStartRef.current = null;
-        if (!pointerStart) return;
-
-        const distance = Math.hypot(
-          event.clientX - pointerStart.x,
-          event.clientY - pointerStart.y,
-        );
-        if (distance < 5) requestReaction();
-      }}
-    >
-      <primitive object={model} />
-
-      <lineSegments renderOrder={3}>
-        <bufferGeometry ref={lineGeometryRef}>
-          <bufferAttribute
-            attach="attributes-position"
-            args={[linePositions, 3]}
-          />
-        </bufferGeometry>
-        <lineBasicMaterial
-          color="#4bd0e4"
-          depthTest={false}
-          opacity={skeletonOpacity}
-          transparent
-        />
-      </lineSegments>
-
-      <points renderOrder={4}>
-        <bufferGeometry ref={pointGeometryRef}>
-          <bufferAttribute
-            attach="attributes-position"
-            args={[pointPositions, 3]}
-          />
-        </bufferGeometry>
-        <pointsMaterial
-          color="#dffbff"
-          depthTest={false}
-          opacity={skeletonOpacity}
-          size={0.032}
-          sizeAttenuation
-          transparent
-        />
-      </points>
-    </group>
+    <>
+      <OrbitControls
+        ref={controlsRef}
+        makeDefault
+        enableDamping
+        dampingFactor={0.07}
+        enablePan={false}
+        enableZoom={false}
+        minPolarAngle={0.15}
+        maxPolarAngle={Math.PI / 2 - 0.03}
+        rotateSpeed={0.65}
+      />
+      <group ref={displacementGroup}>
+        <primitive object={performance.model} dispose={null} />
+      </group>
+      <Grid
+        position={[0, performance.floor - 0.015, 0]}
+        args={[40, 40]}
+        cellSize={0.5}
+        cellThickness={0.5}
+        cellColor="#273b44"
+        sectionSize={2}
+        sectionThickness={0.8}
+        sectionColor="#416570"
+        fadeDistance={24}
+        fadeStrength={1.5}
+        infiniteGrid
+      />
+    </>
   );
 }
 
@@ -309,63 +174,29 @@ function SceneLoader({ label }: { label: string }) {
 export default function MotionCaptureCanvas({
   mode,
   playing,
+  reducedMotion,
   loadingLabel,
   interactionLabel,
 }: MotionCaptureCanvasProps) {
-  const [reactionRequest, setReactionRequest] = useState(0);
-  const requestReaction = () => setReactionRequest((current) => current + 1);
-
   return (
     <Canvas
       aria-label={interactionLabel}
-      camera={{ fov: 30, near: 0.1, far: 50, position: [0, 0.05, 4.2] }}
-      className="touch-none cursor-grab focus:outline-none active:cursor-grabbing focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-[#4bd0e4]"
+      camera={{ fov: 38, near: 0.05, far: 150, position: [3, 2, 5] }}
+      className="touch-none cursor-grab active:cursor-grabbing"
       dpr={[1, 1.5]}
       gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
-      onKeyDown={(event) => {
-        if (event.key !== 'Enter' && event.key !== ' ') return;
-        event.preventDefault();
-        requestReaction();
-      }}
-      role="button"
-      tabIndex={0}
+      role="img"
     >
-      <OrbitControls
-        makeDefault
-        dampingFactor={0.07}
-        enableDamping
-        enablePan={false}
-        enableZoom={false}
-        maxDistance={5.2}
-        maxPolarAngle={Math.PI}
-        minDistance={2.8}
-        minPolarAngle={0}
-        rotateSpeed={0.65}
-        target={[0, 0.15, 0]}
-      />
-      <hemisphereLight color="#ffffff" groundColor="#0a1014" intensity={1.6} />
-      <directionalLight
-        color="#fffaf2"
-        intensity={3.6}
-        position={[2.5, 3.5, 3]}
-      />
-      <directionalLight
-        color="#4bd0e4"
-        intensity={1.15}
-        position={[-2.5, 1, -2]}
-      />
-
+      <hemisphereLight color="#ffffff" groundColor="#18212b" intensity={2} />
+      <directionalLight color="#fffaf2" intensity={3.6} position={[3, 6, 5]} />
+      <directionalLight color="#4bd0e4" intensity={2} position={[-3, 3, -4]} />
       <Suspense fallback={<SceneLoader label={loadingLabel} />}>
-        <CaptureRig
+        <Performance
           mode={mode}
           playing={playing}
-          reactionRequest={reactionRequest}
-          requestReaction={requestReaction}
+          reducedMotion={reducedMotion}
         />
       </Suspense>
     </Canvas>
   );
 }
-
-useGLTF.preload(MODEL_PATH);
-useGLTF.preload(HIT_MODEL_PATH);

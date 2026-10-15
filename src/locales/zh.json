@@ -12,16 +12,16 @@
   },
   "application": {
     "capture_lab": {
-      "capture_label": "捕捉视图",
-      "description": "将一段真人表演解析为关节结构，用于驱动数字角色、机器人动作与训练数据。",
+      "description": "查看一段动作演示，切换原地动作与保留完整位移的模式。",
       "fallback_alt": "虚拟制片环境中的动作捕捉表演",
       "heading": "让动作清晰可读。",
-      "interaction_label": "拖动旋转。点击模型可触发受击动作。",
+      "interaction_label": "拖动旋转模型。切换模式，查看完整动作轨迹。",
       "loading_label": "正在载入动作模型",
       "pause_label": "暂停动作",
       "play_label": "播放动作",
-      "source_label": "交互式源动作：74 关节骨架，5.96 秒表演片段",
-      "surface_label": "表面视图"
+      "source_label": "74 关节骨骼 · 8.58 秒动作片段",
+      "in_place_label": "原地动作",
+      "root_motion_label": "包含位移"
     },
     "cta_title": "将动作需求，转化为可用系统。",
     "extra_info_alt": "动作捕捉连接虚拟交互与人形机器人",

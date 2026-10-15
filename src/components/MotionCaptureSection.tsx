@@ -9,13 +9,15 @@ import {
   type ReactNode,
 } from 'react';
 
+import type { MotionMode } from './motion-capture/performance';
+
 const MotionCaptureCanvas = lazy(() => import('./MotionCaptureCanvas'));
 
 interface MotionCaptureSectionProps {
   heading: string;
   description: string;
-  captureLabel: string;
-  surfaceLabel: string;
+  inPlaceLabel: string;
+  rootMotionLabel: string;
   playLabel: string;
   pauseLabel: string;
   loadingLabel: string;
@@ -65,8 +67,8 @@ function supportsWebGL() {
 export default function MotionCaptureSection({
   heading,
   description,
-  captureLabel,
-  surfaceLabel,
+  inPlaceLabel,
+  rootMotionLabel,
   playLabel,
   pauseLabel,
   loadingLabel,
@@ -80,8 +82,12 @@ export default function MotionCaptureSection({
   );
   const [nearViewport, setNearViewport] = useState(false);
   const [webGLAvailable] = useState(supportsWebGL);
-  const [mode, setMode] = useState<'capture' | 'surface'>('capture');
-  const [playing, setPlaying] = useState(true);
+  const [mode, setMode] = useState<MotionMode>('in-place');
+  const [playing, setPlaying] = useState(!prefersReducedMotion);
+
+  useEffect(() => {
+    if (prefersReducedMotion) setPlaying(false);
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -100,8 +106,7 @@ export default function MotionCaptureSection({
     return () => observer.disconnect();
   }, []);
 
-  const showScene =
-    nearViewport && webGLAvailable === true && !prefersReducedMotion;
+  const showScene = nearViewport && webGLAvailable === true;
 
   return (
     <Box
@@ -133,39 +138,39 @@ export default function MotionCaptureSection({
             {showScene && (
               <>
                 <Box
-                  className="flex flex-nowrap gap-2 overflow-x-auto pb-1"
+                  className="flex flex-wrap gap-2 pb-1"
                   role="group"
                   aria-label={heading}
                 >
                   <button
                     type="button"
-                    aria-pressed={mode === 'capture'}
-                    onClick={() => setMode('capture')}
-                    className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
-                      mode === 'capture'
+                    aria-pressed={mode === 'in-place'}
+                    onClick={() => setMode('in-place')}
+                    className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 ${
+                      mode === 'in-place'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
                         : 'border-line text-muted hover:border-[#4bd0e4] hover:text-ink'
                     }`}
                   >
-                    {captureLabel}
+                    {inPlaceLabel}
                   </button>
                   <button
                     type="button"
-                    aria-pressed={mode === 'surface'}
-                    onClick={() => setMode('surface')}
-                    className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 active:scale-[0.98] ${
-                      mode === 'surface'
+                    aria-pressed={mode === 'root-motion'}
+                    onClick={() => setMode('root-motion')}
+                    className={`min-h-11 shrink-0 whitespace-nowrap border px-3 py-2 text-sm font-semibold transition-colors duration-300 ${
+                      mode === 'root-motion'
                         ? 'border-[#4bd0e4] bg-[#4bd0e4] text-[#071013]'
                         : 'border-line text-muted hover:border-[#4bd0e4] hover:text-ink'
                     }`}
                   >
-                    {surfaceLabel}
+                    {rootMotionLabel}
                   </button>
                   <button
                     type="button"
                     aria-pressed={!playing}
                     onClick={() => setPlaying((current) => !current)}
-                    className="min-h-11 shrink-0 whitespace-nowrap border border-line px-3 py-2 text-sm font-semibold text-muted transition-colors duration-300 hover:border-[#4bd0e4] hover:text-ink active:scale-[0.98]"
+                    className="min-h-11 shrink-0 whitespace-nowrap border border-line px-3 py-2 text-sm font-semibold text-muted transition-colors duration-300 hover:border-[#4bd0e4] hover:text-ink"
                   >
                     {playing ? pauseLabel : playLabel}
                   </button>
@@ -185,6 +190,7 @@ export default function MotionCaptureSection({
                 <MotionCaptureCanvas
                   mode={mode}
                   playing={playing}
+                  reducedMotion={prefersReducedMotion}
                   loadingLabel={loadingLabel}
                   interactionLabel={interactionLabel}
                 />

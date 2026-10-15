@@ -52,7 +52,7 @@ This project does not use ESLint.
 
 ## Continuous integration and deployment layout
 
-The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies, checks formatting, checks TypeScript, builds the site, and uploads `dist/` as the deployment artifact. Static assets in `public/` are tracked with the source repository and included in the build.
+The GitHub Actions workflow in `.github/workflows/ci.yml` installs dependencies, checks formatting, checks TypeScript, builds the site, and uploads `dist/` as the deployment artifact. The externally managed assets in `public/` are excluded from new Git tracking. Provision them before building, or separately at the deployment web root.
 
 Keep the externally managed `public/` directory alongside the root `index.html` when running or building locally:
 
@@ -64,6 +64,14 @@ Keep the externally managed `public/` directory alongside the root `index.html` 
 ```
 
 Vite serves `public/` from the site root and copies its contents into `dist/` during a production build. The final artifact therefore has `index.html` and the copied asset directories at the same level; it must not contain a nested `dist/public/` directory. Deploy `dist/` as the web root.
+
+## Application motion viewer
+
+The application page loads `public/models/motion-performance.glb`, imported from the supplied `10.glb`. Keep this file in the external asset bundle when deploying; the source repository does not include the replacement binary. The retired `run.glb` and `hit.glb` files are no longer needed.
+
+The viewer starts in **In place** mode, cancelling the Armature root's horizontal translation while retaining vertical movement and joint animation. **Root motion** preserves the authored trajectory. Camera framing uses sampled animated geometry for each mode and adapts to the viewport. Mode changes blend root displacement, camera position, and camera target over 1.2 seconds without restarting playback.
+
+Drag to orbit and use the playback button to pause or resume. Reduced-motion preferences pause autoplay and disable camera transitions, while leaving manual playback available.
 
 ## Internationalization
 
@@ -100,7 +108,7 @@ The legacy `/solution` route redirects to `/product`, and `/teleop` redirects to
 
 ## Static assets
 
-Static assets are stored and versioned in `public/`:
+Static runtime assets are stored in the externally managed `public/` directory:
 
 - `public/images/` — logos, product images, banners, and other visual assets
 - `public/document/` — brochures and downloadable documents
