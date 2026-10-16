@@ -57,7 +57,6 @@ export default function AboutPage() {
         aria-labelledby="about-company-title"
       >
         <div className="about-section-heading">
-          <span className="about-mark" aria-hidden="true" />
           <h2 id="about-company-title">{t('about.title')}</h2>
         </div>
         <div className="about-company__copy">
