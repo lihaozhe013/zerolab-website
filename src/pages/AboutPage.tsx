@@ -19,7 +19,6 @@ export default function AboutPage() {
       <header className="about-hero about-container">
         <div className="about-hero__masthead">
           <p>{t('about.eyebrow')}</p>
-          <span>ZeroLab</span>
         </div>
         <div className="about-hero__grid">
           <div className="about-hero__copy">
