@@ -51,6 +51,9 @@ jobs:
       - name: Check TypeScript
         run: pnpm exec tsc -b
 
+      - name: Check product catalog
+        run: pnpm catalog:check
+
       - name: Configure GitHub Pages
         if: ${{ inputs.deploy-pages == true }}
         id: pages

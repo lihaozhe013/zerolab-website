@@ -1,0 +1,919 @@
+{
+  "products": [
+    {
+      "slug": "f1",
+      "key": "f1",
+      "family": "body",
+      "name": "F1",
+      "base": "product_brochure.products.f1",
+      "legacyIds": ["f1-full-body-suit", "brochure-page-07"],
+      "introduction": ["product_brochure.products.f1.introduction.description"],
+      "media": [
+        {
+          "src": "/product-brochure/products/f1-full-body-suit.png",
+          "altKey": "product_brochure.products.f1.images.f1_full_body_suit",
+          "width": 45686,
+          "height": 42042
+        },
+        {
+          "src": "/product-brochure/products/f1-strap-sensor.png",
+          "altKey": "product_brochure.products.f1.images.f1_strap_sensor",
+          "width": 10903,
+          "height": 10630
+        },
+        {
+          "src": "/product-brochure/products/f1-tracker-unit.png",
+          "altKey": "product_brochure.products.f1.images.f1_tracker_unit",
+          "width": 18678,
+          "height": 16340
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.f1.advantages.items.long_battery_life.title",
+          "descriptionKeys": [
+            "product_brochure.products.f1.advantages.items.long_battery_life.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.f1.advantages.items.lightweight_and_easy_to_wear.title",
+          "descriptionKeys": [
+            "product_brochure.products.f1.advantages.items.lightweight_and_easy_to_wear.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.f1.advantages.items.high_precision.title",
+          "descriptionKeys": [
+            "product_brochure.products.f1.advantages.items.high_precision.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.f1.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.f1.specifications.table.headers.parameter",
+              "product_brochure.products.f1.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.dimensions.parameter",
+              "product_brochure.products.f1.specifications.table.rows.dimensions.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.weight.parameter",
+              "product_brochure.products.f1.specifications.table.rows.weight.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.gyroscope_range.parameter",
+              "product_brochure.products.f1.specifications.table.rows.gyroscope_range.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.accelerometer_range.parameter",
+              "product_brochure.products.f1.specifications.table.rows.accelerometer_range.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.static_orientation_accuracy.parameter",
+              "product_brochure.products.f1.specifications.table.rows.static_orientation_accuracy.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.dynamic_orientation_accuracy.parameter",
+              "product_brochure.products.f1.specifications.table.rows.dynamic_orientation_accuracy.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.output_data.parameter",
+              "product_brochure.products.f1.specifications.table.rows.output_data.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.operating_voltage.parameter",
+              "product_brochure.products.f1.specifications.table.rows.operating_voltage.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.battery_capacity.parameter",
+              "product_brochure.products.f1.specifications.table.rows.battery_capacity.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.operating_time.parameter",
+              "product_brochure.products.f1.specifications.table.rows.operating_time.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.operating_temperature.parameter",
+              "product_brochure.products.f1.specifications.table.rows.operating_temperature.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.communication_method.parameter",
+              "product_brochure.products.f1.specifications.table.rows.communication_method.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.data_output_rate.parameter",
+              "product_brochure.products.f1.specifications.table.rows.data_output_rate.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.latency.parameter",
+              "product_brochure.products.f1.specifications.table.rows.latency.value"
+            ],
+            [
+              "product_brochure.products.f1.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.f1.specifications.table.rows.charging_time.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/products/f1-full-body-suit.png",
+        "altKey": "product_brochure.products.f1.images.f1_full_body_suit",
+        "width": 45686,
+        "height": 42042
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.f1.introduction.title",
+      "related": ["f2", "f2-pro-plus"]
+    },
+    {
+      "slug": "f2",
+      "key": "f2",
+      "family": "body",
+      "name": "F2",
+      "base": "product_brochure.products.f2",
+      "legacyIds": ["f2-full-body-suit", "brochure-page-11"],
+      "introduction": ["product_brochure.products.f2.introduction.description"],
+      "media": [
+        {
+          "src": "/product-brochure/products/f2-tracker-case.png",
+          "altKey": "product_brochure.products.f2.images.f2_tracker_case",
+          "width": 32263,
+          "height": 30037
+        },
+        {
+          "src": "/product-brochure/products/f2-data-gloves.png",
+          "altKey": "product_brochure.products.f2.images.f2_data_gloves",
+          "width": 29516,
+          "height": 22047
+        },
+        {
+          "src": "/product-brochure/products/f2-tracker-unit.png",
+          "altKey": "product_brochure.products.f2.images.f2_tracker_unit",
+          "width": 16284,
+          "height": 12960
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.f2.advantages.items.wearing.title",
+          "descriptionKeys": [
+            "product_brochure.products.f2.advantages.items.wearing.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.f2.advantages.items.more_hand_degrees_of_freedom_captured.title",
+          "descriptionKeys": [
+            "product_brochure.products.f2.advantages.items.more_hand_degrees_of_freedom_captured.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.f2.advantages.items.more_accurate_human_motion_data.title",
+          "descriptionKeys": [
+            "product_brochure.products.f2.advantages.items.more_accurate_human_motion_data.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [
+        {
+          "src": "/product-brochure/logos/windows.png",
+          "altKey": "product_brochure.products.f2.images.windows",
+          "width": 14372,
+          "height": 2739
+        },
+        {
+          "src": "/product-brochure/logos/ros.png",
+          "altKey": "product_brochure.products.f2.images.ros",
+          "width": 9228,
+          "height": 2725
+        },
+        {
+          "src": "/product-brochure/logos/unreal-engine.png",
+          "altKey": "product_brochure.products.f2.images.unreal_engine",
+          "width": 2372,
+          "height": 2586
+        },
+        {
+          "src": "/product-brochure/logos/unity.png",
+          "altKey": "product_brochure.products.f2.images.unity",
+          "width": 7206,
+          "height": 2807
+        },
+        {
+          "src": "/product-brochure/logos/ubuntu.png",
+          "altKey": "product_brochure.products.f2.images.ubuntu",
+          "width": 7517,
+          "height": 2785
+        }
+      ],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.f2.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.f2.specifications.table.headers.parameter",
+              "product_brochure.products.f2.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.signal_latency.parameter",
+              "product_brochure.products.f2.specifications.table.rows.signal_latency.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.sensor_data_types.parameter",
+              "product_brochure.products.f2.specifications.table.rows.sensor_data_types.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.sensor_rate.parameter",
+              "product_brochure.products.f2.specifications.table.rows.sensor_rate.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.battery_life.parameter",
+              "product_brochure.products.f2.specifications.table.rows.battery_life.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.f2.specifications.table.rows.charging_time.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.communication_protocol.parameter",
+              "product_brochure.products.f2.specifications.table.rows.communication_protocol.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.signal_range.parameter",
+              "product_brochure.products.f2.specifications.table.rows.signal_range.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.wearable_design.parameter",
+              "product_brochure.products.f2.specifications.table.rows.wearable_design.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.motion_capture_sensor_count.parameter",
+              "product_brochure.products.f2.specifications.table.rows.motion_capture_sensor_count.value"
+            ],
+            [
+              "product_brochure.products.f2.specifications.table.rows.hand_motion_data_capture.parameter",
+              "product_brochure.products.f2.specifications.table.rows.hand_motion_data_capture.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/products/f2-tracker-case.png",
+        "altKey": "product_brochure.products.f2.images.f2_tracker_case",
+        "width": 32263,
+        "height": 30037
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.f2.introduction.title",
+      "related": ["f1", "f2-pro-plus"]
+    },
+    {
+      "slug": "f2-pro-plus",
+      "key": "f2_pro_plus",
+      "family": "body",
+      "name": "F2 Pro+",
+      "base": "product_brochure.products.f2_pro_plus",
+      "legacyIds": ["f2-pro-plus-full-body-suit", "brochure-page-13"],
+      "introduction": [
+        "product_brochure.products.f2_pro_plus.introduction.description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/f2-pro-plus-gloves.png",
+          "altKey": "product_detail.images.tracker",
+          "width": 16277,
+          "height": 12963
+        },
+        {
+          "src": "/product-brochure/products/f2-pro-plus-tracker-case.png",
+          "altKey": "product_detail.images.gloves",
+          "width": 29516,
+          "height": 22047
+        },
+        {
+          "src": "/product-brochure/products/f2-pro-plus-tracker.png",
+          "altKey": "product_detail.images.kit",
+          "width": 32261,
+          "height": 29688
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.f2_pro_plus.advantages.items.extended_wireless_data_range.title",
+          "descriptionKeys": [
+            "product_brochure.products.f2_pro_plus.advantages.items.extended_wireless_data_range.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [
+        {
+          "src": "/product-brochure/logos/windows.png",
+          "altKey": "product_brochure.products.f2_pro_plus.images.windows",
+          "width": 14372,
+          "height": 2739
+        },
+        {
+          "src": "/product-brochure/logos/ros.png",
+          "altKey": "product_brochure.products.f2_pro_plus.images.ros",
+          "width": 9228,
+          "height": 2725
+        },
+        {
+          "src": "/product-brochure/logos/unreal-engine.png",
+          "altKey": "product_brochure.products.f2_pro_plus.images.unreal_engine",
+          "width": 2372,
+          "height": 2586
+        },
+        {
+          "src": "/product-brochure/logos/unity.png",
+          "altKey": "product_brochure.products.f2_pro_plus.images.unity",
+          "width": 7206,
+          "height": 2807
+        },
+        {
+          "src": "/product-brochure/logos/ubuntu.png",
+          "altKey": "product_brochure.products.f2_pro_plus.images.ubuntu",
+          "width": 7517,
+          "height": 2785
+        }
+      ],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.f2_pro_plus.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.headers.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.signal_latency.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.signal_latency.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.sensor_data_types.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.sensor_data_types.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.sensor_rate.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.sensor_rate.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.battery_life.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.battery_life.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.charging_time.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.communication_protocol.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.communication_protocol.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.signal_range.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.signal_range.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.wearable_design.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.wearable_design.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.motion_capture_sensor_count.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.motion_capture_sensor_count.value"
+            ],
+            [
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.hand_motion_data_capture.parameter",
+              "product_brochure.products.f2_pro_plus.specifications.table.rows.hand_motion_data_capture.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "brochure": {
+        "href": "/document/F-2Brochure.pdf",
+        "label": "product_detail.downloads.body"
+      },
+      "hero": {
+        "src": "/product-brochure/products/f2-pro-plus-tracker.png",
+        "altKey": "product_detail.images.kit",
+        "width": 32261,
+        "height": 29688
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.f2_pro_plus.introduction.title",
+      "related": ["f1", "f2"]
+    },
+    {
+      "slug": "h1",
+      "key": "h1",
+      "family": "hands",
+      "name": "H1",
+      "base": "product_brochure.products.h1",
+      "legacyIds": ["h1-data-gloves", "brochure-page-09"],
+      "introduction": [
+        "product_brochure.products.h1.introduction.description",
+        "product_brochure.products.h1.introduction.additional_description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/h1-data-gloves.png",
+          "altKey": "product_brochure.products.h1.images.h1_data_gloves",
+          "width": 49046,
+          "height": 35553
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.h1.advantages.items.excellent_value.title",
+          "descriptionKeys": [
+            "product_brochure.products.h1.advantages.items.excellent_value.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.h1.advantages.items.lightweight_and_easy_to_wear.title",
+          "descriptionKeys": [
+            "product_brochure.products.h1.advantages.items.lightweight_and_easy_to_wear.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.h1.advantages.items.high_precision.title",
+          "descriptionKeys": [
+            "product_brochure.products.h1.advantages.items.high_precision.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.h1.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.h1.specifications.table.headers.parameter",
+              "product_brochure.products.h1.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.dimensions.parameter",
+              "product_brochure.products.h1.specifications.table.rows.dimensions.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.weight.parameter",
+              "product_brochure.products.h1.specifications.table.rows.weight.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.gyroscope_range.parameter",
+              "product_brochure.products.h1.specifications.table.rows.gyroscope_range.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.accelerometer_range.parameter",
+              "product_brochure.products.h1.specifications.table.rows.accelerometer_range.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.static_orientation_accuracy.parameter",
+              "product_brochure.products.h1.specifications.table.rows.static_orientation_accuracy.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.dynamic_orientation_accuracy.parameter",
+              "product_brochure.products.h1.specifications.table.rows.dynamic_orientation_accuracy.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.finger_bend_measurement_resolution.parameter",
+              "product_brochure.products.h1.specifications.table.rows.finger_bend_measurement_resolution.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.output_data.parameter",
+              "product_brochure.products.h1.specifications.table.rows.output_data.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.operating_voltage.parameter",
+              "product_brochure.products.h1.specifications.table.rows.operating_voltage.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.battery_capacity.parameter",
+              "product_brochure.products.h1.specifications.table.rows.battery_capacity.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.operating_time.parameter",
+              "product_brochure.products.h1.specifications.table.rows.operating_time.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.operating_temperature.parameter",
+              "product_brochure.products.h1.specifications.table.rows.operating_temperature.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.communication_method.parameter",
+              "product_brochure.products.h1.specifications.table.rows.communication_method.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.data_output_rate.parameter",
+              "product_brochure.products.h1.specifications.table.rows.data_output_rate.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.latency.parameter",
+              "product_brochure.products.h1.specifications.table.rows.latency.value"
+            ],
+            [
+              "product_brochure.products.h1.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.h1.specifications.table.rows.charging_time.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/products/h1-data-gloves.png",
+        "altKey": "product_brochure.products.h1.images.h1_data_gloves",
+        "width": 49046,
+        "height": 35553
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.h1.introduction.title",
+      "related": ["h2", "h2-pro", "h2-pro-plus"]
+    },
+    {
+      "slug": "h2",
+      "key": "h2",
+      "family": "hands",
+      "name": "H2",
+      "base": "product_brochure.products.h2",
+      "legacyIds": ["h2-dexterous-data-gloves", "brochure-page-15"],
+      "introduction": ["product_brochure.products.h2.introduction.description"],
+      "media": [
+        {
+          "src": "/product-brochure/products/h2-dexterous-data-gloves.png",
+          "altKey": "product_brochure.products.h2.images.h2_dexterous_data_gloves",
+          "width": 54619,
+          "height": 42015
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.h2.advantages.items.designed_for_6_dof_dexterous_hands.title",
+          "descriptionKeys": [
+            "product_brochure.products.h2.advantages.items.designed_for_6_dof_dexterous_hands.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.h2.advantages.items.lightweight_and_breathable.title",
+          "descriptionKeys": [
+            "product_brochure.products.h2.advantages.items.lightweight_and_breathable.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.h2.advantages.items.removable_and_washable.title",
+          "descriptionKeys": [
+            "product_brochure.products.h2.advantages.items.removable_and_washable.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.h2.advantages.items.high_precision_motion_capture.title",
+          "descriptionKeys": [
+            "product_brochure.products.h2.advantages.items.high_precision_motion_capture.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [
+        {
+          "src": "/product-brochure/logos/engineai.png",
+          "altKey": "product_brochure.products.h2.images.engineai",
+          "width": 3525,
+          "height": 3855
+        },
+        {
+          "src": "/product-brochure/logos/oymotion.png",
+          "altKey": "product_brochure.products.h2.images.oymotion",
+          "width": 10521,
+          "height": 2965
+        },
+        {
+          "src": "/product-brochure/logos/ros.png",
+          "altKey": "product_brochure.products.h2.images.ros",
+          "width": 9228,
+          "height": 2725
+        },
+        {
+          "src": "/product-brochure/logos/unity.png",
+          "altKey": "product_brochure.products.h2.images.unity",
+          "width": 7206,
+          "height": 2807
+        }
+      ],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.h2.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.h2.specifications.table.headers.parameter",
+              "product_brochure.products.h2.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.signal_latency.parameter",
+              "product_brochure.products.h2.specifications.table.rows.signal_latency.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.finger_sensor_type.parameter",
+              "product_brochure.products.h2.specifications.table.rows.finger_sensor_type.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.sensor_rate.parameter",
+              "product_brochure.products.h2.specifications.table.rows.sensor_rate.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.battery_life.parameter",
+              "product_brochure.products.h2.specifications.table.rows.battery_life.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.h2.specifications.table.rows.charging_time.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.weight.parameter",
+              "product_brochure.products.h2.specifications.table.rows.weight.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.communication_protocol.parameter",
+              "product_brochure.products.h2.specifications.table.rows.communication_protocol.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.signal_range.parameter",
+              "product_brochure.products.h2.specifications.table.rows.signal_range.value"
+            ],
+            [
+              "product_brochure.products.h2.specifications.table.rows.fabric_size_options.parameter",
+              "product_brochure.products.h2.specifications.table.rows.fabric_size_options.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/products/h2-dexterous-data-gloves.png",
+        "altKey": "product_brochure.products.h2.images.h2_dexterous_data_gloves",
+        "width": 54619,
+        "height": 42015
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.h2.introduction.title",
+      "related": ["h1", "h2-pro", "h2-pro-plus"]
+    },
+    {
+      "slug": "h2-pro",
+      "key": "h2_pro",
+      "family": "hands",
+      "name": "H2 Pro",
+      "base": "product_brochure.products.h2_pro",
+      "legacyIds": ["h2-pro-data-gloves", "brochure-page-17"],
+      "introduction": [
+        "product_brochure.products.h2_pro.introduction.description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/h2-dexterous-data-gloves.png",
+          "altKey": "product_brochure.products.h2_pro.images.h2_dexterous_data_gloves",
+          "width": 54619,
+          "height": 42015
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.h2_pro.advantages.items.interference_resistant_proprietary_protocol.title",
+          "descriptionKeys": [
+            "product_brochure.products.h2_pro.advantages.items.interference_resistant_proprietary_protocol.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [
+        {
+          "src": "/product-brochure/logos/engineai.png",
+          "altKey": "product_brochure.products.h2_pro.images.engineai",
+          "width": 3525,
+          "height": 3855
+        },
+        {
+          "src": "/product-brochure/logos/oymotion.png",
+          "altKey": "product_brochure.products.h2_pro.images.oymotion",
+          "width": 10521,
+          "height": 2965
+        },
+        {
+          "src": "/product-brochure/logos/ros.png",
+          "altKey": "product_brochure.products.h2_pro.images.ros",
+          "width": 9228,
+          "height": 2725
+        },
+        {
+          "src": "/product-brochure/logos/unity.png",
+          "altKey": "product_brochure.products.h2_pro.images.unity",
+          "width": 7206,
+          "height": 2807
+        }
+      ],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.h2_pro.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.h2_pro.specifications.table.headers.parameter",
+              "product_brochure.products.h2_pro.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.signal_latency.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.signal_latency.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.finger_sensor_type.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.finger_sensor_type.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.sensor_rate.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.sensor_rate.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.battery_life.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.battery_life.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.charging_time.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.weight.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.weight.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.communication_protocol.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.communication_protocol.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.signal_range.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.signal_range.value"
+            ],
+            [
+              "product_brochure.products.h2_pro.specifications.table.rows.fabric_size_options.parameter",
+              "product_brochure.products.h2_pro.specifications.table.rows.fabric_size_options.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "brochure": {
+        "href": "/document/DataGloves Brochure.pdf",
+        "label": "product_detail.downloads.gloves"
+      },
+      "hero": {
+        "src": "/product-brochure/products/h2-dexterous-data-gloves.png",
+        "altKey": "product_brochure.products.h2_pro.images.h2_dexterous_data_gloves",
+        "width": 54619,
+        "height": 42015
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.h2_pro.introduction.title",
+      "related": ["h1", "h2", "h2-pro-plus"]
+    },
+    {
+      "slug": "h2-pro-plus",
+      "key": "h2_pro_plus",
+      "family": "hands",
+      "name": "H2 Pro+",
+      "base": "product_brochure.products.h2_pro_plus",
+      "legacyIds": ["h2-pro-plus-data-gloves", "brochure-page-19"],
+      "introduction": [
+        "product_brochure.products.h2_pro_plus.introduction.description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/h2-pro-plus-data-gloves.png",
+          "altKey": "product_brochure.products.h2_pro_plus.images.h2_pro_plus_data_gloves",
+          "width": 54619,
+          "height": 42015
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.h2_pro_plus.advantages.items.extended_wireless_range.title",
+          "descriptionKeys": [
+            "product_brochure.products.h2_pro_plus.advantages.items.extended_wireless_range.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [
+        {
+          "src": "/product-brochure/logos/engineai.png",
+          "altKey": "product_brochure.products.h2_pro_plus.images.engineai",
+          "width": 3525,
+          "height": 3855
+        },
+        {
+          "src": "/product-brochure/logos/oymotion.png",
+          "altKey": "product_brochure.products.h2_pro_plus.images.oymotion",
+          "width": 10521,
+          "height": 2965
+        },
+        {
+          "src": "/product-brochure/logos/ros.png",
+          "altKey": "product_brochure.products.h2_pro_plus.images.ros",
+          "width": 9228,
+          "height": 2725
+        },
+        {
+          "src": "/product-brochure/logos/unity.png",
+          "altKey": "product_brochure.products.h2_pro_plus.images.unity",
+          "width": 7206,
+          "height": 2807
+        }
+      ],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.h2_pro_plus.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.headers.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.signal_latency.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.signal_latency.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.finger_sensor_type.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.finger_sensor_type.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.sensor_rate.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.sensor_rate.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.battery_life.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.battery_life.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.charging_time.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.charging_time.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.weight.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.weight.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.communication_protocol.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.communication_protocol.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.signal_range.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.signal_range.value"
+            ],
+            [
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.fabric_size_options.parameter",
+              "product_brochure.products.h2_pro_plus.specifications.table.rows.fabric_size_options.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/products/h2-pro-plus-data-gloves.png",
+        "altKey": "product_brochure.products.h2_pro_plus.images.h2_pro_plus_data_gloves",
+        "width": 54619,
+        "height": 42015
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.h2_pro_plus.introduction.title",
+      "related": ["h1", "h2", "h2-pro"]
+    }
+  ]
+}

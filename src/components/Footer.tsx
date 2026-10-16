@@ -2,38 +2,24 @@ import { ArrowForward } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { products, productPath } from '@/content/productCatalog';
 
 export default function Footer() {
   const { t } = useTranslation();
   const isHome = useLocation().pathname === '/';
-  const brochureSection = (id: string) => ({
-    pathname: '/product',
-    hash: `#${id}`,
-  });
 
   const footerGroups = [
     {
       title: t('nav.product'),
       links: [
-        { label: 'ZL9NSQ', to: brochureSection('zl9nsq-chip') },
-        { label: 'F1', to: brochureSection('f1-full-body-suit') },
-        { label: 'H1', to: brochureSection('h1-data-gloves') },
-        { label: 'F2', to: brochureSection('f2-full-body-suit') },
-        { label: 'F2 Pro+', to: brochureSection('f2-pro-plus-full-body-suit') },
-        { label: 'H2', to: brochureSection('h2-dexterous-data-gloves') },
-        { label: 'H2 Pro', to: brochureSection('h2-pro-data-gloves') },
-        { label: 'H2 Pro+', to: brochureSection('h2-pro-plus-data-gloves') },
-        { label: 'OpenArm-Z', to: brochureSection('openarm-z') },
-        { label: 'OpenArm-Zm', to: brochureSection('openarm-zm') },
-        { label: 'OpenArm-Z+', to: brochureSection('openarm-z-plus') },
-        {
-          label: t('footer.product_platform'),
-          to: brochureSection('custom-motion-data-platform'),
-        },
-        {
-          label: t('footer.product_partners'),
-          to: brochureSection('partners'),
-        },
+        ...products.map((product) => ({
+          label:
+            product.family === 'platform'
+              ? t('product_catalog.platform.name')
+              : product.name,
+          to: productPath(product.slug),
+        })),
+        { label: t('footer.product_partners'), to: '/product#ecosystem' },
       ],
     },
     {

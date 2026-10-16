@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "format": "prettier . --write",
     "assets:scan": "node scripts/scan-public-assets.mjs",
-    "brochure:check": "node scripts/check-product-brochure.mjs"
+    "brochure:check": "node scripts/check-product-brochure.mjs",
+    "catalog:generate": "node scripts/generate-product-catalog.mjs",
+    "catalog:check": "node scripts/check-product-catalog.mjs"
   },
   "dependencies": {
     "@amap/amap-react": "^0.1.5",

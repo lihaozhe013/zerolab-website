@@ -1,0 +1,646 @@
+{
+  "products": [
+    {
+      "slug": "openarm-z",
+      "key": "openarm_z",
+      "family": "robotics",
+      "name": "OpenArm-Z",
+      "base": "product_brochure.products.openarm_z",
+      "legacyIds": ["openarm-z", "brochure-page-21"],
+      "introduction": [
+        "product_brochure.products.openarm_z.introduction.description",
+        "product_brochure.products.openarm_z.introduction.additional_description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/openarm-hands.png",
+          "altKey": "product_brochure.products.openarm_z.images.openarm_hands",
+          "width": 21564,
+          "height": 17937
+        },
+        {
+          "src": "/product-brochure/products/openarm-z-robot.png",
+          "altKey": "product_brochure.products.openarm_z.images.openarm_z_robot",
+          "width": 30282,
+          "height": 44963
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.openarm_z.advantages.items.natural_teleoperation.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z.advantages.items.natural_teleoperation.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.advantages.items.high_precision_data_capture.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z.advantages.items.high_precision_data_capture.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.advantages.items.low_latency_wireless_operation.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z.advantages.items.low_latency_wireless_operation.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.advantages.items.a_complete_arm_and_hand_loop.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z.advantages.items.a_complete_arm_and_hand_loop.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.advantages.items.open_and_extensible.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z.advantages.items.open_and_extensible.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [
+        {
+          "titleKey": "product_brochure.products.openarm_z.scenarios.items.humanoid_robot_teleoperation_and_demonstration.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/robot-operation.webp",
+              "altKey": "product_brochure.products.openarm_z.images.robot_operation",
+              "width": 25657,
+              "height": 7135
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.scenarios.items.manipulation_data_capture.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/robot-data-collection.webp",
+              "altKey": "product_brochure.products.openarm_z.images.robot_data_collection",
+              "width": 25512,
+              "height": 7135
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.scenarios.items.embodied_ai_physical_ai_training.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/physical-ai-training.webp",
+              "altKey": "product_brochure.products.openarm_z.images.physical_ai_training",
+              "width": 25450,
+              "height": 7114
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z.scenarios.items.complex_contact_task_validation_grasping_tool_use_assembly.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/contact-task-validation.webp",
+              "altKey": "product_brochure.products.openarm_z.images.contact_task_validation",
+              "width": 25705,
+              "height": 7122
+            }
+          ]
+        }
+      ],
+      "logos": [],
+      "tables": [],
+      "specificationKeys": [
+        "product_brochure.products.openarm_z.introduction.specification_0",
+        "product_brochure.products.openarm_z.introduction.specification_1",
+        "product_brochure.products.openarm_z.introduction.specification_2",
+        "product_brochure.products.openarm_z.introduction.specification_3",
+        "product_brochure.products.openarm_z.introduction.specification_4",
+        "product_brochure.products.openarm_z.introduction.specification_5",
+        "product_brochure.products.openarm_z.introduction.specification_6"
+      ],
+      "features": [],
+      "brochure": {
+        "href": "/document/OpenArm BroChure20251223.pdf",
+        "label": "product_detail.downloads.openarm"
+      },
+      "hero": {
+        "src": "/product-brochure/products/openarm-z-robot.png",
+        "altKey": "product_brochure.products.openarm_z.images.openarm_z_robot",
+        "width": 30282,
+        "height": 44963
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.openarm_z.introduction.title",
+      "related": ["openarm-zm", "openarm-z-plus"]
+    },
+    {
+      "slug": "openarm-zm",
+      "key": "openarm_zm",
+      "family": "robotics",
+      "name": "OpenArm-Zm",
+      "base": "product_brochure.products.openarm_zm",
+      "legacyIds": ["openarm-zm", "brochure-page-23"],
+      "introduction": [
+        "product_brochure.products.openarm_zm.introduction.description",
+        "product_brochure.products.openarm_zm.introduction.additional_description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/openarm-zm-scenario.webp",
+          "altKey": "product_brochure.products.openarm_zm.images.openarm_zm_scenario",
+          "width": 60774,
+          "height": 51279
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.openarm_zm.advantages.items.natural_teleoperation_and_mobile_operation.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_zm.advantages.items.natural_teleoperation_and_mobile_operation.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_zm.advantages.items.high_precision_multidimensional_data_capture.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_zm.advantages.items.high_precision_multidimensional_data_capture.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_zm.advantages.items.low_latency_wide_area_wireless_operation.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_zm.advantages.items.low_latency_wide_area_wireless_operation.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_zm.advantages.items.flexible_expansion_for_any_environment.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_zm.advantages.items.flexible_expansion_for_any_environment.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [
+        {
+          "titleKey": "product_brochure.products.openarm_zm.scenarios.items.inspection_and_maintenance_of_large_industrial_equipment.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/industrial-maintenance.webp",
+              "altKey": "product_brochure.products.openarm_zm.images.industrial_maintenance",
+              "width": 26241,
+              "height": 10936
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_zm.scenarios.items.research_data_capture_in_unstructured_environments.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/research-data-collection.webp",
+              "altKey": "product_brochure.products.openarm_zm.images.research_data_collection",
+              "width": 26241,
+              "height": 11034
+            }
+          ]
+        }
+      ],
+      "logos": [],
+      "tables": [],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/products/openarm-zm-scenario.webp",
+        "altKey": "product_brochure.products.openarm_zm.images.openarm_zm_scenario",
+        "width": 60774,
+        "height": 51279
+      },
+      "sceneHero": true,
+      "titleKey": "product_brochure.products.openarm_zm.introduction.title",
+      "related": ["openarm-z", "openarm-z-plus"]
+    },
+    {
+      "slug": "openarm-z-plus",
+      "key": "openarm_z_plus",
+      "family": "robotics",
+      "name": "OpenArm-Z+",
+      "base": "product_brochure.products.openarm_z_plus",
+      "legacyIds": ["openarm-z-plus", "brochure-page-25"],
+      "introduction": [
+        "product_brochure.products.openarm_z_plus.introduction.description",
+        "product_brochure.products.openarm_z_plus.introduction.additional_description"
+      ],
+      "media": [],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.openarm_z_plus.advantages.items.biomimetic_waist_and_full_range_mobile_operation.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z_plus.advantages.items.biomimetic_waist_and_full_range_mobile_operation.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z_plus.advantages.items.high_fidelity_real_robot_data_capture.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z_plus.advantages.items.high_fidelity_real_robot_data_capture.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z_plus.advantages.items.low_latency_wide_area_wireless_operation.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z_plus.advantages.items.low_latency_wide_area_wireless_operation.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z_plus.advantages.items.flexible_expansion_for_any_environment.title",
+          "descriptionKeys": [
+            "product_brochure.products.openarm_z_plus.advantages.items.flexible_expansion_for_any_environment.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [
+        {
+          "titleKey": "product_brochure.products.openarm_z_plus.scenarios.items.smart_retail.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/smart-retail.webp",
+              "altKey": "product_brochure.products.openarm_z_plus.images.smart_retail",
+              "width": 26221,
+              "height": 11039
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.openarm_z_plus.scenarios.items.intelligent_warehousing.title",
+          "descriptionKeys": [],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/intelligent-warehousing.webp",
+              "altKey": "product_brochure.products.openarm_z_plus.images.intelligent_warehousing",
+              "width": 26373,
+              "height": 10937
+            }
+          ]
+        }
+      ],
+      "logos": [],
+      "tables": [],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/scenarios/smart-retail.webp",
+        "altKey": "product_brochure.products.openarm_z_plus.images.smart_retail",
+        "width": 26221,
+        "height": 11039
+      },
+      "sceneHero": true,
+      "titleKey": "product_brochure.products.openarm_z_plus.introduction.title",
+      "related": ["openarm-z", "openarm-zm"]
+    },
+    {
+      "slug": "zl9nsq",
+      "key": "zl9nsq",
+      "family": "silicon",
+      "name": "ZL9NSQ",
+      "base": "product_brochure.products.zl9nsq",
+      "legacyIds": [
+        "zl9nsq-chip",
+        "brochure-page-03",
+        "brochure-page-04",
+        "brochure-page-05"
+      ],
+      "introduction": [
+        "product_brochure.products.zl9nsq.introduction.description",
+        "product_brochure.products.zl9nsq.introduction.additional_description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/products/zl9nsq-size-comparison.png",
+          "altKey": "product_brochure.products.zl9nsq.images.zl9nsq_size_comparison",
+          "width": 33208,
+          "height": 32765
+        },
+        {
+          "src": "/product-brochure/products/zl9nsq-chip-on-fingertip.webp",
+          "altKey": "product_brochure.products.zl9nsq.images.zl9nsq_chip_on_fingertip",
+          "width": 15882,
+          "height": 14665
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.zl9nsq.advantages.items.compact_design_powerful_performance.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.advantages.items.compact_design_powerful_performance.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.advantages.items.high_reliability_longer_service_life.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.advantages.items.high_reliability_longer_service_life.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.advantages.items.eco_friendly_lower_cost.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.advantages.items.eco_friendly_lower_cost.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.advantages.items.flexible_applications_broad_use_cases.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.advantages.items.flexible_applications_broad_use_cases.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [
+        {
+          "titleKey": "product_brochure.products.zl9nsq.scenarios.items.motion_data_capture.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.scenarios.items.motion_data_capture.description"
+          ],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/motion-capture.webp",
+              "altKey": "product_brochure.products.zl9nsq.images.motion_capture",
+              "width": 28364,
+              "height": 8021
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.scenarios.items.virtual_reality_interaction.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.scenarios.items.virtual_reality_interaction.description"
+          ],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/machine-perception.webp",
+              "altKey": "product_brochure.products.zl9nsq.images.machine_perception",
+              "width": 28243,
+              "height": 8023
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.scenarios.items.machine_perception.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.scenarios.items.machine_perception.description"
+          ],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/remote-tracking.webp",
+              "altKey": "product_brochure.products.zl9nsq.images.remote_tracking",
+              "width": 28274,
+              "height": 8464
+            }
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.scenarios.items.remote_positioning_and_tracking.title",
+          "descriptionKeys": [
+            "product_brochure.products.zl9nsq.scenarios.items.remote_positioning_and_tracking.description"
+          ],
+          "media": [
+            {
+              "src": "/product-brochure/scenarios/virtual-reality.webp",
+              "altKey": "product_brochure.products.zl9nsq.images.virtual_reality",
+              "width": 28274,
+              "height": 8483
+            }
+          ]
+        }
+      ],
+      "logos": [],
+      "tables": [
+        {
+          "titleKey": "product_brochure.products.zl9nsq.technical_specifications.title",
+          "rows": [
+            [
+              null,
+              "product_brochure.products.zl9nsq.technical_specifications.table.headers.value",
+              "product_brochure.products.zl9nsq.technical_specifications.table.headers.comparison_value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.solution_size.parameter",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.solution_size.value",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.solution_size.comparison_value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.power_consumption.parameter",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.power_consumption.value",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.power_consumption.comparison_value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.latency.parameter",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.latency.value",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.latency.comparison_value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.orientation_accuracy.parameter",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.orientation_accuracy.value",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.orientation_accuracy.comparison_value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.solution_cost.parameter",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.solution_cost.value",
+              "product_brochure.products.zl9nsq.technical_specifications.table.rows.solution_cost.comparison_value"
+            ]
+          ]
+        },
+        {
+          "titleKey": "product_brochure.products.zl9nsq.specifications.title",
+          "rows": [
+            [
+              "product_brochure.products.zl9nsq.specifications.table.headers.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.headers.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.operating_voltage.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.operating_voltage.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.operating_current.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.operating_current.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.built_in_orientation_sensors.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.built_in_orientation_sensors.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.accelerometer_range.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.accelerometer_range.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.magnetometer_range.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.magnetometer_range.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.gyroscope_range.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.gyroscope_range.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.orientation_accuracy.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.orientation_accuracy.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.output_data_format.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.output_data_format.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.output_interface.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.output_interface.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.expansion_interface.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.expansion_interface.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.external_antenna_expansion.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.external_antenna_expansion.value"
+            ],
+            [
+              "product_brochure.products.zl9nsq.specifications.table.rows.chip_dimensions.parameter",
+              "product_brochure.products.zl9nsq.specifications.table.rows.chip_dimensions.value"
+            ]
+          ]
+        }
+      ],
+      "specificationKeys": [],
+      "features": [
+        {
+          "titleKey": "product_brochure.products.zl9nsq.technical_specifications.items.product_features.title",
+          "keys": [
+            "product_brochure.products.zl9nsq.technical_specifications.items.product_features.description",
+            "product_brochure.products.zl9nsq.technical_specifications.items.product_features.description_1",
+            "product_brochure.products.zl9nsq.technical_specifications.items.product_features.description_2",
+            "product_brochure.products.zl9nsq.technical_specifications.items.product_features.description_3",
+            "product_brochure.products.zl9nsq.technical_specifications.items.product_features.description_4"
+          ]
+        }
+      ],
+      "brochure": {
+        "href": "/document/Chip_brochure.pdf",
+        "label": "product_detail.downloads.chip"
+      },
+      "hero": {
+        "src": "/product-brochure/products/zl9nsq-size-comparison.png",
+        "altKey": "product_brochure.products.zl9nsq.images.zl9nsq_size_comparison",
+        "width": 33208,
+        "height": 32765
+      },
+      "sceneHero": false,
+      "titleKey": "product_brochure.products.zl9nsq.introduction.title",
+      "related": ["f2-pro-plus", "h2-pro-plus", "openarm-z"]
+    },
+    {
+      "slug": "motion-data-platform",
+      "key": "motion_data_platform",
+      "family": "platform",
+      "name": "Motion-Data Platform",
+      "base": "product_brochure.products.motion_data_platform",
+      "legacyIds": ["custom-motion-data-platform", "partners"],
+      "introduction": [
+        "product_brochure.products.motion_data_platform.introduction.description"
+      ],
+      "media": [
+        {
+          "src": "/product-brochure/scenarios/humanoid-data-platform.webp",
+          "altKey": "product_brochure.products.motion_data_platform.images.humanoid_data_platform",
+          "width": 60586,
+          "height": 49016
+        }
+      ],
+      "advantages": [
+        {
+          "titleKey": "product_brochure.products.ecosystem.advantages.items.seamless_integration.title",
+          "descriptionKeys": [
+            "product_brochure.products.ecosystem.advantages.items.seamless_integration.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.ecosystem.advantages.items.direct_data_pipeline.title",
+          "descriptionKeys": [
+            "product_brochure.products.ecosystem.advantages.items.direct_data_pipeline.description"
+          ],
+          "media": []
+        },
+        {
+          "titleKey": "product_brochure.products.ecosystem.advantages.items.faster_deployment.title",
+          "descriptionKeys": [
+            "product_brochure.products.ecosystem.advantages.items.faster_deployment.description"
+          ],
+          "media": []
+        }
+      ],
+      "scenarios": [],
+      "logos": [],
+      "tables": [],
+      "specificationKeys": [],
+      "features": [],
+      "hero": {
+        "src": "/product-brochure/scenarios/humanoid-data-platform.webp",
+        "altKey": "product_brochure.products.motion_data_platform.images.humanoid_data_platform",
+        "width": 60586,
+        "height": 49016
+      },
+      "sceneHero": true,
+      "titleKey": "product_brochure.products.motion_data_platform.introduction.title",
+      "related": ["f2-pro-plus", "h2-pro-plus", "openarm-z"]
+    }
+  ],
+  "partners": [
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.asd.title",
+      "src": "/product-brochure/logos/partner-asd.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_asd"
+    },
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.engineai.title",
+      "src": "/product-brochure/logos/partner-engineai.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_engineai"
+    },
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.fourier_intelligence.title",
+      "src": "/product-brochure/logos/partner-fourier.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_fourier"
+    },
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.matrix_robotics.title",
+      "src": "/product-brochure/logos/partner-matrix.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_matrix"
+    },
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.pndbotics.title",
+      "src": "/product-brochure/logos/partner-pndbotics.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_pndbotics"
+    },
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.unitree_robotics.title",
+      "src": "/product-brochure/logos/partner-unitree.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_unitree"
+    },
+    {
+      "nameKey": "product_brochure.products.ecosystem.partners.items.zhejiang_humanoid_robot_innovation_center.title",
+      "src": "/product-brochure/logos/partner-zhejiang-humanoid-center.png",
+      "altKey": "product_brochure.products.ecosystem.images.partner_zhejiang_humanoid_center"
+    }
+  ]
+}

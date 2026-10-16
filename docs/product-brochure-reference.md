@@ -1,5 +1,7 @@
 # Product Handbook Recreation Reference
 
+The active product area now uses the [product catalog and independent detail pages](product-catalog.md). This document describes the retained handbook extraction and historical reconstruction tools. Their data and source assets remain the factual reference for the new pages.
+
 ## Source and page range
 
 - Source SHA-256: `9e78622d888a17af4620d6f2bb84f62c0f1426d75eaf9e8d3fddc822aee088d4`

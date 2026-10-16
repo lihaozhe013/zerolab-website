@@ -53,7 +53,9 @@ export default function Navbar() {
     mode === 'dark'
       ? t('common.switch_to_light_mode')
       : t('common.switch_to_dark_mode');
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) =>
+    location.pathname === path ||
+    (path === '/product' && location.pathname.startsWith('/product/'));
 
   useEffect(() => {
     const updateHomePosition = () => {

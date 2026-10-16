@@ -1371,5 +1371,186 @@
       "section": "Product section {{number}}",
       "specifications": "Product specifications"
     }
+  },
+  "product_catalog": {
+    "label": "ZeroLab products",
+    "title": "Human motion.\nRobotic possibilities.",
+    "description": "Motion sensors, wearable capture and teleoperation systems. Explore the hardware that connects human movement to robotic action.",
+    "explore": "Explore the lineup",
+    "view": "View details",
+    "categories": "Product families",
+    "scope": {
+      "hardware": "From sensor to system",
+      "integration": "Built for motion and robotics"
+    },
+    "system_label": "ZeroLab sensors and wearable capture connected to OpenArm-Z teleoperation",
+    "system": {
+      "hands": "Hand motion",
+      "body": "Body motion",
+      "silicon": "Inertial sensing",
+      "caption": "Sense. Capture. Act."
+    },
+    "families": {
+      "robotics": {
+        "name": "Robot teleoperation",
+        "context": "Human intent, robot action",
+        "description": "Bring human demonstrations into the physical world. Explore fixed-base, mobile and waist-enabled OpenArm systems for teleoperation and robot data collection."
+      },
+      "body": {
+        "name": "Full-body motion capture",
+        "context": "Movement, captured",
+        "description": "Wearable inertial capture for animation, research and robotics. Choose a system that fits your workspace and motion-data workflow."
+      },
+      "hands": {
+        "name": "Data gloves",
+        "context": "Every gesture matters",
+        "description": "Capture fine hand movement for virtual interaction and dexterous robot control. Explore lightweight gloves with different wireless options."
+      },
+      "silicon": {
+        "name": "Motion-sensing silicon",
+        "context": "Where motion becomes a signal",
+        "description": "Integrate inertial sensing into your own devices. ZL9NSQ brings sensors and wireless communication together in a compact SiP package."
+      },
+      "platform": {
+        "name": "Motion-data platform"
+      }
+    },
+    "models": {
+      "openarm-z": "Arm-and-hand teleoperation",
+      "openarm-zm": "Mobile operation with height adjustment",
+      "openarm-z-plus": "Mobile operation with a biomimetic waist",
+      "f1": "Wearable capture for creative and research work",
+      "f2": "Full-body capture with a 20 m wireless range",
+      "f2-pro-plus": "Full-body capture with extended wireless range",
+      "h1": "Fine hand-motion capture",
+      "h2": "BLE dexterous hand capture",
+      "h2-pro": "Dexterous hand capture with a proprietary protocol",
+      "h2-pro-plus": "Dexterous hand capture with extended range",
+      "zl9nsq": "Integrated wireless inertial sensor chip",
+      "motion-data-platform": "Robot-specific motion-data integration"
+    },
+    "platform": {
+      "label": "Hardware meets integration",
+      "name": "Motion-Data Platform",
+      "title": "A path from movement\nto robot data.",
+      "description": "Connect F2 Pro+ capture to your robot workflow with a dedicated motion-data platform. Explore the integration capabilities and robotics ecosystem.",
+      "action": "Explore the platform"
+    },
+    "ecosystem": {
+      "title": "Connected across robotics.",
+      "description": "Explore the partners in ZeroLab’s motion-data ecosystem."
+    },
+    "contact": {
+      "title": "Put motion to work.",
+      "description": "Tell us about your robot, workspace and data requirements. Our team can help you choose the right system.",
+      "action": "Talk to ZeroLab"
+    }
+  },
+  "product_detail": {
+    "breadcrumb": "Product navigation",
+    "capabilities": "Core capabilities",
+    "specifications": "Technical specifications",
+    "scenarios": "Applications",
+    "compatibility": "Compatible platforms",
+    "related": "Explore related products",
+    "parameter": "Parameter",
+    "specifications_note": "Specifications retain the conditions and qualifications stated in the product handbook.",
+    "scene_image": "Application scenario",
+    "platform_image": "Motion-data platform application",
+    "downloads": {
+      "chip": "Download ZL9NSQ brochure (English)",
+      "body": "Download F2 Pro+ brochure (English)",
+      "gloves": "Download H2 Pro brochure (English)",
+      "openarm": "Download OpenArm-Z brochure (English)"
+    },
+    "workflow_titles": {
+      "robotics": "From demonstration to action.",
+      "body": "A wearable capture workflow.",
+      "hands": "From gesture to hand-motion data.",
+      "silicon": "Sensing, integrated.",
+      "platform": "Connect capture to your robot."
+    },
+    "workflows": {
+      "robotics": [
+        {
+          "title": "Capture the operator",
+          "description": "Use the motion-capture input described for this system to record human movement."
+        },
+        {
+          "title": "Map motion",
+          "description": "Translate the captured movement into commands for the robot’s supported joints."
+        },
+        {
+          "title": "Operate and collect",
+          "description": "Demonstrate manipulation tasks and collect robot-operation data."
+        }
+      ],
+      "body": [
+        {
+          "title": "Wear and connect",
+          "description": "Position the wearable sensors on the body and connect the capture system."
+        },
+        {
+          "title": "Calibrate and capture",
+          "description": "Calibrate the system and record movement through its inertial sensors."
+        },
+        {
+          "title": "Use the motion data",
+          "description": "Bring the system’s supported motion outputs into your production or research workflow."
+        }
+      ],
+      "hands": [
+        {
+          "title": "Wear the gloves",
+          "description": "Fit the gloves and connect using the wireless protocol supported by your model."
+        },
+        {
+          "title": "Capture hand movement",
+          "description": "Record hand orientation and finger movement with the glove’s integrated sensors."
+        },
+        {
+          "title": "Connect your application",
+          "description": "Use the captured hand data in supported interaction and robot-control workflows."
+        }
+      ],
+      "silicon": [
+        {
+          "title": "Integrate the SiP",
+          "description": "Build the compact sensor package into your device using the documented power and interface requirements."
+        },
+        {
+          "title": "Sense motion",
+          "description": "Capture inertial measurements using the integrated accelerometer, gyroscope and magnetometer."
+        },
+        {
+          "title": "Read the output",
+          "description": "Access the supported motion-data formats through the documented wired or wireless interfaces."
+        }
+      ],
+      "platform": [
+        {
+          "title": "Capture human movement",
+          "description": "Use F2 Pro+ as the motion-data input for your robot workflow."
+        },
+        {
+          "title": "Integrate the robot",
+          "description": "Adapt the dedicated platform to the robot’s underlying architecture."
+        },
+        {
+          "title": "Build your data workflow",
+          "description": "Connect motion capture and robot execution for demonstrations and training-data collection."
+        }
+      ]
+    },
+    "not_found": {
+      "title": "Product not found.",
+      "description": "This product address is unavailable. Explore the current product lineup."
+    },
+    "images": {
+      "gloves": "F2 Pro+ data gloves",
+      "tracker": "F2 Pro+ motion tracker",
+      "kit": "F2 Pro+ tracker kit"
+    },
+    "loading": "Loading product…"
   }
 }

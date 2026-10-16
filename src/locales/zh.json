@@ -320,8 +320,8 @@
   },
   "product_brochure": {
     "navigation": {
-      "title": "\u672c\u9875\u76ee\u5f55",
-      "platform": "\u52a8\u4f5c\u6570\u636e\u5e73\u53f0"
+      "title": "本页目录",
+      "platform": "动作数据平台"
     },
     "products": {
       "zl9nsq": {
@@ -1371,5 +1371,186 @@
       "section": "产品章节 {{number}}",
       "specifications": "产品参数"
     }
+  },
+  "product_catalog": {
+    "label": "ZeroLab 产品体系",
+    "title": "从人的动作，\n到机器的行动。",
+    "description": "从姿态传感芯片、穿戴式动捕，到机器人遥操作系统，探索连接人体运动与机器人行动的完整产品体系。",
+    "explore": "探索产品",
+    "view": "查看详情",
+    "categories": "产品分类",
+    "scope": {
+      "hardware": "从传感芯片到完整系统",
+      "integration": "连接动作捕捉与机器人"
+    },
+    "system_label": "ZeroLab 传感芯片与穿戴式动捕设备连接 OpenArm-Z 遥操作系统",
+    "system": {
+      "hands": "手部动作",
+      "body": "全身动作",
+      "silicon": "惯性传感",
+      "caption": "感知 · 采集 · 执行"
+    },
+    "families": {
+      "robotics": {
+        "name": "机器人遥操作",
+        "context": "让人的意图，成为机器的行动",
+        "description": "将人体示范带入真实世界。从固定式双臂、移动底盘到仿生腰部，探索面向遥操作和机器人数据采集的 OpenArm 系统。"
+      },
+      "body": {
+        "name": "全身动作捕捉",
+        "context": "让运动成为可用的数据",
+        "description": "面向动画制作、科研与机器人的穿戴式惯性动捕。根据工作空间和动作数据需求，选择适合你的系统。"
+      },
+      "hands": {
+        "name": "数据手套",
+        "context": "捕捉手部的精细动作",
+        "description": "从虚拟交互到灵巧手控制，将手部运动转化为数字信号。探索轻便佩戴与不同无线通信方案的组合。"
+      },
+      "silicon": {
+        "name": "姿态传感芯片",
+        "context": "动作信号，从这里开始",
+        "description": "为自己的设备集成惯性传感能力。ZL9NSQ 将传感器与无线通信整合在紧凑的 SiP 封装中。"
+      },
+      "platform": {
+        "name": "动作数据平台"
+      }
+    },
+    "models": {
+      "openarm-z": "双臂与灵巧手遥操作",
+      "openarm-zm": "支持升降的移动遥操作",
+      "openarm-z-plus": "配备仿生腰部的移动遥操作",
+      "f1": "面向创作与科研的穿戴式动捕",
+      "f2": "支持 20 米无线传输的全身动捕",
+      "f2-pro-plus": "覆盖更大空间的全身动捕",
+      "h1": "精细手部动作采集",
+      "h2": "采用 BLE 通信的灵巧手动捕",
+      "h2-pro": "采用私有协议的灵巧手动捕",
+      "h2-pro-plus": "支持更远无线传输的灵巧手动捕",
+      "zl9nsq": "集成式无线惯性传感芯片",
+      "motion-data-platform": "面向机器人架构的动作数据集成"
+    },
+    "platform": {
+      "label": "从硬件到系统集成",
+      "name": "动作数据平台",
+      "title": "打通动作采集，\n连接机器人数据。",
+      "description": "通过专属动作数据平台，将 F2 Pro+ 采集能力接入机器人工作流程，了解平台集成能力与合作生态。",
+      "action": "探索动作数据平台"
+    },
+    "ecosystem": {
+      "title": "连接机器人生态。",
+      "description": "了解与 ZeroLab 共同探索动作数据应用的合作伙伴。"
+    },
+    "contact": {
+      "title": "让动作，走进你的项目。",
+      "description": "告诉我们你的机器人、工作空间与数据需求，一起选择适合的系统。",
+      "action": "联系 ZeroLab 团队"
+    }
+  },
+  "product_detail": {
+    "breadcrumb": "产品导航",
+    "capabilities": "核心能力",
+    "specifications": "技术参数",
+    "scenarios": "应用场景",
+    "compatibility": "兼容平台",
+    "related": "探索相关产品",
+    "parameter": "参数",
+    "specifications_note": "参数保留产品手册中注明的测试条件与适用说明。",
+    "scene_image": "应用场景示意",
+    "platform_image": "动作数据平台应用场景",
+    "downloads": {
+      "chip": "下载 ZL9NSQ 英文产品资料",
+      "body": "下载 F2 Pro+ 英文产品资料",
+      "gloves": "下载 H2 Pro 英文产品资料",
+      "openarm": "下载 OpenArm-Z 英文产品资料"
+    },
+    "workflow_titles": {
+      "robotics": "从动作示范到机器人执行。",
+      "body": "穿戴、采集、应用。",
+      "hands": "将手势转化为动作数据。",
+      "silicon": "集成惯性传感能力。",
+      "platform": "连接采集端与机器人。"
+    },
+    "workflows": {
+      "robotics": [
+        {
+          "title": "捕捉操作员动作",
+          "description": "通过该系统对应的动捕输入设备，记录人的运动。"
+        },
+        {
+          "title": "映射机器人动作",
+          "description": "将采集的动作转换为机器人所支持关节的控制指令。"
+        },
+        {
+          "title": "执行与数据采集",
+          "description": "示范操作任务，采集机器人执行过程中的数据。"
+        }
+      ],
+      "body": [
+        {
+          "title": "穿戴与连接",
+          "description": "将传感器固定在相应身体部位，并连接动捕系统。"
+        },
+        {
+          "title": "校准与采集",
+          "description": "完成系统校准，通过惯性传感器记录身体运动。"
+        },
+        {
+          "title": "应用动作数据",
+          "description": "将系统支持的动作输出接入制作或研究工作流程。"
+        }
+      ],
+      "hands": [
+        {
+          "title": "佩戴手套",
+          "description": "调整佩戴位置，通过该型号支持的无线协议连接设备。"
+        },
+        {
+          "title": "捕捉手部动作",
+          "description": "通过集成传感器记录手部姿态与手指运动。"
+        },
+        {
+          "title": "连接应用",
+          "description": "将手部数据用于支持的交互与机器人控制流程。"
+        }
+      ],
+      "silicon": [
+        {
+          "title": "集成 SiP 芯片",
+          "description": "按照供电与接口规范，将紧凑的传感封装集成到设备中。"
+        },
+        {
+          "title": "感知运动",
+          "description": "通过集成的加速度计、陀螺仪与磁力计采集惯性数据。"
+        },
+        {
+          "title": "读取数据",
+          "description": "通过文档支持的有线或无线接口，读取相应格式的运动数据。"
+        }
+      ],
+      "platform": [
+        {
+          "title": "采集人体动作",
+          "description": "使用 F2 Pro+ 作为机器人工作流程的动作数据输入。"
+        },
+        {
+          "title": "集成机器人",
+          "description": "根据机器人的底层架构，适配专属数据平台。"
+        },
+        {
+          "title": "构建数据流程",
+          "description": "连接动作捕捉与机器人执行，用于示范与训练数据采集。"
+        }
+      ]
+    },
+    "not_found": {
+      "title": "未找到该产品。",
+      "description": "当前产品地址不可用，请返回目录浏览现有产品。"
+    },
+    "images": {
+      "gloves": "F2 Pro+ 配套数据手套",
+      "tracker": "F2 Pro+ 单体动作追踪器",
+      "kit": "F2 Pro+ 动作追踪器套装"
+    },
+    "loading": "正在加载产品…"
   }
 }
