@@ -202,6 +202,8 @@
       "title": "Motion, beyond the body."
     },
     "story": {
+      "player_label": "Robot Tai Chi motion playback",
+      "player_interaction": "Drag to rotate. Scroll to zoom.",
       "title": "Movement has a language.",
       "subtitle": "A signal leaves the body, passes through data, and becomes a new action.",
       "items": [

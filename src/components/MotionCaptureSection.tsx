@@ -1,15 +1,11 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
-import {
-  Component,
-  lazy,
-  Suspense,
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 
 import type { MotionMode } from './motion-capture/performance';
+import {
+  SceneErrorBoundary,
+  supportsWebGL,
+} from './motion-capture/SceneSupport';
 
 const MotionCaptureCanvas = lazy(() => import('./MotionCaptureCanvas'));
 
@@ -40,30 +36,6 @@ function StageFallback({ alt }: { alt: string }) {
       <Box className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080b0e] via-[#080b0e]/20 to-[#080b0e]/60" />
     </Box>
   );
-}
-
-class SceneErrorBoundary extends Component<
-  { children: ReactNode; fallback: ReactNode },
-  { failed: boolean }
-> {
-  state = { failed: false };
-
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-
-  render() {
-    return this.state.failed ? this.props.fallback : this.props.children;
-  }
-}
-
-function supportsWebGL() {
-  try {
-    const canvas = document.createElement('canvas');
-    return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'));
-  } catch {
-    return false;
-  }
 }
 
 export default function MotionCaptureSection({

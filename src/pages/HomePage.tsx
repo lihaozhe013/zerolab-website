@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import heroMotionTransfer from '@/assets/hero-motion-transfer.webp';
-import MotionSignalVisual from '@/components/MotionSignalVisual';
+import HomeMotionPlayer from '@/components/HomeMotionPlayer';
 import './home.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -157,7 +157,7 @@ export default function HomePage() {
             <h2 id="home-story-title">{t('home.story.title')}</h2>
             <p>{t('home.story.subtitle')}</p>
           </div>
-          <MotionSignalVisual />
+          <HomeMotionPlayer />
         </div>
         <div className="home-story__stages">
           <div className="home-story__rail" aria-hidden="true">

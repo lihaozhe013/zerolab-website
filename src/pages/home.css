@@ -329,6 +329,61 @@ html:lang(zh) .home-hero h1 {
   stroke-width: 2;
 }
 
+.home-motion-player {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  height: clamp(420px, 42vw, 620px);
+  overflow: hidden;
+  border: 1px solid var(--home-line);
+  background: #0a0f13;
+  color: #f2f2f0;
+}
+
+.home-motion-player .home-signal {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  color: #dededb;
+}
+
+.home-motion-player__hint {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  left: 20px;
+  color: rgb(255 255 255 / 65%);
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: right;
+  pointer-events: none;
+}
+
+.home-motion-player__toggle {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid rgb(255 255 255 / 40%);
+  background: rgb(8 11 14 / 85%);
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 180ms ease;
+}
+
+.home-motion-player__toggle:hover {
+  border-color: #4bd0e4;
+}
+
+.home-motion-player__toggle:focus-visible {
+  outline: 2px solid #4bd0e4;
+  outline-offset: 4px;
+}
+
 .home-story {
   --rail-progress: 1;
   position: relative;
@@ -341,9 +396,9 @@ html:lang(zh) .home-hero h1 {
 
 .home-story__intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
-  gap: clamp(36px, 7vw, 110px);
+  gap: clamp(36px, 4vw, 64px);
 }
 
 .home-story h2 {
@@ -549,6 +604,10 @@ html:lang(zh) .home-outro h2 {
 
   .home-story__intro {
     grid-template-columns: 1fr;
+  }
+
+  .home-motion-player {
+    height: clamp(420px, 70vw, 600px);
   }
 }
 

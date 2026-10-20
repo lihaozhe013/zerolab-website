@@ -13,17 +13,24 @@ export interface MotionFrame {
 export function preparePerformance(
   scene: THREE.Group,
   clip: THREE.AnimationClip,
+  rootNodeName = 'Armature',
 ) {
   const model = clone(scene);
   const rootTrack = clip.tracks.find(
-    (track) => track.name === 'Armature.position',
+    (track) => track.name === `${rootNodeName}.position`,
   );
-  const root = model.getObjectByName('Armature');
+  const root = model.getObjectByName(rootNodeName);
   if (!root || !rootTrack) {
-    throw new Error('The performance requires an animated Armature root.');
+    throw new Error(
+      `The performance requires an animated ${rootNodeName} root.`,
+    );
   }
 
   const origin = new THREE.Vector3().fromArray(rootTrack.values);
+  model.updateMatrixWorld(true);
+  const rootTransform = new THREE.Matrix3().setFromMatrix4(
+    root.parent?.matrixWorld ?? new THREE.Matrix4(),
+  );
   const mixer = new THREE.AnimationMixer(model);
   const action = mixer.clipAction(clip);
   action.play();
@@ -38,7 +45,11 @@ export function preparePerformance(
     model.updateMatrixWorld(true);
     bounds.setFromObject(model, true);
     rootBounds.union(bounds);
-    displacement.copy(root.position).sub(origin).setY(0);
+    displacement
+      .copy(root.position)
+      .sub(origin)
+      .applyMatrix3(rootTransform)
+      .setY(0);
     inPlaceBounds.union(bounds.translate(displacement.negate()));
   }
   mixer.setTime(0);
@@ -60,6 +71,7 @@ export function preparePerformance(
     model,
     root,
     origin,
+    rootTransform,
     mixer,
     frames: {
       'in-place': frame(inPlaceBounds),

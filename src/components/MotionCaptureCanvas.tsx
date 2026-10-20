@@ -10,6 +10,8 @@ import {
 } from './motion-capture/performance';
 
 interface MotionCaptureCanvasProps {
+  modelPath?: string;
+  rootNodeName?: string;
   mode: MotionMode;
   cameraReset: number;
   playing: boolean;
@@ -22,19 +24,27 @@ const TRANSITION_DURATION = 1.2;
 const VIEW_DIRECTION = new THREE.Vector3(1, 0.45, 1.7).normalize();
 
 function Performance({
+  modelPath = MODEL_PATH,
+  rootNodeName = 'Armature',
   mode,
   cameraReset,
   playing,
   reducedMotion,
 }: Pick<
   MotionCaptureCanvasProps,
-  'mode' | 'cameraReset' | 'playing' | 'reducedMotion'
+  | 'modelPath'
+  | 'rootNodeName'
+  | 'mode'
+  | 'cameraReset'
+  | 'playing'
+  | 'reducedMotion'
 >) {
-  const { scene, animations } = useGLTF(MODEL_PATH);
+  const { scene, animations } = useGLTF(modelPath);
   const performance = useMemo(() => {
     if (!animations[0]) throw new Error('The performance has no animation.');
-    return preparePerformance(scene, animations[0]);
-  }, [scene, animations]);
+    return preparePerformance(scene, animations[0], rootNodeName);
+  }, [scene, animations, rootNodeName]);
+  const displacement = useMemo(() => new THREE.Vector3(), []);
   const { camera, size } = useThree();
   const controlsRef = useRef<ComponentRef<typeof OrbitControls>>(null);
   const displacementGroup = useRef<THREE.Group>(null);
@@ -129,12 +139,13 @@ function Performance({
       }
     }
     if (displacementGroup.current) {
-      const { root, origin } = performance;
+      const { root, origin, rootTransform } = performance;
       // Cancel only horizontal travel; preserve vertical bounce and every joint track.
+      displacement.copy(root.position).sub(origin).applyMatrix3(rootTransform);
       displacementGroup.current.position.set(
-        -(root.position.x - origin.x) * (1 - blend.current),
+        -displacement.x * (1 - blend.current),
         0,
-        -(root.position.z - origin.z) * (1 - blend.current),
+        -displacement.z * (1 - blend.current),
       );
     }
   });
@@ -185,6 +196,8 @@ function SceneLoader({ label }: { label: string }) {
 }
 
 export default function MotionCaptureCanvas({
+  modelPath,
+  rootNodeName,
   mode,
   cameraReset,
   playing,
@@ -206,6 +219,8 @@ export default function MotionCaptureCanvas({
       <directionalLight color="#4bd0e4" intensity={2} position={[-3, 3, -4]} />
       <Suspense fallback={<SceneLoader label={loadingLabel} />}>
         <Performance
+          modelPath={modelPath}
+          rootNodeName={rootNodeName}
           mode={mode}
           cameraReset={cameraReset}
           playing={playing}
