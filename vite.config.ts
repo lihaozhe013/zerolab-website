@@ -11,6 +11,35 @@ if (!/^\/(?:[^/]+\/)*$/.test(pagesBase)) {
   );
 }
 
+const siteUrl = process.env.SITE_URL;
+let absoluteSiteUrl: URL | undefined;
+if (siteUrl) {
+  absoluteSiteUrl = new URL(siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`);
+  if (!['http:', 'https:'].includes(absoluteSiteUrl.protocol)) {
+    throw new Error('SITE_URL must be an absolute HTTP(S) URL.');
+  }
+}
+
+const socialMetadataPlugin: Plugin = {
+  name: 'social-metadata',
+  transformIndexHtml() {
+    const imageUrl = absoluteSiteUrl
+      ? new URL('images/share-card.png', absoluteSiteUrl).href
+      : `${pagesBase}images/share-card.png`;
+    return [
+      { tag: 'meta', attrs: { property: 'og:image', content: imageUrl } },
+      ...(absoluteSiteUrl
+        ? [
+            {
+              tag: 'meta',
+              attrs: { property: 'og:url', content: absoluteSiteUrl.href },
+            },
+          ]
+        : []),
+    ];
+  },
+};
+
 const publicAssetBasePlugin: Plugin = {
   name: 'github-pages-public-asset-base',
   enforce: 'pre',
@@ -33,7 +62,12 @@ const publicAssetBasePlugin: Plugin = {
 
 export default defineConfig({
   base: pagesBase,
-  plugins: [publicAssetBasePlugin, react(), tailwindcss()],
+  plugins: [
+    socialMetadataPlugin,
+    publicAssetBasePlugin,
+    react(),
+    tailwindcss(),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(import.meta.dirname, './src'),

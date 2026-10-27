@@ -63,6 +63,7 @@ jobs:
         run: pnpm build
         env:
           GITHUB_PAGES_BASE: ${{ steps.pages.outputs.base_path || '' }}/
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
 
       - name: Verify deployment layout
         shell: bash

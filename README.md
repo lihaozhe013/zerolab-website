@@ -67,6 +67,12 @@ To redeploy manually, run **Deploy GitHub Pages** from the Actions tab with the 
 
 The build uses the base path returned by GitHub Pages, supporting both project-site URL prefixes and custom domains. Files in `public/` are tracked with Git LFS and downloaded during the reusable workflow's checkout.
 
+### Social sharing metadata
+
+The HTML includes site-wide Open Graph metadata and a square sharing image. GitHub Pages builds use its configured site URL to generate absolute `og:image` and `og:url` values. For another deployment, set `SITE_URL` to the public HTTPS site root (including any path prefix) when building, and set `GITHUB_PAGES_BASE` to the corresponding path prefix. Without `SITE_URL`, the image URL is relative and `og:url` is omitted, so sharing previews may not work reliably.
+
+The site uses hash routing, so all routes return the same HTML and share the same site-wide metadata; crawlers may not see route-specific information. WeChat controls how links appear and may cache previews. Verify sharing in the WeChat browser after deployment; pasting a URL into chat does not necessarily create a card. See [social sharing metadata](docs/social-sharing.md) for implementation details, deployment configuration, and verification steps.
+
 ## Continuous integration and deployment layout
 
 The GitHub Actions workflow in `.github/workflows/ci.yml` runs for pull requests, pushes to branches other than `main`, and manual checks. It installs dependencies, checks formatting, checks TypeScript, builds the site, verifies the deployment layout, and uploads `dist/` as `zerolab-website-dist` for inspection. Pushes to `main` run these same checks through the deployment workflow instead of starting a duplicate CI build. Every build checks out Git LFS objects before building. CI has read-only permissions; only the deployment job requests Pages write and OIDC permissions.
